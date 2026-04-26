@@ -22,6 +22,7 @@ module.exports = {
       fontFamily: {
         serif: ['"Noto Serif"', 'serif'],
         sans: ['"Be Vietnam Pro"', 'sans-serif'],
+        calligraphy: ['"EB Garamond"', 'Georgia', 'serif'],
       },
     },
   },
