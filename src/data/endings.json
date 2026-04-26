@@ -5,6 +5,7 @@
     "subtitle": "Đất nước yên bình, kho đầy, dân vui — kỳ tích vĩ đại nhất",
     "rating": 5,
     "conditions": {
+      "maxArc": 3,
       "minYears": 60,
       "wonBattle1257": true,
       "wonBattle1285": true,
@@ -22,6 +23,7 @@
     "subtitle": "Ba lần kháng Nguyên, sử sách ngàn đời ghi danh",
     "rating": 5,
     "conditions": {
+      "maxArc": 3,
       "minYears": 50,
       "wonBattle1257": true,
       "wonBattle1285": true,
@@ -38,6 +40,7 @@
     "subtitle": "Đất nước thoát khỏi vòng nô lệ, nhưng vết thương còn đó",
     "rating": 4,
     "conditions": {
+      "maxArc": 3,
       "minYears": 40,
       "wonBattle1257": true,
       "wonBattle1285": true,
@@ -54,6 +57,7 @@
     "subtitle": "Triều cương mục ruỗng, giang sơn rơi vào tay kẻ khác",
     "rating": 2,
     "conditions": {
+      "maxArc": 3,
       "minYears": 30,
       "wonBattle1257": true,
       "maxTrieuCuong": 30
@@ -68,11 +72,43 @@
     "subtitle": "Đại Việt thất thủ trước vó ngựa Nguyên Mông",
     "rating": 1,
     "conditions": {
+      "maxArc": 3,
       "minYears": 20,
       "wonBattle1257": false
     },
     "description": "Không đứng vững trước đợt tấn công đầu tiên của quân Nguyên. Thăng Long thất thủ, vua phải lưu vong. Một trang lịch sử đau thương cho dân tộc Việt.",
     "historicalNote": "Trong lịch sử thật, nhà Trần đã thoát hiểm và phản công thành công năm 1257.",
     "unlockSuKy": []
+  },
+  {
+    "id": "ending_binh_ngo_dai_cao",
+    "title": "Bình Ngô Đại Cáo — Kỷ Nguyên Mới",
+    "subtitle": "Mười năm kháng chiến, một tuyên ngôn bất hủ cho muôn đời",
+    "rating": 5,
+    "conditions": {
+      "minArc": 5,
+      "minYears": 200,
+      "wonBattleTotDong": true,
+      "wonBattleChiLang": true,
+      "proclamedBinhNgo": true,
+      "minDanTam": 50
+    },
+    "description": "Khởi Nghĩa Lam Sơn toàn thắng. Lê Lợi lên ngôi, Nguyễn Trãi viết Bình Ngô Đại Cáo — tuyên ngôn độc lập vĩ đại nhất lịch sử Việt Nam trước khi có Tuyên ngôn Độc lập 1945. Một kỷ nguyên vàng son bắt đầu.",
+    "historicalNote": "Nhà Lê Sơ (1428-1527) là triều đại cực thịnh, đặt nền móng cho nhà nước phong kiến Việt Nam hoàn chỉnh nhất lịch sử.",
+    "unlockSuKy": ["su_ky_binh_ngo", "su_ky_le_loi"]
+  },
+  {
+    "id": "ending_doc_lap",
+    "title": "Đại Việt Tự Do",
+    "subtitle": "Hai mươi năm bóng đêm kết thúc, ánh sáng độc lập trở về",
+    "rating": 4,
+    "conditions": {
+      "minArc": 5,
+      "minYears": 180,
+      "minDanTam": 35
+    },
+    "description": "Sau hai mươi năm đô hộ của nhà Minh và mười năm kháng chiến gian khổ, Đại Việt cuối cùng được giải phóng. Lê Lợi lên ngôi, khép lại trang sử đau thương và mở ra một triều đại mới.",
+    "historicalNote": "Khởi Nghĩa Lam Sơn (1418-1428) là một trong những cuộc kháng chiến vĩ đại nhất lịch sử Đông Nam Á — từ vài trăm người đến chiến thắng đại quân cả trăm nghìn người của nhà Minh.",
+    "unlockSuKy": ["su_ky_dong_quan"]
   }
 ]

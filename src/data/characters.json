@@ -53,5 +53,115 @@
     "personality": "Văn võ song toàn, tài năng đa dạng",
     "arc": [2],
     "bio": "Chỉ huy trận Chương Dương và Hàm Tử, đánh bại quân Nguyên lần 2. Cũng là nhà thơ nổi tiếng với bài Tụng giá hoàn kinh sư."
+  },
+  {
+    "id": "ho_quy_ly",
+    "name": "Hồ Quý Ly",
+    "fullName": "Hồ Quý Ly",
+    "years": "1336–1407",
+    "role": "Người sáng lập Nhà Hồ, nhà cải cách táo bạo",
+    "portrait": null,
+    "personality": "Quyết đoán, cải cách, thực dụng nhưng thiếu lòng dân",
+    "arc": [4],
+    "bio": "Từng là quyền thần nhà Trần, soán ngôi năm 1400 lập nhà Hồ. Thực hiện nhiều cải cách tiến bộ nhưng bị quân Minh xâm lược và bắt năm 1407."
+  },
+  {
+    "id": "ho_han_thuong",
+    "name": "Hồ Hán Thương",
+    "fullName": "Hồ Hán Thương",
+    "years": "?–1407",
+    "role": "Con trai Hồ Quý Ly, đồng cai trị Nhà Hồ",
+    "portrait": null,
+    "personality": "Trung thành với cha, kiên cường nhưng thiếu quyết đoán",
+    "arc": [4],
+    "bio": "Cùng cha Hồ Quý Ly cai trị nhà Hồ. Bị bắt cùng cha khi quân Minh xâm lược năm 1407 và bị đưa về Trung Quốc."
+  },
+  {
+    "id": "tran_thiem_binh",
+    "name": "Trần Thiêm Bình",
+    "fullName": "Trần Thiêm Bình",
+    "years": "?–1406",
+    "role": "Kẻ giả mạo dòng dõi nhà Trần, cái cớ gây chiến của nhà Minh",
+    "portrait": null,
+    "personality": "Gian xảo, cơ hội chủ nghĩa",
+    "arc": [4],
+    "bio": "Tự nhận là con cháu nhà Trần, chạy sang cầu cứu nhà Minh. Bị Hồ Quý Ly phục kích giết năm 1406 — đây chính là cớ để Minh Thành Tổ phát động chiến tranh xâm lược Đại Việt."
+  },
+  {
+    "id": "tran_quy_khoang",
+    "name": "Trần Quý Khoáng",
+    "fullName": "Trần Quý Khoáng (Trùng Quang Đế)",
+    "years": "?–1413",
+    "role": "Lãnh đạo phong trào phục Trần, Trùng Quang Đế",
+    "portrait": null,
+    "personality": "Kiên cường, khí khái, thà chết không chịu nhục",
+    "arc": [4],
+    "bio": "Cháu nhà Trần, lãnh đạo phong trào kháng Minh phục Trần (1409-1413). Bị bắt năm 1413, nhảy xuống biển tự vẫn trên thuyền về Trung Quốc."
+  },
+  {
+    "id": "truong_phu",
+    "name": "Trương Phụ",
+    "fullName": "Trương Phụ (Zhang Fu)",
+    "years": "1375–1441",
+    "role": "Tổng binh Minh, người chinh phục Đại Việt năm 1407",
+    "portrait": null,
+    "personality": "Tàn nhẫn, hiệu quả, không khoan nhượng",
+    "arc": [4],
+    "bio": "Danh tướng nhà Minh, chỉ huy cuộc xâm lược Đại Việt năm 1406-1407, bắt Hồ Quý Ly. Làm Tổng binh Giao Chỉ nhiều năm, nổi tiếng với chính sách đồng hóa khắc nghiệt."
+  },
+  {
+    "id": "le_loi",
+    "name": "Lê Lợi",
+    "fullName": "Lê Lợi (Lê Thái Tổ)",
+    "years": "1385–1433",
+    "role": "Bình Định Vương, người sáng lập Nhà Lê Sơ",
+    "portrait": null,
+    "personality": "Kiên nghị, gần gũi dân, biết trọng dụng nhân tài",
+    "arc": [4, 5],
+    "bio": "Hào trưởng đất Lam Sơn, Thanh Hóa. Phát động Khởi Nghĩa Lam Sơn năm 1418, lãnh đạo 10 năm kháng chiến đánh bại quân Minh, sáng lập nhà Lê năm 1428."
+  },
+  {
+    "id": "le_lai",
+    "name": "Lê Lai",
+    "fullName": "Lê Lai",
+    "years": "?–1419",
+    "role": "Dũng tướng Lam Sơn, hi sinh để cứu chủ tướng",
+    "portrait": null,
+    "personality": "Trung thành tuyệt đối, dũng cảm, không ngại hi sinh",
+    "arc": [5],
+    "bio": "Một trong 19 người tham gia Hội Thề Lũng Nhai. Hi sinh năm 1419 khi mặc áo giáp của Lê Lợi để nghi binh. Lê Lợi sau đó ban lệnh ngày giỗ Lê Lai phải trước ngày giỗ Lê Lợi."
+  },
+  {
+    "id": "nguyen_trai",
+    "name": "Nguyễn Trãi",
+    "fullName": "Nguyễn Trãi (Ức Trai)",
+    "years": "1380–1442",
+    "role": "Quân sư thiên tài, tác giả Bình Ngô Đại Cáo",
+    "portrait": null,
+    "personality": "Học rộng tài cao, nhân nghĩa, tầm nhìn chính trị sâu sắc",
+    "arc": [5],
+    "bio": "Con trai Nguyễn Phi Khanh. Gia nhập Lê Lợi, viết Bình Ngô sách và Bình Ngô Đại Cáo — tuyên ngôn độc lập đầu tiên của Việt Nam. Một trong những nhà thơ, nhà chính trị vĩ đại nhất lịch sử."
+  },
+  {
+    "id": "nguyen_chich",
+    "name": "Nguyễn Chích",
+    "fullName": "Nguyễn Chích",
+    "years": "1382–1448",
+    "role": "Tướng lĩnh Lam Sơn, người đề xuất chiến lược then chốt",
+    "portrait": null,
+    "personality": "Thực tế, nhìn xa trông rộng về chiến lược",
+    "arc": [5],
+    "bio": "Tướng lĩnh xuất thân từ nông dân, đề xuất chiến lược di chuyển căn cứ vào Nghệ An năm 1424 — nước cờ thay đổi cục diện toàn bộ cuộc kháng chiến."
+  },
+  {
+    "id": "dinh_le",
+    "name": "Đinh Lễ",
+    "fullName": "Đinh Lễ",
+    "years": "?–1427",
+    "role": "Dũng tướng Lam Sơn, chỉ huy trận Tốt Động-Chúc Động",
+    "portrait": null,
+    "personality": "Mưu lược, dũng cảm, chỉ huy xuất sắc",
+    "arc": [5],
+    "bio": "Một trong những tướng lĩnh tài năng nhất của Lê Lợi. Chỉ huy trận Tốt Động-Chúc Động năm 1426, tiêu diệt hơn 50.000 quân Minh. Hi sinh năm 1427 trước khi thấy ngày chiến thắng."
   }
 ]

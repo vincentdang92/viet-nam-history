@@ -115,6 +115,98 @@ const SU_KY_DATA = {
     detail: 'Hồ Quý Ly (?–1407) là nhà cải cách nổi bật: in tiền giấy, hạn điền, đổi chữ Hán sang chữ Nôm trong văn bản nhà nước. Tuy nhiên ông soán ngôi nhà Trần và bị nhà Minh xâm lược năm 1407. Bị bắt và đưa về Trung Quốc. Nhà Hồ tồn tại chỉ 7 năm.',
     source: 'Đại Việt Sử Ký Toàn Thư',
   },
+
+  // ── Arc 4: Nhà Hồ & Thuộc Minh ─────────────────────────────────────────────
+  su_ky_tay_do: {
+    id: 'su_ky_tay_do',
+    title: 'Thành Tây Đô — Di Sản UNESCO',
+    category: 'Công Trình',
+    shortFact: 'Xây bằng đá nguyên khối trong 3 tháng, nay là Di sản Văn hóa Thế giới',
+    detail: 'Thành Nhà Hồ (Tây Đô) tại Thanh Hóa được xây dựng năm 1397 chỉ trong 3 tháng. Toàn bộ tường thành làm từ đá nguyên khối khổng lồ — không dùng vữa — theo kỹ thuật chưa được giải mã hoàn toàn đến nay. Được UNESCO công nhận là Di sản Văn hóa Thế giới năm 2011.',
+    source: 'UNESCO World Heritage List',
+  },
+  su_ky_nha_ho: {
+    id: 'su_ky_nha_ho',
+    title: 'Nhà Hồ — Triều Đại Ngắn Nhất',
+    category: 'Sự Kiện',
+    shortFact: 'Chỉ 7 năm tồn tại (1400-1407) — triều đại ngắn nhất có chính sử Việt Nam',
+    detail: 'Nhà Hồ tồn tại từ 1400 đến 1407 — chỉ 7 năm. Dù thực hiện nhiều cải cách tiến bộ (tiền giấy, hạn điền, cải tổ thi cử), nhà Hồ không có đủ thời gian và lòng dân để bén rễ. Khi quân Minh xâm lược, không có đủ lực lượng kháng cự hiệu quả.',
+    source: 'Đại Việt Sử Ký Toàn Thư',
+  },
+  su_ky_thuoc_minh: {
+    id: 'su_ky_thuoc_minh',
+    title: 'Hai Mươi Năm Thuộc Minh',
+    category: 'Sự Kiện',
+    shortFact: 'Nhà Minh đổi tên Đại Việt thành Giao Chỉ, đốt sách và bắt trí thức sang Tàu',
+    detail: 'Giai đoạn Thuộc Minh (1407-1427) là một trong những trang đen tối nhất lịch sử Việt Nam. Nhà Minh đốt sách vở chữ Nôm, bắt trí thức và thợ thủ công sang Trung Quốc, đánh thuế nặng, bắt phu dịch. Đây là âm mưu xóa bỏ văn hóa Việt và đồng hóa vĩnh viễn.',
+    source: 'Đại Việt Sử Ký Toàn Thư',
+  },
+  su_ky_lung_nhai: {
+    id: 'su_ky_lung_nhai',
+    title: 'Hội Thề Lũng Nhai',
+    category: 'Sự Kiện',
+    shortFact: '19 người uống máu ăn thề năm 1416 — khởi đầu của cuộc kháng chiến vĩ đại',
+    detail: 'Hội Thề Lũng Nhai (1416) tại Thanh Hóa: Lê Lợi cùng 18 hào kiệt uống máu ăn thề quyết chí đánh đuổi quân Minh. Trong số 19 người có Lê Lai, Đinh Lễ, Nguyễn Xí... Hai năm sau (1418), Lê Lợi chính thức phát động Khởi Nghĩa Lam Sơn.',
+    source: 'Đại Việt Sử Ký Toàn Thư',
+  },
+
+  // ── Arc 5: Lam Sơn Khởi Nghĩa ───────────────────────────────────────────────
+  su_ky_le_loi: {
+    id: 'su_ky_le_loi',
+    title: 'Lê Lợi — Bình Định Vương',
+    category: 'Nhân Vật',
+    shortFact: 'Từ hào trưởng làng quê đến người sáng lập triều đại dài nhất lịch sử Việt Nam',
+    detail: 'Lê Lợi (1385-1433) không có xuất thân hoàng tộc — ông chỉ là một hào trưởng giàu có ở Lam Sơn. Nhà Minh ba lần mời ông làm quan, ông ba lần từ chối. Khởi nghĩa năm 1418 với vài trăm người, chiến thắng năm 1428 trước đại quân cả trăm nghìn người. Triều đại ông sáng lập — nhà Lê — kéo dài 360 năm.',
+    source: 'Đại Việt Sử Ký Toàn Thư',
+  },
+  su_ky_le_lai: {
+    id: 'su_ky_le_lai',
+    title: 'Lê Lai — Hai Mươi Mốt Lê Lai',
+    category: 'Nhân Vật',
+    shortFact: 'Mặc áo giáp của Lê Lợi để nghi binh, hi sinh để cứu cuộc kháng chiến',
+    detail: 'Lê Lai hi sinh khoảng năm 1419. Câu "Hai mươi mốt Lê Lai, hai mươi hai Lê Lợi" nhắc nhớ rằng ngày giỗ Lê Lai (21/8 âm lịch) phải trước ngày giỗ Lê Lợi (22/8) — theo lệnh của chính Lê Lợi khi còn sống. Đây là nghĩa cử tri ân hiếm có của một vị vua với người đã hi sinh vì mình.',
+    source: 'Đại Việt Sử Ký Toàn Thư',
+  },
+  su_ky_nguyen_trai: {
+    id: 'su_ky_nguyen_trai',
+    title: 'Nguyễn Trãi — Ức Trai',
+    category: 'Nhân Vật',
+    shortFact: 'Quân sư thiên tài, tác giả Bình Ngô Đại Cáo — được UNESCO công nhận là Danh nhân văn hóa thế giới',
+    detail: 'Nguyễn Trãi (1380-1442), hiệu Ức Trai — nhà thơ, nhà chính trị, chiến lược gia. Ông đã từ chối theo cha sang Trung Quốc để ở lại cứu nước. Viết Bình Ngô Đại Cáo và hàng trăm thư gửi tướng Minh dụ hàng. Năm 1980, UNESCO công nhận ông là Danh nhân văn hóa thế giới.',
+    source: 'UNESCO & Đại Việt Sử Ký Toàn Thư',
+  },
+  su_ky_tot_dong: {
+    id: 'su_ky_tot_dong',
+    title: 'Trận Tốt Động-Chúc Động 1426',
+    category: 'Trận Chiến',
+    shortFact: 'Tiêu diệt hơn 50.000 quân Minh, bắt sống cố vấn cao cấp nhất của nhà Minh tại Giao Chỉ',
+    detail: 'Tháng 11/1426, Đinh Lễ và Nguyễn Xí phục kích đại quân Minh do Vương Thông chỉ huy tại Tốt Động và Chúc Động (nay là Chương Mỹ, Hà Nội). Kết quả: hơn 50.000 quân Minh bị tiêu diệt, tướng Lý Lượng tử trận, Hoàng Phúc — cố vấn cao cấp nhất — bị bắt sống. Đây là thắng lợi quyết định buộc Vương Thông phải cố thủ trong thành Đông Quan.',
+    source: 'Đại Việt Sử Ký Toàn Thư',
+  },
+  su_ky_chi_lang: {
+    id: 'su_ky_chi_lang',
+    title: 'Ải Chi Lăng — Mồ Chôn Viện Binh',
+    category: 'Trận Chiến',
+    shortFact: 'Liễu Thăng tử trận sau 8 ngày vượt biên — 100.000 quân Minh tan rã',
+    detail: 'Ngày 20/10/1427, Liễu Thăng bị phục kích và tử trận tại ải Chi Lăng (Lạng Sơn) — chỉ 8 ngày sau khi vượt biên. 100.000 quân viện binh của ông bị tiêu diệt phần lớn tại Xương Giang (Bắc Giang). Ải Chi Lăng từ đó trở thành biểu tượng của chiến thuật phục kích Việt Nam — nơi địch mạnh hơn vẫn bị tiêu diệt.',
+    source: 'Đại Việt Sử Ký Toàn Thư',
+  },
+  su_ky_dong_quan: {
+    id: 'su_ky_dong_quan',
+    title: 'Hội Thề Đông Quan — Nhân Nghĩa Thắng Thù Hận',
+    category: 'Sự Kiện',
+    shortFact: 'Lê Lợi cấp 500 thuyền và lương thực cho hơn 100.000 quân Minh về nước',
+    detail: 'Tháng 12/1427, Hội Thề Đông Quan kết thúc chiến tranh. Lê Lợi không chỉ tha mạng mà còn cấp thuyền bè và lương thực cho hơn 100.000 quân Minh rút về. Sử sách Trung Quốc ghi nhận đây là hành động nhân nghĩa hiếm có. Quyết định này cũng ngăn nhà Minh có cớ để tái xâm lược.',
+    source: 'Đại Việt Sử Ký Toàn Thư',
+  },
+  su_ky_binh_ngo: {
+    id: 'su_ky_binh_ngo',
+    title: 'Bình Ngô Đại Cáo — Tuyên Ngôn Độc Lập Đầu Tiên',
+    category: 'Văn Học',
+    shortFact: 'Áng văn bất hủ năm 1428, được Hồ Chí Minh nhắc đến khi soạn Tuyên ngôn Độc lập 1945',
+    detail: '"Việc nhân nghĩa cốt ở yên dân, Quân điếu phạt trước lo trừ bạo..." — Bình Ngô Đại Cáo (1428) do Nguyễn Trãi soạn theo lệnh Lê Lợi là tuyên ngôn độc lập đầu tiên của Việt Nam. Nó khẳng định Đại Việt là quốc gia văn hiến độc lập, không phải thuộc địa của Trung Quốc. Hồ Chí Minh coi đây là tiền đề lịch sử khi soạn Tuyên ngôn Độc lập năm 1945.',
+    source: 'Bình Ngô Đại Cáo — Nguyễn Trãi, 1428',
+  },
 }
 
 export function useSuKy() {

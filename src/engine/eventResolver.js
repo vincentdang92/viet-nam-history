@@ -1,8 +1,10 @@
 import arc1 from '../data/chapters/tran_dynasty/arc1_lap_quoc.json'
 import arc2 from '../data/chapters/tran_dynasty/arc2_khang_nguyen.json'
 import arc3 from '../data/chapters/tran_dynasty/arc3_thinh_roi_suy.json'
+import arc4 from '../data/chapters/tran_dynasty/arc4_nha_ho.json'
+import arc5 from '../data/chapters/tran_dynasty/arc5_lam_son.json'
 
-const ARCS = { 1: arc1, 2: arc2, 3: arc3 }
+const ARCS = { 1: arc1, 2: arc2, 3: arc3, 4: arc4, 5: arc5 }
 
 export function loadEvent(id) {
   for (const arc of Object.values(ARCS)) {

@@ -59,15 +59,18 @@ export function processChoice(state, choiceId) {
   const nextEvent = resolveNextEvent(stateForEndingCheck, choice)
 
   if (!nextEvent) {
+    const fallbackEndingId = stateForEndingCheck.currentArc >= 5
+      ? 'ending_doc_lap'
+      : 'ending_bach_dang'
     return {
       ...stateForEndingCheck,
       gameStatus: 'ending',
-      endingId: 'ending_bach_dang',
+      endingId: fallbackEndingId,
       unlockedSuKy: newSuKy,
       lastChoice: choice,
       showFactPopup: true,
       pendingFact: { text: choice.fact, isHistorical: choice.isHistorical },
-      pendingEnding: 'ending_bach_dang',
+      pendingEnding: fallbackEndingId,
     }
   }
 

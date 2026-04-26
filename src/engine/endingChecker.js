@@ -1,33 +1,47 @@
 import endings from '../data/endings.json'
 
-// Sorted most-specific (most conditions) first so stricter endings match before looser ones.
 const SORTED_ENDINGS = [...endings].sort(
   (a, b) => Object.keys(b.conditions).length - Object.keys(a.conditions).length
 )
 
 export function checkEnding(state) {
-  // Only evaluate endings once the player is past arc 2
-  if (state.currentArc < 3) return { hasEnding: false }
+  const { currentArc, stats, flags, yearsReigned } = state
 
-  const { stats, flags, yearsReigned } = state
+  // Arc 1-2: never trigger endings
+  if (currentArc < 3) return { hasEnding: false }
+  // Arc 4: pure transition arc, no endings
+  if (currentArc === 4) return { hasEnding: false }
 
   for (const ending of SORTED_ENDINGS) {
     const c = ending.conditions
     let match = true
 
-    if (c.minYears !== undefined && yearsReigned < c.minYears) match = false
-    if (c.wonBattle1257 !== undefined && flags.wonBattle1257 !== c.wonBattle1257) match = false
-    if (c.wonBattle1285 !== undefined && flags.wonBattle1285 !== c.wonBattle1285) match = false
-    if (c.wonBattle1288 !== undefined && flags.wonBattle1288 !== c.wonBattle1288) match = false
-    if (c.minDanTam !== undefined && stats.danTam < c.minDanTam) match = false
-    if (c.minQuocKho !== undefined && stats.quocKho < c.minQuocKho) match = false
+    // Arc range gates
+    if (c.minArc !== undefined && currentArc < c.minArc) match = false
+    if (c.maxArc !== undefined && currentArc > c.maxArc) match = false
+
+    // Year / stat / flag conditions
+    if (c.minYears    !== undefined && yearsReigned < c.minYears)          match = false
+    if (c.wonBattle1257  !== undefined && flags.wonBattle1257  !== c.wonBattle1257)  match = false
+    if (c.wonBattle1285  !== undefined && flags.wonBattle1285  !== c.wonBattle1285)  match = false
+    if (c.wonBattle1288  !== undefined && flags.wonBattle1288  !== c.wonBattle1288)  match = false
+    if (c.wonBattleTotDong !== undefined && flags.wonBattleTotDong !== c.wonBattleTotDong) match = false
+    if (c.wonBattleChiLang !== undefined && flags.wonBattleChiLang !== c.wonBattleChiLang) match = false
+    if (c.proclamedBinhNgo !== undefined && flags.proclamedBinhNgo !== c.proclamedBinhNgo) match = false
+    if (c.minDanTam   !== undefined && stats.danTam   < c.minDanTam)       match = false
+    if (c.minQuocKho  !== undefined && stats.quocKho  < c.minQuocKho)      match = false
     if (c.maxTrieuCuong !== undefined && stats.trieuCuong > c.maxTrieuCuong) match = false
 
     if (match) return { hasEnding: true, endingId: ending.id }
   }
 
-  // Catch-all: always award an ending when all arcs are done
-  return { hasEnding: true, endingId: 'ending_default' }
+  // Catch-all: only for arc 3 (Nhà Trần era). Arc 5 catch-all below.
+  if (currentArc === 3) return { hasEnding: true, endingId: 'ending_default' }
+
+  // Arc 5+ catch-all
+  if (currentArc >= 5) return { hasEnding: true, endingId: 'ending_doc_lap' }
+
+  return { hasEnding: false }
 }
 
 export function getEnding(id) {

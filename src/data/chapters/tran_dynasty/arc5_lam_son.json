@@ -1,0 +1,350 @@
+{
+  "id": "arc5_lam_son",
+  "title": "Lam Sơn Khởi Nghĩa",
+  "arc": 5,
+  "years": "1418–1428",
+  "intro": "Dưới ngọn cờ của Lê Lợi — một hào trưởng đất Lam Sơn — mười năm kháng chiến gian khổ bắt đầu. Không có hoàng tộc, không có đại quân, chỉ có lòng dân và ý chí sắt đá. Đây là cuộc chiến sẽ quyết định vận mệnh Đại Việt mãi về sau.",
+  "events": [
+    {
+      "id": "tran_arc5_001",
+      "arc": 5,
+      "year": 1418,
+      "type": "historical",
+      "title": "Bình Định Vương Dựng Cờ",
+      "context": "Mùa xuân năm Mậu Tuất (1418), Lê Lợi chính thức phát động khởi nghĩa tại Lam Sơn, tự xưng 'Bình Định Vương'. Lực lượng ban đầu chỉ vài trăm người, đối mặt với đại quân Minh hàng trăm nghìn.",
+      "character": "le_loi",
+      "quote": "Ta không phải vua, ta là người con của đất Việt. Cùng ta đứng lên — hay cúi đầu làm nô lệ mãi mãi?",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Tập trung chiêu mộ nghĩa sĩ, xây dựng lực lượng vững chắc trước khi đánh lớn",
+          "effects": { "binhLuc": 15, "danTam": 10, "quocKho": -5, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Lê Lợi (1385-1433) xuất thân là hào trưởng giàu có ở Lam Sơn, Thanh Hóa. Ông từng được nhà Minh mời làm quan nhưng từ chối ba lần. Khi dựng cờ khởi nghĩa năm 1418, ông tự xưng 'Bình Định Vương' — không phải vua, vì hiểu rằng uy tín phải được xây từ chiến công, không phải từ danh hiệu.",
+          "unlockSuKy": "su_ky_le_loi",
+          "chainNext": "tran_arc5_002"
+        },
+        {
+          "id": "choice_b",
+          "text": "Tấn công ngay lập tức vào đồn Minh gần nhất để gây tiếng vang",
+          "effects": { "binhLuc": -5, "danTam": 15, "quocKho": -10, "trieuCuong": 5 },
+          "isHistorical": false,
+          "fact": "Những năm đầu khởi nghĩa, Lê Lợi phải đối mặt với nhiều thất bại nặng nề. Từ 1418-1423, nghĩa quân phải ba lần rút về núi Chí Linh để lánh nạn. Sự kiên trì và khả năng học từ thất bại là yếu tố quyết định thành công sau này.",
+          "chainNext": "tran_arc5_002"
+        }
+      ],
+      "isCinematic": false,
+      "background": "lam_son_base"
+    },
+    {
+      "id": "tran_arc5_002",
+      "arc": 5,
+      "year": 1419,
+      "type": "historical",
+      "title": "Lê Lai Liều Mình Cứu Chúa",
+      "context": "Quân Minh bao vây chặt, Lê Lợi sắp bị bắt. Tướng Lê Lai tình nguyện mặc áo giáp của Lê Lợi, dẫn một toán quân xông ra đánh nghi binh — bị bắt và bị giết, để chủ tướng thoát vòng vây.",
+      "character": "le_lai",
+      "quote": "Chủ tướng là linh hồn của cuộc khởi nghĩa. Một mình ta chết còn hơn mất đi hy vọng của cả dân tộc.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Chấp nhận sự hi sinh của Lê Lai — rút lui để bảo toàn cuộc kháng chiến",
+          "effects": { "binhLuc": -5, "danTam": 15, "quocKho": 0, "trieuCuong": 10 },
+          "isHistorical": true,
+          "fact": "Lê Lai hi sinh khoảng năm 1419. Lê Lợi sau khi thống nhất đất nước đã ban lệnh: ngày giỗ Lê Lai (21 tháng 8 âm lịch) phải trước ngày giỗ Lê Lợi (22 tháng 8). Câu 'Hai mươi mốt Lê Lai, Hai mươi hai Lê Lợi' còn lưu truyền đến tận ngày nay.",
+          "unlockSuKy": "su_ky_le_lai",
+          "chainNext": "tran_arc5_003"
+        },
+        {
+          "id": "choice_b",
+          "text": "Cố gắng cứu Lê Lai — không thể để đồng chí chết oan",
+          "effects": { "binhLuc": -15, "danTam": 5, "quocKho": -5, "trieuCuong": -5 },
+          "isHistorical": false,
+          "fact": "Trong lịch sử, Lê Lợi đã chấp nhận sự hi sinh của Lê Lai và rút lui thành công. Cuộc kháng chiến 10 năm sau đó chứng minh đây là quyết định đúng đắn — mất một người để cứu cuộc chiến, cứu cả một dân tộc.",
+          "chainNext": "tran_arc5_003"
+        }
+      ],
+      "isCinematic": true,
+      "background": "lam_son_base"
+    },
+    {
+      "id": "tran_arc5_003",
+      "arc": 5,
+      "year": 1421,
+      "type": "historical",
+      "title": "Ba Lần Rút Về Chí Linh",
+      "context": "Nghĩa quân đã phải ba lần rút về núi Chí Linh (Thanh Hóa) để tránh bị tiêu diệt. Lương thực cạn kiệt, quân số tổn thất nặng. Nhiều người nản lòng muốn giải tán.",
+      "character": "le_loi",
+      "quote": "Chí Linh là mảnh đất thiêng. Mỗi lần ta rút về đây không phải là tháo lui — mà là tích lũy sức mạnh cho trận chiến tiếp theo.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Giữ vững tinh thần quân sĩ bằng kỷ luật và chia sẻ gian khổ cùng binh lính",
+          "effects": { "binhLuc": 10, "danTam": 15, "quocKho": -10, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Trong những ngày đen tối nhất ở Chí Linh, Lê Lợi chia sẻ mọi gian khổ với binh lính: ăn cùng mâm, ngủ cùng đất. Tương truyền có lần quân lương cạn, ông giết ngựa chiến của mình để nuôi quân. Sự gần gũi này tạo nên lòng trung thành tuyệt đối mà tiền bạc không thể mua được.",
+          "chainNext": "tran_arc5_004"
+        },
+        {
+          "id": "choice_b",
+          "text": "Thương lượng hòa hoãn với nhà Minh để có thời gian tích lũy lực lượng",
+          "effects": { "binhLuc": 5, "danTam": -10, "quocKho": 15, "trieuCuong": -10 },
+          "isHistorical": true,
+          "fact": "Lê Lợi thực sự có giai đoạn hòa hoãn với nhà Minh (1423) — gửi sứ giả đến Đông Quan đề xuất giải pháp hòa bình. Nhà Minh chấp nhận tạm thời, cho phép nghĩa quân phục hồi. Đây là nước cờ ngoại giao khéo léo — không phải sự khuất phục.",
+          "chainNext": "tran_arc5_004"
+        }
+      ],
+      "isCinematic": false,
+      "background": "chi_linh_mountain"
+    },
+    {
+      "id": "tran_arc5_004",
+      "arc": 5,
+      "year": 1423,
+      "type": "historical",
+      "title": "Nguyễn Trãi Và Bình Ngô Sách",
+      "context": "Nguyễn Trãi — nhà thơ và chiến lược gia thiên tài — gia nhập nghĩa quân với bản 'Bình Ngô sách': chiến lược tổng thể để đánh bại nhà Minh bằng sự kết hợp giữa quân sự và lòng dân.",
+      "character": "nguyen_trai",
+      "quote": "Đánh giặc Minh không chỉ bằng giáo mác. Phải đánh vào lòng người — cả lòng dân Việt lẫn lòng quân Minh xa nhà nhớ vợ con.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Theo chiến lược của Nguyễn Trãi: kết hợp ngoại giao và tuyên truyền với quân sự",
+          "effects": { "binhLuc": 5, "danTam": 15, "quocKho": 0, "trieuCuong": 10 },
+          "isHistorical": true,
+          "fact": "Nguyễn Trãi (1380-1442) là con trai Nguyễn Phi Khanh — người bị nhà Minh bắt đưa sang Trung Quốc. Ông gia nhập Lê Lợi và viết hàng trăm thư gửi tướng Minh, vừa dọa vừa dụ hàng. 'Bình Ngô sách' của ông là kiệt tác chiến lược quân sự — chính trị của lịch sử Việt Nam.",
+          "unlockSuKy": "su_ky_nguyen_trai",
+          "chainNext": "tran_arc5_005"
+        },
+        {
+          "id": "choice_b",
+          "text": "Tập trung sức mạnh quân sự trực tiếp — đánh thẳng không cần mưu lược phức tạp",
+          "effects": { "binhLuc": 10, "danTam": 0, "quocKho": -10, "trieuCuong": 0 },
+          "isHistorical": false,
+          "fact": "Chiến thắng của Lê Lợi là kết hợp hoàn hảo giữa quân sự và ngoại giao. Nguyễn Trãi viết thư cho tướng Minh Vương Thông: 'Các ông xa nhà muôn dặm, lính các ông nhớ vợ con — hãy về đi.' Nhiều binh lính Minh đã đào ngũ sau khi nhận được những lá thư như vậy.",
+          "chainNext": "tran_arc5_005"
+        }
+      ],
+      "isCinematic": false,
+      "background": "lam_son_base"
+    },
+    {
+      "id": "tran_arc5_005",
+      "arc": 5,
+      "year": 1424,
+      "type": "historical",
+      "title": "Nguyễn Chích Và Nước Cờ Quyết Định",
+      "context": "Tướng Nguyễn Chích đề xuất: bỏ Thanh Hóa, tiến vào Nghệ An. Từ căn cứ phía Nam này sẽ dễ chiêu mộ thêm quân và tích lũy lương thực, rồi từ đó đánh ngược ra Bắc. Đây là quyết định thay đổi cục diện chiến tranh.",
+      "character": "nguyen_chich",
+      "quote": "Lam Sơn đã là đất khởi nghĩa. Nhưng Nghệ An mới là nơi ta có thể xây lên đại cơ nghiệp.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Chấp nhận kế của Nguyễn Chích — tiến quân vào Nghệ An ngay lập tức",
+          "effects": { "binhLuc": 10, "danTam": 10, "quocKho": 10, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Quyết định tiến vào Nghệ An năm 1424 theo đề nghị của Nguyễn Chích là bước ngoặt quyết định của Khởi Nghĩa Lam Sơn. Từ Nghệ An, Lê Lợi kiểm soát miền Trung, chiêu mộ thêm quân và lương thực, trước khi tiến ra giải phóng toàn bộ Đại Việt.",
+          "setFlag": { "followedNguyenChich": true },
+          "chainNext": "tran_arc5_006"
+        },
+        {
+          "id": "choice_b",
+          "text": "Kiên trì ở Thanh Hóa — không từ bỏ mảnh đất đã đổ máu giữ gìn",
+          "effects": { "binhLuc": -5, "danTam": 0, "quocKho": -5, "trieuCuong": -5 },
+          "isHistorical": false,
+          "fact": "Nếu Lê Lợi không nghe theo kế của Nguyễn Chích, cuộc khởi nghĩa có thể sẽ còn kéo dài nhiều năm nữa hoặc thất bại. Sự sáng suốt của Lê Lợi trong việc lắng nghe và tin dùng nhân tài — bất kể xuất thân — là yếu tố then chốt tạo nên chiến thắng.",
+          "chainNext": "tran_arc5_006"
+        }
+      ],
+      "isCinematic": false,
+      "background": "nghe_an_fields"
+    },
+    {
+      "id": "tran_arc5_006",
+      "arc": 5,
+      "year": 1425,
+      "type": "historical",
+      "title": "Giải Phóng Miền Trung",
+      "context": "Từ Nghệ An, nghĩa quân Lam Sơn nhanh chóng tiến vào Diễn Châu, Tân Bình (Quảng Bình) và Thuận Hóa (Thừa Thiên-Huế). Lần đầu tiên sau 18 năm, một vùng đất rộng lớn của Đại Việt được giải phóng.",
+      "character": "le_loi",
+      "quote": "Từng tấc đất được giải phóng, từng người dân thoát khỏi ách nô lệ — đó mới là chiến thắng thực sự.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Thiết lập chính quyền vùng giải phóng: giảm thuế và khôi phục đời sống dân",
+          "effects": { "binhLuc": 0, "danTam": 20, "quocKho": -5, "trieuCuong": 10 },
+          "isHistorical": true,
+          "fact": "Ở các vùng giải phóng, Lê Lợi ngay lập tức giảm thuế, phân phát lương thực cho dân nghèo và trả lại ruộng đất. Chính sách này tạo ra làn sóng ủng hộ rộng rãi — hàng nghìn thanh niên miền Trung tình nguyện gia nhập nghĩa quân, làm thay đổi hẳn tương quan lực lượng.",
+          "chainNext": "tran_arc5_007"
+        },
+        {
+          "id": "choice_b",
+          "text": "Nhanh chóng tiến quân ra Bắc, không dừng lại củng cố vùng giải phóng",
+          "effects": { "binhLuc": 15, "danTam": -5, "quocKho": -10, "trieuCuong": 0 },
+          "isHistorical": false,
+          "fact": "Lê Lợi đã khéo léo cân bằng giữa tốc độ tiến quân và củng cố hậu phương. Ông để lại các tướng lĩnh đáng tin cậy để quản lý vùng giải phóng — đảm bảo rằng mỗi tấc đất giải phóng xong là được giữ vững.",
+          "chainNext": "tran_arc5_007"
+        }
+      ],
+      "isCinematic": false,
+      "background": "nghe_an_fields"
+    },
+    {
+      "id": "tran_arc5_007",
+      "arc": 5,
+      "year": 1426,
+      "type": "historical",
+      "title": "Vây Hãm Đông Quan",
+      "context": "Nghĩa quân tiến ra Bắc, bao vây Đông Quan (Hà Nội ngày nay) — thành trì trung tâm của quân Minh. Vương Thông với hàng chục nghìn quân bị kẹt trong thành, chờ viện binh từ Trung Quốc.",
+      "character": "nguyen_trai",
+      "quote": "Không cần phá thành — hãy để nó héo úa từ bên trong. Viện binh Minh mà đến, ta sẽ tiêu diệt chúng ngoài thành trước.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Vây chặt Đông Quan, tập trung lực lượng đánh viện binh Minh trên đường đến",
+          "effects": { "binhLuc": 10, "danTam": 5, "quocKho": -10, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Chiến lược vây Đông Quan mà không đánh thẳng vào thành là quyết định đúng đắn của Lê Lợi và Nguyễn Trãi. Quân Minh trong thành mỗi ngày một suy yếu vì lương thực và tinh thần đều cạn dần, trong khi nghĩa quân kiên nhẫn chờ và tiêu diệt từng đội viện binh từ xa.",
+          "chainNext": "tran_arc5_008"
+        },
+        {
+          "id": "choice_b",
+          "text": "Tổng tấn công Đông Quan ngay lập tức để kết thúc chiến tranh nhanh",
+          "effects": { "binhLuc": -15, "danTam": 5, "quocKho": -15, "trieuCuong": -5 },
+          "isHistorical": false,
+          "fact": "Đông Quan (nay là Hà Nội) là thành kiên cố với tường cao hào sâu và hàng chục nghìn quân Minh phòng thủ. Tấn công trực tiếp sẽ gây tổn thất khổng lồ không cần thiết. Lê Lợi và Nguyễn Trãi hiểu rằng thời gian là đồng minh của họ — và họ đã đúng.",
+          "chainNext": "tran_arc5_008"
+        }
+      ],
+      "isCinematic": false,
+      "background": "dong_quan_city"
+    },
+    {
+      "id": "tran_arc5_008",
+      "arc": 5,
+      "year": 1426,
+      "type": "battle",
+      "title": "Trận Tốt Động-Chúc Động",
+      "context": "Vương Thông dẫn đại quân Minh ra khỏi thành để phá vây. Đinh Lễ và Nguyễn Xí dẫn nghĩa quân phục kích tại Tốt Động và Chúc Động (nay là Chương Mỹ, Hà Nội). Trận chiến định đoạt diễn ra.",
+      "character": "dinh_le",
+      "quote": "Đây là trận chiến định đoạt. Không có đường lui — hoặc ta thắng, hoặc tất cả đều chết.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Phục kích hoàn hảo — để địch tiến sâu vào bẫy rồi đánh từ nhiều hướng",
+          "effects": { "binhLuc": 15, "danTam": 15, "quocKho": -5, "trieuCuong": 10 },
+          "isHistorical": true,
+          "fact": "Trận Tốt Động-Chúc Động (tháng 11 năm 1426) là đại thắng vang dội: Đinh Lễ và Nguyễn Xí tiêu diệt hơn 50.000 quân Minh, giết tướng Lý Lượng và bắt sống Hoàng Phúc — cố vấn cao cấp nhất của nhà Minh tại Giao Chỉ. Sau trận này, Vương Thông thu mình trong thành không dám ra nữa.",
+          "setFlag": { "wonBattleTotDong": true },
+          "unlockSuKy": "su_ky_tot_dong",
+          "chainNext": "tran_arc5_009"
+        },
+        {
+          "id": "choice_b",
+          "text": "Tấn công chính diện, dùng ưu thế số đông áp đảo địch",
+          "effects": { "binhLuc": -10, "danTam": 0, "quocKho": -15, "trieuCuong": -5 },
+          "isHistorical": false,
+          "fact": "Thành công của trận Tốt Động-Chúc Động đến từ chiến thuật phục kích hoàn hảo — không phải từ số đông. Nghĩa quân Lam Sơn tuy ít hơn nhưng quen địa hình, có tinh thần cao và được nhân dân địa phương hỗ trợ tin tức tình báo chính xác.",
+          "chainNext": "tran_arc5_009"
+        }
+      ],
+      "isCinematic": true,
+      "background": "tot_dong_battlefield"
+    },
+    {
+      "id": "tran_arc5_009",
+      "arc": 5,
+      "year": 1427,
+      "type": "battle",
+      "title": "Trận Chi Lăng-Xương Giang",
+      "context": "Nhà Minh điều Liễu Thăng dẫn 100.000 quân tiếp viện qua ngả Quảng Tây — Lạng Sơn. Lê Lợi bố trí toàn bộ lực lượng tinh nhuệ tại ải Chi Lăng và Xương Giang. Đây là trận chiến cuối cùng và quyết định nhất.",
+      "character": "le_loi",
+      "quote": "Nếu viện binh Minh vào được Đông Quan, chiến tranh sẽ kéo dài thêm nhiều năm. Phải tiêu diệt chúng tại đây.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Phục kích tại ải Chi Lăng — giết Liễu Thăng trước khi quân địch có thể triển khai",
+          "effects": { "binhLuc": 20, "danTam": 20, "quocKho": -10, "trieuCuong": 15 },
+          "isHistorical": true,
+          "fact": "Liễu Thăng bị phục kích và tử trận tại ải Chi Lăng ngày 20 tháng 10 năm 1427 — chỉ 8 ngày sau khi vượt biên. Quân Minh vỡ trận, bị tiêu diệt phần lớn tại Xương Giang (Bắc Giang). Đạo quân thứ hai của Mộc Thạnh nghe tin, không dám tiến và rút lui. Sau chiến thắng này, Vương Thông không còn lựa chọn nào ngoài đầu hàng.",
+          "setFlag": { "wonBattleChiLang": true },
+          "unlockSuKy": "su_ky_chi_lang",
+          "chainNext": "tran_arc5_010"
+        },
+        {
+          "id": "choice_b",
+          "text": "Để địch vào sâu hơn rồi đánh, vừa đánh vừa rút để tiêu hao sinh lực địch",
+          "effects": { "binhLuc": 5, "danTam": 5, "quocKho": -5, "trieuCuong": 5 },
+          "isHistorical": false,
+          "fact": "Quyết định phục kích sớm tại Chi Lăng là then chốt: giết chủ tướng Liễu Thăng ngay từ đầu khiến 100.000 quân Minh mất đầu não, rơi vào hỗn loạn. Ải Chi Lăng từ đó trở thành biểu tượng của chiến lược phục kích của quân dân Đại Việt.",
+          "chainNext": "tran_arc5_010"
+        }
+      ],
+      "isCinematic": true,
+      "background": "chi_lang_pass"
+    },
+    {
+      "id": "tran_arc5_010",
+      "arc": 5,
+      "year": 1427,
+      "type": "historical",
+      "title": "Hội Thề Đông Quan",
+      "context": "Vương Thông không còn viện binh, không còn lương thực — xin nghị hòa. Lê Lợi chấp nhận cho toàn bộ quân Minh rút lui an toàn về nước cùng điều kiện không truy đuổi. Một quyết định gây tranh cãi nhưng mang tầm nhìn xa.",
+      "character": "nguyen_trai",
+      "quote": "Mục tiêu của chúng ta là độc lập, không phải là máu. Hãy để họ về nhà với gia đình — đó mới là chiến thắng nhân nghĩa.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Chấp nhận nghị hòa — cấp thuyền bè và lương thực cho quân Minh rút về nước",
+          "effects": { "binhLuc": 5, "danTam": 15, "quocKho": -10, "trieuCuong": 15 },
+          "isHistorical": true,
+          "fact": "Hội Thề Đông Quan (tháng 12 năm 1427): Lê Lợi không chỉ tha mạng mà còn cấp 500 thuyền và lương thực cho hơn 100.000 quân Minh về nước. Lịch sử Trung Quốc ghi nhận đây là hành động nhân nghĩa hiếm có. Quyết định này cũng tránh được nguy cơ nhà Minh dùng cớ 'trả thù' để tái xâm lược.",
+          "unlockSuKy": "su_ky_dong_quan",
+          "chainNext": "tran_arc5_011"
+        },
+        {
+          "id": "choice_b",
+          "text": "Đòi đầu hàng vô điều kiện — quân Minh phải bị giam làm tù binh",
+          "effects": { "binhLuc": 10, "danTam": -10, "quocKho": 15, "trieuCuong": -10 },
+          "isHistorical": false,
+          "fact": "Nguyễn Trãi lý giải rằng tha mạng quân Minh là 'kế sách lâu dài': tránh kích động nhà Minh trả thù, đồng thời cho thế giới thấy Đại Việt chiến đấu vì nhân nghĩa, không vì thù hận. Bình Ngô Đại Cáo sau đó khẳng định: 'Đem đại nghĩa để thắng hung tàn, lấy chí nhân để thay cường bạo.'",
+          "chainNext": "tran_arc5_011"
+        }
+      ],
+      "isCinematic": false,
+      "background": "dong_quan_city"
+    },
+    {
+      "id": "tran_arc5_011",
+      "arc": 5,
+      "year": 1428,
+      "type": "historical",
+      "title": "Bình Ngô Đại Cáo",
+      "context": "Lê Lợi lên ngôi Hoàng Đế, lập ra nhà Lê, đặt quốc hiệu Đại Việt. Nguyễn Trãi thảo 'Bình Ngô Đại Cáo' — tuyên ngôn độc lập vĩ đại nhất lịch sử Việt Nam trước khi có Tuyên ngôn Độc lập năm 1945.",
+      "character": "nguyen_trai",
+      "quote": "Việc nhân nghĩa cốt ở yên dân, quân điếu phạt trước lo trừ bạo. Đây là tuyên cáo cho muôn đời sau: Đại Việt là quốc gia có chủ quyền.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Công bố Bình Ngô Đại Cáo rộng rãi — gửi đến mọi làng xã trong cả nước",
+          "effects": { "binhLuc": 0, "danTam": 20, "quocKho": -5, "trieuCuong": 15 },
+          "isHistorical": true,
+          "fact": "Bình Ngô Đại Cáo (1428) do Nguyễn Trãi soạn theo lệnh Lê Lợi là áng văn chính luận bất hủ. Mở đầu: 'Việc nhân nghĩa cốt ở yên dân, Quân điếu phạt trước lo trừ bạo.' Đây là tuyên ngôn độc lập đầu tiên của Việt Nam, được Hồ Chí Minh nhắc đến khi soạn Tuyên ngôn Độc lập năm 1945.",
+          "unlockSuKy": "su_ky_binh_ngo",
+          "setFlag": { "proclamedBinhNgo": true },
+          "endArc": true
+        },
+        {
+          "id": "choice_b",
+          "text": "Tổ chức lễ đăng quang hoành tráng để củng cố uy quyền của triều đại mới",
+          "effects": { "binhLuc": 5, "danTam": 5, "quocKho": -15, "trieuCuong": 20 },
+          "isHistorical": false,
+          "fact": "Lê Lợi đăng quang ngày 15 tháng 4 năm 1428, đặt niên hiệu Thuận Thiên. Nhà Lê Sơ do ông sáng lập sẽ trị vì 360 năm — triều đại dài nhất lịch sử Việt Nam. Con đường từ Hội Thề Lũng Nhai đến ngai vàng Thăng Long mất đúng 12 năm.",
+          "endArc": true
+        }
+      ],
+      "isCinematic": false,
+      "background": "thang_long_palace"
+    }
+  ]
+}

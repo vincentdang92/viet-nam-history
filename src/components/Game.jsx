@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { GameProvider, useGame } from '../context/GameContext'
 import HomeScreen from './screens/HomeScreen'
 import GameScreen from './screens/GameScreen'
@@ -10,20 +10,43 @@ import ArcTransitionScreen from './screens/ArcTransitionScreen'
 import SuKyScreen from './screens/SuKyScreen'
 import EndingCard from './ui/EndingCard'
 import { getEnding } from '../engine/endingChecker'
+import { useBgMusic } from '../hooks/useBgMusic'
 
-function GameRouter() {
+// ─── Floating music toggle button ──────────────────────────────────────────────
+function MusicButton({ muted, onToggle }) {
+  return (
+    <motion.button
+      onClick={onToggle}
+      title={muted ? 'Bật nhạc' : 'Tắt nhạc'}
+      className="fixed top-3 right-3 z-50 w-8 h-8 rounded-full flex items-center justify-center text-base select-none"
+      style={{
+        background: 'rgba(45,31,26,0.85)',
+        border: '1px solid rgba(90,48,32,0.7)',
+        backdropFilter: 'blur(4px)',
+      }}
+      whileTap={{ scale: 0.85 }}
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay: 0.5 }}
+    >
+      {muted ? '🔇' : '🎵'}
+    </motion.button>
+  )
+}
+
+// ─── Router ─────────────────────────────────────────────────────────────────────
+function GameRouter({ onSuKy, showSuKy }) {
   const { state, dispatch } = useGame()
-  const [showSuKy, setShowSuKy] = useState(false)
 
   if (showSuKy) {
-    return <SuKyScreen key="suky" onBack={() => setShowSuKy(false)} />
+    return <SuKyScreen key="suky" onBack={() => onSuKy(false)} />
   }
 
   switch (state.gameStatus) {
     case 'menu':
       return <HomeScreen key="menu" />
     case 'playing':
-      return <GameScreen key="game" onSuKy={() => setShowSuKy(true)} />
+      return <GameScreen key="game" onSuKy={() => onSuKy(true)} />
     case 'arc_intro':
       return <ArcTransitionScreen key={`arc-${state.currentArc}`} />
     case 'gameover':
@@ -35,7 +58,7 @@ function GameRouter() {
           key="ending"
           ending={ending}
           onRestart={() => dispatch({ type: 'START_GAME' })}
-          onSuKy={() => setShowSuKy(true)}
+          onSuKy={() => onSuKy(true)}
         />
       )
     }
@@ -44,12 +67,36 @@ function GameRouter() {
   }
 }
 
+// ─── Inner — has access to GameContext + audio ──────────────────────────────────
+function GameInner() {
+  const { state } = useGame()
+  const [showSuKy, setShowSuKy] = useState(false)
+  const { muted, start, toggle } = useBgMusic()
+
+  // Start music on first user interaction beyond the menu
+  useEffect(() => {
+    if (state.gameStatus !== 'menu') start()
+  }, [state.gameStatus]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  return (
+    <>
+      <AnimatePresence mode="wait">
+        <GameRouter
+          key={showSuKy ? 'suky' : state.gameStatus + state.currentArc}
+          onSuKy={setShowSuKy}
+          showSuKy={showSuKy}
+        />
+      </AnimatePresence>
+      <MusicButton muted={muted} onToggle={toggle} />
+    </>
+  )
+}
+
+// ─── Root ────────────────────────────────────────────────────────────────────────
 export default function Game() {
   return (
     <GameProvider>
-      <AnimatePresence mode="wait">
-        <GameRouter />
-      </AnimatePresence>
+      <GameInner />
     </GameProvider>
   )
 }

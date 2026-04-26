@@ -5,9 +5,11 @@ import { useGame } from '../../context/GameContext'
 import { getArcIntro } from '../../engine/eventResolver'
 
 const ARC_META = {
-  1: { label: 'Chương I',   title: 'Lập Quốc',          icon: '🏯', years: '1225–1257' },
+  1: { label: 'Chương I',   title: 'Lập Quốc',            icon: '🏯', years: '1225–1257' },
   2: { label: 'Chương II',  title: 'Ba Lần Kháng Nguyên', icon: '⚔️', years: '1257–1288' },
   3: { label: 'Chương III', title: 'Thịnh Rồi Suy',       icon: '🌅', years: '1288–1400' },
+  4: { label: 'Chương IV',  title: 'Nhà Hồ & Thuộc Minh', icon: '🔥', years: '1400–1418' },
+  5: { label: 'Chương V',   title: 'Lam Sơn Khởi Nghĩa',  icon: '⚡', years: '1418–1428' },
 }
 
 const stagger = {

@@ -11,7 +11,17 @@ import YearDisplay from '../game/YearDisplay'
 import FactPopup from '../ui/FactPopup'
 
 const SWIPE_THRESHOLD = 80
-const ARC_LABEL = { 1: 'Lập Quốc', 2: 'Kháng Nguyên', 3: 'Thịnh Rồi Suy' }
+const ARC_LABEL = {
+  1: 'Lập Quốc',
+  2: 'Kháng Nguyên',
+  3: 'Thịnh Rồi Suy',
+  4: 'Nhà Hồ & Thuộc Minh',
+  5: 'Lam Sơn Khởi Nghĩa',
+}
+const DYNASTY_LABEL = {
+  1: 'Nhà Trần', 2: 'Nhà Trần', 3: 'Nhà Trần',
+  4: 'Nhà Hồ', 5: 'Lam Sơn',
+}
 
 // ─── Swipe card ────────────────────────────────────────────────────────────────
 function SwipeCard({ event, choices, onChoiceA, onChoiceB, cardKey, showTutorial }) {
@@ -123,7 +133,7 @@ function GameHeader({ arc, onSuKy }) {
   return (
     <div className="flex items-center justify-between px-4 pt-3 pb-1 shrink-0">
       <div>
-        <p className="text-tran-textMuted text-[10px] uppercase tracking-widest">Nhà Trần</p>
+        <p className="text-tran-textMuted text-[10px] uppercase tracking-widest">{DYNASTY_LABEL[arc] ?? 'Đại Việt'}</p>
         <p className="text-tran-secondary text-xs font-semibold">{ARC_LABEL[arc]}</p>
       </div>
       <button
