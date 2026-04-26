@@ -1,0 +1,340 @@
+{
+  "arcId": 3,
+  "title": "Thịnh Rồi Suy",
+  "years": "1288–1400",
+  "intro": "Sau chiến thắng Bạch Đằng hào hùng, nhà Trần bước vào thời kỳ thịnh vượng. Nhưng vinh quang cũng ẩn chứa mầm mống suy tàn...",
+  "events": [
+    {
+      "id": "tran_arc3_001",
+      "arc": 3,
+      "year": 1293,
+      "type": "historical",
+      "title": "Trần Nhân Tông Xuất Gia",
+      "context": "Sau khi nhường ngôi cho con, Trần Nhân Tông lên núi Yên Tử xuất gia tu hành, sáng lập Thiền phái Trúc Lâm Yên Tử — dòng thiền thuần Việt đầu tiên.",
+      "character": "tran_nhan_tong",
+      "quote": "Trẫm đã hoàn thành phận sự với triều đình — giờ là phận sự với chính mình",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Tôn vinh quyết định của ngài, lấy đạo Phật làm quốc đạo",
+          "effects": { "binhLuc": 0, "danTam": 15, "quocKho": -5, "trieuCuong": -5 },
+          "isHistorical": true,
+          "fact": "Trần Nhân Tông — Phật Hoàng — sáng lập Thiền phái Trúc Lâm Yên Tử, dòng thiền thuần Việt đầu tiên trong lịch sử. Ngài được hậu thế tôn là một trong những vĩ nhân lớn nhất dân tộc.",
+          "chainNext": "tran_arc3_002",
+          "unlockSuKy": "su_ky_phat_hoang_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Giữ ngài lại triều đình với tư cách cố vấn",
+          "effects": { "binhLuc": 0, "danTam": 5, "quocKho": 0, "trieuCuong": 5 },
+          "isHistorical": false,
+          "fact": "Trần Nhân Tông đã xuất gia — đây là quyết định dứt khoát của ngài sau khi hoàn thành trách nhiệm với đất nước.",
+          "chainNext": "tran_arc3_002",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "yen_tu_mountain"
+    },
+    {
+      "id": "tran_arc3_002",
+      "arc": 3,
+      "year": 1299,
+      "type": "historical",
+      "title": "Mở Rộng Thái Học Viện",
+      "context": "Thời kỳ thái bình sau kháng Nguyên là cơ hội vàng để phát triển giáo dục. Các quan văn đề nghị mở rộng Quốc Tử Giám, tuyển thêm thầy và học trò.",
+      "character": "tran_nhan_tong",
+      "quote": "Bình thời trọng văn, loạn thời dùng võ — nhưng cả hai lúc nào cũng cần",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Mở rộng, tăng học bổng cho học trò nghèo",
+          "effects": { "binhLuc": 0, "danTam": 10, "quocKho": -10, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Nhà Trần phát triển mạnh hệ thống giáo dục sau kháng Nguyên. Lê Văn Hưu hoàn thành Đại Việt Sử Ký — bộ sử chính thức đầu tiên — trong giai đoạn này.",
+          "chainNext": "tran_arc3_003",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Dành ngân sách cho quân đội, an ninh là ưu tiên",
+          "effects": { "binhLuc": 5, "danTam": -5, "quocKho": -5, "trieuCuong": 0 },
+          "isHistorical": false,
+          "fact": "Giai đoạn thái bình là thời điểm tốt nhất để đầu tư giáo dục — tạo nền móng cho thế hệ lãnh đạo tương lai.",
+          "chainNext": "tran_arc3_003",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "exam_hall"
+    },
+    {
+      "id": "tran_arc3_003",
+      "arc": 3,
+      "year": 1300,
+      "type": "historical",
+      "title": "Trần Hưng Đạo Qua Đời",
+      "context": "Năm 1300, Hưng Đạo Đại Vương Trần Quốc Tuấn từ trần tại phủ đệ Kiếp Bạc. Trước lúc mất, ông dặn vua: 'Nếu giặc đến, hãy dùng đoản binh thủy chiến như cũ...'",
+      "character": "tran_hung_dao",
+      "quote": "Nếu giặc đến, hãy dùng đoản binh thủy chiến như cũ...",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Truy phong anh hùng dân tộc, lập đền thờ khắp nơi",
+          "effects": { "binhLuc": 0, "danTam": 15, "quocKho": -5, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Trần Hưng Đạo được thần hóa ngay sau khi mất. Đền Kiếp Bạc ở Hải Dương là nơi thờ chính, thu hút hàng triệu người hành hương đến tận ngày nay.",
+          "chainNext": "tran_arc3_004",
+          "unlockSuKy": "su_ky_hung_dao_tuong_linh"
+        },
+        {
+          "id": "choice_b",
+          "text": "Để tang đơn giản, tránh tạo sùng bái cá nhân",
+          "effects": { "binhLuc": -5, "danTam": -10, "quocKho": 0, "trieuCuong": 0 },
+          "isHistorical": false,
+          "fact": "Trần Hưng Đạo xứng đáng được tôn vinh như biểu tượng tinh thần dân tộc — sự thờ phụng ngài phản ánh lòng biết ơn của người Việt.",
+          "chainNext": "tran_arc3_004",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "kiet_bac_palace"
+    },
+    {
+      "id": "tran_arc3_004",
+      "arc": 3,
+      "year": 1320,
+      "type": "event",
+      "title": "Thế Hệ Vua Mới",
+      "context": "Các vua Trần thế hệ sau ngày càng xa rời thực tế. Không còn trực tiếp trải qua chiến tranh, họ bắt đầu mất dần sự nhạy bén mà tổ tiên đã có.",
+      "character": "tran_nhan_tong",
+      "quote": "Người không biết gian khổ thì khó giữ được những gì kẻ khác đổ máu tạo ra",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Bắt vua trẻ phải học lịch sử kháng chiến, luyện quân sự",
+          "effects": { "binhLuc": 5, "danTam": 0, "quocKho": -5, "trieuCuong": 10 },
+          "isHistorical": false,
+          "fact": "Trong thực tế, nhà Trần không duy trì được truyền thống học hỏi từ cha ông — đây là điểm yếu dần hiện ra trong các đời vua sau.",
+          "chainNext": "tran_arc3_005",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Để vua trẻ tự trải nghiệm, không ép buộc",
+          "effects": { "binhLuc": -5, "danTam": 5, "quocKho": 0, "trieuCuong": -5 },
+          "isHistorical": true,
+          "fact": "Sự thiếu kỷ luật trong đào tạo vua trẻ là một trong những nguyên nhân dẫn đến sự suy tàn của nhà Trần vào cuối thế kỷ 14.",
+          "chainNext": "tran_arc3_005",
+          "unlockSuKy": "su_ky_suy_vong_001"
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_palace"
+    },
+    {
+      "id": "tran_arc3_005",
+      "arc": 3,
+      "year": 1330,
+      "type": "event",
+      "title": "Xa Hoa Và Xa Cách",
+      "context": "Cung điện nguy nga được xây dựng hết công trình này đến công trình khác. Dân chúng một số vùng bắt đầu thiếu lương thực nhưng vua chúa không hay biết.",
+      "character": "tran_nhan_tong",
+      "quote": "Ngai vàng của cha ông được xây từ máu và mồ hôi của trăm họ...",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Cắt giảm chi tiêu cung đình, dùng ngân sách cho dân",
+          "effects": { "binhLuc": 0, "danTam": 15, "quocKho": 10, "trieuCuong": -10 },
+          "isHistorical": false,
+          "fact": "Thực tế lịch sử cho thấy các vua Trần cuối thường không thực hiện được điều này, dẫn đến sự suy tàn của triều đại.",
+          "chainNext": "tran_arc3_006",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Tiếp tục xây dựng, sự phồn hoa là biểu tượng quyền lực",
+          "effects": { "binhLuc": 0, "danTam": -10, "quocKho": -15, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Sự xa hoa của nhà Trần cuối thời là nguyên nhân khiến lòng dân mất tin, tạo điều kiện cho kẻ thù bên trong lẫn bên ngoài.",
+          "chainNext": "tran_arc3_006",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_palace"
+    },
+    {
+      "id": "tran_arc3_006",
+      "arc": 3,
+      "year": 1351,
+      "type": "event",
+      "title": "Nạn Đói Và Loạn Nông Dân",
+      "context": "Lũ lụt liên tiếp nhiều năm gây nạn đói. Ở vùng Thanh Hóa và Nghệ An, nông dân nổi dậy. Triều đình phải chọn: dùng quân trấn áp hay mở kho cứu trợ?",
+      "character": "tran_nhan_tong",
+      "quote": "Dân là gốc nước — gốc lung lay thì nước nghiêng",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Mở kho lương cứu đói, xét giảm thuế cho vùng bị lũ",
+          "effects": { "binhLuc": -5, "danTam": 15, "quocKho": -15, "trieuCuong": 5 },
+          "isHistorical": false,
+          "fact": "Chính sách cứu dân là cách bền vững nhất để duy trì ổn định — nhà Trần sơ kỳ đã làm điều này rất tốt, nhưng nhà Trần cuối kỳ dần bỏ quên.",
+          "chainNext": "tran_arc3_007",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Dùng quân đội dẹp loạn, khẳng định uy quyền triều đình",
+          "effects": { "binhLuc": 5, "danTam": -15, "quocKho": -5, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Nhà Trần cuối kỳ thường chọn trấn áp thay vì cứu vớt — điều này chỉ làm tăng thêm mâu thuẫn giữa triều đình và nhân dân.",
+          "chainNext": "tran_arc3_007",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "countryside"
+    },
+    {
+      "id": "tran_arc3_007",
+      "arc": 3,
+      "year": 1360,
+      "type": "event",
+      "title": "Chiêm Thành Phản Công",
+      "context": "Chiêm Thành, từng là đồng minh chống Nguyên, nay dưới triều vua Chế Bồng Nga ngày càng mạnh lên và tấn công biên giới phía Nam. Thăng Long bị uy hiếp.",
+      "character": "tran_hung_dao",
+      "quote": "Đồng minh của hôm qua có thể là kẻ thù của ngày mai",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Tổ chức phản công mạnh, dứt điểm mối đe dọa",
+          "effects": { "binhLuc": 10, "danTam": 0, "quocKho": -15, "trieuCuong": 5 },
+          "isHistorical": false,
+          "fact": "Chiến tranh với Chiêm Thành kéo dài nhiều thập kỷ, tiêu hao sinh lực nhà Trần. Vua Chế Bồng Nga thậm chí đánh chiếm Thăng Long năm 1371.",
+          "chainNext": "tran_arc3_008",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Đàm phán, dâng đất đổi lấy hòa bình tạm thời",
+          "effects": { "binhLuc": -5, "danTam": -5, "quocKho": 0, "trieuCuong": -10 },
+          "isHistorical": true,
+          "fact": "Nhà Trần cuối thời thường nhượng bộ trước Chiêm Thành, dẫn đến sự kiện Thăng Long bị quân Chiêm đốt phá năm 1371 và 1377.",
+          "chainNext": "tran_arc3_008",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "battle_field"
+    },
+    {
+      "id": "tran_arc3_008",
+      "arc": 3,
+      "year": 1370,
+      "type": "historical",
+      "title": "Hồ Quý Ly Nổi Lên",
+      "context": "Một nhân vật mới xuất hiện trong triều — Hồ Quý Ly, thông minh và đầy tham vọng. Ông đề xuất cải cách kinh tế, in tiền giấy thay vì tiền đồng, và được vua trọng dụng.",
+      "character": "tran_thu_do",
+      "quote": "Người tài thực sự hay người có dã tâm — khó mà phân biệt",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Trọng dụng Hồ Quý Ly, giao quyền lực lớn",
+          "effects": { "binhLuc": 5, "danTam": 5, "quocKho": 10, "trieuCuong": -15 },
+          "isHistorical": true,
+          "fact": "Hồ Quý Ly dần nắm quyền và soán ngôi nhà Trần năm 1400, lập nhà Hồ. Ông là nhân vật gây tranh cãi — tài giỏi cải cách nhưng đầy tham vọng quyền lực.",
+          "chainNext": "tran_arc3_009",
+          "unlockSuKy": "su_ky_ho_quy_ly_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Cảnh giác, kiểm soát chặt quyền hạn của Hồ Quý Ly",
+          "effects": { "binhLuc": 0, "danTam": 0, "quocKho": 0, "trieuCuong": 10 },
+          "isHistorical": false,
+          "fact": "Trong lịch sử, nhà Trần cuối thời không ngăn được sự lộng quyền của Hồ Quý Ly — phần vì yếu, phần vì bị mua chuộc.",
+          "chainNext": "tran_arc3_009",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc3_009",
+      "arc": 3,
+      "year": 1390,
+      "type": "event",
+      "title": "Di Sản Của Nhà Trần",
+      "context": "Nhìn lại 165 năm trị vì, nhà Trần để lại gì cho dân tộc? Triều đình bàn về việc ghi chép lịch sử và bảo tồn các di sản văn hóa.",
+      "character": "tran_nhan_tong",
+      "quote": "Triều đại có thể tàn, nhưng những gì tốt đẹp thì ở lại mãi",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Lập hội đồng chép sử, ghi lại đầy đủ công lao và sai lầm",
+          "effects": { "binhLuc": 0, "danTam": 10, "quocKho": -5, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Lê Văn Hưu hoàn thành Đại Việt Sử Ký năm 1272 — bộ sử chính thức đầu tiên của Việt Nam, ghi lại từ thời Triệu Đà đến cuối nhà Lý. Di sản này sống mãi.",
+          "chainNext": "tran_arc3_010",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Tập trung vào hiện tại — lịch sử là việc của tương lai",
+          "effects": { "binhLuc": 0, "danTam": -5, "quocKho": 0, "trieuCuong": -5 },
+          "isHistorical": false,
+          "fact": "Việc ghi chép lịch sử là di sản vô giá. Đại Việt Sử Ký Toàn Thư do Ngô Sĩ Liên viết sau này dựa phần lớn vào tài liệu từ thời Trần.",
+          "chainNext": "tran_arc3_010",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc3_010",
+      "arc": 3,
+      "year": 1400,
+      "type": "cinematic",
+      "title": "Màn Hạ — Nhà Trần Kết Thúc",
+      "context": "Năm 1400, Hồ Quý Ly ép vua Trần Thiếu Đế nhường ngôi, lập nhà Hồ. Một triều đại 175 năm khép lại. Nhưng di sản ba lần kháng Nguyên sẽ sống mãi trong lòng người Việt.",
+      "character": "tran_nhan_tong",
+      "quote": "Ba lần thắng Nguyên Mông — đó là điều không ai có thể xóa khỏi lịch sử",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Thoái vị trong danh dự, bảo toàn mạng sống triều thần",
+          "effects": { "binhLuc": 0, "danTam": 5, "quocKho": 0, "trieuCuong": -5 },
+          "isHistorical": true,
+          "fact": "Trần Thiếu Đế nhường ngôi cho Hồ Quý Ly năm 1400. Nhà Hồ tồn tại không lâu — 7 năm sau, quân Minh xâm lược và bắt Hồ Quý Ly.",
+          "chainNext": null,
+          "unlockSuKy": null,
+          "endArc": true
+        },
+        {
+          "id": "choice_b",
+          "text": "Chống cự đến cùng, không để mất ngai vàng",
+          "effects": { "binhLuc": -10, "danTam": 5, "quocKho": -10, "trieuCuong": -10 },
+          "isHistorical": false,
+          "fact": "Sức mạnh của nhà Trần lúc này đã suy kiệt — chống cự chỉ kéo dài đau khổ cho dân chúng mà không thay đổi được kết cục.",
+          "chainNext": null,
+          "unlockSuKy": null,
+          "endArc": true
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": true,
+      "background": "thang_long_palace"
+    }
+  ]
+}

@@ -1,0 +1,443 @@
+{
+  "arcId": 2,
+  "title": "Ba Lần Kháng Nguyên",
+  "years": "1257–1288",
+  "intro": "Sau chiến thắng năm 1258, đế quốc Nguyên Mông không từ bỏ. Họ sẽ quay lại — với lực lượng lớn hơn nhiều. Trần Hưng Đạo trở thành Tổng chỉ huy. Đại Việt phải chuẩn bị cho những trận chiến sinh tử.",
+  "events": [
+    {
+      "id": "tran_arc2_001",
+      "arc": 2,
+      "year": 1260,
+      "type": "historical",
+      "title": "Hịch Tướng Sĩ",
+      "context": "Hốt Tất Liệt lên ngôi Đại Hãn, lập triều Nguyên, tiếp tục kế hoạch xâm lược phương Nam. Trần Hưng Đạo soạn Hịch tướng sĩ để kêu gọi toàn quân.",
+      "character": "tran_hung_dao",
+      "quote": "Ta thường đến bữa quên ăn, nửa đêm vỗ gối, ruột đau như cắt...",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Phổ biến Hịch rộng rãi, tổ chức đọc trong toàn quân",
+          "effects": { "binhLuc": 10, "danTam": 10, "quocKho": -5, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Hịch tướng sĩ là một trong những áng văn yêu nước vĩ đại nhất lịch sử Việt Nam, khơi dậy tinh thần chiến đấu toàn dân.",
+          "chainNext": "tran_arc2_002",
+          "unlockSuKy": "su_ky_hich_tuong_si_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Chỉ đọc trong giới tướng lĩnh cấp cao",
+          "effects": { "binhLuc": 5, "danTam": 0, "quocKho": 0, "trieuCuong": 0 },
+          "isHistorical": false,
+          "fact": "Hịch tướng sĩ được phổ biến rộng rãi — sức mạnh của nó nằm ở chỗ truyền cảm hứng cho toàn thể quân dân.",
+          "chainNext": "tran_arc2_002",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "war_council"
+    },
+    {
+      "id": "tran_arc2_002",
+      "arc": 2,
+      "year": 1265,
+      "type": "event",
+      "title": "Đào Tạo Thủy Quân",
+      "context": "Trần Hưng Đạo nhận ra điểm yếu của quân Nguyên là thủy chiến. Ông đề nghị xây dựng lực lượng thủy quân tinh nhuệ, tập trận trên sông Bạch Đằng.",
+      "character": "tran_hung_dao",
+      "quote": "Sông nước là vũ khí tự nhiên của ta, hãy học cách dùng nó",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Đầu tư mạnh vào thủy quân và chiến thuyền",
+          "effects": { "binhLuc": 10, "danTam": 0, "quocKho": -15, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Lực lượng thủy quân nhà Trần là yếu tố quyết định trong trận Bạch Đằng 1288 — cọc gỗ bịt sắt đánh chìm hạm đội Nguyên.",
+          "chainNext": "tran_arc2_003",
+          "unlockSuKy": "su_ky_thuy_quan_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Tập trung vào kỵ binh và bộ binh như trước",
+          "effects": { "binhLuc": 5, "danTam": 0, "quocKho": -5, "trieuCuong": 0 },
+          "isHistorical": false,
+          "fact": "Thủy quân mạnh là lợi thế chiến lược quan trọng nhất của nhà Trần trước quân Nguyên.",
+          "chainNext": "tran_arc2_003",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "river_dock"
+    },
+    {
+      "id": "tran_arc2_003",
+      "arc": 2,
+      "year": 1267,
+      "type": "event",
+      "title": "Binh Thư Yếu Lược",
+      "context": "Trần Hưng Đạo hoàn thành bộ binh thư quân sự đầu tiên của Đại Việt — Binh thư yếu lược. Triều đình tranh luận về việc phổ biến tài liệu mật này.",
+      "character": "tran_hung_dao",
+      "quote": "Binh pháp không phải bí mật — nó là vũ khí của trăm vạn người",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Phổ biến rộng rãi cho các tướng lĩnh mọi cấp",
+          "effects": { "binhLuc": 10, "danTam": 5, "quocKho": -5, "trieuCuong": 0 },
+          "isHistorical": true,
+          "fact": "Binh thư yếu lược của Trần Hưng Đạo là bộ sách quân sự đầu tiên của Việt Nam, đặt nền móng cho nghệ thuật chiến tranh dân tộc.",
+          "chainNext": "tran_arc2_004",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Giữ bí mật, chỉ tướng cao cấp được đọc",
+          "effects": { "binhLuc": 5, "danTam": -5, "quocKho": 0, "trieuCuong": 5 },
+          "isHistorical": false,
+          "fact": "Trần Hưng Đạo muốn phổ biến tri thức quân sự, không giữ độc quyền — đây là điểm khác biệt với nhiều danh tướng đương thời.",
+          "chainNext": "tran_arc2_004",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc2_004",
+      "arc": 2,
+      "year": 1270,
+      "type": "event",
+      "title": "Quan Hệ Với Chiêm Thành",
+      "context": "Quân Nguyên đang gây sức ép lên Chiêm Thành ở phía Nam. Chiêm Thành cử sứ giả xin liên minh với Đại Việt chống Nguyên chung.",
+      "character": "tran_nhan_tong",
+      "quote": "Kẻ thù chung tạo ra bạn bè bất ngờ",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Chấp nhận liên minh, chia sẻ chiến lược quân sự",
+          "effects": { "binhLuc": 10, "danTam": 5, "quocKho": -5, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Liên minh Đại Việt — Chiêm Thành là yếu tố quan trọng trong các cuộc kháng Nguyên. Vua Chiêm Thành Indravarman V cũng đánh bại quân Nguyên năm 1282.",
+          "chainNext": "tran_arc2_005",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Từ chối, giữ thế trung lập — không muốn liên quan",
+          "effects": { "binhLuc": -5, "danTam": 0, "quocKho": 5, "trieuCuong": 0 },
+          "isHistorical": false,
+          "fact": "Đại Việt và Chiêm Thành đã hợp tác chống Nguyên, mặc dù hai nước từng là kẻ thù của nhau.",
+          "chainNext": "tran_arc2_005",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc2_005",
+      "arc": 2,
+      "year": 1274,
+      "type": "event",
+      "title": "Tích Trữ Lương Thực",
+      "context": "Chiến lược 'vườn không nhà trống' đòi hỏi toàn dân di tản và tiêu hủy lương thực khi quân Nguyên đến. Nhưng ai sẽ nuôi sống dân chúng trong chiến tranh?",
+      "character": "tran_nhan_tong",
+      "quote": "Không có bụng no thì không có chiến thắng",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Xây kho lương bí mật ở vùng núi, phân tán khắp nơi",
+          "effects": { "binhLuc": 5, "danTam": 10, "quocKho": -15, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Nhà Trần chuẩn bị hệ thống kho lương phân tán khắp cả nước, đảm bảo quân đội có thể kháng chiến lâu dài ngay cả khi Thăng Long thất thủ.",
+          "chainNext": "tran_arc2_006",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Tập trung tất cả lương thực ở Thăng Long để bảo vệ tốt hơn",
+          "effects": { "binhLuc": 0, "danTam": -5, "quocKho": -5, "trieuCuong": 0 },
+          "isHistorical": false,
+          "fact": "Kho lương tập trung ở một điểm rất nguy hiểm — nếu Thăng Long thất thủ, toàn bộ lương thực sẽ rơi vào tay địch.",
+          "chainNext": "tran_arc2_006",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "countryside"
+    },
+    {
+      "id": "tran_arc2_006",
+      "arc": 2,
+      "year": 1278,
+      "type": "historical",
+      "title": "Trần Quốc Toản Xé Quất",
+      "context": "Hội nghị triều đình bàn kế sách đối phó Nguyên Mông. Trần Quốc Toản — thiếu niên 16 tuổi — bị từ chối tham dự vì còn nhỏ. Nổi giận, ông bóp nát một quả quất trong tay.",
+      "character": "tran_hung_dao",
+      "quote": "Tuổi tác không xác định được lòng yêu nước",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Cho phép thiếu niên tham gia, giao nhiệm vụ thực chiến",
+          "effects": { "binhLuc": 5, "danTam": 15, "quocKho": 0, "trieuCuong": -5 },
+          "isHistorical": true,
+          "fact": "Trần Quốc Toản tự chiêu mộ 1,000 quân riêng và lập nhiều chiến công. Cờ hiệu 'Phá cường địch, báo hoàng ân' của ông trở thành biểu tượng tinh thần kháng chiến.",
+          "chainNext": "tran_arc2_007",
+          "unlockSuKy": "su_ky_tran_quoc_toan_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Giữ quy định — chưa đủ tuổi thì không tham dự",
+          "effects": { "binhLuc": 0, "danTam": -5, "quocKho": 0, "trieuCuong": 5 },
+          "isHistorical": false,
+          "fact": "Trong lịch sử, Trần Quốc Toản không được tham dự nhưng tự mình ra đi đánh giặc, trở thành biểu tượng lòng yêu nước của tuổi trẻ.",
+          "chainNext": "tran_arc2_007",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc2_007",
+      "arc": 2,
+      "year": 1282,
+      "type": "historical",
+      "title": "Hội Nghị Bình Than",
+      "context": "Tin tức: quân Nguyên đang tập kết lực lượng khổng lồ — 500,000 quân. Vua triệu tập Hội nghị Bình Than với tất cả vương hầu để thống nhất chiến lược.",
+      "character": "tran_nhan_tong",
+      "quote": "Toàn quốc phải là một — không có chỗ cho sự do dự",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Giao toàn quyền chỉ huy cho Trần Hưng Đạo",
+          "effects": { "binhLuc": 15, "danTam": 5, "quocKho": 0, "trieuCuong": -5 },
+          "isHistorical": true,
+          "fact": "Hội nghị Bình Than giao toàn quyền quân sự cho Trần Hưng Đạo — sự nhất thống chỉ huy là yếu tố then chốt cho chiến thắng.",
+          "chainNext": "tran_arc2_battle_1285",
+          "unlockSuKy": "su_ky_binh_than_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Chỉ huy theo ủy ban — nhiều tướng cùng quyết định",
+          "effects": { "binhLuc": 0, "danTam": 0, "quocKho": 0, "trieuCuong": 5 },
+          "isHistorical": false,
+          "fact": "Thống nhất chỉ huy là bài học lịch sử quan trọng — chỉ huy phân tán thường dẫn đến thất bại trước kẻ thù mạnh.",
+          "chainNext": "tran_arc2_battle_1285",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc2_battle_1285",
+      "arc": 2,
+      "year": 1285,
+      "type": "battle",
+      "title": "Kháng Nguyên Lần Thứ Hai",
+      "context": "500,000 quân Nguyên chia hai đường tràn vào Đại Việt. Thăng Long lại phải bỏ. Trần Quang Khải lãnh đạo hai trận lớn: Chương Dương và Hàm Tử.",
+      "character": "tran_quang_khai",
+      "quote": "Chương Dương cướp giáo giặc — Hàm Tử bắt quân thù!",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Tập kích đường tiếp tế, phản công khi địch mệt mỏi",
+          "effects": { "binhLuc": 10, "danTam": 10, "quocKho": -10, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Trần Quang Khải đại thắng tại Chương Dương và Hàm Tử năm 1285, thu hồi Thăng Long. Đây là lần thứ hai quân Nguyên bị đánh bại.",
+          "chainNext": "tran_arc2_008",
+          "unlockSuKy": "su_ky_chuong_duong_001",
+          "setFlag": { "wonBattle1285": true }
+        },
+        {
+          "id": "choice_b",
+          "text": "Giữ lực lượng, chờ cơ hội phản công sau",
+          "effects": { "binhLuc": -5, "danTam": -10, "quocKho": 0, "trieuCuong": -5 },
+          "isHistorical": false,
+          "fact": "Sự chủ động phản công là yếu tố quyết định — thụ động sẽ tạo điều kiện cho quân Nguyên củng cố vị thế.",
+          "chainNext": "tran_arc2_008",
+          "unlockSuKy": null,
+          "setFlag": { "wonBattle1285": false }
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": true,
+      "background": "battle_field"
+    },
+    {
+      "id": "tran_arc2_008",
+      "arc": 2,
+      "year": 1285,
+      "type": "event",
+      "title": "Thu Hồi Thăng Long",
+      "context": "Quân Nguyên rút chạy, Thăng Long bị tàn phá nặng nề. Người dân trở về nhà với đống tro tàn. Triều đình phải quyết định: tái thiết ngay hay tiếp tục kháng chiến?",
+      "character": "tran_nhan_tong",
+      "quote": "Kinh thành có thể xây lại — nhưng tinh thần chiến đấu mới là thứ quý giá hơn",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Dồn nguồn lực tái thiết Thăng Long, ổn định dân tâm",
+          "effects": { "binhLuc": -5, "danTam": 15, "quocKho": -15, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Sau mỗi lần Thăng Long bị chiếm, nhà Trần đều tổ chức tái thiết nhanh chóng để khôi phục lòng tin của nhân dân.",
+          "chainNext": "tran_arc2_009",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Ưu tiên củng cố quân đội, phòng thủ cho lần sau",
+          "effects": { "binhLuc": 10, "danTam": -5, "quocKho": -5, "trieuCuong": 0 },
+          "isHistorical": false,
+          "fact": "Trong lịch sử, nhà Trần cân bằng cả hai — vừa tái thiết vừa chuẩn bị cho cuộc tấn công tiếp theo.",
+          "chainNext": "tran_arc2_009",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_palace"
+    },
+    {
+      "id": "tran_arc2_009",
+      "arc": 2,
+      "year": 1286,
+      "type": "event",
+      "title": "Triều Thần Bàn Hòa",
+      "context": "Một số quan văn đề nghị gửi sứ giả cầu hòa với Nguyên Mông, tránh lần tấn công thứ ba. Quân Nguyên đang chuẩn bị đội quân mới còn lớn hơn.",
+      "character": "tran_hung_dao",
+      "quote": "Hòa với kẻ chưa bao giờ giữ lời hứa — đó không phải là hòa bình",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Bác bỏ — tiếp tục chuẩn bị kháng chiến",
+          "effects": { "binhLuc": 10, "danTam": 5, "quocKho": -10, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Nhà Trần kiên quyết không cầu hòa sau năm 1285. Quyết tâm này đã dẫn đến chiến thắng Bạch Đằng vang dội năm 1288.",
+          "chainNext": "tran_arc2_010",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Gửi sứ giả thăm dò, xem có thể đàm phán không",
+          "effects": { "binhLuc": -5, "danTam": -5, "quocKho": 5, "trieuCuong": -5 },
+          "isHistorical": false,
+          "fact": "Quân Nguyên không có ý định đàm phán thực sự — cầu hòa sẽ chỉ cho họ thời gian chuẩn bị tốt hơn.",
+          "chainNext": "tran_arc2_010",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc2_010",
+      "arc": 2,
+      "year": 1286,
+      "type": "event",
+      "title": "Trần Hưng Đạo Thị Sát Bạch Đằng",
+      "context": "Trần Hưng Đạo đích thân cưỡi thuyền nhỏ khảo sát sông Bạch Đằng nhiều lần. Ông quan sát thủy triều lên xuống, đo đạc độ sâu và ghi chép tỉ mỉ.",
+      "character": "tran_hung_dao",
+      "quote": "Thiên thời địa lợi nhân hòa — ta phải có đủ cả ba",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Cấp thêm người và thuyền để khảo sát kỹ lưỡng hơn",
+          "effects": { "binhLuc": 5, "danTam": 0, "quocKho": -5, "trieuCuong": 0 },
+          "isHistorical": true,
+          "fact": "Trần Hưng Đạo nghiên cứu địa hình sông Bạch Đằng rất kỹ trước khi lập kế hoạch. Kiến thức địa lý là vũ khí bí mật của ông.",
+          "chainNext": "tran_arc2_011",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Lấy thông tin từ ngư dân địa phương cho nhanh hơn",
+          "effects": { "binhLuc": 0, "danTam": 5, "quocKho": 0, "trieuCuong": -5 },
+          "isHistorical": false,
+          "fact": "Trần Hưng Đạo tự mình khảo sát vì ông tin rằng người chỉ huy phải hiểu địa hình bằng mắt thấy tai nghe của mình.",
+          "chainNext": "tran_arc2_011",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "river_dock"
+    },
+    {
+      "id": "tran_arc2_011",
+      "arc": 2,
+      "year": 1287,
+      "type": "historical",
+      "title": "Chuẩn Bị Bãi Cọc",
+      "context": "Trần Hưng Đạo có kế hoạch bí mật: đóng cọc gỗ lim bịt sắt nhọn dưới lòng sông Bạch Đằng khi thủy triều lên, nhử hạm đội Nguyên vào bẫy khi triều rút.",
+      "character": "tran_hung_dao",
+      "quote": "Trời cho ta sông Bạch Đằng — ta phải biết dùng",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Bí mật chuẩn bị, tuyệt đối không để lộ kế hoạch",
+          "effects": { "binhLuc": 10, "danTam": 5, "quocKho": -10, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Bãi cọc Bạch Đằng được chuẩn bị trong bí mật hoàn toàn. Đây là thiên tài quân sự của Trần Hưng Đạo — biến địa lợi thành cái bẫy chết người.",
+          "chainNext": "tran_arc2_battle_1288",
+          "unlockSuKy": "su_ky_coc_bach_dang_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Triển khai nhanh hơn dù có rủi ro bị phát hiện",
+          "effects": { "binhLuc": -5, "danTam": 0, "quocKho": -5, "trieuCuong": 0 },
+          "isHistorical": false,
+          "fact": "Sự bí mật của kế hoạch là điều kiện sống còn. Nếu quân Nguyên biết trước, họ sẽ tránh sông Bạch Đằng.",
+          "chainNext": "tran_arc2_battle_1288",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "war_council"
+    },
+    {
+      "id": "tran_arc2_battle_1288",
+      "arc": 2,
+      "year": 1288,
+      "type": "battle",
+      "title": "Trận Bạch Đằng — Đại Thắng Lịch Sử",
+      "context": "Mùa xuân 1288. Hạm đội Nguyên tiến vào sông Bạch Đằng lúc triều lên. Trần Hưng Đạo ra lệnh nhử địch sâu vào. Khi triều rút, bãi cọc nhô lên...",
+      "character": "tran_hung_dao",
+      "quote": "Đây là ngày mà non sông Đại Việt ghi vào sử sách!",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Tổng phản công khi thủy triều rút, bắt sống Ô Mã Nhi",
+          "effects": { "binhLuc": 5, "danTam": 20, "quocKho": -5, "trieuCuong": 10 },
+          "isHistorical": true,
+          "fact": "Trận Bạch Đằng 1288: hàng trăm chiến thuyền Nguyên bị đắm, Ô Mã Nhi bị bắt sống. Đây là lần thứ ba và cũng là lần cuối cùng Nguyên Mông xâm lược Đại Việt.",
+          "chainNext": null,
+          "unlockSuKy": "su_ky_bach_dang_001",
+          "setFlag": { "wonBattle1288": true },
+          "endArc": true
+        },
+        {
+          "id": "choice_b",
+          "text": "Để tàn quân rút lui, tránh tổn thất thêm",
+          "effects": { "binhLuc": 0, "danTam": 5, "quocKho": 0, "trieuCuong": -5 },
+          "isHistorical": false,
+          "fact": "Trận Bạch Đằng cần tiêu diệt hoàn toàn lực lượng địch để đảm bảo Nguyên Mông không quay lại. Bắt sống Ô Mã Nhi có giá trị chính trị rất lớn.",
+          "chainNext": null,
+          "unlockSuKy": null,
+          "setFlag": { "wonBattle1288": false },
+          "endArc": true
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": true,
+      "background": "bach_dang_river"
+    }
+  ]
+}

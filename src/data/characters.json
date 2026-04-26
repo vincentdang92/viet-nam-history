@@ -1,0 +1,57 @@
+[
+  {
+    "id": "tran_thai_tong",
+    "name": "Trần Thái Tông",
+    "fullName": "Trần Cảnh",
+    "years": "1218–1277",
+    "role": "Vua sáng lập Nhà Trần, Hoàng Đế đầu tiên",
+    "portrait": null,
+    "personality": "Hiền minh, sùng Phật, đặt nền móng vững chắc cho triều đại",
+    "arc": [1],
+    "bio": "Vị vua đầu tiên của nhà Trần, trị vì 1225–1258. Dưới thời ông, nhà Trần củng cố nền tảng triều chính và chuẩn bị kháng Nguyên lần thứ nhất."
+  },
+  {
+    "id": "tran_hung_dao",
+    "name": "Trần Hưng Đạo",
+    "fullName": "Trần Quốc Tuấn",
+    "years": "1228–1300",
+    "role": "Hưng Đạo Đại Vương, Tổng chỉ huy quân đội",
+    "portrait": null,
+    "personality": "Trung nghĩa, mưu lược, đặt nước lên trên thù nhà",
+    "arc": [1, 2],
+    "bio": "Vị tướng vĩ đại nhất lịch sử Việt Nam, 3 lần đánh bại quân Nguyên Mông. Tác giả Hịch tướng sĩ bất hủ."
+  },
+  {
+    "id": "tran_nhan_tong",
+    "name": "Trần Nhân Tông",
+    "fullName": "Trần Khâm",
+    "years": "1258–1308",
+    "role": "Vua thứ ba nhà Trần, lãnh đạo kháng Nguyên lần 2 và 3",
+    "portrait": null,
+    "personality": "Anh minh, nhân từ, sau xuất gia thành Phật Hoàng",
+    "arc": [2],
+    "bio": "Vị vua lãnh đạo hai lần kháng Nguyên thắng lợi (1285, 1288). Sau khi nhường ngôi, xuất gia trở thành Trúc Lâm Đầu Đà, sáng lập Thiền phái Trúc Lâm."
+  },
+  {
+    "id": "tran_thu_do",
+    "name": "Trần Thủ Độ",
+    "fullName": "Trần Thủ Độ",
+    "years": "1194–1264",
+    "role": "Thái sư, người thực tế nắm quyền lực đầu nhà Trần",
+    "portrait": null,
+    "personality": "Quyết đoán, thực dụng, không ngại quyết sách cứng rắn",
+    "arc": [1],
+    "bio": "Người thiết lập nền móng quyền lực nhà Trần, giúp cháu là Trần Cảnh lên ngôi. Nắm thực quyền triều đình trong nhiều thập kỷ."
+  },
+  {
+    "id": "tran_quang_khai",
+    "name": "Trần Quang Khải",
+    "fullName": "Trần Quang Khải",
+    "years": "1241–1294",
+    "role": "Thượng tướng Thái sư, con trai Thái Tông",
+    "portrait": null,
+    "personality": "Văn võ song toàn, tài năng đa dạng",
+    "arc": [2],
+    "bio": "Chỉ huy trận Chương Dương và Hàm Tử, đánh bại quân Nguyên lần 2. Cũng là nhà thơ nổi tiếng với bài Tụng giá hoàn kinh sư."
+  }
+]

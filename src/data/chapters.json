@@ -1,0 +1,30 @@
+[
+  {
+    "id": "tran_dynasty",
+    "title": "Nhà Trần",
+    "subtitle": "1225 – 1400",
+    "description": "Triều đại vàng son của lịch sử Việt Nam. Ba lần đánh bại đế quốc Nguyên Mông, xây dựng nền văn hóa rực rỡ.",
+    "available": true,
+    "arcs": [
+      { "id": 1, "title": "Lập Quốc", "years": "1225–1257" },
+      { "id": 2, "title": "Ba Lần Kháng Nguyên", "years": "1257–1288" },
+      { "id": 3, "title": "Thịnh Rồi Suy", "years": "1288–1400" }
+    ]
+  },
+  {
+    "id": "ly_dynasty",
+    "title": "Nhà Lý",
+    "subtitle": "1009 – 1225",
+    "description": "Triều đại khai sáng với Kinh thành Thăng Long và nền văn hóa Phật giáo huy hoàng.",
+    "available": false,
+    "arcs": []
+  },
+  {
+    "id": "le_dynasty",
+    "title": "Nhà Lê Sơ",
+    "subtitle": "1428 – 1527",
+    "description": "Khởi nghĩa Lam Sơn đánh đuổi quân Minh, lập nên triều đại hưng thịnh kéo dài.",
+    "available": false,
+    "arcs": []
+  }
+]

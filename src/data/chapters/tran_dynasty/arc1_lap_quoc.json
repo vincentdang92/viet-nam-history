@@ -1,0 +1,442 @@
+{
+  "arcId": 1,
+  "title": "Lập Quốc",
+  "years": "1225–1257",
+  "intro": "Năm 1225, Lý Chiêu Hoàng nhường ngôi cho chồng là Trần Cảnh. Nhà Trần bắt đầu. Thách thức đầu tiên: củng cố ngai vàng và chuẩn bị cho mối đe dọa từ phương Bắc.",
+  "events": [
+    {
+      "id": "tran_arc1_001",
+      "arc": 1,
+      "year": 1225,
+      "type": "cinematic",
+      "title": "Ngai Vàng Chuyển Tay",
+      "context": "Lý Chiêu Hoàng, vị nữ vương cuối cùng của nhà Lý, đã nhường ngôi cho Trần Cảnh — người chồng 8 tuổi của bà. Trần Thủ Độ, người chú quyền lực, đứng sau sắp xếp tất cả.",
+      "character": "tran_thai_tong",
+      "quote": "Trẫm nhận ngôi trời trong tiếng thở dài của thiên hạ...",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Tôn vinh công lao nhà Lý, giữ các quan lại cũ",
+          "effects": { "binhLuc": 0, "danTam": 10, "quocKho": -5, "trieuCuong": -5 },
+          "isHistorical": true,
+          "fact": "Nhà Trần khéo léo chuyển giao quyền lực êm thấm, giữ ổn định xã hội trong giai đoạn đầu.",
+          "chainNext": "tran_arc1_002",
+          "unlockSuKy": "su_ky_lap_quoc_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Thanh trừng quan lại nhà Lý, đặt người nhà Trần vào vị trí then chốt",
+          "effects": { "binhLuc": 5, "danTam": -10, "quocKho": 0, "trieuCuong": 10 },
+          "isHistorical": false,
+          "fact": "Trong lịch sử, nhà Trần chọn cách chuyển giao quyền lực từ từ và khéo léo hơn.",
+          "chainNext": "tran_arc1_002",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": true,
+      "background": "thang_long_palace"
+    },
+    {
+      "id": "tran_arc1_002",
+      "arc": 1,
+      "year": 1228,
+      "type": "historical",
+      "title": "Trần Thủ Độ Nắm Quyền",
+      "context": "Thái sư Trần Thủ Độ — người chú quyền lực của vua — đề nghị cải tổ toàn bộ hệ thống quan lại. Ông muốn đặt người nhà Trần vào mọi vị trí quan trọng.",
+      "character": "tran_thu_do",
+      "quote": "Bệ hạ còn nhỏ, để thần lo liệu việc triều chính",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Cho phép Thủ Độ toàn quyền cải tổ",
+          "effects": { "binhLuc": 5, "danTam": -5, "quocKho": 0, "trieuCuong": 15 },
+          "isHistorical": true,
+          "fact": "Trần Thủ Độ nắm thực quyền triều đình suốt nhiều thập kỷ, xây dựng nền móng vững chắc cho nhà Trần.",
+          "chainNext": "tran_arc1_003",
+          "unlockSuKy": "su_ky_tran_thu_do_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Giữ lại một số quan lại nhà Lý để cân bằng quyền lực",
+          "effects": { "binhLuc": 0, "danTam": 5, "quocKho": 0, "trieuCuong": -5 },
+          "isHistorical": false,
+          "fact": "Lịch sử cho thấy Trần Thủ Độ đã nắm quyền hầu như tuyệt đối trong giai đoạn đầu nhà Trần.",
+          "chainNext": "tran_arc1_003",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc1_003",
+      "arc": 1,
+      "year": 1232,
+      "type": "historical",
+      "title": "Nạn Đói Ở Vùng Đồng Bằng",
+      "context": "Mưa lũ tàn phá mùa màng ở đồng bằng sông Hồng. Hàng chục nghìn người thiếu lương thực. Quốc khố chưa đầy đủ sau khi mới lên ngôi.",
+      "character": "tran_thai_tong",
+      "quote": "Trăm họ đói thì vua cũng không yên lòng",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Mở kho lương cứu đói, giảm thuế cho vùng lũ",
+          "effects": { "binhLuc": 0, "danTam": 15, "quocKho": -15, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Chính sách cứu dân của nhà Trần giúp xây dựng lòng tin của nhân dân vào triều đại mới.",
+          "chainNext": "tran_arc1_004",
+          "unlockSuKy": "su_ky_chinh_sach_dan_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Vay lương thực từ các địa chủ, hứa hoàn trả sau",
+          "effects": { "binhLuc": 0, "danTam": 5, "quocKho": -5, "trieuCuong": -5 },
+          "isHistorical": false,
+          "fact": "Nhà Trần chọn cách trực tiếp mở kho lương cứu dân thay vì dựa vào địa chủ.",
+          "chainNext": "tran_arc1_004",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "countryside"
+    },
+    {
+      "id": "tran_arc1_004",
+      "arc": 1,
+      "year": 1234,
+      "type": "historical",
+      "title": "Cải Cách Quân Đội",
+      "context": "Tin tức từ phương Bắc đáng lo ngại: đế quốc Mông Cổ đang nuốt gọn từng nước một. Các quan võ đề nghị cải tổ và tăng cường quân đội Đại Việt.",
+      "character": "tran_thu_do",
+      "quote": "Vó ngựa Mông Cổ chưa đến nhưng tiếng vó đã vang rất gần",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Đầu tư mạnh vào quân đội, bắt buộc tập luyện",
+          "effects": { "binhLuc": 15, "danTam": -5, "quocKho": -10, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Nhà Trần xây dựng quân đội theo mô hình lưỡng hệ — quân trung ương và quân địa phương — cực kỳ hiệu quả.",
+          "chainNext": "tran_arc1_005",
+          "unlockSuKy": "su_ky_quan_doi_tran_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Tập trung vào ngoại giao, cố gắng cống nạp để tránh chiến tranh",
+          "effects": { "binhLuc": -5, "danTam": 5, "quocKho": -5, "trieuCuong": 0 },
+          "isHistorical": false,
+          "fact": "Lịch sử cho thấy nhà Trần đã chủ động chuẩn bị quân sự song song với ngoại giao.",
+          "chainNext": "tran_arc1_005",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "training_ground"
+    },
+    {
+      "id": "tran_arc1_005",
+      "arc": 1,
+      "year": 1237,
+      "type": "historical",
+      "title": "Thiếu Niên Trần Quốc Tuấn",
+      "context": "Một thiếu niên họ Trần tên Quốc Tuấn lập chiến công ở biên ải phía Bắc, bắt giữ toán thám mã Mông Cổ. Các tướng tiến cử thiếu niên này về triều đình.",
+      "character": "tran_hung_dao",
+      "quote": "Thần nguyện xin được phụng sự bệ hạ",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Đưa vào triều đình đào tạo bài bản",
+          "effects": { "binhLuc": 5, "danTam": 0, "quocKho": -5, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Trần Hưng Đạo được đào tạo bài bản tại triều đình, sau này trở thành vị tướng vĩ đại nhất lịch sử Việt Nam.",
+          "chainNext": "tran_arc1_006",
+          "unlockSuKy": "su_ky_tran_hung_dao_001",
+          "setFlag": { "tranHungDaoUnlocked": true }
+        },
+        {
+          "id": "choice_b",
+          "text": "Thưởng và để ông tiếp tục ở biên ải",
+          "effects": { "binhLuc": 3, "danTam": 5, "quocKho": 0, "trieuCuong": -3 },
+          "isHistorical": false,
+          "fact": "Trong lịch sử, Trần Hưng Đạo được nuôi dưỡng và đào tạo kỹ lưỡng trong triều đình nhà Trần.",
+          "chainNext": "tran_arc1_006",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_palace"
+    },
+    {
+      "id": "tran_arc1_006",
+      "arc": 1,
+      "year": 1240,
+      "type": "event",
+      "title": "Sứ Giả Mông Cổ",
+      "context": "Đoàn sứ giả Mông Cổ đến Thăng Long mang yêu sách: Đại Việt phải thần phục, cống nạp vàng bạc, và cho quân Mông qua đất để đánh Chiêm Thành.",
+      "character": "tran_thai_tong",
+      "quote": "Họ đến không phải để đàm phán — họ đến để ra lệnh",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Từ chối thẳng thắn, trục xuất sứ giả",
+          "effects": { "binhLuc": 10, "danTam": 10, "quocKho": 0, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Nhà Trần đã từ chối yêu sách của Mông Cổ nhiều lần, thể hiện tinh thần bất khuất. Điều này dẫn đến cuộc xâm lược năm 1257.",
+          "chainNext": "tran_arc1_007",
+          "unlockSuKy": "su_ky_su_gia_mong_co_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Nhận lời thần phục giả tạo, trì hoãn để chuẩn bị",
+          "effects": { "binhLuc": 5, "danTam": -10, "quocKho": -5, "trieuCuong": -5 },
+          "isHistorical": false,
+          "fact": "Nhà Trần chọn cách đối đầu thẳng thắn hơn là khuất phục — điều này xây dựng uy tín cho triều đại.",
+          "chainNext": "tran_arc1_007",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc1_007",
+      "arc": 1,
+      "year": 1243,
+      "type": "event",
+      "title": "Nội Loạn Trong Triều",
+      "context": "Một số quý tộc nhà Trần bất mãn với quyền lực tập trung của Trần Thủ Độ, bí mật liên hệ với quân Mông Cổ. Mật thám phát hiện ra âm mưu.",
+      "character": "tran_thu_do",
+      "quote": "Trong nhà có giặc còn nguy hơn giặc ngoài biên ải",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Xử lý nghiêm khắc, chém đầu cầm đầu phản loạn",
+          "effects": { "binhLuc": 0, "danTam": -5, "quocKho": 0, "trieuCuong": 15 },
+          "isHistorical": true,
+          "fact": "Trần Thủ Độ nổi tiếng với những quyết sách cứng rắn, kiên quyết trừng trị kẻ phản quốc.",
+          "chainNext": "tran_arc1_008",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Ân xá và phân quyền để xoa dịu",
+          "effects": { "binhLuc": 0, "danTam": 5, "quocKho": -5, "trieuCuong": -10 },
+          "isHistorical": false,
+          "fact": "Lịch sử ghi nhận Trần Thủ Độ không tha thứ cho kẻ phản bội, đặc biệt trong thời điểm nhạy cảm trước chiến tranh.",
+          "chainNext": "tran_arc1_008",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc1_008",
+      "arc": 1,
+      "year": 1247,
+      "type": "event",
+      "title": "Thi Trạng Nguyên",
+      "context": "Kỳ thi Thái học sinh được tổ chức. Năm nay có ba thí sinh xuất sắc — Tam Nguyên Nguyễn Hiền (13 tuổi), Lê Văn Hưu và Đặng Ma La. Cả ba đều đỗ đầu.",
+      "character": "tran_thai_tong",
+      "quote": "Nước có nhân tài, triều đình mới vững",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Trọng dụng ngay, bổ nhiệm vào các vị trí quan trọng",
+          "effects": { "binhLuc": 0, "danTam": 10, "quocKho": -5, "trieuCuong": 10 },
+          "isHistorical": true,
+          "fact": "Nguyễn Hiền đỗ Trạng nguyên năm 13 tuổi — người trẻ nhất trong lịch sử. Lê Văn Hưu sau này viết bộ Đại Việt Sử Ký.",
+          "chainNext": "tran_arc1_009",
+          "unlockSuKy": "su_ky_nguyen_hien_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Đặt họ vào học thêm vài năm trước khi bổ nhiệm",
+          "effects": { "binhLuc": 0, "danTam": 0, "quocKho": 0, "trieuCuong": 0 },
+          "isHistorical": false,
+          "fact": "Nhà Trần có truyền thống trọng dụng nhân tài sớm, không để tài năng mai một vì tuổi tác.",
+          "chainNext": "tran_arc1_009",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "exam_hall"
+    },
+    {
+      "id": "tran_arc1_009",
+      "arc": 1,
+      "year": 1250,
+      "type": "event",
+      "title": "Mở Mang Thương Mại",
+      "context": "Thương nhân từ Trung Hoa, Chiêm Thành và Java đến buôn bán ở Thăng Long. Các quan đề nghị thu thuế cao hoặc mở rộng thương mại tự do.",
+      "character": "tran_thai_tong",
+      "quote": "Thương nghiệp là mạch máu của quốc khố",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Thu thuế vừa phải, khuyến khích thương mại",
+          "effects": { "binhLuc": 0, "danTam": 5, "quocKho": 15, "trieuCuong": 0 },
+          "isHistorical": true,
+          "fact": "Nhà Trần phát triển mạnh thương mại, biến Thăng Long thành trung tâm giao thương của Đông Nam Á.",
+          "chainNext": "tran_arc1_010",
+          "unlockSuKy": "su_ky_thuong_mai_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Thu thuế cao để tích lũy cho chiến tranh",
+          "effects": { "binhLuc": 5, "danTam": -10, "quocKho": 10, "trieuCuong": -5 },
+          "isHistorical": false,
+          "fact": "Chính sách thuế hợp lý của nhà Trần giúp thu hút thương nhân và phát triển kinh tế lâu dài.",
+          "chainNext": "tran_arc1_010",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_market"
+    },
+    {
+      "id": "tran_arc1_010",
+      "arc": 1,
+      "year": 1253,
+      "type": "historical",
+      "title": "Hội Nghị Diên Hồng",
+      "context": "Quân Mông Cổ đang tiến sát biên giới phía Bắc. Vua triệu tập hội nghị các bô lão cả nước để hỏi ý kiến: Hòa hay Chiến?",
+      "character": "tran_thai_tong",
+      "quote": "Nên hòa hay nên đánh?",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Chiến! Đánh đến cùng",
+          "effects": { "binhLuc": 10, "danTam": 20, "quocKho": -5, "trieuCuong": 10 },
+          "isHistorical": true,
+          "fact": "Hội nghị Diên Hồng năm 1285 (không phải 1253) — các bô lão đồng thanh hô 'Đánh!'. Đây là biểu tượng tinh thần kháng chiến của dân tộc.",
+          "chainNext": "tran_arc1_011",
+          "unlockSuKy": "su_ky_dien_hong_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Cần bàn thêm, chưa quyết định vội",
+          "effects": { "binhLuc": 0, "danTam": -5, "quocKho": 0, "trieuCuong": -5 },
+          "isHistorical": false,
+          "fact": "Trong lịch sử, hội nghị Diên Hồng nổi tiếng vì tinh thần đoàn kết và quyết tâm chiến đấu tuyệt đối.",
+          "chainNext": "tran_arc1_011",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": true,
+      "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc1_011",
+      "arc": 1,
+      "year": 1254,
+      "type": "event",
+      "title": "Tập Trận Lớn",
+      "context": "Trần Quốc Tuấn đề xuất tổ chức cuộc tập trận lớn nhất từ trước đến nay, huy động toàn bộ quân đội để luyện tập chiến thuật đối phó Mông Cổ.",
+      "character": "tran_hung_dao",
+      "quote": "Bình thời luyện quân, loạn thời mới dùng được quân",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Đồng ý, toàn lực tập trận",
+          "effects": { "binhLuc": 15, "danTam": -5, "quocKho": -10, "trieuCuong": 5 },
+          "isHistorical": true,
+          "fact": "Nhà Trần chuẩn bị quân sự rất bài bản trước các cuộc kháng Nguyên, bao gồm chiến thuật 'vườn không nhà trống'.",
+          "chainNext": "tran_arc1_012",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Tập trận nhỏ hơn, giữ ngân sách cho chiến tranh thật",
+          "effects": { "binhLuc": 5, "danTam": 0, "quocKho": -3, "trieuCuong": 0 },
+          "isHistorical": false,
+          "fact": "Sự chuẩn bị kỹ lưỡng là yếu tố then chốt giúp nhà Trần đánh bại quân Nguyên.",
+          "chainNext": "tran_arc1_012",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "training_ground"
+    },
+    {
+      "id": "tran_arc1_012",
+      "arc": 1,
+      "year": 1256,
+      "type": "historical",
+      "title": "Chiến Lược Vườn Không Nhà Trống",
+      "context": "Quân Mông Cổ đang áp sát. Trần Hưng Đạo đề xuất chiến lược táo bạo: bỏ Thăng Long, rút quân về phòng thủ có chiều sâu, không quyết chiến trực diện.",
+      "character": "tran_hung_dao",
+      "quote": "Chúng ta không thể thắng bằng cách đứng yên chờ giặc đến",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Chấp thuận — bỏ kinh thành, kéo dài chiến tranh",
+          "effects": { "binhLuc": 10, "danTam": -10, "quocKho": 0, "trieuCuong": -5 },
+          "isHistorical": true,
+          "fact": "Chiến lược 'vườn không nhà trống' — bỏ kinh thành, rút lui chiến lược — là thiên tài quân sự của nhà Trần, buộc quân Nguyên phải kéo dài tiếp tế.",
+          "chainNext": "tran_arc1_battle_1257",
+          "unlockSuKy": "su_ky_vuon_khong_nha_trong_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Giữ Thăng Long, chiến đến cùng",
+          "effects": { "binhLuc": -5, "danTam": 10, "quocKho": -5, "trieuCuong": 5 },
+          "isHistorical": false,
+          "fact": "Giữ Thăng Long ngay từ đầu sẽ dẫn đến tổn thất rất lớn — quân Mông Cổ vượt trội về sức mạnh tấn công trực diện.",
+          "chainNext": "tran_arc1_battle_1257",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "war_council"
+    },
+    {
+      "id": "tran_arc1_battle_1257",
+      "arc": 1,
+      "year": 1257,
+      "type": "battle",
+      "title": "Trận Đông Bộ Đầu — Kháng Nguyên Lần Thứ Nhất",
+      "context": "Quân Nguyên Mông 30,000 người do Uriyangkhadai chỉ huy vượt biên giới phía Bắc. Đây là trận chiến quyết định số phận nhà Trần.",
+      "character": "tran_hung_dao",
+      "quote": "Đây là giờ phút quyết định vận mệnh đất nước!",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Phối hợp thủy bộ, tập kích bên sườn khi quân Nguyên mệt mỏi",
+          "effects": { "binhLuc": 5, "danTam": 15, "quocKho": -10, "trieuCuong": 10 },
+          "isHistorical": true,
+          "fact": "Nhà Trần thắng trận Đông Bộ Đầu năm 1258, buộc quân Nguyên phải rút lui. Đây là lần đầu tiên trong lịch sử quân Nguyên Mông bị đánh bại.",
+          "chainNext": null,
+          "unlockSuKy": "su_ky_dong_bo_dau_001",
+          "setFlag": { "wonBattle1257": true },
+          "endArc": true
+        },
+        {
+          "id": "choice_b",
+          "text": "Phòng thủ thụ động, tránh tổn thất",
+          "effects": { "binhLuc": -10, "danTam": -5, "quocKho": 0, "trieuCuong": -10 },
+          "isHistorical": false,
+          "fact": "Chiến thuật chủ động phản công là chìa khóa thắng lợi của nhà Trần — phòng thủ thụ động sẽ dẫn đến thất bại.",
+          "chainNext": null,
+          "unlockSuKy": null,
+          "setFlag": { "wonBattle1257": false },
+          "endArc": true
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": true,
+      "background": "battle_field"
+    }
+  ]
+}

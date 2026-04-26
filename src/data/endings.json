@@ -1,0 +1,78 @@
+[
+  {
+    "id": "ending_an_vui",
+    "title": "Thái Bình Thịnh Trị",
+    "subtitle": "Đất nước yên bình, kho đầy, dân vui — kỳ tích vĩ đại nhất",
+    "rating": 5,
+    "conditions": {
+      "minYears": 60,
+      "wonBattle1257": true,
+      "wonBattle1285": true,
+      "wonBattle1288": true,
+      "minDanTam": 60,
+      "minQuocKho": 60
+    },
+    "description": "Nhà Trần đạt đỉnh cao hiếm có: ba lần đánh bại Nguyên Mông, kho lương đầy, lòng dân vui. Một triều đại hoàn hảo trong sử sách.",
+    "historicalNote": "Thời kỳ thái bình sau ba lần kháng Nguyên là giai đoạn hoàng kim thực sự của nhà Trần.",
+    "unlockSuKy": ["su_ky_thai_binh_001"]
+  },
+  {
+    "id": "ending_bach_dang",
+    "title": "Đế Vương Lưu Danh",
+    "subtitle": "Ba lần kháng Nguyên, sử sách ngàn đời ghi danh",
+    "rating": 5,
+    "conditions": {
+      "minYears": 50,
+      "wonBattle1257": true,
+      "wonBattle1285": true,
+      "wonBattle1288": true,
+      "minDanTam": 40
+    },
+    "description": "Nhà Trần kết thúc trong hào quang. Ba lần đánh bại đế quốc Nguyên Mông hùng mạnh nhất thế giới, sử sách ngàn đời ghi danh. Tên tuổi của vua được khắc vào bia đá lịch sử.",
+    "historicalNote": "Đây là kết cục lịch sử thật của nhà Trần thời cực thịnh — ba lần đại thắng 1257, 1285, 1288.",
+    "unlockSuKy": ["su_ky_bach_dang_001", "su_ky_hung_dao_tuong_linh"]
+  },
+  {
+    "id": "ending_trung_hung",
+    "title": "Trung Hưng Chi Chủ",
+    "subtitle": "Đất nước thoát khỏi vòng nô lệ, nhưng vết thương còn đó",
+    "rating": 4,
+    "conditions": {
+      "minYears": 40,
+      "wonBattle1257": true,
+      "wonBattle1285": true,
+      "wonBattle1288": false,
+      "minDanTam": 30
+    },
+    "description": "Nhà Trần giữ được độc lập nhưng phải trả giá đắt. Hai lần đánh bại Nguyên Mông, lần thứ ba gian nan hơn nhưng cuối cùng cũng thoát. Một kết cục đáng tự hào dù không hoàn hảo.",
+    "historicalNote": "Kết cục này phản ánh một phần lịch sử — nhà Trần đã chiến thắng nhưng tốn nhiều tổn thất.",
+    "unlockSuKy": ["su_ky_trung_hung_001"]
+  },
+  {
+    "id": "ending_phan_boi",
+    "title": "Triều Đình Sụp Đổ Từ Bên Trong",
+    "subtitle": "Triều cương mục ruỗng, giang sơn rơi vào tay kẻ khác",
+    "rating": 2,
+    "conditions": {
+      "minYears": 30,
+      "wonBattle1257": true,
+      "maxTrieuCuong": 30
+    },
+    "description": "Dù giữ được độc lập trước ngoại xâm, nhà Trần không giữ được sự đoàn kết từ bên trong. Quyền thần lộng quyền, dần nuốt chửng triều đại từ bên trong.",
+    "historicalNote": "Sự suy yếu nội bộ cuối nhà Trần mở đường cho Hồ Quý Ly soán ngôi năm 1400.",
+    "unlockSuKy": []
+  },
+  {
+    "id": "ending_loat_suong",
+    "title": "Nước Mất Nhà Tan",
+    "subtitle": "Đại Việt thất thủ trước vó ngựa Nguyên Mông",
+    "rating": 1,
+    "conditions": {
+      "minYears": 20,
+      "wonBattle1257": false
+    },
+    "description": "Không đứng vững trước đợt tấn công đầu tiên của quân Nguyên. Thăng Long thất thủ, vua phải lưu vong. Một trang lịch sử đau thương cho dân tộc Việt.",
+    "historicalNote": "Trong lịch sử thật, nhà Trần đã thoát hiểm và phản công thành công năm 1257.",
+    "unlockSuKy": []
+  }
+]
