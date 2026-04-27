@@ -40,9 +40,22 @@ export default function SuKyCard({ entry }) {
           >
             <div className="px-3 pb-3 border-t border-tran-border/50 pt-2">
               <p className="text-tran-text/80 text-xs leading-relaxed">{entry.detail}</p>
-              {entry.source && (
-                <p className="text-tran-textMuted text-xs mt-2 italic">— {entry.source}</p>
-              )}
+              <div className="flex items-center justify-between mt-2 flex-wrap gap-2">
+                {entry.source && (
+                  <p className="text-tran-textMuted text-xs italic">— {entry.source}</p>
+                )}
+                {entry.learnMore && (
+                  <a
+                    href={entry.learnMore}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={e => e.stopPropagation()}
+                    className="text-tran-secondary text-xs underline underline-offset-2 shrink-0"
+                  >
+                    Đọc thêm →
+                  </a>
+                )}
+              </div>
             </div>
           </motion.div>
         )}

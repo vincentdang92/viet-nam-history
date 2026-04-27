@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion'
 import { useGame } from '../../context/GameContext'
 import { useSuKy } from '../../hooks/useSuKy'
@@ -126,6 +126,50 @@ function SwipeCard({ event, choices, onChoiceA, onChoiceB, cardKey, showTutorial
   )
 }
 
+// ─── Exit confirmation modal ────────────────────────────────────────────────────
+function ExitModal({ onContinue, onHome }) {
+  return (
+    <motion.div
+      className="fixed inset-0 z-50 flex items-end justify-center pb-8 px-4"
+      style={{ background: 'rgba(26,15,10,0.85)', backdropFilter: 'blur(4px)' }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
+      <motion.div
+        className="w-full max-w-sm rounded-2xl border border-tran-border bg-tran-card shadow-2xl overflow-hidden"
+        initial={{ y: 80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 80, opacity: 0 }}
+        transition={{ type: 'spring', stiffness: 340, damping: 30 }}
+      >
+        <div className="px-5 pt-5 pb-4 text-center">
+          <p className="text-2xl mb-2">⚠️</p>
+          <p className="text-tran-text font-semibold text-base leading-snug">Bỏ cuộc giữa chừng?</p>
+          <p className="text-tran-textMuted text-sm mt-1">Tiến trình hiện tại sẽ không được lưu.</p>
+        </div>
+        <div className="flex flex-col gap-2 px-5 pb-5">
+          <button
+            onClick={onContinue}
+            className="w-full py-3 rounded-xl bg-tran-secondary text-tran-bg font-bold text-sm active:opacity-80 transition-opacity"
+            style={{ minHeight: 48 }}
+          >
+            Tiếp tục chơi
+          </button>
+          <button
+            onClick={onHome}
+            className="w-full py-3 rounded-xl border border-tran-border text-tran-textMuted text-sm active:opacity-70 transition-opacity"
+            style={{ minHeight: 48 }}
+          >
+            Về trang chủ
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
 // ─── In-game header ─────────────────────────────────────────────────────────────
 function GameHeader({ arc, onSuKy }) {
   const { unlocked } = useSuKy()
@@ -158,10 +202,40 @@ export default function GameScreen({ onSuKy }) {
   const { currentEvent, stats, currentYear, currentArc, showFactPopup, pendingFact, eventHistory } = state
   const [hoveredChoice, setHoveredChoice] = useState(null)
   const [cardKey, setCardKey]   = useState(0)
+  const [showExitModal, setShowExitModal] = useState(false)
 
   // Show tutorial on very first card only
   const isFirstCard = eventHistory.length === 0
   const [hideTutorial, setHideTutorial] = useState(false)
+
+  // Intercept browser back button / swipe-back gesture
+  useEffect(() => {
+    // Push a sentinel state so the back action hits us first
+    window.history.pushState(null, '', window.location.href)
+
+    const handlePopState = () => {
+      // Re-push so repeated back presses keep showing the modal
+      window.history.pushState(null, '', window.location.href)
+      setShowExitModal(true)
+    }
+
+    const handleBeforeUnload = (e) => {
+      e.preventDefault()
+      e.returnValue = ''
+    }
+
+    window.addEventListener('popstate', handlePopState)
+    window.addEventListener('beforeunload', handleBeforeUnload)
+    return () => {
+      window.removeEventListener('popstate', handlePopState)
+      window.removeEventListener('beforeunload', handleBeforeUnload)
+    }
+  }, [])
+
+  const handleGoHome = useCallback(() => {
+    setShowExitModal(false)
+    dispatch({ type: 'RESTART' })
+  }, [dispatch])
 
   const handleChoice = (choiceId) => {
     if (showFactPopup) return
@@ -236,6 +310,15 @@ export default function GameScreen({ onSuKy }) {
         fact={pendingFact}
         onDismiss={() => dispatch({ type: 'DISMISS_FACT' })}
       />
+
+      <AnimatePresence>
+        {showExitModal && (
+          <ExitModal
+            onContinue={() => setShowExitModal(false)}
+            onHome={handleGoHome}
+          />
+        )}
+      </AnimatePresence>
     </motion.div>
   )
 }

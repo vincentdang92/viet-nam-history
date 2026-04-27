@@ -39,6 +39,8 @@ const INITIAL_STATE = {
   pendingFact: null,
   pendingArcIntro: null,
   pendingEnding: null,
+  adRescueUsed: false,
+  adRescue: null,
 }
 
 function reducer(state, action) {
@@ -57,6 +59,36 @@ function reducer(state, action) {
       return { ...state, gameStatus: 'playing', pendingArcIntro: null }
     case 'RESTART':
       return INITIAL_STATE
+    case 'AD_RESCUE_COMPLETE': {
+      const { triggerStat, bonus } = state.adRescue
+      const rescuedStats = {
+        ...state.stats,
+        [triggerStat]: Math.min(100, (state.stats[triggerStat] ?? 0) + bonus),
+      }
+      return {
+        ...state,
+        stats: rescuedStats,
+        gameStatus: 'playing',
+        adRescue: null,
+        adRescueUsed: true,
+      }
+    }
+    case 'AD_RESCUE_SKIP':
+      return {
+        ...state,
+        gameStatus: 'gameover',
+        adRescue: null,
+        adRescueUsed: true,
+      }
+    case 'LOAD_GAME':
+      return {
+        ...INITIAL_STATE,
+        ...action.savedState,
+        showFactPopup: false,
+        pendingFact: null,
+        pendingArcIntro: null,
+        pendingEnding: null,
+      }
     default:
       return state
   }

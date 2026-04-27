@@ -11,6 +11,21 @@ export function processChoice(state, choiceId) {
 
   const gameOverCheck = checkGameOver(newStats)
   if (gameOverCheck.isOver) {
+    if (!state.adRescueUsed) {
+      const AD_TIERS = [
+        { duration: 5,  bonus: 10 },
+        { duration: 10, bonus: 20 },
+        { duration: 15, bonus: 30 },
+      ]
+      const tier = AD_TIERS[Math.floor(Math.random() * 3)]
+      return {
+        ...state,
+        gameStatus: 'ad_rescue',
+        gameOverReason: gameOverCheck.reason,
+        adRescue: { duration: tier.duration, bonus: tier.bonus, triggerStat: gameOverCheck.triggerStat },
+        lastChoice: choice,
+      }
+    }
     return {
       ...state,
       stats: newStats,

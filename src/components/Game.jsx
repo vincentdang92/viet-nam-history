@@ -8,6 +8,7 @@ import GameScreen from './screens/GameScreen'
 import GameOverScreen from './screens/GameOverScreen'
 import ArcTransitionScreen from './screens/ArcTransitionScreen'
 import SuKyScreen from './screens/SuKyScreen'
+import AdRescueScreen from './screens/AdRescueScreen'
 import EndingCard from './ui/EndingCard'
 import { getEnding } from '../engine/endingChecker'
 import { useBgMusic } from '../hooks/useBgMusic'
@@ -49,6 +50,8 @@ function GameRouter({ onSuKy, showSuKy }) {
       return <GameScreen key="game" onSuKy={() => onSuKy(true)} />
     case 'arc_intro':
       return <ArcTransitionScreen key={`arc-${state.currentArc}`} />
+    case 'ad_rescue':
+      return <AdRescueScreen key="adrescue" />
     case 'gameover':
       return <GameOverScreen key="gameover" />
     case 'ending': {
@@ -77,6 +80,14 @@ function GameInner() {
   useEffect(() => {
     if (state.gameStatus !== 'menu') start()
   }, [state.gameStatus]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Auto-save on every state change (except menu)
+  useEffect(() => {
+    if (state.gameStatus === 'menu') return
+    try {
+      localStorage.setItem('minh_chu_save', JSON.stringify(state))
+    } catch {}
+  }, [state])
 
   return (
     <>

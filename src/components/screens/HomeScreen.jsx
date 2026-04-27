@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useGame } from '../../context/GameContext'
 import chapters from '../../data/chapters.json'
@@ -14,8 +15,23 @@ const stagger = {
   },
 }
 
+const ARC_SHORT = { 1: 'Lập Quốc', 2: 'Kháng Nguyên', 3: 'Thịnh Rồi Suy', 4: 'Nhà Hồ & Thuộc Minh', 5: 'Lam Sơn' }
+
 export default function HomeScreen() {
   const { dispatch } = useGame()
+  const [savedState, setSavedState] = useState(null)
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem('minh_chu_save')
+      if (raw) {
+        const parsed = JSON.parse(raw)
+        if (parsed?.gameStatus === 'playing' || parsed?.gameStatus === 'arc_intro') {
+          setSavedState(parsed)
+        }
+      }
+    } catch {}
+  }, [])
 
   return (
     <motion.div
@@ -55,6 +71,35 @@ export default function HomeScreen() {
           </div>
         </motion.div>
 
+        {/* Continue save */}
+        {savedState && (
+          <motion.div
+            className="mb-5"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25, type: 'spring', stiffness: 260, damping: 24 }}
+          >
+            <button
+              onClick={() => {
+                dispatch({ type: 'LOAD_GAME', savedState })
+                setSavedState(null)
+              }}
+              className="w-full p-4 rounded-xl border border-tran-secondary/50 bg-tran-secondary/8 text-left active:opacity-80 transition-opacity"
+              style={{ background: 'rgba(212,160,23,0.06)' }}
+            >
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <p className="text-tran-secondary font-bold text-sm">▶ Tiếp Tục</p>
+                  <p className="text-tran-textMuted text-xs mt-0.5">
+                    Chương {savedState.currentArc} · {ARC_SHORT[savedState.currentArc]} · Năm {savedState.currentYear}
+                  </p>
+                </div>
+                <span className="text-tran-secondary text-xl shrink-0">⚔️</span>
+              </div>
+            </button>
+          </motion.div>
+        )}
+
         {/* Chapter list */}
         <motion.div
           className="space-y-3 mb-8"
@@ -70,7 +115,12 @@ export default function HomeScreen() {
                     ? 'border-tran-secondary/40 bg-tran-card hover:bg-tran-secondary/5'
                     : 'border-tran-border/20 bg-tran-card/30 cursor-not-allowed opacity-40'
                   }`}
-                onClick={() => ch.available && dispatch({ type: 'START_GAME' })}
+                onClick={() => {
+                  if (!ch.available) return
+                  localStorage.removeItem('minh_chu_save')
+                  setSavedState(null)
+                  dispatch({ type: 'START_GAME' })
+                }}
                 disabled={!ch.available}
                 whileTap={ch.available ? { scale: 0.98 } : {}}
                 whileHover={ch.available ? { borderColor: 'rgba(212,160,23,0.7)' } : {}}
