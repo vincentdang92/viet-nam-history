@@ -3,15 +3,14 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useGame } from '../../context/GameContext'
-import { STAT_META } from '../../constants/gameConfig'
+import { STAT_META, STAT_KEYS } from '../../constants/gameConfig'
 
-// Fake ad content cycles through to simulate "real" ad
 const AD_FRAMES = ['🏰', '⚔️', '🐉', '🎖️', '🗺️']
 
 export default function AdRescueScreen() {
   const { state, dispatch } = useGame()
   const { adRescue, gameOverReason } = state
-  const { duration, bonus, triggerStat } = adRescue
+  const { duration, bonus } = adRescue
 
   const [remaining, setRemaining] = useState(duration)
   const [frameIdx, setFrameIdx] = useState(0)
@@ -35,7 +34,6 @@ export default function AdRescueScreen() {
   }, [])
 
   const progress = ((duration - remaining) / duration) * 100
-  const meta = STAT_META[triggerStat]
 
   return (
     <motion.div
@@ -44,7 +42,7 @@ export default function AdRescueScreen() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
-      {/* Top bar — ad label + progress */}
+      {/* Top bar — ad label + countdown */}
       <div className="w-full mb-4">
         <div className="flex items-center justify-between mb-1.5">
           <span className="text-[10px] text-gray-500 uppercase tracking-widest font-semibold">Quảng Cáo</span>
@@ -77,7 +75,6 @@ export default function AdRescueScreen() {
           aspectRatio: '16/9',
         }}
       >
-        {/* Animated noise / scan-line effect */}
         <div
           className="absolute inset-0 opacity-5"
           style={{
@@ -89,31 +86,37 @@ export default function AdRescueScreen() {
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <div className="text-6xl mb-2">
-            {AD_FRAMES[frameIdx]}
-          </div>
+          <div className="text-6xl mb-2">{AD_FRAMES[frameIdx]}</div>
           <p className="text-white/60 text-xs">Minh Chủ — Game Lịch Sử</p>
           <p className="text-white/30 text-[10px] mt-0.5">Phiên bản giới hạn</p>
         </motion.div>
-
-        {/* Corner volume / mute icon */}
         <div className="absolute bottom-2 right-2 text-white/30 text-xs">🔇</div>
       </div>
 
-      {/* Rescue info */}
+      {/* Rescue info — show ALL 4 stats */}
       <div
         className="w-full rounded-xl p-4 mb-4 border"
         style={{ background: 'rgba(30,20,14,0.9)', borderColor: 'rgba(90,48,32,0.5)' }}
       >
-        <p className="text-gray-400 text-xs mb-1 leading-snug">{gameOverReason}</p>
-        <div className="flex items-center gap-2 mt-2">
-          <span className="text-base">{meta.icon}</span>
-          <span className="text-[11px]" style={{ color: meta.color }}>
-            {meta.label} sẽ được phục hồi
-          </span>
-          <span className="ml-auto font-bold text-sm" style={{ color: meta.color }}>
-            +{bonus}
-          </span>
+        <p className="text-gray-400 text-xs mb-3 leading-snug">{gameOverReason}</p>
+        <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Phục hồi tất cả chỉ số</p>
+        <div className="grid grid-cols-2 gap-2">
+          {STAT_KEYS.map(key => {
+            const meta = STAT_META[key]
+            const current = state.stats[key]
+            const rescued = Math.min(100, current + bonus)
+            return (
+              <div key={key} className="flex items-center gap-1.5">
+                <span className="text-sm">{meta.icon}</span>
+                <span className="text-[11px] flex-1 truncate" style={{ color: meta.color }}>
+                  {meta.label}
+                </span>
+                <span className="text-[11px] font-bold tabular-nums" style={{ color: '#4CAF50' }}>
+                  +{bonus}
+                </span>
+              </div>
+            )
+          })}
         </div>
       </div>
 
@@ -125,19 +128,30 @@ export default function AdRescueScreen() {
               key="claim"
               onClick={() => dispatch({ type: 'AD_RESCUE_COMPLETE' })}
               className="w-full py-4 rounded-xl font-bold text-sm"
-              style={{ background: meta.color, color: '#1A0F0A', minHeight: 56 }}
+              style={{
+                background: 'linear-gradient(135deg, #8B1A1A, #C0392B)',
+                color: '#F5E6D0',
+                minHeight: 56,
+              }}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ type: 'spring', stiffness: 300, damping: 22 }}
               whileTap={{ scale: 0.96 }}
             >
-              ✓ Nhận +{bonus} {meta.label} &amp; Tiếp Tục
+              ✓ Nhận +{bonus} mọi chỉ số &amp; Tiếp Tục
             </motion.button>
           ) : (
             <motion.div
               key="waiting"
               className="w-full py-4 rounded-xl text-sm text-center font-medium"
-              style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.3)', minHeight: 56, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              style={{
+                background: 'rgba(255,255,255,0.05)',
+                color: 'rgba(255,255,255,0.3)',
+                minHeight: 56,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >

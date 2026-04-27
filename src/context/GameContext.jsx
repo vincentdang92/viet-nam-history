@@ -60,10 +60,10 @@ function reducer(state, action) {
     case 'RESTART':
       return INITIAL_STATE
     case 'AD_RESCUE_COMPLETE': {
-      const { triggerStat, bonus } = state.adRescue
-      const rescuedStats = {
-        ...state.stats,
-        [triggerStat]: Math.min(100, (state.stats[triggerStat] ?? 0) + bonus),
+      const { bonus } = state.adRescue
+      const rescuedStats = {}
+      for (const [key, val] of Object.entries(state.stats)) {
+        rescuedStats[key] = Math.min(100, val + bonus)
       }
       return {
         ...state,
