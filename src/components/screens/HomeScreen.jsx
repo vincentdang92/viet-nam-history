@@ -4,7 +4,11 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useGame } from '../../context/GameContext'
 import { useAuth } from '../../context/AuthContext'
+import { loadGameState } from '../../lib/firestore'
+import PlayerInfoPanel from '../ui/PlayerInfoPanel'
 import chapters from '../../data/chapters.json'
+
+const RESUMABLE = ['playing', 'arc_intro', 'ad_rescue']
 
 const stagger = {
   container: {
@@ -24,6 +28,7 @@ export default function HomeScreen() {
   const [savedState, setSavedState] = useState(null)
   const [linking, setLinking] = useState(false)
   const [linkMsg, setLinkMsg] = useState(null)
+  const [showInfo, setShowInfo] = useState(false)
 
   const handleLinkGoogle = async () => {
     setLinking(true)
@@ -40,16 +45,28 @@ export default function HomeScreen() {
   }
 
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem('minh_chu_save')
-      if (raw) {
-        const parsed = JSON.parse(raw)
-        if (parsed?.gameStatus === 'playing' || parsed?.gameStatus === 'arc_intro') {
-          setSavedState(parsed)
-        }
+    async function loadSave() {
+      let saved = null
+
+      // Firestore first (cross-device, most reliable)
+      if (user?.uid) {
+        saved = await loadGameState(user.uid)
       }
-    } catch {}
-  }, [])
+
+      // Fallback to localStorage (offline / Firestore unavailable)
+      if (!saved) {
+        try {
+          const raw = localStorage.getItem('minh_chu_save')
+          if (raw) saved = JSON.parse(raw)
+        } catch {}
+      }
+
+      if (saved && RESUMABLE.includes(saved.gameStatus)) {
+        setSavedState(saved)
+      }
+    }
+    loadSave()
+  }, [user?.uid]) // re-run when auth resolves
 
   return (
     <motion.div
@@ -101,13 +118,23 @@ export default function HomeScreen() {
             <span className="text-tran-text text-sm font-medium">{playerName}</span>
             {isLinked && <span className="text-[10px] text-green-400 bg-green-900/30 px-1.5 py-0.5 rounded-full">Google</span>}
           </div>
-          <button
-            onClick={() => setPlayerName(null)}
-            className="text-tran-textMuted text-[11px] active:opacity-60"
-            style={{ minHeight: 36 }}
-          >
-            Đổi tên
-          </button>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => setShowInfo(true)}
+              className="text-tran-textMuted text-base px-2 active:opacity-60"
+              style={{ minHeight: 36 }}
+              title="Thông tin"
+            >
+              ⚙
+            </button>
+            <button
+              onClick={() => setPlayerName(null)}
+              className="text-tran-textMuted text-[11px] active:opacity-60"
+              style={{ minHeight: 36 }}
+            >
+              Đổi tên
+            </button>
+          </div>
         </motion.div>
 
         {/* Continue save */}
@@ -156,7 +183,6 @@ export default function HomeScreen() {
                   }`}
                 onClick={() => {
                   if (!ch.available) return
-                  localStorage.removeItem('minh_chu_save')
                   setSavedState(null)
                   dispatch({ type: 'START_GAME' })
                 }}
@@ -249,6 +275,8 @@ export default function HomeScreen() {
           <p className="opacity-50">✨ Fun First, Learn Always</p>
         </motion.div>
       </div>
+
+      <PlayerInfoPanel open={showInfo} onClose={() => setShowInfo(false)} />
     </motion.div>
   )
 }

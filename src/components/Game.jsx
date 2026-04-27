@@ -22,6 +22,10 @@ import {
   trackAdRescueShown,
   trackError,
 } from '../lib/analytics'
+import { saveGameState, clearGameState } from '../lib/firestore'
+
+const SAVEABLE = ['playing', 'arc_intro', 'ad_rescue']
+const TERMINAL = ['gameover', 'ending']
 
 // ─── Floating music toggle button ──────────────────────────────────────────────
 function MusicButton({ muted, onToggle }) {
@@ -88,21 +92,43 @@ function GameRouter({ onSuKy, showSuKy }) {
 // ─── Inner — has access to GameContext + audio ──────────────────────────────────
 function GameInner() {
   const { state } = useGame()
+  const { user } = useAuth()
   const [showSuKy, setShowSuKy] = useState(false)
   const { muted, start, toggle } = useBgMusic()
+  const firestoreTimerRef = useRef(null)
 
   // Start music on first user interaction beyond the menu
   useEffect(() => {
     if (state.gameStatus !== 'menu') start()
   }, [state.gameStatus]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Auto-save on every state change (except menu)
+  // Auto-save: localStorage immediately + Firestore debounced (1.5s)
   useEffect(() => {
-    if (state.gameStatus === 'menu') return
-    try {
-      localStorage.setItem('minh_chu_save', JSON.stringify(state))
-    } catch {}
-  }, [state])
+    const status = state.gameStatus
+
+    if (SAVEABLE.includes(status)) {
+      // localStorage — sync, offline fallback
+      try { localStorage.setItem('minh_chu_save', JSON.stringify(state)) } catch {}
+
+      // Firestore — debounced to avoid hammering on rapid choices
+      if (firestoreTimerRef.current) clearTimeout(firestoreTimerRef.current)
+      if (user?.uid) {
+        firestoreTimerRef.current = setTimeout(() => {
+          saveGameState(user.uid, state)
+        }, 1500)
+      }
+    }
+
+    if (TERMINAL.includes(status)) {
+      // Game ended — wipe the save so "Continue" doesn't appear next session
+      localStorage.removeItem('minh_chu_save')
+      if (user?.uid) clearGameState(user.uid)
+    }
+
+    return () => {
+      if (firestoreTimerRef.current) clearTimeout(firestoreTimerRef.current)
+    }
+  }, [state, user?.uid]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Analytics — fire events on key status transitions
   const prevStatus = useRef(null)

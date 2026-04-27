@@ -1,6 +1,7 @@
 import { initializeApp, getApps } from 'firebase/app'
 import { getAnalytics, isSupported } from 'firebase/analytics'
 import { getAuth } from 'firebase/auth'
+import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey:            process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -23,6 +24,13 @@ export function getFirebaseApp() {
     app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig)
   }
   return app
+}
+
+export function getFirestoreDB() {
+  if (!isConfigured) return null
+  const firebaseApp = getFirebaseApp()
+  if (!firebaseApp) return null
+  return getFirestore(firebaseApp)
 }
 
 export function getFirebaseAuth() {
