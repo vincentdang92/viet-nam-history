@@ -1,8 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useGame } from '../../context/GameContext'
+import { useAuth } from '../../context/AuthContext'
 import chapters from '../../data/chapters.json'
 
 const stagger = {
@@ -19,7 +20,24 @@ const ARC_SHORT = { 1: 'Lập Quốc', 2: 'Kháng Nguyên', 3: 'Thịnh Rồi Su
 
 export default function HomeScreen() {
   const { dispatch } = useGame()
+  const { playerName, setPlayerName, linkGoogle, isLinked, user } = useAuth()
   const [savedState, setSavedState] = useState(null)
+  const [linking, setLinking] = useState(false)
+  const [linkMsg, setLinkMsg] = useState(null)
+
+  const handleLinkGoogle = async () => {
+    setLinking(true)
+    setLinkMsg(null)
+    const result = await linkGoogle()
+    setLinking(false)
+    if (result.success) {
+      setLinkMsg({ ok: true, text: `✓ Đã liên kết ${result.email}` })
+    } else if (result.error === 'auth/credential-already-in-use') {
+      setLinkMsg({ ok: false, text: 'Tài khoản Google này đã được dùng' })
+    } else if (result.error !== 'auth/popup-closed-by-user') {
+      setLinkMsg({ ok: false, text: 'Liên kết thất bại, thử lại sau' })
+    }
+  }
 
   useEffect(() => {
     try {
@@ -69,6 +87,27 @@ export default function HomeScreen() {
             <p className="text-tran-textMuted text-xs px-2">Game Lịch Sử Việt Nam</p>
             <div className="h-px flex-1 bg-tran-border" />
           </div>
+        </motion.div>
+
+        {/* Player badge */}
+        <motion.div
+          className="flex items-center justify-between mb-6 px-1"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.25 }}
+        >
+          <div className="flex items-center gap-2">
+            <span className="text-tran-secondary text-sm">👤</span>
+            <span className="text-tran-text text-sm font-medium">{playerName}</span>
+            {isLinked && <span className="text-[10px] text-green-400 bg-green-900/30 px-1.5 py-0.5 rounded-full">Google</span>}
+          </div>
+          <button
+            onClick={() => setPlayerName(null)}
+            className="text-tran-textMuted text-[11px] active:opacity-60"
+            style={{ minHeight: 36 }}
+          >
+            Đổi tên
+          </button>
         </motion.div>
 
         {/* Continue save */}
@@ -146,6 +185,58 @@ export default function HomeScreen() {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Google link */}
+        {user && (
+          <motion.div
+            className="mb-5"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+          >
+            {isLinked ? (
+              <div className="flex items-center justify-center gap-2 py-2">
+                <span className="text-green-400 text-xs">✓</span>
+                <span className="text-tran-textMuted text-xs">Đã liên kết Google — tiến trình được lưu</span>
+              </div>
+            ) : (
+              <div className="space-y-1.5">
+                <button
+                  onClick={handleLinkGoogle}
+                  disabled={linking}
+                  className="w-full py-3 rounded-xl border border-tran-border text-sm text-tran-textMuted active:opacity-70 transition-opacity flex items-center justify-center gap-2"
+                  style={{ minHeight: 48 }}
+                >
+                  {linking ? (
+                    <span className="opacity-60">Đang kết nối...</span>
+                  ) : (
+                    <>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                      Liên kết Google để lưu cross-device
+                    </>
+                  )}
+                </button>
+                <AnimatePresence>
+                  {linkMsg && (
+                    <motion.p
+                      className={`text-center text-xs ${linkMsg.ok ? 'text-green-400' : 'text-red-400'}`}
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                    >
+                      {linkMsg.text}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+              </div>
+            )}
+          </motion.div>
+        )}
 
         {/* Footer hint */}
         <motion.div

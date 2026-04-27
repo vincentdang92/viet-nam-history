@@ -1,7 +1,22 @@
 import { applyEffects, checkGameOver } from './statsEngine'
 import { resolveNextEvent } from './eventResolver'
 import { checkEnding } from './endingChecker'
-import { YEAR_PER_CARD } from '../constants/gameConfig'
+import { YEAR_PER_CARD, DANGER_MIN, DANGER_MAX, STAT_CEIL } from '../constants/gameConfig'
+
+// Pre-compute rescued stats so AdRescueScreen and GameContext share the same values
+function computeRescuedStats(stats, bonus) {
+  const result = {}
+  for (const [key, val] of Object.entries(stats)) {
+    const isMaxDanger = key === 'binhLuc' || key === 'trieuCuong'
+    // High-danger stats: subtract bonus to bring them down; others: add bonus
+    const adjusted = (isMaxDanger && val >= DANGER_MAX) ? val - bonus : val + bonus
+    // safeMin includes the bonus so the player can survive at least one more bad choice
+    const safeMin = DANGER_MIN + bonus + 1
+    const safeMax = isMaxDanger ? DANGER_MAX - 1 : STAT_CEIL
+    result[key] = Math.min(safeMax, Math.max(safeMin, adjusted))
+  }
+  return result
+}
 
 export function processChoice(state, choiceId) {
   const choice = state.currentEvent.choices.find(c => c.id === choiceId)
@@ -11,7 +26,7 @@ export function processChoice(state, choiceId) {
 
   const gameOverCheck = checkGameOver(newStats)
   if (gameOverCheck.isOver) {
-    if (!state.adRescueUsed) {
+    if ((state.adRescueCount ?? 0) < 10) {
       const AD_TIERS = [
         { duration: 5,  bonus: 10 },
         { duration: 10, bonus: 20 },
@@ -54,6 +69,7 @@ export function processChoice(state, choiceId) {
           bonus: tier.bonus,
           triggerStat: gameOverCheck.triggerStat,
           pendingState: { ...pendingBase, currentEvent: nextEvent },
+          rescuedStats: computeRescuedStats(pendingBase.stats, tier.bonus),
         },
       }
     }

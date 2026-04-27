@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { GameProvider, useGame } from '../context/GameContext'
+import { AuthProvider, useAuth } from '../context/AuthContext'
+import NameSetupScreen from './screens/NameSetupScreen'
 import HomeScreen from './screens/HomeScreen'
 import GameScreen from './screens/GameScreen'
 import GameOverScreen from './screens/GameOverScreen'
@@ -46,6 +48,11 @@ function MusicButton({ muted, onToggle }) {
 // ─── Router ─────────────────────────────────────────────────────────────────────
 function GameRouter({ onSuKy, showSuKy }) {
   const { state, dispatch } = useGame()
+  const { playerName } = useAuth()
+
+  if (!playerName) {
+    return <NameSetupScreen key="namesetup" />
+  }
 
   if (showSuKy) {
     return <SuKyScreen key="suky" onBack={() => onSuKy(false)} />
@@ -160,8 +167,10 @@ function GameInner() {
 // ─── Root ────────────────────────────────────────────────────────────────────────
 export default function Game() {
   return (
-    <GameProvider>
-      <GameInner />
-    </GameProvider>
+    <AuthProvider>
+      <GameProvider>
+        <GameInner />
+      </GameProvider>
+    </AuthProvider>
   )
 }

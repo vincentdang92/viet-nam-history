@@ -39,7 +39,7 @@ const INITIAL_STATE = {
   pendingFact: null,
   pendingArcIntro: null,
   pendingEnding: null,
-  adRescueUsed: false,
+  adRescueCount: 0,
   adRescue: null,
 }
 
@@ -60,20 +60,15 @@ function reducer(state, action) {
     case 'RESTART':
       return INITIAL_STATE
     case 'AD_RESCUE_COMPLETE': {
-      const { bonus, pendingState } = state.adRescue
-      // Boost ALL stats from POST-choice position, then continue to next card
-      const rescuedStats = {}
-      for (const [key, val] of Object.entries(pendingState.stats)) {
-        rescuedStats[key] = Math.min(100, val + bonus)
-      }
-      // If there's a fact popup pending, stay 'playing' (FactPopup overlays GameScreen)
-      // dismissFactPopup will handle arc_intro / ending transitions afterward
+      // rescuedStats pre-computed in gameEngine with safeMin = DANGER_MIN + bonus + 1
+      // guarantees player can survive at least one more bad choice after rescue
+      const { rescuedStats, pendingState } = state.adRescue
       return {
         ...pendingState,
         stats: rescuedStats,
         gameStatus: 'playing',
         adRescue: null,
-        adRescueUsed: true,
+        adRescueCount: (state.adRescueCount ?? 0) + 1,
       }
     }
     case 'AD_RESCUE_SKIP':
@@ -81,7 +76,7 @@ function reducer(state, action) {
         ...state,
         gameStatus: 'gameover',
         adRescue: null,
-        adRescueUsed: true,
+        adRescueCount: (state.adRescueCount ?? 0) + 1,
       }
     case 'LOAD_GAME':
       return {

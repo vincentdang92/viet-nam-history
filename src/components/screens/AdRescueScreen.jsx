@@ -104,16 +104,18 @@ export default function AdRescueScreen() {
         <div className="grid grid-cols-2 gap-2">
           {STAT_KEYS.map(key => {
             const meta = STAT_META[key]
-            const current = state.stats[key]
-            const rescued = Math.min(100, current + bonus)
+            const before = adRescue.pendingState.stats[key]
+            const after = adRescue.rescuedStats[key]
+            const delta = after - before
             return (
               <div key={key} className="flex items-center gap-1.5">
                 <span className="text-sm">{meta.icon}</span>
                 <span className="text-[11px] flex-1 truncate" style={{ color: meta.color }}>
                   {meta.label}
                 </span>
+                <span className="text-[11px] tabular-nums text-tran-textMuted">{before}</span>
                 <span className="text-[11px] font-bold tabular-nums" style={{ color: '#4CAF50' }}>
-                  +{bonus}
+                  →{after}
                 </span>
               </div>
             )
