@@ -46,3 +46,19 @@ export async function clearGameState(uid) {
     await setDoc(ref, { gameState: null, savedAt: Date.now() })
   } catch {}
 }
+
+// Returns { ok: boolean, label: string } — used for debug panel
+export async function checkFirestoreConnection(uid) {
+  const db = getFirestoreDB()
+  if (!db) return { ok: false, label: 'Chưa cấu hình' }
+  if (!uid) return { ok: false, label: 'Chưa đăng nhập' }
+  try {
+    const ref = sessionRef(uid)
+    await getDoc(ref)   // succeeds even when doc is missing
+    return { ok: true, label: 'Đã kết nối ✓' }
+  } catch (err) {
+    if (err.code === 'permission-denied') return { ok: false, label: 'Lỗi quyền (rules)' }
+    if (err.code === 'unavailable')       return { ok: false, label: 'Không có mạng' }
+    return { ok: false, label: err.code ?? 'Lỗi kết nối' }
+  }
+}

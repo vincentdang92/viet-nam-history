@@ -29,7 +29,11 @@ export function AuthProvider({ children }) {
         try {
           const result = await signInAnonymously(auth)
           setUser(result.user)
-        } catch {}
+        } catch (err) {
+          // ADMIN_ONLY_OPERATION = Anonymous auth not enabled in Firebase Console
+          // Game still works via localStorage — just no Firestore sync
+          console.warn('[Auth] signInAnonymously failed:', err.code)
+        }
         setLoading(false)
       }
     })

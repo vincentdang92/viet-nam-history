@@ -11,6 +11,7 @@ const AD_FRAMES = ['🏰', '⚔️', '🐉', '🎖️', '🗺️']
 export default function AdRescueScreen() {
   const { state, dispatch } = useGame()
   const { adRescue, gameOverReason } = state
+  if (!adRescue) return null          // guard against null (e.g. stale render)
   const { duration, bonus } = adRescue
 
   const [remaining, setRemaining] = useState(duration)
@@ -104,9 +105,8 @@ export default function AdRescueScreen() {
         <div className="grid grid-cols-2 gap-2">
           {STAT_KEYS.map(key => {
             const meta = STAT_META[key]
-            const before = adRescue.pendingState.stats[key]
-            const after = adRescue.rescuedStats[key]
-            const delta = after - before
+            const before = adRescue.pendingState?.stats?.[key] ?? state.stats[key]
+            const after  = adRescue.rescuedStats?.[key] ?? Math.min(100, before + bonus)
             return (
               <div key={key} className="flex items-center gap-1.5">
                 <span className="text-sm">{meta.icon}</span>

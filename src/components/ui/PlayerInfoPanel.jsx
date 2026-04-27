@@ -1,9 +1,11 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAuth } from '../../context/AuthContext'
 import { useGame } from '../../context/GameContext'
 import { STAT_META, STAT_KEYS } from '../../constants/gameConfig'
+import { checkFirestoreConnection } from '../../lib/firestore'
 
 const ARC_LABEL = {
   1: 'Lập Quốc', 2: 'Kháng Nguyên', 3: 'Thịnh Rồi Suy',
@@ -67,6 +69,13 @@ function Section({ title, children }) {
 export default function PlayerInfoPanel({ open, onClose }) {
   const { playerName, user, isLinked } = useAuth()
   const { state } = useGame()
+  const [dbStatus, setDbStatus] = useState(null) // null = checking
+
+  useEffect(() => {
+    if (!open) return
+    setDbStatus(null)
+    checkFirestoreConnection(user?.uid).then(setDbStatus)
+  }, [open, user?.uid])
 
   const isPlaying = state.gameStatus !== 'menu'
 
@@ -160,7 +169,20 @@ export default function PlayerInfoPanel({ open, onClose }) {
                   valueColor={ENV_COLOR[appEnv] || '#A08070'}
                 />
                 <Row label="Build lúc" value={formatBuildTime(buildTime)} valueColor="#6B7280" />
-                <Row label="Firebase" value={process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || '—'} valueColor="#6B7280" />
+                <Row label="Firebase project" value={process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || '—'} valueColor="#6B7280" />
+                <Row
+                  label="Firestore"
+                  value={dbStatus === null ? 'Đang kiểm tra…' : dbStatus.label}
+                  valueColor={dbStatus === null ? '#6B7280' : dbStatus.ok ? '#4CAF50' : '#FF6B6B'}
+                />
+                {dbStatus && !dbStatus.ok && (
+                  <div className="py-1.5 text-[10px] leading-snug" style={{ color: '#FF9966' }}>
+                    {dbStatus.label === 'Chưa cấu hình' && 'Thiếu NEXT_PUBLIC_FIREBASE_* env vars'}
+                    {dbStatus.label === 'Lỗi quyền (rules)' && 'Cần enable Firestore + set security rules trong Firebase Console'}
+                    {dbStatus.label === 'Không có mạng' && 'Mất kết nối — game dùng localStorage tạm'}
+                    {dbStatus.label === 'Chưa đăng nhập' && 'Firebase Console → Authentication → Anonymous → Enable'}
+                  </div>
+                )}
               </Section>
 
               <button

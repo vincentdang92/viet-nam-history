@@ -3,16 +3,30 @@ import { resolveNextEvent } from './eventResolver'
 import { checkEnding } from './endingChecker'
 import { YEAR_PER_CARD, DANGER_MIN, DANGER_MAX, STAT_CEIL } from '../constants/gameConfig'
 
-// Pre-compute rescued stats so AdRescueScreen and GameContext share the same values
-function computeRescuedStats(stats, bonus) {
+// Exported so GameContext can recompute rescuedStats from old saves that don't have it
+export function computeRescuedStats(stats, bonus) {
   const result = {}
   for (const [key, val] of Object.entries(stats)) {
     const isMaxDanger = key === 'binhLuc' || key === 'trieuCuong'
-    // High-danger stats: subtract bonus to bring them down; others: add bonus
-    const adjusted = (isMaxDanger && val >= DANGER_MAX) ? val - bonus : val + bonus
-    // safeMin includes the bonus so the player can survive at least one more bad choice
-    const safeMin = DANGER_MIN + bonus + 1
-    const safeMax = isMaxDanger ? DANGER_MAX - 1 : STAT_CEIL
+
+    let adjusted
+    if (isMaxDanger) {
+      if (val >= DANGER_MAX) {
+        // Over the ceiling → bring it down
+        adjusted = val - bonus
+      } else {
+        // In safe zone → DO NOT add bonus; adding pushes toward DANGER_MAX
+        // safeMin clamp below handles the case where val is also below DANGER_MIN
+        adjusted = val
+      }
+    } else {
+      // danTam / quocKho — always recover with bonus
+      adjusted = val + bonus
+    }
+
+    // Guarantee stat lands in a safe playing range after rescue
+    const safeMin = DANGER_MIN + bonus + 1   // e.g. bonus=10 → min 26
+    const safeMax = isMaxDanger ? DANGER_MAX - 1 : STAT_CEIL  // 84 or 100
     result[key] = Math.min(safeMax, Math.max(safeMin, adjusted))
   }
   return result

@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useContext, useReducer } from 'react'
-import { processChoice, dismissFactPopup } from '../engine/gameEngine'
+import { processChoice, dismissFactPopup, computeRescuedStats } from '../engine/gameEngine'
 import { getFirstEvent } from '../engine/eventResolver'
 import { STAT_INITIAL } from '../constants/gameConfig'
 
@@ -60,12 +60,13 @@ function reducer(state, action) {
     case 'RESTART':
       return INITIAL_STATE
     case 'AD_RESCUE_COMPLETE': {
-      // rescuedStats pre-computed in gameEngine with safeMin = DANGER_MIN + bonus + 1
-      // guarantees player can survive at least one more bad choice after rescue
-      const { rescuedStats, pendingState } = state.adRescue
+      const { rescuedStats, pendingState, bonus } = state.adRescue ?? {}
+      if (!pendingState) return { ...state, gameStatus: 'gameover', adRescue: null }
+      // Fallback: recompute if rescuedStats missing (old save format)
+      const safeStats = rescuedStats ?? computeRescuedStats(pendingState.stats, bonus ?? 10)
       return {
         ...pendingState,
-        stats: rescuedStats,
+        stats: safeStats,
         gameStatus: 'playing',
         adRescue: null,
         adRescueCount: (state.adRescueCount ?? 0) + 1,
@@ -78,15 +79,30 @@ function reducer(state, action) {
         adRescue: null,
         adRescueCount: (state.adRescueCount ?? 0) + 1,
       }
-    case 'LOAD_GAME':
+    case 'LOAD_GAME': {
+      const s = action.savedState ?? {}
+      // Corrupt save: playing but no event
+      if (s.gameStatus === 'playing' && !s.currentEvent) return INITIAL_STATE
+      // Old ad_rescue save missing rescuedStats — recompute or discard
+      let adRescue = s.adRescue ?? null
+      if (s.gameStatus === 'ad_rescue' && adRescue) {
+        if (!adRescue.rescuedStats && adRescue.pendingState?.stats && adRescue.bonus) {
+          adRescue = { ...adRescue, rescuedStats: computeRescuedStats(adRescue.pendingState.stats, adRescue.bonus) }
+        } else if (!adRescue.pendingState || !adRescue.bonus) {
+          // Unrecoverable — drop to menu
+          return INITIAL_STATE
+        }
+      }
       return {
         ...INITIAL_STATE,
-        ...action.savedState,
+        ...s,
+        adRescue,
         showFactPopup: false,
         pendingFact: null,
         pendingArcIntro: null,
         pendingEnding: null,
       }
+    }
     default:
       return state
   }
