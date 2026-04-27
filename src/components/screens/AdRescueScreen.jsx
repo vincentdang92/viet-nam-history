@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useGame } from '../../context/GameContext'
 import { STAT_META, STAT_KEYS } from '../../constants/gameConfig'
+import { trackAdRescueWatched, trackAdRescueSkipped } from '../../lib/analytics'
 
 const AD_FRAMES = ['🏰', '⚔️', '🐉', '🎖️', '🗺️']
 
@@ -126,7 +127,10 @@ export default function AdRescueScreen() {
           {completed ? (
             <motion.button
               key="claim"
-              onClick={() => dispatch({ type: 'AD_RESCUE_COMPLETE' })}
+              onClick={() => {
+                trackAdRescueWatched({ duration, bonus })
+                dispatch({ type: 'AD_RESCUE_COMPLETE' })
+              }}
               className="w-full py-4 rounded-xl font-bold text-sm"
               style={{
                 background: 'linear-gradient(135deg, #8B1A1A, #C0392B)',
@@ -187,7 +191,10 @@ export default function AdRescueScreen() {
                 Hủy
               </button>
               <button
-                onClick={() => dispatch({ type: 'AD_RESCUE_SKIP' })}
+                onClick={() => {
+                  trackAdRescueSkipped({ remaining })
+                  dispatch({ type: 'AD_RESCUE_SKIP' })
+                }}
                 className="flex-1 py-2 rounded-lg text-xs border border-red-900/60 text-red-400 active:opacity-70"
                 style={{ minHeight: 44 }}
               >

@@ -18,12 +18,43 @@ export function processChoice(state, choiceId) {
         { duration: 15, bonus: 30 },
       ]
       const tier = AD_TIERS[Math.floor(Math.random() * 3)]
+
+      // Pre-compute everything after the choice so rescue can advance to NEXT card
+      const yearAdvance = state.currentEvent.type === 'battle' ? 2 : YEAR_PER_CARD
+      const newSuKy = choice.unlockSuKy
+        ? [...new Set([...state.unlockedSuKy, choice.unlockSuKy])]
+        : state.unlockedSuKy
+      const newFlags = { ...state.flags }
+      if (choice.setFlag) Object.assign(newFlags, choice.setFlag)
+      const nextArc = choice.endArc ? state.currentArc + 1 : state.currentArc
+
+      const pendingBase = {
+        ...state,
+        stats: newStats,
+        flags: newFlags,
+        yearsReigned: state.yearsReigned + yearAdvance,
+        currentYear: state.currentYear + yearAdvance,
+        currentArc: nextArc,
+        unlockedSuKy: newSuKy,
+        eventHistory: [...state.eventHistory, state.currentEvent.id],
+        lastChoice: choice,
+        showFactPopup: !!choice.fact,
+        pendingFact: choice.fact ? { text: choice.fact, isHistorical: choice.isHistorical } : null,
+        pendingArcIntro: choice.endArc ? nextArc : null,
+      }
+      const nextEvent = resolveNextEvent(pendingBase, choice)
+
       return {
         ...state,
         gameStatus: 'ad_rescue',
         gameOverReason: gameOverCheck.reason,
-        adRescue: { duration: tier.duration, bonus: tier.bonus, triggerStat: gameOverCheck.triggerStat },
         lastChoice: choice,
+        adRescue: {
+          duration: tier.duration,
+          bonus: tier.bonus,
+          triggerStat: gameOverCheck.triggerStat,
+          pendingState: { ...pendingBase, currentEvent: nextEvent },
+        },
       }
     }
     return {

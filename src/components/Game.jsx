@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { GameProvider, useGame } from '../context/GameContext'
 import HomeScreen from './screens/HomeScreen'
@@ -12,6 +12,14 @@ import AdRescueScreen from './screens/AdRescueScreen'
 import EndingCard from './ui/EndingCard'
 import { getEnding } from '../engine/endingChecker'
 import { useBgMusic } from '../hooks/useBgMusic'
+import {
+  trackGameStart,
+  trackGameOver,
+  trackEndingReached,
+  trackArcComplete,
+  trackAdRescueShown,
+  trackError,
+} from '../lib/analytics'
 
 // ─── Floating music toggle button ──────────────────────────────────────────────
 function MusicButton({ muted, onToggle }) {
@@ -88,6 +96,52 @@ function GameInner() {
       localStorage.setItem('minh_chu_save', JSON.stringify(state))
     } catch {}
   }, [state])
+
+  // Analytics — fire events on key status transitions
+  const prevStatus = useRef(null)
+  useEffect(() => {
+    const s = state.gameStatus
+    const prev = prevStatus.current
+    prevStatus.current = s
+
+    if (s === prev) return
+
+    if (s === 'playing' && prev === 'menu') {
+      trackGameStart()
+    }
+    if (s === 'gameover') {
+      trackGameOver({
+        reason: state.gameOverReason,
+        arc: state.currentArc,
+        yearsReigned: state.yearsReigned,
+        currentYear: state.currentYear,
+      })
+    }
+    if (s === 'ending') {
+      trackEndingReached({
+        endingId: state.endingId,
+        arc: state.currentArc,
+        yearsReigned: state.yearsReigned,
+      })
+    }
+    if (s === 'arc_intro') {
+      trackArcComplete({ arc: state.currentArc - 1 })
+    }
+    if (s === 'ad_rescue' && state.adRescue) {
+      trackAdRescueShown({
+        duration: state.adRescue.duration,
+        bonus: state.adRescue.bonus,
+        triggerStat: state.adRescue.triggerStat,
+      })
+    }
+  }, [state.gameStatus]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Global error tracking
+  useEffect(() => {
+    const handler = (e) => trackError({ message: e.message, source: 'window.onerror' })
+    window.addEventListener('error', handler)
+    return () => window.removeEventListener('error', handler)
+  }, [])
 
   return (
     <>
