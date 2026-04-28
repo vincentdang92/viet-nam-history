@@ -4,6 +4,7 @@ import { checkEnding } from './endingChecker'
 import { YEAR_PER_CARD, DANGER_MIN, DANGER_MAX, STAT_CEIL } from '../constants/gameConfig'
 import { getApplicableItem } from '../data/items'
 import { getRandomTrivia } from '../data/trivia'
+import { getRandomCombatCard } from '../data/combat'
 
 // From data analysis across all arcs: max |negative| = 15, max positive on binhLuc/trieuCuong = 20
 const MAX_NEG_EFFECT = 15
@@ -41,6 +42,23 @@ export function computeRescuedStats(stats, bonus) {
 export function processChoice(state, choiceId) {
   const choice = state.currentEvent.choices.find(c => c.id === choiceId)
   if (!choice) return state
+
+  // Intercept 'battle' type events to trigger the Combat Mini-game
+  if (state.currentEvent.type === 'battle' && state.gameStatus !== 'combat') {
+    return {
+      ...state,
+      gameStatus: 'combat',
+      combatState: {
+        playerHP: 100,
+        maxPlayerHP: 100,
+        enemyHP: 100,
+        maxEnemyHP: 100,
+        enemyName: 'Quân Địch',
+        currentCard: getRandomCombatCard(),
+        pendingChoiceId: choiceId
+      }
+    }
+  }
 
   const newStats = applyEffects(state.stats, choice.effects)
 
@@ -247,6 +265,49 @@ export function processChoice(state, choiceId) {
     pendingFact: { text: choice.fact, isHistorical: choice.isHistorical },
     // Signal arc transition after fact popup dismissal
     pendingArcIntro: choice.endArc ? nextArc : null,
+  }
+}
+
+// ─── Combat Processing ────────────────────────────────────────────────────────
+export function processCombatChoice(state, choiceId) {
+  const cState = state.combatState
+  const card = cState.currentCard
+  const choice = card.choices.find(c => c.id === choiceId)
+  
+  const newPlayerHP = Math.min(cState.maxPlayerHP, Math.max(0, cState.playerHP + (choice.playerHPDelta || 0)))
+  const newEnemyHP = Math.max(0, cState.enemyHP + (choice.enemyHPDelta || 0))
+  
+  if (newPlayerHP <= 0) {
+    const newStats = { ...state.stats, binhLuc: 0 }
+    return {
+      ...state,
+      stats: newStats,
+      gameStatus: 'gameover',
+      gameOverReason: 'Đại quân tan vỡ, ngài tử trận sa trường!',
+      combatState: null
+    }
+  }
+  
+  if (newEnemyHP <= 0) {
+    const pendingChoiceId = cState.pendingChoiceId
+    const resumedState = { 
+      ...state, 
+      gameStatus: 'playing', 
+      combatState: null, 
+      questToast: { status: 'completed', title: 'Thắng Trận!', desc: 'Quân địch đã bị tiêu diệt hoàn toàn!' } 
+    }
+    const tempState = { ...resumedState, currentEvent: { ...resumedState.currentEvent, type: 'normal' } }
+    return processChoice(tempState, pendingChoiceId)
+  }
+  
+  return {
+    ...state,
+    combatState: {
+      ...cState,
+      playerHP: newPlayerHP,
+      enemyHP: newEnemyHP,
+      currentCard: getRandomCombatCard()
+    }
   }
 }
 

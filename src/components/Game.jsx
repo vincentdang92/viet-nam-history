@@ -13,6 +13,7 @@ import SuKyScreen from './screens/SuKyScreen'
 import AdRescueScreen from './screens/AdRescueScreen'
 import ItemRescueScreen from './screens/ItemRescueScreen'
 import TriviaScreen from './screens/TriviaScreen'
+import CombatScreen from './screens/CombatScreen'
 import EndingCard from './ui/EndingCard'
 import { getEnding } from '../engine/endingChecker'
 import { useBgMusic } from '../hooks/useBgMusic'
@@ -75,6 +76,8 @@ function GameRouter({ onSuKy, showSuKy }) {
       return <ItemRescueScreen key="itemrescue" />
     case 'trivia':
       return <TriviaScreen key="trivia" />
+    case 'combat':
+      return <CombatScreen key="combat" />
     case 'ad_rescue':
       return <AdRescueScreen key="adrescue" />
     case 'gameover':

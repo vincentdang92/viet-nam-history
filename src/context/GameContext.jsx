@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useContext, useReducer } from 'react'
-import { processChoice, processTriviaResult, dismissFactPopup, computeRescuedStats } from '../engine/gameEngine'
+import { processChoice, processTriviaResult, processCombatChoice, dismissFactPopup, computeRescuedStats } from '../engine/gameEngine'
 import { getFirstEvent } from '../engine/eventResolver'
 import { STAT_INITIAL } from '../constants/gameConfig'
 import { getRandomQuest } from '../data/quests'
@@ -61,6 +61,8 @@ function reducer(state, action) {
       }
     case 'CHOOSE':
       return processChoice(state, action.choiceId)
+    case 'COMBAT_CHOICE':
+      return processCombatChoice(state, action.choiceId)
     case 'TRIVIA_COMPLETE':
       return processTriviaResult(state, action.isCorrect)
     case 'DISMISS_FACT':
