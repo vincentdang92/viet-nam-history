@@ -3,6 +3,10 @@ import { resolveNextEvent } from './eventResolver'
 import { checkEnding } from './endingChecker'
 import { YEAR_PER_CARD, DANGER_MIN, DANGER_MAX, STAT_CEIL } from '../constants/gameConfig'
 
+// From data analysis across all arcs: max |negative| = 15, max positive on binhLuc/trieuCuong = 20
+const MAX_NEG_EFFECT = 15
+const MAX_POS_EFFECT = 20
+
 // Exported so GameContext can recompute rescuedStats from old saves that don't have it
 export function computeRescuedStats(stats, bonus) {
   const result = {}
@@ -12,21 +16,21 @@ export function computeRescuedStats(stats, bonus) {
     let adjusted
     if (isMaxDanger) {
       if (val >= DANGER_MAX) {
-        // Over the ceiling → bring it down
+        // Over the ceiling → bring down
         adjusted = val - bonus
       } else {
-        // In safe zone → DO NOT add bonus; adding pushes toward DANGER_MAX
-        // safeMin clamp below handles the case where val is also below DANGER_MIN
+        // Safe zone → keep as-is; adding bonus risks pushing toward DANGER_MAX
         adjusted = val
       }
     } else {
-      // danTam / quocKho — always recover with bonus
+      // danTam / quocKho → always recover
       adjusted = val + bonus
     }
 
-    // Guarantee stat lands in a safe playing range after rescue
-    const safeMin = DANGER_MIN + bonus + 1   // e.g. bonus=10 → min 26
-    const safeMax = isMaxDanger ? DANGER_MAX - 1 : STAT_CEIL  // 84 or 100
+    // safeMin: rescued stat must survive one worst-case negative choice (31 - 15 = 16 > 15)
+    const safeMin = DANGER_MIN + MAX_NEG_EFFECT + 1  // = 31
+    // safeMax for max-danger: must survive one worst-case positive choice (64 + 20 = 84 < 85)
+    const safeMax = isMaxDanger ? DANGER_MAX - MAX_POS_EFFECT - 1 : STAT_CEIL  // 64 vs 100
     result[key] = Math.min(safeMax, Math.max(safeMin, adjusted))
   }
   return result
