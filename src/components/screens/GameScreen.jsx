@@ -9,6 +9,7 @@ import CardDisplay from '../game/CardDisplay'
 import ChoiceButton from '../game/ChoiceButton'
 import YearDisplay from '../game/YearDisplay'
 import FactPopup from '../ui/FactPopup'
+import { ITEMS_DATA } from '../../data/items'
 
 const SWIPE_THRESHOLD = 80
 const ARC_LABEL = {
@@ -40,7 +41,7 @@ function SwipeCard({ event, choices, onChoiceA, onChoiceB, cardKey, showTutorial
     else if (info.offset.x < -SWIPE_THRESHOLD && choices[1]) onChoiceB()
   }
 
-  const isBattle = event?.type === 'battle' || event?.isCinematic
+  const isBattle = event?.type === 'battle' || event?.isCinematic || event?.type === 'campaign'
 
   return (
     <div className="relative select-none">
@@ -171,27 +172,51 @@ function ExitModal({ onContinue, onHome }) {
 }
 
 // ─── In-game header ─────────────────────────────────────────────────────────────
-function GameHeader({ arc, onSuKy }) {
+function GameHeader({ arc, onSuKy, onHome, inventory }) {
   const { unlocked } = useSuKy()
 
   return (
     <div className="flex items-center justify-between px-4 pt-3 pb-1 shrink-0">
-      <div>
-        <p className="text-tran-textMuted text-[10px] uppercase tracking-widest">{DYNASTY_LABEL[arc] ?? 'Đại Việt'}</p>
-        <p className="text-tran-secondary text-xs font-semibold">{ARC_LABEL[arc]}</p>
+      <div className="flex items-center gap-3">
+        <button
+          onClick={onHome}
+          className="text-tran-textMuted active:opacity-60 flex items-center justify-center rounded-lg border border-tran-border bg-tran-card"
+          style={{ width: 36, height: 36 }}
+          title="Về trang chủ"
+        >
+          ⌂
+        </button>
+        <div>
+          <p className="text-tran-textMuted text-[10px] uppercase tracking-widest">{DYNASTY_LABEL[arc] ?? 'Đại Việt'}</p>
+          <p className="text-tran-secondary text-xs font-semibold">{ARC_LABEL[arc]}</p>
+        </div>
       </div>
-      <button
-        onClick={onSuKy}
-        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-tran-card border border-tran-border hover:border-tran-secondary/50 transition-colors"
-      >
-        <span className="text-sm">📖</span>
-        <span className="text-tran-text text-xs">Sử Ký</span>
-        {unlocked.length > 0 && (
-          <span className="bg-tran-secondary text-tran-bg text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
-            {unlocked.length}
-          </span>
+      
+      <div className="flex items-center gap-2">
+        {/* Inventory Items */}
+        {inventory?.length > 0 && (
+          <div className="flex gap-1 mr-1">
+            {inventory.map(id => (
+              <span key={id} title={ITEMS_DATA[id]?.name} className="text-lg filter drop-shadow-md">
+                {ITEMS_DATA[id]?.icon}
+              </span>
+            ))}
+          </div>
         )}
-      </button>
+
+        <button
+          onClick={onSuKy}
+          className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-tran-card border border-tran-border hover:border-tran-secondary/50 transition-colors"
+        >
+          <span className="text-sm">📖</span>
+          <span className="text-tran-text text-xs">Sử Ký</span>
+          {unlocked.length > 0 && (
+            <span className="bg-tran-secondary text-tran-bg text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
+              {unlocked.length}
+            </span>
+          )}
+        </button>
+      </div>
     </div>
   )
 }
@@ -199,7 +224,7 @@ function GameHeader({ arc, onSuKy }) {
 // ─── Main screen ────────────────────────────────────────────────────────────────
 export default function GameScreen({ onSuKy }) {
   const { state, dispatch } = useGame()
-  const { currentEvent, stats, currentYear, currentArc, showFactPopup, pendingFact, eventHistory } = state
+  const { currentEvent, stats, currentYear, currentArc, showFactPopup, pendingFact, eventHistory, inventory } = state
   const [hoveredChoice, setHoveredChoice] = useState(null)
   const [cardKey, setCardKey]   = useState(0)
   const [showExitModal, setShowExitModal] = useState(false)
@@ -259,22 +284,35 @@ export default function GameScreen({ onSuKy }) {
       )
     : stats
 
+  const isCampaign = currentEvent?.type === 'campaign'
+
   return (
     <motion.div
-      className="min-h-screen bg-tran-bg flex flex-col max-w-sm mx-auto"
+      className={`min-h-screen flex flex-col max-w-sm mx-auto relative transition-colors duration-1000 ${isCampaign ? 'bg-red-950/40' : 'bg-tran-bg'}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
+      {/* Campaign background intense glow */}
+      {isCampaign && (
+        <motion.div
+          className="absolute inset-0 pointer-events-none z-0 mix-blend-overlay bg-red-900"
+          animate={{ opacity: [0.1, 0.4, 0.1] }}
+          transition={{ duration: 3, repeat: Infinity }}
+        />
+      )}
+
       {/* Header */}
-      <GameHeader arc={currentArc} onSuKy={onSuKy} />
+      <div className="relative z-10">
+        <GameHeader arc={currentArc} onSuKy={onSuKy} onHome={() => setShowExitModal(true)} inventory={inventory} />
+      </div>
 
       {/* Stats */}
-      <div className="px-4 pb-2 shrink-0">
+      <div className="px-4 pb-2 shrink-0 relative z-10">
         <StatsBar stats={previewStats} baseStats={stats} />
       </div>
 
       {/* Card */}
-      <div className="flex-1 flex flex-col justify-center px-4 py-3 min-h-0">
+      <div className="flex-1 flex flex-col justify-center px-4 py-3 min-h-0 relative z-10">
         <AnimatePresence mode="wait">
           <SwipeCard
             key={cardKey}
@@ -289,7 +327,18 @@ export default function GameScreen({ onSuKy }) {
       </div>
 
       {/* Year + choices */}
-      <div className="px-4 pb-6 pt-4 shrink-0 space-y-2">
+      <div className="px-4 pb-6 pt-4 shrink-0 space-y-2 relative z-10">
+        {isCampaign && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-4"
+          >
+            <span className="bg-red-900 text-red-200 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-widest shadow-md border border-red-700">
+              Chiến Dịch
+            </span>
+          </motion.div>
+        )}
         <YearDisplay year={currentYear} arc={currentArc} />
         <div className="space-y-2 mt-2">
           {choices.map((choice, i) => (

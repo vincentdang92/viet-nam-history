@@ -18,7 +18,12 @@
         {
           "id": "choice_a",
           "text": "Phục vụ tân triều, góp phần thực thi các cải cách canh tân",
-          "effects": { "binhLuc": 0, "danTam": -5, "quocKho": 10, "trieuCuong": 10 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": -5,
+            "quocKho": 10,
+            "trieuCuong": 10
+          },
           "isHistorical": true,
           "fact": "Hồ Quý Ly xây Thành Tây Đô (nay là Thành Nhà Hồ, Thanh Hóa) chỉ trong 3 tháng năm 1397 bằng đá nguyên khối — không dùng vữa. Công trình khổng lồ này được UNESCO công nhận là Di sản Văn hóa Thế giới năm 2011.",
           "unlockSuKy": "su_ky_tay_do",
@@ -27,7 +32,12 @@
         {
           "id": "choice_b",
           "text": "Bí mật liên kết với các tướng lĩnh trung thành cũ, chờ thời cơ",
-          "effects": { "binhLuc": 10, "danTam": 5, "quocKho": -5, "trieuCuong": -10 },
+          "effects": {
+            "binhLuc": 10,
+            "danTam": 5,
+            "quocKho": -5,
+            "trieuCuong": -10
+          },
           "isHistorical": false,
           "fact": "Nhiều quan lại nhà Trần ban đầu phục vụ nhà Hồ. Nguyễn Phi Khanh — cha Nguyễn Trãi — là một trong số đó. Khi quân Minh xâm lược năm 1407, ông bị bắt và bị đưa sang Trung Quốc. Con trai ông, Nguyễn Trãi, đã trốn về và về sau trở thành quân sư của Lê Lợi.",
           "chainNext": "tran_arc4_002"
@@ -49,7 +59,12 @@
         {
           "id": "choice_a",
           "text": "Thực thi nghiêm khắc, phạt những ai tẩy chay tiền giấy",
-          "effects": { "binhLuc": 0, "danTam": -15, "quocKho": 10, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": -15,
+            "quocKho": 10,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
           "fact": "Tiền giấy 'thông bảo hội sao' của nhà Hồ (ban hành năm 1396) là tiền giấy đầu tiên trong lịch sử Việt Nam. Tuy nhiên dân chúng thiếu tin tưởng, bí mật giữ tiền đồng và tẩy chay. Chính sách thất bại hoàn toàn — góp phần làm mất lòng dân trước khi giặc đến.",
           "chainNext": "tran_arc4_003"
@@ -57,7 +72,12 @@
         {
           "id": "choice_b",
           "text": "Giải thích lợi ích cho dân, giảm bớt cưỡng bức đổi tiền",
-          "effects": { "binhLuc": 0, "danTam": 5, "quocKho": -5, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 5,
+            "quocKho": -5,
+            "trieuCuong": -5
+          },
           "isHistorical": false,
           "fact": "Cải cách tiền tệ của nhà Hồ thất bại vì thiếu lòng tin của người dân — bài học vượt thời đại: chính sách kinh tế tốt nhất cũng không thể áp đặt bằng vũ lực nếu không có sự đồng thuận xã hội.",
           "chainNext": "tran_arc4_003"
@@ -79,7 +99,12 @@
         {
           "id": "choice_a",
           "text": "Ủng hộ — lấy ruộng đất của đại địa chủ chia cho nông dân",
-          "effects": { "binhLuc": 0, "danTam": 15, "quocKho": 5, "trieuCuong": -15 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 15,
+            "quocKho": 5,
+            "trieuCuong": -15
+          },
           "isHistorical": true,
           "fact": "Chính sách hạn điền của nhà Hồ rất tiến bộ về lý tưởng nhưng tạo ra kẻ thù trong tầng lớp quý tộc — đúng lúc quân Minh chuẩn bị xâm lược. Nhiều quý tộc bất mãn đã không chống giặc, thậm chí dẫn đường cho quân Minh vào thành.",
           "chainNext": "tran_arc4_004"
@@ -87,7 +112,12 @@
         {
           "id": "choice_b",
           "text": "Thực thi có chọn lọc, tránh đụng chạm đến các gia tộc ảnh hưởng lớn",
-          "effects": { "binhLuc": 5, "danTam": -5, "quocKho": 0, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": -5,
+            "quocKho": 0,
+            "trieuCuong": 5
+          },
           "isHistorical": false,
           "fact": "Nhà Hồ thực hiện nhiều cải cách đúng đắn: hạn điền, cải tổ thi cử, dịch sách Hán sang chữ Nôm, thống kê dân số toàn quốc. Nhưng thời gian quá ngắn (7 năm) và thiếu nền tảng chính trị để các cải cách này bám rễ.",
           "chainNext": "tran_arc4_004"
@@ -109,7 +139,12 @@
         {
           "id": "choice_a",
           "text": "Bắt và giết Trần Thiêm Bình khi hắn quay về — thách thức nhà Minh",
-          "effects": { "binhLuc": 10, "danTam": 5, "quocKho": 0, "trieuCuong": 10 },
+          "effects": {
+            "binhLuc": 10,
+            "danTam": 5,
+            "quocKho": 0,
+            "trieuCuong": 10
+          },
           "isHistorical": true,
           "fact": "Hồ Quý Ly cho phục kích và giết Trần Thiêm Bình khi đoàn sứ bộ Minh đưa hắn trở về năm 1406. Đây chính là cái cớ mà Minh Thành Tổ (Yongle) cần để phát động chiến tranh xâm lược Đại Việt — một cuộc chiến mà ông đã lên kế hoạch từ trước.",
           "chainNext": "tran_arc4_005"
@@ -117,7 +152,12 @@
         {
           "id": "choice_b",
           "text": "Dâng lễ vật cầu hòa, chấp nhận Trần Thiêm Bình là dòng dõi Trần hợp pháp",
-          "effects": { "binhLuc": -5, "danTam": -5, "quocKho": -10, "trieuCuong": -10 },
+          "effects": {
+            "binhLuc": -5,
+            "danTam": -5,
+            "quocKho": -10,
+            "trieuCuong": -10
+          },
           "isHistorical": false,
           "fact": "Dù nhà Hồ có nhượng bộ ngoại giao, nhà Minh vẫn quyết tâm thôn tính Đại Việt. Minh Thành Tổ muốn kiểm soát vùng biển Đông Nam Á và tuyến thương mại phía Nam — Đại Việt là mục tiêu chiến lược không thể tránh khỏi.",
           "chainNext": "tran_arc4_005"
@@ -139,16 +179,28 @@
         {
           "id": "choice_a",
           "text": "Tử thủ tại ải quan, đánh trận địa chiến phòng ngự",
-          "effects": { "binhLuc": -10, "danTam": 10, "quocKho": -10, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": -10,
+            "danTam": 10,
+            "quocKho": -10,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
           "fact": "Nhà Hồ xây hệ thống phòng thủ mạnh dọc sông Nhị Hà và tại ải Chi Lăng. Nhưng quân Minh với ưu thế tuyệt đối — bao gồm súng thần công và chiến thuyền lớn — đã phá vỡ mọi tuyến phòng thủ. Hơn nữa, nhiều tướng Việt phản bội, dẫn đường cho quân địch.",
-          "setFlag": { "foughtMing1406": true },
+          "setFlag": {
+            "foughtMing1406": true
+          },
           "chainNext": "tran_arc4_006"
         },
         {
           "id": "choice_b",
           "text": "Rút về phía Nam bảo toàn lực lượng, áp dụng chiến tranh du kích",
-          "effects": { "binhLuc": 5, "danTam": -10, "quocKho": 5, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": -10,
+            "quocKho": 5,
+            "trieuCuong": -5
+          },
           "isHistorical": false,
           "fact": "Chiến thuật du kích chống ngoại xâm mà nhà Hồ chưa áp dụng được thì về sau Lê Lợi đã hoàn thiện trong 10 năm Khởi Nghĩa Lam Sơn (1418-1428) — chứng minh địa hình núi rừng Việt Nam là vũ khí chiến lược vô giá.",
           "chainNext": "tran_arc4_006"
@@ -170,7 +222,12 @@
         {
           "id": "choice_a",
           "text": "Cùng Hồ Quý Ly kháng cự đến hơi thở cuối cùng, không đầu hàng",
-          "effects": { "binhLuc": -15, "danTam": 15, "quocKho": -10, "trieuCuong": 0 },
+          "effects": {
+            "binhLuc": -15,
+            "danTam": 15,
+            "quocKho": -10,
+            "trieuCuong": 0
+          },
           "isHistorical": false,
           "fact": "Hồ Quý Ly bị bắt tháng 6 năm 1407 và bị đưa về Trung Quốc cùng con trai. Ông sống những năm cuối đời trong cảnh lưu đày. Nhà Hồ tồn tại 7 năm (1400-1407) — triều đại có chính sử ngắn nhất lịch sử Việt Nam.",
           "chainNext": "tran_arc4_007"
@@ -178,7 +235,12 @@
         {
           "id": "choice_b",
           "text": "Rút về vùng rừng núi, bảo toàn lực lượng chờ thời cơ phục quốc",
-          "effects": { "binhLuc": 10, "danTam": -5, "quocKho": -5, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": 10,
+            "danTam": -5,
+            "quocKho": -5,
+            "trieuCuong": -5
+          },
           "isHistorical": false,
           "fact": "Sau khi nhà Hồ sụp đổ, nhiều tướng lĩnh và quan lại người Việt đã lui vào rừng núi nuôi chí kháng Minh. Những người này sau đó tham gia các phong trào phục Trần và cuối cùng là Khởi Nghĩa Lam Sơn của Lê Lợi.",
           "unlockSuKy": "su_ky_nha_ho",
@@ -201,7 +263,12 @@
         {
           "id": "choice_a",
           "text": "Bí mật lưu giữ sách vở, chữ Nôm và văn hóa Việt",
-          "effects": { "binhLuc": 0, "danTam": 15, "quocKho": -5, "trieuCuong": 0 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 15,
+            "quocKho": -5,
+            "trieuCuong": 0
+          },
           "isHistorical": true,
           "fact": "Nhà Minh ra lệnh thu gom và đốt tất cả sách chữ Nôm và tài liệu lịch sử Việt Nam. Nhiều trí thức đã liều mình giữ lại tri thức dân tộc. Nguyễn Trãi — con trai Nguyễn Phi Khanh bị bắt đưa sang Tàu — đã trốn về nước và ghi lại kiến thức này để phục vụ sự nghiệp cứu nước.",
           "unlockSuKy": "su_ky_thuoc_minh",
@@ -210,7 +277,12 @@
         {
           "id": "choice_b",
           "text": "Giả vờ hợp tác để bảo toàn mạng sống và mạng lưới kháng cự ngầm",
-          "effects": { "binhLuc": 5, "danTam": -10, "quocKho": 10, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": -10,
+            "quocKho": 10,
+            "trieuCuong": 0
+          },
           "isHistorical": false,
           "fact": "Trong 20 năm Thuộc Minh (1407-1427), một số người Việt hợp tác với nhà Minh để tồn tại trong khi bí mật giúp đỡ các phong trào kháng cự. Ranh giới giữa sống còn và phản bội là câu hỏi đạo đức mà lịch sử không có câu trả lời đơn giản.",
           "chainNext": "tran_arc4_008"
@@ -232,7 +304,12 @@
         {
           "id": "choice_a",
           "text": "Gia nhập phong trào phục Trần, chiến đấu dưới danh nghĩa hoàng tộc cũ",
-          "effects": { "binhLuc": 10, "danTam": 10, "quocKho": -10, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": 10,
+            "danTam": 10,
+            "quocKho": -10,
+            "trieuCuong": -5
+          },
           "isHistorical": true,
           "fact": "Các phong trào phục Trần thất bại vì thiếu căn cứ vững chắc và không đủ lực lượng. Trần Quý Khoáng bị bắt năm 1413 và bị nhà Minh đưa về Trung Quốc trên thuyền. Trên đường đi, ông nhảy xuống biển tự vẫn để không bị khuất nhục.",
           "chainNext": "tran_arc4_009"
@@ -240,7 +317,12 @@
         {
           "id": "choice_b",
           "text": "Ủng hộ ngầm nhưng không ra mặt — chờ lãnh đạo mới có chiến lược đúng đắn",
-          "effects": { "binhLuc": 5, "danTam": 5, "quocKho": 5, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 5,
+            "quocKho": 5,
+            "trieuCuong": 5
+          },
           "isHistorical": false,
           "fact": "Bài học từ thất bại của phong trào phục Trần: chỉ có danh nghĩa mà không có chiến lược, căn cứ địa và lòng dân thì không thể thắng quân Minh. Lê Lợi sau này hiểu điều này — ông dành nhiều năm chuẩn bị trước khi chính thức phát động khởi nghĩa.",
           "chainNext": "tran_arc4_009"
@@ -262,17 +344,29 @@
         {
           "id": "choice_a",
           "text": "Gia nhập Hội Thề Lũng Nhai — thề cùng sống cùng chết vì nghĩa lớn",
-          "effects": { "binhLuc": 5, "danTam": 15, "quocKho": -5, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": 15,
+            "quocKho": -5,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
           "fact": "Hội Thề Lũng Nhai (1416) là sự kiện khai sinh Khởi Nghĩa Lam Sơn. 19 người tham dự gồm Lê Lợi cùng các hào kiệt: Lê Lai, Lê Văn An, Đinh Lễ, Nguyễn Xí... Họ uống máu thề trước trời đất — câu chuyện về hội thề này trở thành huyền thoại trong lịch sử Việt Nam.",
           "unlockSuKy": "su_ky_lung_nhai",
-          "setFlag": { "joinedLungNhai": true },
+          "setFlag": {
+            "joinedLungNhai": true
+          },
           "endArc": true
         },
         {
           "id": "choice_b",
           "text": "Cung cấp lương thực và tin tức cho nghĩa quân nhưng chưa ra mặt",
-          "effects": { "binhLuc": 10, "danTam": 5, "quocKho": -10, "trieuCuong": 0 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 5,
+            "quocKho": -10,
+            "trieuCuong": 0
+          },
           "isHistorical": false,
           "fact": "Nhiều người Việt đã ủng hộ Lê Lợi từ bóng tối — cung cấp lương thực, tin tức địch tình và nơi ẩn náu cho nghĩa quân. Mạng lưới hỗ trợ ngầm này là nền tảng quan trọng cho 10 năm kháng chiến gian khổ của Khởi Nghĩa Lam Sơn.",
           "endArc": true

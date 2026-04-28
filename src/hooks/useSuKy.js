@@ -1,6 +1,6 @@
 'use client'
 
-import { useGame } from '../context/GameContext'
+import { useAuth } from '../context/AuthContext'
 
 const SU_KY_DATA = {
   su_ky_lap_quoc_001: {
@@ -235,9 +235,10 @@ const SU_KY_DATA = {
 }
 
 export function useSuKy() {
-  const { state } = useGame()
+  const { profile } = useAuth()
 
-  const unlocked = state.unlockedSuKy
+  // Use global profile unlockedSuKy instead of session state
+  const unlocked = (profile?.unlockedSuKy || [])
     .map(id => SU_KY_DATA[id])
     .filter(Boolean)
 

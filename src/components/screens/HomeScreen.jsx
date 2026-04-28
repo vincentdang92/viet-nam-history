@@ -7,6 +7,7 @@ import { useAuth } from '../../context/AuthContext'
 import { loadGameState } from '../../lib/firestore'
 import PlayerInfoPanel from '../ui/PlayerInfoPanel'
 import chapters from '../../data/chapters.json'
+import { useSuKy } from '../../hooks/useSuKy'
 
 const RESUMABLE = ['playing', 'arc_intro', 'ad_rescue']
 
@@ -24,7 +25,8 @@ const ARC_SHORT = { 1: 'Lập Quốc', 2: 'Kháng Nguyên', 3: 'Thịnh Rồi Su
 
 export default function HomeScreen() {
   const { dispatch } = useGame()
-  const { playerName, setPlayerName, linkGoogle, isLinked, user } = useAuth()
+  const { playerName, setPlayerName, linkGoogle, isLinked, user, profile } = useAuth()
+  const { total: totalSuKy } = useSuKy()
   const [savedState, setSavedState] = useState(null)
   const [linking, setLinking] = useState(false)
   const [linkMsg, setLinkMsg] = useState(null)
@@ -127,13 +129,40 @@ export default function HomeScreen() {
             >
               ⚙
             </button>
-            <button
-              onClick={() => setPlayerName(null)}
-              className="text-tran-textMuted text-[11px] active:opacity-60"
-              style={{ minHeight: 36 }}
-            >
-              Đổi tên
-            </button>
+            {(profile?.nameChangeCount || 0) < 2 ? (
+              <button
+                onClick={() => setPlayerName(null)}
+                className="text-tran-textMuted text-[11px] active:opacity-60"
+                style={{ minHeight: 36 }}
+              >
+                Đổi tên
+              </button>
+            ) : (
+              <span className="text-tran-textMuted/50 text-[11px] px-1" title="Bạn đã dùng hết số lần đổi tên">
+                🔒 Tên cố định
+              </span>
+            )}
+          </div>
+        </motion.div>
+
+        {/* Meta Progression */}
+        <motion.div
+          className="flex justify-between items-center mb-6 px-2 py-3 bg-tran-card/30 border border-tran-border/30 rounded-xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          <div className="text-center flex-1 border-r border-tran-border/30">
+            <p className="text-[10px] text-tran-textMuted uppercase mb-1 font-semibold">Sử Ký Đã Mở</p>
+            <p className="text-tran-secondary font-bold text-base">
+              {profile?.unlockedSuKy?.length || 0} <span className="text-xs font-normal opacity-60">/ {totalSuKy}</span>
+            </p>
+          </div>
+          <div className="text-center flex-1">
+            <p className="text-[10px] text-tran-textMuted uppercase mb-1 font-semibold">Kết Cục Đã Mở</p>
+            <p className="text-tran-secondary font-bold text-base">
+              {profile?.milestones?.length || 0} <span className="text-xs font-normal opacity-60">/ 5</span>
+            </p>
           </div>
         </motion.div>
 

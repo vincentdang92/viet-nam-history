@@ -1,19 +1,39 @@
 'use client'
 
-import { createContext, useContext, useState, useEffect } from 'react'
-import { signInAnonymously, GoogleAuthProvider, linkWithPopup, onAuthStateChanged } from 'firebase/auth'
+import { createContext, useContext, useState, useEffect, useRef } from 'react'
+import { signInAnonymously, GoogleAuthProvider, linkWithPopup, onAuthStateChanged, signOut } from 'firebase/auth'
 import { getFirebaseAuth } from '../lib/firebase'
+import { saveUserProfile, loadUserProfile } from '../lib/firestore'
 
 const AuthContext = createContext(null)
+
+const DEFAULT_PROFILE = {
+  playerName: null,
+  nameChangeCount: 0,
+  unlockedSuKy: [],
+  milestones: []
+}
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [playerName, setPlayerNameState] = useState(null)
+  const [profile, setProfileState] = useState(DEFAULT_PROFILE)
+  const profileTimerRef = useRef(null)
 
   useEffect(() => {
-    const saved = localStorage.getItem('minh_chu_player_name')
-    if (saved) setPlayerNameState(saved)
+    // Load from local storage
+    const rawProfile = localStorage.getItem('minh_chu_profile')
+    if (rawProfile) {
+      try {
+        setProfileState(JSON.parse(rawProfile))
+      } catch {}
+    } else {
+      // Migrate old data
+      const oldName = localStorage.getItem('minh_chu_player_name')
+      if (oldName) {
+        setProfileState(p => ({ ...p, playerName: oldName }))
+      }
+    }
 
     const auth = getFirebaseAuth()
     if (!auth) {
@@ -24,6 +44,24 @@ export function AuthProvider({ children }) {
     const unsub = onAuthStateChanged(auth, async (u) => {
       if (u) {
         setUser(u)
+        
+        // Fetch firestore profile when logged in (even anonymously)
+        const remoteProfile = await loadUserProfile(u.uid)
+        if (remoteProfile) {
+          setProfileState(prev => {
+            const merged = { ...prev }
+            if (remoteProfile.playerName) merged.playerName = remoteProfile.playerName
+            if (remoteProfile.nameChangeCount !== undefined) merged.nameChangeCount = Math.max(prev.nameChangeCount, remoteProfile.nameChangeCount)
+            
+            // Merge arrays (unique items only)
+            merged.unlockedSuKy = [...new Set([...prev.unlockedSuKy, ...(remoteProfile.unlockedSuKy || [])])]
+            merged.milestones = [...new Set([...prev.milestones, ...(remoteProfile.milestones || [])])]
+            
+            localStorage.setItem('minh_chu_profile', JSON.stringify(merged))
+            return merged
+          })
+        }
+        
         setLoading(false)
       } else {
         try {
@@ -38,12 +76,48 @@ export function AuthProvider({ children }) {
       }
     })
 
-    return () => unsub()
+    return () => {
+      unsub()
+      if (profileTimerRef.current) clearTimeout(profileTimerRef.current)
+    }
   }, [])
 
+  const updateProfile = (updates) => {
+    setProfileState(prev => {
+      const merged = { ...prev, ...updates }
+      
+      // Specialized merge for arrays
+      if (updates.unlockedSuKy) {
+        merged.unlockedSuKy = [...new Set([...prev.unlockedSuKy, ...updates.unlockedSuKy])]
+      }
+      if (updates.milestones) {
+        merged.milestones = [...new Set([...prev.milestones, ...updates.milestones])]
+      }
+      
+      localStorage.setItem('minh_chu_profile', JSON.stringify(merged))
+
+      // Sync to firestore debounced
+      if (user?.uid) {
+        if (profileTimerRef.current) clearTimeout(profileTimerRef.current)
+        profileTimerRef.current = setTimeout(() => {
+          saveUserProfile(user.uid, merged)
+        }, 1500)
+      }
+      
+      return merged
+    })
+  }
+
   const setPlayerName = (name) => {
-    localStorage.setItem('minh_chu_player_name', name)
-    setPlayerNameState(name)
+    if (name === null || name === 'Ẩn Danh') {
+      // Clear name or ẩn danh không tăng bộ đếm
+      updateProfile({ playerName: name })
+    } else {
+      updateProfile({ 
+        playerName: name,
+        nameChangeCount: profile.nameChangeCount + 1
+      })
+    }
   }
 
   const linkGoogle = async () => {
@@ -59,13 +133,31 @@ export function AuthProvider({ children }) {
     }
   }
 
+  const logout = async () => {
+    const auth = getFirebaseAuth()
+    if (!auth) return
+    try {
+      await signOut(auth)
+      // Xóa dữ liệu local khi đăng xuất để bắt đầu phiên ẩn danh mới sạch sẽ
+      localStorage.removeItem('minh_chu_profile')
+      localStorage.removeItem('minh_chu_save')
+      localStorage.removeItem('minh_chu_player_name')
+      setProfileState(DEFAULT_PROFILE)
+    } catch (err) {
+      console.error('Logout error:', err)
+    }
+  }
+
   return (
     <AuthContext.Provider value={{
       user,
       loading,
-      playerName,
+      profile,
+      playerName: profile.playerName,
       setPlayerName,
+      updateProfile,
       linkGoogle,
+      logout,
       isLinked: !!(user && !user.isAnonymous),
     }}>
       {children}

@@ -11,6 +11,7 @@ import GameOverScreen from './screens/GameOverScreen'
 import ArcTransitionScreen from './screens/ArcTransitionScreen'
 import SuKyScreen from './screens/SuKyScreen'
 import AdRescueScreen from './screens/AdRescueScreen'
+import ItemRescueScreen from './screens/ItemRescueScreen'
 import EndingCard from './ui/EndingCard'
 import { getEnding } from '../engine/endingChecker'
 import { useBgMusic } from '../hooks/useBgMusic'
@@ -69,6 +70,8 @@ function GameRouter({ onSuKy, showSuKy }) {
       return <GameScreen key="game" onSuKy={() => onSuKy(true)} />
     case 'arc_intro':
       return <ArcTransitionScreen key={`arc-${state.currentArc}`} />
+    case 'item_rescue':
+      return <ItemRescueScreen key="itemrescue" />
     case 'ad_rescue':
       return <AdRescueScreen key="adrescue" />
     case 'gameover':
@@ -92,7 +95,7 @@ function GameRouter({ onSuKy, showSuKy }) {
 // ─── Inner — has access to GameContext + audio ──────────────────────────────────
 function GameInner() {
   const { state } = useGame()
-  const { user } = useAuth()
+  const { user, updateProfile } = useAuth()
   const [showSuKy, setShowSuKy] = useState(false)
   const { muted, start, toggle } = useBgMusic()
   const firestoreTimerRef = useRef(null)
@@ -129,6 +132,20 @@ function GameInner() {
       if (firestoreTimerRef.current) clearTimeout(firestoreTimerRef.current)
     }
   }, [state, user?.uid]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Sync unlocked Sử Ký to global profile
+  useEffect(() => {
+    if (state.unlockedSuKy && state.unlockedSuKy.length > 0) {
+      updateProfile({ unlockedSuKy: state.unlockedSuKy })
+    }
+  }, [state.unlockedSuKy]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Sync unlocked Endings (Milestones) to global profile
+  useEffect(() => {
+    if (state.gameStatus === 'ending' && state.endingId) {
+      updateProfile({ milestones: [state.endingId] })
+    }
+  }, [state.gameStatus, state.endingId]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Analytics — fire events on key status transitions
   const prevStatus = useRef(null)

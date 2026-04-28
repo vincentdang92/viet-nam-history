@@ -17,7 +17,12 @@
         {
           "id": "choice_a",
           "text": "Tôn vinh công lao nhà Lý, giữ các quan lại cũ",
-          "effects": { "binhLuc": 0, "danTam": 10, "quocKho": -5, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 10,
+            "quocKho": 5,
+            "trieuCuong": -10
+          },
           "isHistorical": true,
           "fact": "Nhà Trần khéo léo chuyển giao quyền lực êm thấm, giữ ổn định xã hội trong giai đoạn đầu.",
           "chainNext": "tran_arc1_002",
@@ -26,7 +31,12 @@
         {
           "id": "choice_b",
           "text": "Thanh trừng quan lại nhà Lý, đặt người nhà Trần vào vị trí then chốt",
-          "effects": { "binhLuc": 5, "danTam": -10, "quocKho": 0, "trieuCuong": 10 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": -10,
+            "quocKho": 0,
+            "trieuCuong": 10
+          },
           "isHistorical": false,
           "fact": "Trong lịch sử, nhà Trần chọn cách chuyển giao quyền lực từ từ và khéo léo hơn.",
           "chainNext": "tran_arc1_002",
@@ -50,7 +60,12 @@
         {
           "id": "choice_a",
           "text": "Cho phép Thủ Độ toàn quyền cải tổ",
-          "effects": { "binhLuc": 5, "danTam": -5, "quocKho": 0, "trieuCuong": 15 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": -5,
+            "quocKho": -5,
+            "trieuCuong": 10
+          },
           "isHistorical": true,
           "fact": "Trần Thủ Độ nắm thực quyền triều đình suốt nhiều thập kỷ, xây dựng nền móng vững chắc cho nhà Trần.",
           "chainNext": "tran_arc1_003",
@@ -59,7 +74,12 @@
         {
           "id": "choice_b",
           "text": "Giữ lại một số quan lại nhà Lý để cân bằng quyền lực",
-          "effects": { "binhLuc": 0, "danTam": 5, "quocKho": 0, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": -5,
+            "danTam": 10,
+            "quocKho": 5,
+            "trieuCuong": -10
+          },
           "isHistorical": false,
           "fact": "Lịch sử cho thấy Trần Thủ Độ đã nắm quyền hầu như tuyệt đối trong giai đoạn đầu nhà Trần.",
           "chainNext": "tran_arc1_003",
@@ -83,7 +103,12 @@
         {
           "id": "choice_a",
           "text": "Mở kho lương cứu đói, giảm thuế cho vùng lũ",
-          "effects": { "binhLuc": 0, "danTam": 15, "quocKho": -15, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 15,
+            "quocKho": -10,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
           "fact": "Chính sách cứu dân của nhà Trần giúp xây dựng lòng tin của nhân dân vào triều đại mới.",
           "chainNext": "tran_arc1_004",
@@ -92,7 +117,12 @@
         {
           "id": "choice_b",
           "text": "Vay lương thực từ các địa chủ, hứa hoàn trả sau",
-          "effects": { "binhLuc": 0, "danTam": 5, "quocKho": -5, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 5,
+            "quocKho": 5,
+            "trieuCuong": -5
+          },
           "isHistorical": false,
           "fact": "Nhà Trần chọn cách trực tiếp mở kho lương cứu dân thay vì dựa vào địa chủ.",
           "chainNext": "tran_arc1_004",
@@ -116,7 +146,12 @@
         {
           "id": "choice_a",
           "text": "Đầu tư mạnh vào quân đội, bắt buộc tập luyện",
-          "effects": { "binhLuc": 15, "danTam": -5, "quocKho": -10, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 10,
+            "danTam": -5,
+            "quocKho": -5,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
           "fact": "Nhà Trần xây dựng quân đội theo mô hình lưỡng hệ — quân trung ương và quân địa phương — cực kỳ hiệu quả.",
           "chainNext": "tran_arc1_005",
@@ -125,7 +160,12 @@
         {
           "id": "choice_b",
           "text": "Tập trung vào ngoại giao, cố gắng cống nạp để tránh chiến tranh",
-          "effects": { "binhLuc": -5, "danTam": 5, "quocKho": -5, "trieuCuong": 0 },
+          "effects": {
+            "binhLuc": -5,
+            "danTam": 5,
+            "quocKho": 10,
+            "trieuCuong": -5
+          },
           "isHistorical": false,
           "fact": "Lịch sử cho thấy nhà Trần đã chủ động chuẩn bị quân sự song song với ngoại giao.",
           "chainNext": "tran_arc1_005",
@@ -149,17 +189,29 @@
         {
           "id": "choice_a",
           "text": "Đưa vào triều đình đào tạo bài bản",
-          "effects": { "binhLuc": 5, "danTam": 0, "quocKho": -5, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": 0,
+            "quocKho": -5,
+            "trieuCuong": 0
+          },
           "isHistorical": true,
           "fact": "Trần Hưng Đạo được đào tạo bài bản tại triều đình, sau này trở thành vị tướng vĩ đại nhất lịch sử Việt Nam.",
           "chainNext": "tran_arc1_006",
           "unlockSuKy": "su_ky_tran_hung_dao_001",
-          "setFlag": { "tranHungDaoUnlocked": true }
+          "setFlag": {
+            "tranHungDaoUnlocked": true
+          }
         },
         {
           "id": "choice_b",
           "text": "Thưởng và để ông tiếp tục ở biên ải",
-          "effects": { "binhLuc": 3, "danTam": 5, "quocKho": 0, "trieuCuong": -3 },
+          "effects": {
+            "binhLuc": 3,
+            "danTam": 5,
+            "quocKho": 5,
+            "trieuCuong": -5
+          },
           "isHistorical": false,
           "fact": "Trong lịch sử, Trần Hưng Đạo được nuôi dưỡng và đào tạo kỹ lưỡng trong triều đình nhà Trần.",
           "chainNext": "tran_arc1_006",
@@ -183,7 +235,12 @@
         {
           "id": "choice_a",
           "text": "Từ chối thẳng thắn, trục xuất sứ giả",
-          "effects": { "binhLuc": 10, "danTam": 10, "quocKho": 0, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": 10,
+            "quocKho": 0,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
           "fact": "Nhà Trần đã từ chối yêu sách của Mông Cổ nhiều lần, thể hiện tinh thần bất khuất. Điều này dẫn đến cuộc xâm lược năm 1257.",
           "chainNext": "tran_arc1_007",
@@ -192,7 +249,12 @@
         {
           "id": "choice_b",
           "text": "Nhận lời thần phục giả tạo, trì hoãn để chuẩn bị",
-          "effects": { "binhLuc": 5, "danTam": -10, "quocKho": -5, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": -5,
+            "danTam": -5,
+            "quocKho": 10,
+            "trieuCuong": -5
+          },
           "isHistorical": false,
           "fact": "Nhà Trần chọn cách đối đầu thẳng thắn hơn là khuất phục — điều này xây dựng uy tín cho triều đại.",
           "chainNext": "tran_arc1_007",
@@ -216,7 +278,12 @@
         {
           "id": "choice_a",
           "text": "Xử lý nghiêm khắc, chém đầu cầm đầu phản loạn",
-          "effects": { "binhLuc": 0, "danTam": -5, "quocKho": 0, "trieuCuong": 15 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": -5,
+            "quocKho": 10,
+            "trieuCuong": 10
+          },
           "isHistorical": true,
           "fact": "Trần Thủ Độ nổi tiếng với những quyết sách cứng rắn, kiên quyết trừng trị kẻ phản quốc.",
           "chainNext": "tran_arc1_008",
@@ -225,7 +292,12 @@
         {
           "id": "choice_b",
           "text": "Ân xá và phân quyền để xoa dịu",
-          "effects": { "binhLuc": 0, "danTam": 5, "quocKho": -5, "trieuCuong": -10 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 5,
+            "quocKho": -5,
+            "trieuCuong": -5
+          },
           "isHistorical": false,
           "fact": "Lịch sử ghi nhận Trần Thủ Độ không tha thứ cho kẻ phản bội, đặc biệt trong thời điểm nhạy cảm trước chiến tranh.",
           "chainNext": "tran_arc1_008",
@@ -249,7 +321,12 @@
         {
           "id": "choice_a",
           "text": "Trọng dụng ngay, bổ nhiệm vào các vị trí quan trọng",
-          "effects": { "binhLuc": 0, "danTam": 10, "quocKho": -5, "trieuCuong": 10 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 10,
+            "quocKho": -10,
+            "trieuCuong": 0
+          },
           "isHistorical": true,
           "fact": "Nguyễn Hiền đỗ Trạng nguyên năm 13 tuổi — người trẻ nhất trong lịch sử. Lê Văn Hưu sau này viết bộ Đại Việt Sử Ký.",
           "chainNext": "tran_arc1_009",
@@ -258,7 +335,12 @@
         {
           "id": "choice_b",
           "text": "Đặt họ vào học thêm vài năm trước khi bổ nhiệm",
-          "effects": { "binhLuc": 0, "danTam": 0, "quocKho": 0, "trieuCuong": 0 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": -5,
+            "quocKho": 5,
+            "trieuCuong": 0
+          },
           "isHistorical": false,
           "fact": "Nhà Trần có truyền thống trọng dụng nhân tài sớm, không để tài năng mai một vì tuổi tác.",
           "chainNext": "tran_arc1_009",
@@ -282,7 +364,12 @@
         {
           "id": "choice_a",
           "text": "Thu thuế vừa phải, khuyến khích thương mại",
-          "effects": { "binhLuc": 0, "danTam": 5, "quocKho": 15, "trieuCuong": 0 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 5,
+            "quocKho": 15,
+            "trieuCuong": 0
+          },
           "isHistorical": true,
           "fact": "Nhà Trần phát triển mạnh thương mại, biến Thăng Long thành trung tâm giao thương của Đông Nam Á.",
           "chainNext": "tran_arc1_010",
@@ -291,7 +378,12 @@
         {
           "id": "choice_b",
           "text": "Thu thuế cao để tích lũy cho chiến tranh",
-          "effects": { "binhLuc": 5, "danTam": -10, "quocKho": 10, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": -10,
+            "quocKho": 10,
+            "trieuCuong": -5
+          },
           "isHistorical": false,
           "fact": "Chính sách thuế hợp lý của nhà Trần giúp thu hút thương nhân và phát triển kinh tế lâu dài.",
           "chainNext": "tran_arc1_010",
@@ -315,7 +407,12 @@
         {
           "id": "choice_a",
           "text": "Chiến! Đánh đến cùng",
-          "effects": { "binhLuc": 10, "danTam": 20, "quocKho": -5, "trieuCuong": 10 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 20,
+            "quocKho": -5,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
           "fact": "Hội nghị Diên Hồng năm 1285 (không phải 1253) — các bô lão đồng thanh hô 'Đánh!'. Đây là biểu tượng tinh thần kháng chiến của dân tộc.",
           "chainNext": "tran_arc1_011",
@@ -324,7 +421,12 @@
         {
           "id": "choice_b",
           "text": "Cần bàn thêm, chưa quyết định vội",
-          "effects": { "binhLuc": 0, "danTam": -5, "quocKho": 0, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": -5,
+            "danTam": -10,
+            "quocKho": 5,
+            "trieuCuong": -5
+          },
           "isHistorical": false,
           "fact": "Trong lịch sử, hội nghị Diên Hồng nổi tiếng vì tinh thần đoàn kết và quyết tâm chiến đấu tuyệt đối.",
           "chainNext": "tran_arc1_011",
@@ -348,7 +450,12 @@
         {
           "id": "choice_a",
           "text": "Đồng ý, toàn lực tập trận",
-          "effects": { "binhLuc": 15, "danTam": -5, "quocKho": -10, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": -5,
+            "quocKho": -10,
+            "trieuCuong": 0
+          },
           "isHistorical": true,
           "fact": "Nhà Trần chuẩn bị quân sự rất bài bản trước các cuộc kháng Nguyên, bao gồm chiến thuật 'vườn không nhà trống'.",
           "chainNext": "tran_arc1_012",
@@ -357,7 +464,12 @@
         {
           "id": "choice_b",
           "text": "Tập trận nhỏ hơn, giữ ngân sách cho chiến tranh thật",
-          "effects": { "binhLuc": 5, "danTam": 0, "quocKho": -3, "trieuCuong": 0 },
+          "effects": {
+            "binhLuc": -5,
+            "danTam": 5,
+            "quocKho": 5,
+            "trieuCuong": -5
+          },
           "isHistorical": false,
           "fact": "Sự chuẩn bị kỹ lưỡng là yếu tố then chốt giúp nhà Trần đánh bại quân Nguyên.",
           "chainNext": "tran_arc1_012",
@@ -381,7 +493,12 @@
         {
           "id": "choice_a",
           "text": "Chấp thuận — bỏ kinh thành, kéo dài chiến tranh",
-          "effects": { "binhLuc": 10, "danTam": -10, "quocKho": 0, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": -5,
+            "danTam": -10,
+            "quocKho": 10,
+            "trieuCuong": -5
+          },
           "isHistorical": true,
           "fact": "Chiến lược 'vườn không nhà trống' — bỏ kinh thành, rút lui chiến lược — là thiên tài quân sự của nhà Trần, buộc quân Nguyên phải kéo dài tiếp tế.",
           "chainNext": "tran_arc1_battle_1257",
@@ -390,7 +507,12 @@
         {
           "id": "choice_b",
           "text": "Giữ Thăng Long, chiến đến cùng",
-          "effects": { "binhLuc": -5, "danTam": 10, "quocKho": -5, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": 10,
+            "quocKho": -10,
+            "trieuCuong": 5
+          },
           "isHistorical": false,
           "fact": "Giữ Thăng Long ngay từ đầu sẽ dẫn đến tổn thất rất lớn — quân Mông Cổ vượt trội về sức mạnh tấn công trực diện.",
           "chainNext": "tran_arc1_battle_1257",
@@ -414,23 +536,37 @@
         {
           "id": "choice_a",
           "text": "Phối hợp thủy bộ, tập kích bên sườn khi quân Nguyên mệt mỏi",
-          "effects": { "binhLuc": 5, "danTam": 15, "quocKho": -10, "trieuCuong": 10 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": 15,
+            "quocKho": -10,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
           "fact": "Nhà Trần thắng trận Đông Bộ Đầu năm 1258, buộc quân Nguyên phải rút lui. Đây là lần đầu tiên trong lịch sử quân Nguyên Mông bị đánh bại.",
           "chainNext": null,
           "unlockSuKy": "su_ky_dong_bo_dau_001",
-          "setFlag": { "wonBattle1257": true },
+          "setFlag": {
+            "wonBattle1257": true
+          },
           "endArc": true
         },
         {
           "id": "choice_b",
           "text": "Phòng thủ thụ động, tránh tổn thất",
-          "effects": { "binhLuc": -10, "danTam": -5, "quocKho": 0, "trieuCuong": -10 },
+          "effects": {
+            "binhLuc": -10,
+            "danTam": -5,
+            "quocKho": 0,
+            "trieuCuong": -10
+          },
           "isHistorical": false,
           "fact": "Chiến thuật chủ động phản công là chìa khóa thắng lợi của nhà Trần — phòng thủ thụ động sẽ dẫn đến thất bại.",
           "chainNext": null,
           "unlockSuKy": null,
-          "setFlag": { "wonBattle1257": false },
+          "setFlag": {
+            "wonBattle1257": false
+          },
           "endArc": true
         }
       ],

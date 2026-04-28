@@ -6,6 +6,8 @@ import { useAuth } from '../../context/AuthContext'
 import { useGame } from '../../context/GameContext'
 import { STAT_META, STAT_KEYS } from '../../constants/gameConfig'
 import { checkFirestoreConnection } from '../../lib/firestore'
+import HowToPlayModal from './HowToPlayModal'
+import { useSuKy } from '../../hooks/useSuKy'
 
 const ARC_LABEL = {
   1: 'Lập Quốc', 2: 'Kháng Nguyên', 3: 'Thịnh Rồi Suy',
@@ -67,9 +69,11 @@ function Section({ title, children }) {
 }
 
 export default function PlayerInfoPanel({ open, onClose }) {
-  const { playerName, user, isLinked } = useAuth()
+  const { playerName, user, isLinked, profile, logout } = useAuth()
+  const { total: totalSuKy } = useSuKy()
   const { state } = useGame()
   const [dbStatus, setDbStatus] = useState(null) // null = checking
+  const [showHowToPlay, setShowHowToPlay] = useState(false)
 
   useEffect(() => {
     if (!open) return
@@ -84,9 +88,10 @@ export default function PlayerInfoPanel({ open, onClose }) {
   const appEnv     = process.env.NEXT_PUBLIC_APP_ENV     || 'development'
 
   return (
-    <AnimatePresence>
-      {open && (
-        <>
+    <>
+      <AnimatePresence>
+        {open && (
+          <>
           {/* Backdrop */}
           <motion.div
             className="fixed inset-0 z-40"
@@ -119,6 +124,9 @@ export default function PlayerInfoPanel({ open, onClose }) {
               {/* Player */}
               <Section title="Người chơi">
                 <Row label="Tên hiệu" value={playerName || '—'} valueColor="#D4A017" />
+                <Row label="Đổi tên còn lại" value={Math.max(0, 2 - (profile?.nameChangeCount || 0))} valueColor="#A08070" />
+                <Row label="Sử Ký đã mở" value={`${profile?.unlockedSuKy?.length || 0} / ${totalSuKy}`} valueColor="#F5E6D0" />
+                <Row label="Kết Cục đã mở" value={`${profile?.milestones?.length || 0} / 5`} valueColor="#F5E6D0" />
                 <Row
                   label="Tài khoản"
                   value={isLinked ? `Google · ${user?.email}` : 'Ẩn danh'}
@@ -185,6 +193,29 @@ export default function PlayerInfoPanel({ open, onClose }) {
                 )}
               </Section>
 
+              <div className="space-y-3 mb-3">
+                <button
+                  onClick={() => setShowHowToPlay(true)}
+                  className="w-full py-3 rounded-xl border border-tran-secondary/50 bg-tran-secondary/10 text-tran-secondary text-sm active:opacity-70 flex items-center justify-center gap-2 font-medium"
+                  style={{ minHeight: 48 }}
+                >
+                  <span>❓</span> Hướng dẫn chơi
+                </button>
+                
+                {isLinked && (
+                  <button
+                    onClick={() => {
+                      logout()
+                      onClose()
+                    }}
+                    className="w-full py-3 rounded-xl border border-red-500/30 bg-red-500/10 text-red-400 text-sm active:opacity-70 font-medium"
+                    style={{ minHeight: 48 }}
+                  >
+                    Đăng xuất
+                  </button>
+                )}
+              </div>
+
               <button
                 onClick={onClose}
                 className="w-full py-3 rounded-xl border border-tran-border text-tran-textMuted text-sm active:opacity-70"
@@ -197,5 +228,7 @@ export default function PlayerInfoPanel({ open, onClose }) {
         </>
       )}
     </AnimatePresence>
+    <HowToPlayModal open={showHowToPlay} onClose={() => setShowHowToPlay(false)} />
+    </>
   )
 }

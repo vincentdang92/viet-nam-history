@@ -2,6 +2,7 @@ import { applyEffects, checkGameOver } from './statsEngine'
 import { resolveNextEvent } from './eventResolver'
 import { checkEnding } from './endingChecker'
 import { YEAR_PER_CARD, DANGER_MIN, DANGER_MAX, STAT_CEIL } from '../constants/gameConfig'
+import { getApplicableItem } from '../data/items'
 
 // From data analysis across all arcs: max |negative| = 15, max positive on binhLuc/trieuCuong = 20
 const MAX_NEG_EFFECT = 15
@@ -44,6 +45,52 @@ export function processChoice(state, choiceId) {
 
   const gameOverCheck = checkGameOver(newStats)
   if (gameOverCheck.isOver) {
+    const yearAdvance = state.currentEvent.type === 'battle' || state.currentEvent.type === 'campaign' ? 2 : YEAR_PER_CARD
+    const nextArc = choice.endArc ? state.currentArc + 1 : state.currentArc
+    const newSuKy = choice.unlockSuKy
+      ? [...new Set([...state.unlockedSuKy, choice.unlockSuKy])]
+      : state.unlockedSuKy
+    const newFlags = { ...state.flags }
+    if (choice.setFlag) Object.assign(newFlags, choice.setFlag)
+    const newInventory = choice.giveItem && !(state.inventory || []).includes(choice.giveItem)
+      ? [...(state.inventory || []), choice.giveItem]
+      : (state.inventory || [])
+
+    const pendingBase = {
+      ...state,
+      stats: newStats,
+      flags: newFlags,
+      yearsReigned: state.yearsReigned + yearAdvance,
+      currentYear: state.currentYear + yearAdvance,
+      currentArc: nextArc,
+      unlockedSuKy: newSuKy,
+      inventory: newInventory,
+      eventHistory: [...state.eventHistory, state.currentEvent.id],
+      lastChoice: choice,
+      showFactPopup: !!choice.fact,
+      pendingFact: choice.fact ? { text: choice.fact, isHistorical: choice.isHistorical } : null,
+      pendingArcIntro: choice.endArc ? nextArc : null,
+    }
+    const nextEvent = resolveNextEvent(pendingBase, choice)
+
+    // 1. Check for item rescue
+    const applicableItem = getApplicableItem(state.inventory || [], gameOverCheck.triggerStat)
+    if (applicableItem) {
+      return {
+        ...state,
+        gameStatus: 'item_rescue',
+        gameOverReason: gameOverCheck.reason,
+        lastChoice: choice,
+        itemRescue: {
+          itemId: applicableItem.id,
+          triggerStat: gameOverCheck.triggerStat,
+          pendingState: { ...pendingBase, currentEvent: nextEvent },
+          rescuedStats: computeRescuedStats(pendingBase.stats, 20), // 20 bonus for item
+        }
+      }
+    }
+
+    // 2. Fallback to ad rescue
     if ((state.adRescueCount ?? 0) < 10) {
       const AD_TIERS = [
         { duration: 5,  bonus: 10 },
@@ -100,13 +147,17 @@ export function processChoice(state, choiceId) {
     }
   }
 
-  const yearAdvance = state.currentEvent.type === 'battle' ? 2 : YEAR_PER_CARD
+  const yearAdvance = state.currentEvent.type === 'battle' || state.currentEvent.type === 'campaign' ? 2 : YEAR_PER_CARD
   const newYear = state.currentYear + yearAdvance
   const newYearsReigned = state.yearsReigned + yearAdvance
 
   const newSuKy = choice.unlockSuKy
     ? [...new Set([...state.unlockedSuKy, choice.unlockSuKy])]
     : state.unlockedSuKy
+
+  const newInventory = choice.giveItem && !(state.inventory || []).includes(choice.giveItem)
+    ? [...(state.inventory || []), choice.giveItem]
+    : (state.inventory || [])
 
   const newFlags = { ...state.flags }
   if (choice.setFlag) Object.assign(newFlags, choice.setFlag)
@@ -117,6 +168,7 @@ export function processChoice(state, choiceId) {
     ...state,
     stats: newStats,
     flags: newFlags,
+    inventory: newInventory,
     yearsReigned: newYearsReigned,
     currentArc: nextArc,
   }

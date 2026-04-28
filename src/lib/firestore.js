@@ -9,6 +9,12 @@ function sessionRef(uid) {
   return doc(db, 'users', uid, 'sessions', SESSION_DOC)
 }
 
+function profileRef(uid) {
+  const db = getFirestoreDB()
+  if (!db || !uid) return null
+  return doc(db, 'users', uid, 'profile', 'data')
+}
+
 // Strip undefined values so Firestore doesn't reject the document
 function sanitize(obj) {
   return JSON.parse(JSON.stringify(obj))
@@ -45,6 +51,30 @@ export async function clearGameState(uid) {
   try {
     await setDoc(ref, { gameState: null, savedAt: Date.now() })
   } catch {}
+}
+
+export async function saveUserProfile(uid, profileData) {
+  const ref = profileRef(uid)
+  if (!ref) return false
+  try {
+    await setDoc(ref, {
+      ...sanitize(profileData),
+      updatedAt: Date.now()
+    }, { merge: true })
+    return true
+  } catch {
+    return false
+  }
+}
+
+export async function loadUserProfile(uid) {
+  const ref = profileRef(uid)
+  if (!ref) return null
+  try {
+    const snap = await getDoc(ref)
+    if (snap.exists()) return snap.data()
+  } catch {}
+  return null
 }
 
 // Returns { ok: boolean, label: string } — used for debug panel

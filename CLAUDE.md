@@ -135,3 +135,4 @@ tran-textMuted   #A08070   (chữ mờ)
 3. Mọi fact phải dựa trên lịch sử có nguồn gốc rõ ràng
 4. Effects phải balanced — không có lựa chọn nào hoàn toàn "đúng"
 5. Mỗi thẻ phải có ít nhất 1 `fact` popup chứa thông tin lịch sử thật
+6. Luôn đọc các file CLAUDE.md, ARCHITECTURE.md và thư mục agents/ khi làm mới hoặc update tính năng. Cập nhật các tài liệu này nếu thấy cần thiết.

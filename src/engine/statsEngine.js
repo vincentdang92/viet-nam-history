@@ -14,10 +14,10 @@ export function checkGameOver(stats) {
   for (const key of STAT_KEYS) {
     const val = stats[key]
     if (val <= DANGER_MIN) {
-      return { isOver: true, triggerStat: key, reason: GAME_OVER_MESSAGES[`${key}_min`] || 'Triều đại sụp đổ...' }
+      return { isOver: true, triggerStat: `${key}_low`, reason: GAME_OVER_MESSAGES[`${key}_min`] || 'Triều đại sụp đổ...' }
     }
     if ((key === 'binhLuc' || key === 'trieuCuong') && val >= DANGER_MAX) {
-      return { isOver: true, triggerStat: key, reason: GAME_OVER_MESSAGES[`${key}_max`] || 'Mất kiểm soát triều đình...' }
+      return { isOver: true, triggerStat: `${key}_high`, reason: GAME_OVER_MESSAGES[`${key}_max`] || 'Mất kiểm soát triều đình...' }
     }
   }
   return { isOver: false }

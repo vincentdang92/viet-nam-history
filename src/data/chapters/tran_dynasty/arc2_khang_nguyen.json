@@ -17,7 +17,12 @@
         {
           "id": "choice_a",
           "text": "Phổ biến Hịch rộng rãi, tổ chức đọc trong toàn quân",
-          "effects": { "binhLuc": 10, "danTam": 10, "quocKho": -5, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 10,
+            "quocKho": 0,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
           "fact": "Hịch tướng sĩ là một trong những áng văn yêu nước vĩ đại nhất lịch sử Việt Nam, khơi dậy tinh thần chiến đấu toàn dân.",
           "chainNext": "tran_arc2_002",
@@ -26,7 +31,12 @@
         {
           "id": "choice_b",
           "text": "Chỉ đọc trong giới tướng lĩnh cấp cao",
-          "effects": { "binhLuc": 5, "danTam": 0, "quocKho": 0, "trieuCuong": 0 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": 0,
+            "quocKho": 0,
+            "trieuCuong": 0
+          },
           "isHistorical": false,
           "fact": "Hịch tướng sĩ được phổ biến rộng rãi — sức mạnh của nó nằm ở chỗ truyền cảm hứng cho toàn thể quân dân.",
           "chainNext": "tran_arc2_002",
@@ -50,7 +60,12 @@
         {
           "id": "choice_a",
           "text": "Đầu tư mạnh vào thủy quân và chiến thuyền",
-          "effects": { "binhLuc": 10, "danTam": 0, "quocKho": -15, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 10,
+            "danTam": 0,
+            "quocKho": -10,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
           "fact": "Lực lượng thủy quân nhà Trần là yếu tố quyết định trong trận Bạch Đằng 1288 — cọc gỗ bịt sắt đánh chìm hạm đội Nguyên.",
           "chainNext": "tran_arc2_003",
@@ -59,7 +74,12 @@
         {
           "id": "choice_b",
           "text": "Tập trung vào kỵ binh và bộ binh như trước",
-          "effects": { "binhLuc": 5, "danTam": 0, "quocKho": -5, "trieuCuong": 0 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": 0,
+            "quocKho": 5,
+            "trieuCuong": 0
+          },
           "isHistorical": false,
           "fact": "Thủy quân mạnh là lợi thế chiến lược quan trọng nhất của nhà Trần trước quân Nguyên.",
           "chainNext": "tran_arc2_003",
@@ -83,16 +103,27 @@
         {
           "id": "choice_a",
           "text": "Phổ biến rộng rãi cho các tướng lĩnh mọi cấp",
-          "effects": { "binhLuc": 10, "danTam": 5, "quocKho": -5, "trieuCuong": 0 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": 5,
+            "quocKho": 0,
+            "trieuCuong": 0
+          },
           "isHistorical": true,
           "fact": "Binh thư yếu lược của Trần Hưng Đạo là bộ sách quân sự đầu tiên của Việt Nam, đặt nền móng cho nghệ thuật chiến tranh dân tộc.",
           "chainNext": "tran_arc2_004",
-          "unlockSuKy": null
+          "unlockSuKy": null,
+          "giveItem": "item_binh_thu"
         },
         {
           "id": "choice_b",
           "text": "Giữ bí mật, chỉ tướng cao cấp được đọc",
-          "effects": { "binhLuc": 5, "danTam": -5, "quocKho": 0, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": -5,
+            "quocKho": 0,
+            "trieuCuong": 5
+          },
           "isHistorical": false,
           "fact": "Trần Hưng Đạo muốn phổ biến tri thức quân sự, không giữ độc quyền — đây là điểm khác biệt với nhiều danh tướng đương thời.",
           "chainNext": "tran_arc2_004",
@@ -116,7 +147,12 @@
         {
           "id": "choice_a",
           "text": "Chấp nhận liên minh, chia sẻ chiến lược quân sự",
-          "effects": { "binhLuc": 10, "danTam": 5, "quocKho": -5, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": -5,
+            "danTam": 5,
+            "quocKho": 5,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
           "fact": "Liên minh Đại Việt — Chiêm Thành là yếu tố quan trọng trong các cuộc kháng Nguyên. Vua Chiêm Thành Indravarman V cũng đánh bại quân Nguyên năm 1282.",
           "chainNext": "tran_arc2_005",
@@ -125,7 +161,12 @@
         {
           "id": "choice_b",
           "text": "Từ chối, giữ thế trung lập — không muốn liên quan",
-          "effects": { "binhLuc": -5, "danTam": 0, "quocKho": 5, "trieuCuong": 0 },
+          "effects": {
+            "binhLuc": -5,
+            "danTam": 0,
+            "quocKho": 5,
+            "trieuCuong": 0
+          },
           "isHistorical": false,
           "fact": "Đại Việt và Chiêm Thành đã hợp tác chống Nguyên, mặc dù hai nước từng là kẻ thù của nhau.",
           "chainNext": "tran_arc2_005",
@@ -149,7 +190,12 @@
         {
           "id": "choice_a",
           "text": "Xây kho lương bí mật ở vùng núi, phân tán khắp nơi",
-          "effects": { "binhLuc": 5, "danTam": 10, "quocKho": -15, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 10,
+            "quocKho": -10,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
           "fact": "Nhà Trần chuẩn bị hệ thống kho lương phân tán khắp cả nước, đảm bảo quân đội có thể kháng chiến lâu dài ngay cả khi Thăng Long thất thủ.",
           "chainNext": "tran_arc2_006",
@@ -158,7 +204,12 @@
         {
           "id": "choice_b",
           "text": "Tập trung tất cả lương thực ở Thăng Long để bảo vệ tốt hơn",
-          "effects": { "binhLuc": 0, "danTam": -5, "quocKho": -5, "trieuCuong": 0 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": -5,
+            "quocKho": -5,
+            "trieuCuong": 0
+          },
           "isHistorical": false,
           "fact": "Kho lương tập trung ở một điểm rất nguy hiểm — nếu Thăng Long thất thủ, toàn bộ lương thực sẽ rơi vào tay địch.",
           "chainNext": "tran_arc2_006",
@@ -182,7 +233,12 @@
         {
           "id": "choice_a",
           "text": "Cho phép thiếu niên tham gia, giao nhiệm vụ thực chiến",
-          "effects": { "binhLuc": 5, "danTam": 15, "quocKho": 0, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 15,
+            "quocKho": 0,
+            "trieuCuong": -5
+          },
           "isHistorical": true,
           "fact": "Trần Quốc Toản tự chiêu mộ 1,000 quân riêng và lập nhiều chiến công. Cờ hiệu 'Phá cường địch, báo hoàng ân' của ông trở thành biểu tượng tinh thần kháng chiến.",
           "chainNext": "tran_arc2_007",
@@ -191,7 +247,12 @@
         {
           "id": "choice_b",
           "text": "Giữ quy định — chưa đủ tuổi thì không tham dự",
-          "effects": { "binhLuc": 0, "danTam": -5, "quocKho": 0, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": -5,
+            "quocKho": 0,
+            "trieuCuong": 5
+          },
           "isHistorical": false,
           "fact": "Trong lịch sử, Trần Quốc Toản không được tham dự nhưng tự mình ra đi đánh giặc, trở thành biểu tượng lòng yêu nước của tuổi trẻ.",
           "chainNext": "tran_arc2_007",
@@ -215,7 +276,12 @@
         {
           "id": "choice_a",
           "text": "Giao toàn quyền chỉ huy cho Trần Hưng Đạo",
-          "effects": { "binhLuc": 15, "danTam": 5, "quocKho": 0, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": 10,
+            "danTam": 5,
+            "quocKho": 0,
+            "trieuCuong": -5
+          },
           "isHistorical": true,
           "fact": "Hội nghị Bình Than giao toàn quyền quân sự cho Trần Hưng Đạo — sự nhất thống chỉ huy là yếu tố then chốt cho chiến thắng.",
           "chainNext": "tran_arc2_battle_1285",
@@ -224,7 +290,12 @@
         {
           "id": "choice_b",
           "text": "Chỉ huy theo ủy ban — nhiều tướng cùng quyết định",
-          "effects": { "binhLuc": 0, "danTam": 0, "quocKho": 0, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 0,
+            "quocKho": 0,
+            "trieuCuong": 5
+          },
           "isHistorical": false,
           "fact": "Thống nhất chỉ huy là bài học lịch sử quan trọng — chỉ huy phân tán thường dẫn đến thất bại trước kẻ thù mạnh.",
           "chainNext": "tran_arc2_battle_1285",
@@ -248,22 +319,36 @@
         {
           "id": "choice_a",
           "text": "Tập kích đường tiếp tế, phản công khi địch mệt mỏi",
-          "effects": { "binhLuc": 10, "danTam": 10, "quocKho": -10, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": 10,
+            "quocKho": -5,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
           "fact": "Trần Quang Khải đại thắng tại Chương Dương và Hàm Tử năm 1285, thu hồi Thăng Long. Đây là lần thứ hai quân Nguyên bị đánh bại.",
           "chainNext": "tran_arc2_008",
           "unlockSuKy": "su_ky_chuong_duong_001",
-          "setFlag": { "wonBattle1285": true }
+          "setFlag": {
+            "wonBattle1285": true
+          }
         },
         {
           "id": "choice_b",
           "text": "Giữ lực lượng, chờ cơ hội phản công sau",
-          "effects": { "binhLuc": -5, "danTam": -10, "quocKho": 0, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": -5,
+            "danTam": -10,
+            "quocKho": 0,
+            "trieuCuong": -5
+          },
           "isHistorical": false,
           "fact": "Sự chủ động phản công là yếu tố quyết định — thụ động sẽ tạo điều kiện cho quân Nguyên củng cố vị thế.",
           "chainNext": "tran_arc2_008",
           "unlockSuKy": null,
-          "setFlag": { "wonBattle1285": false }
+          "setFlag": {
+            "wonBattle1285": false
+          }
         }
       ],
       "requiredCondition": null,
@@ -283,7 +368,12 @@
         {
           "id": "choice_a",
           "text": "Dồn nguồn lực tái thiết Thăng Long, ổn định dân tâm",
-          "effects": { "binhLuc": -5, "danTam": 15, "quocKho": -15, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": -10,
+            "danTam": 15,
+            "quocKho": -10,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
           "fact": "Sau mỗi lần Thăng Long bị chiếm, nhà Trần đều tổ chức tái thiết nhanh chóng để khôi phục lòng tin của nhân dân.",
           "chainNext": "tran_arc2_009",
@@ -292,7 +382,12 @@
         {
           "id": "choice_b",
           "text": "Ưu tiên củng cố quân đội, phòng thủ cho lần sau",
-          "effects": { "binhLuc": 10, "danTam": -5, "quocKho": -5, "trieuCuong": 0 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": -5,
+            "quocKho": 5,
+            "trieuCuong": 0
+          },
           "isHistorical": false,
           "fact": "Trong lịch sử, nhà Trần cân bằng cả hai — vừa tái thiết vừa chuẩn bị cho cuộc tấn công tiếp theo.",
           "chainNext": "tran_arc2_009",
@@ -316,7 +411,12 @@
         {
           "id": "choice_a",
           "text": "Bác bỏ — tiếp tục chuẩn bị kháng chiến",
-          "effects": { "binhLuc": 10, "danTam": 5, "quocKho": -10, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 5,
+            "danTam": 5,
+            "quocKho": -5,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
           "fact": "Nhà Trần kiên quyết không cầu hòa sau năm 1285. Quyết tâm này đã dẫn đến chiến thắng Bạch Đằng vang dội năm 1288.",
           "chainNext": "tran_arc2_010",
@@ -325,7 +425,12 @@
         {
           "id": "choice_b",
           "text": "Gửi sứ giả thăm dò, xem có thể đàm phán không",
-          "effects": { "binhLuc": -5, "danTam": -5, "quocKho": 5, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": -5,
+            "danTam": -5,
+            "quocKho": 10,
+            "trieuCuong": -5
+          },
           "isHistorical": false,
           "fact": "Quân Nguyên không có ý định đàm phán thực sự — cầu hòa sẽ chỉ cho họ thời gian chuẩn bị tốt hơn.",
           "chainNext": "tran_arc2_010",
@@ -349,7 +454,12 @@
         {
           "id": "choice_a",
           "text": "Cấp thêm người và thuyền để khảo sát kỹ lưỡng hơn",
-          "effects": { "binhLuc": 5, "danTam": 0, "quocKho": -5, "trieuCuong": 0 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 0,
+            "quocKho": -5,
+            "trieuCuong": 0
+          },
           "isHistorical": true,
           "fact": "Trần Hưng Đạo nghiên cứu địa hình sông Bạch Đằng rất kỹ trước khi lập kế hoạch. Kiến thức địa lý là vũ khí bí mật của ông.",
           "chainNext": "tran_arc2_011",
@@ -358,7 +468,12 @@
         {
           "id": "choice_b",
           "text": "Lấy thông tin từ ngư dân địa phương cho nhanh hơn",
-          "effects": { "binhLuc": 0, "danTam": 5, "quocKho": 0, "trieuCuong": -5 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 5,
+            "quocKho": 0,
+            "trieuCuong": -5
+          },
           "isHistorical": false,
           "fact": "Trần Hưng Đạo tự mình khảo sát vì ông tin rằng người chỉ huy phải hiểu địa hình bằng mắt thấy tai nghe của mình.",
           "chainNext": "tran_arc2_011",
@@ -382,19 +497,29 @@
         {
           "id": "choice_a",
           "text": "Bí mật chuẩn bị, tuyệt đối không để lộ kế hoạch",
-          "effects": { "binhLuc": 10, "danTam": 5, "quocKho": -10, "trieuCuong": 5 },
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 5,
+            "quocKho": -5,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
           "fact": "Bãi cọc Bạch Đằng được chuẩn bị trong bí mật hoàn toàn. Đây là thiên tài quân sự của Trần Hưng Đạo — biến địa lợi thành cái bẫy chết người.",
-          "chainNext": "tran_arc2_battle_1288",
+          "chainNext": "tran_arc2_campaign_1288_1",
           "unlockSuKy": "su_ky_coc_bach_dang_001"
         },
         {
           "id": "choice_b",
           "text": "Triển khai nhanh hơn dù có rủi ro bị phát hiện",
-          "effects": { "binhLuc": -5, "danTam": 0, "quocKho": -5, "trieuCuong": 0 },
+          "effects": {
+            "binhLuc": -5,
+            "danTam": 0,
+            "quocKho": -5,
+            "trieuCuong": 0
+          },
           "isHistorical": false,
           "fact": "Sự bí mật của kế hoạch là điều kiện sống còn. Nếu quân Nguyên biết trước, họ sẽ tránh sông Bạch Đằng.",
-          "chainNext": "tran_arc2_battle_1288",
+          "chainNext": "tran_arc2_campaign_1288_1",
           "unlockSuKy": null
         }
       ],
@@ -403,35 +528,135 @@
       "background": "war_council"
     },
     {
-      "id": "tran_arc2_battle_1288",
+      "id": "tran_arc2_campaign_1288_1",
       "arc": 2,
       "year": 1288,
-      "type": "battle",
-      "title": "Trận Bạch Đằng — Đại Thắng Lịch Sử",
-      "context": "Mùa xuân 1288. Hạm đội Nguyên tiến vào sông Bạch Đằng lúc triều lên. Trần Hưng Đạo ra lệnh nhử địch sâu vào. Khi triều rút, bãi cọc nhô lên...",
+      "type": "campaign",
+      "title": "Bạch Đằng: Khai Chiến",
+      "context": "Mùa xuân 1288. Hạm đội Ô Mã Nhi tiến vào cửa sông Bạch Đằng. Nước đang lên cao, bãi cọc nhọn vẫn còn chìm sâu dưới mặt nước.",
       "character": "tran_hung_dao",
-      "quote": "Đây là ngày mà non sông Đại Việt ghi vào sử sách!",
+      "quote": "Bình tĩnh. Chưa đến lúc cất lưới...",
       "choices": [
         {
           "id": "choice_a",
-          "text": "Tổng phản công khi thủy triều rút, bắt sống Ô Mã Nhi",
-          "effects": { "binhLuc": 5, "danTam": 20, "quocKho": -5, "trieuCuong": 10 },
+          "text": "Cho đội thuyền nhỏ ra đánh nhử, rồi giả vờ thua chạy",
+          "effects": {
+            "binhLuc": -5,
+            "danTam": 0,
+            "quocKho": 0,
+            "trieuCuong": 5
+          },
           "isHistorical": true,
-          "fact": "Trận Bạch Đằng 1288: hàng trăm chiến thuyền Nguyên bị đắm, Ô Mã Nhi bị bắt sống. Đây là lần thứ ba và cũng là lần cuối cùng Nguyên Mông xâm lược Đại Việt.",
+          "fact": "Chiến thuật đánh nhử (giả thua) là mấu chốt để kéo hạm đội địch vào đúng bãi cọc đã giăng sẵn.",
+          "chainNext": "tran_arc2_campaign_1288_2",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Mang quân chủ lực ra nghênh chiến ngay lập tức",
+          "effects": {
+            "binhLuc": -15,
+            "danTam": 0,
+            "quocKho": -5,
+            "trieuCuong": 0
+          },
+          "isHistorical": false,
+          "fact": "Nếu giao tranh ngay khi nước lên, quân Nguyên sẽ có lợi thế vì thuyền to lớn, dễ dàng đè bẹp thuyền Đại Việt.",
+          "chainNext": "tran_arc2_campaign_1288_2",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": true,
+      "background": "bach_dang_river"
+    },
+    {
+      "id": "tran_arc2_campaign_1288_2",
+      "arc": 2,
+      "year": 1288,
+      "type": "campaign",
+      "title": "Bạch Đằng: Triều Rút",
+      "context": "Thuyền địch say sưa đuổi theo sâu vào sông. Đột nhiên, thủy triều bắt đầu rút mạnh. Những đầu cọc sắt nhọn nhô lên. Hạm đội địch mắc kẹt, hoảng loạn xô vào nhau.",
+      "character": "tran_hung_dao",
+      "quote": "Giờ khắc định mệnh đã đến. Đánh!",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Lệnh cho phục binh hai bờ đồng loạt tấn công, phóng hỏa",
+          "effects": {
+            "binhLuc": 5,
+            "danTam": 10,
+            "quocKho": -5,
+            "trieuCuong": 10
+          },
+          "isHistorical": true,
+          "fact": "Phục kích từ hai bên bờ bằng mũi tên tẩm lửa khiến thuyền Nguyên bị thiêu rụi và không thể quay đầu.",
+          "chainNext": "tran_arc2_campaign_1288_3",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Đợi thuyền địch tự vỡ nát vì đâm vào cọc rồi mới thu dọn",
+          "effects": {
+            "binhLuc": 0,
+            "danTam": -5,
+            "quocKho": 5,
+            "trieuCuong": 0
+          },
+          "isHistorical": false,
+          "fact": "Quân Nguyên rất tinh nhuệ, nếu không bị tấn công liên tục, họ có thể tìm cách chặt cọc hoặc mở đường máu thoát thân.",
+          "chainNext": "tran_arc2_campaign_1288_3",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": true,
+      "background": "bach_dang_river"
+    },
+    {
+      "id": "tran_arc2_campaign_1288_3",
+      "arc": 2,
+      "year": 1288,
+      "type": "campaign",
+      "title": "Bạch Đằng: Đại Thắng Lịch Sử",
+      "context": "Sông Bạch Đằng nhuộm đỏ. Gần 400 chiến thuyền địch bị đắm. Chủ tướng Ô Mã Nhi nhảy xuống sông trốn chạy nhưng bị quân ta bao vây.",
+      "character": "tran_nhan_tong",
+      "quote": "Xã tắc hai phen chồn ngựa đá. Non sông nghìn thuở vững âu vàng.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Bắt sống Ô Mã Nhi, tiêu diệt hoàn toàn lực lượng",
+          "effects": {
+            "binhLuc": 10,
+            "danTam": 20,
+            "quocKho": 10,
+            "trieuCuong": 10
+          },
+          "isHistorical": true,
+          "fact": "Chiến thắng Bạch Đằng 1288 là bản anh hùng ca vĩ đại nhất, đánh tan hoàn toàn dã tâm xâm lược của đế chế Mông Nguyên.",
           "chainNext": null,
           "unlockSuKy": "su_ky_bach_dang_001",
-          "setFlag": { "wonBattle1288": true },
+          "setFlag": {
+            "wonBattle1288": true
+          },
           "endArc": true
         },
         {
           "id": "choice_b",
-          "text": "Để tàn quân rút lui, tránh tổn thất thêm",
-          "effects": { "binhLuc": 0, "danTam": 5, "quocKho": 0, "trieuCuong": -5 },
+          "text": "Mở đường hiếu sinh, tha cho Ô Mã Nhi và tàn quân",
+          "effects": {
+            "binhLuc": 0,
+            "danTam": -10,
+            "quocKho": 0,
+            "trieuCuong": -5
+          },
           "isHistorical": false,
-          "fact": "Trận Bạch Đằng cần tiêu diệt hoàn toàn lực lượng địch để đảm bảo Nguyên Mông không quay lại. Bắt sống Ô Mã Nhi có giá trị chính trị rất lớn.",
+          "fact": "Ô Mã Nhi khét tiếng tàn bạo, từng phá hoại lăng tẩm nhà Trần. Hắn bị bắt sống và chịu trừng phạt đích đáng.",
           "chainNext": null,
           "unlockSuKy": null,
-          "setFlag": { "wonBattle1288": false },
+          "setFlag": {
+            "wonBattle1288": false
+          },
           "endArc": true
         }
       ],

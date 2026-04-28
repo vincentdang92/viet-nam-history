@@ -31,6 +31,7 @@ const INITIAL_STATE = {
     proclamedBinhNgo: false,
   },
   unlockedSuKy: [],
+  inventory: [],
   gameStatus: 'menu',
   endingId: null,
   gameOverReason: null,
@@ -41,6 +42,7 @@ const INITIAL_STATE = {
   pendingEnding: null,
   adRescueCount: 0,
   adRescue: null,
+  itemRescue: null,
 }
 
 function reducer(state, action) {
@@ -79,6 +81,44 @@ function reducer(state, action) {
         adRescue: null,
         adRescueCount: (state.adRescueCount ?? 0) + 1,
       }
+    case 'ITEM_RESCUE_COMPLETE': {
+      const { rescuedStats, pendingState, itemId } = state.itemRescue ?? {}
+      if (!pendingState) return { ...state, gameStatus: 'gameover', itemRescue: null }
+      
+      const newInventory = state.inventory.filter(id => id !== itemId)
+      
+      return {
+        ...pendingState,
+        stats: rescuedStats ?? computeRescuedStats(pendingState.stats, 20),
+        inventory: newInventory,
+        gameStatus: 'playing',
+        itemRescue: null,
+      }
+    }
+    case 'ITEM_RESCUE_SKIP': {
+      // Fallback to ad_rescue if available
+      if ((state.adRescueCount ?? 0) < 10) {
+        const { pendingState } = state.itemRescue ?? {}
+        const tier = { duration: 5, bonus: 10 } // basic tier fallback
+        return {
+          ...state,
+          gameStatus: 'ad_rescue',
+          itemRescue: null,
+          adRescue: {
+            duration: tier.duration,
+            bonus: tier.bonus,
+            triggerStat: state.itemRescue?.triggerStat,
+            pendingState,
+            rescuedStats: computeRescuedStats(pendingState.stats, tier.bonus)
+          }
+        }
+      }
+      return {
+        ...state,
+        gameStatus: 'gameover',
+        itemRescue: null,
+      }
+    }
     case 'LOAD_GAME': {
       const s = action.savedState ?? {}
       // Corrupt save: playing but no event
