@@ -171,8 +171,38 @@ function ExitModal({ onContinue, onHome }) {
   )
 }
 
+// ─── Quest Toast ────────────────────────────────────────────────────────────────
+function QuestToast({ toast, onDismiss }) {
+  useEffect(() => {
+    if (toast) {
+      const timer = setTimeout(onDismiss, 3000)
+      return () => clearTimeout(timer)
+    }
+  }, [toast, onDismiss])
+
+  if (!toast) return null
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      className={`fixed top-16 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-xl shadow-lg border flex items-center gap-2 w-max max-w-[90%]
+        ${toast.status === 'completed' ? 'bg-green-900/90 border-green-500/50 text-green-100' : 'bg-red-900/90 border-red-500/50 text-red-100'}
+      `}
+      style={{ backdropFilter: 'blur(8px)' }}
+    >
+      <span className="text-xl">{toast.status === 'completed' ? '✨' : '❌'}</span>
+      <div>
+        <p className="font-bold text-sm leading-tight">{toast.title}</p>
+        <p className="text-xs opacity-90">{toast.desc}</p>
+      </div>
+    </motion.div>
+  )
+}
+
 // ─── In-game header ─────────────────────────────────────────────────────────────
-function GameHeader({ arc, onSuKy, onHome, inventory }) {
+function GameHeader({ arc, onSuKy, onHome, inventory, activeQuest }) {
   const { unlocked } = useSuKy()
 
   return (
@@ -193,6 +223,20 @@ function GameHeader({ arc, onSuKy, onHome, inventory }) {
       </div>
       
       <div className="flex items-center gap-2">
+        {/* Active Quest */}
+        {activeQuest && (
+          <div className="relative group flex items-center justify-center w-8 h-8 rounded-full bg-tran-card border border-tran-border cursor-help">
+            <span className="text-sm">📜</span>
+            <div className="absolute top-full mt-2 right-0 w-48 p-3 bg-tran-bg border border-tran-border rounded-xl shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none z-50 transition-opacity">
+              <p className="font-bold text-tran-secondary mb-1 text-xs">{activeQuest.title}</p>
+              <p className="text-tran-textMuted text-[10px] leading-relaxed mb-2">{activeQuest.desc}</p>
+              <div className="w-full bg-tran-card rounded-full h-1.5 overflow-hidden border border-tran-border/50">
+                <div className="bg-tran-secondary h-full transition-all" style={{ width: `${(activeQuest.progress / activeQuest.duration) * 100}%` }} />
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Inventory Items */}
         {inventory?.length > 0 && (
           <div className="flex gap-1 mr-1">
@@ -224,7 +268,7 @@ function GameHeader({ arc, onSuKy, onHome, inventory }) {
 // ─── Main screen ────────────────────────────────────────────────────────────────
 export default function GameScreen({ onSuKy }) {
   const { state, dispatch } = useGame()
-  const { currentEvent, stats, currentYear, currentArc, showFactPopup, pendingFact, eventHistory, inventory } = state
+  const { currentEvent, stats, currentYear, currentArc, showFactPopup, pendingFact, eventHistory, inventory, activeQuest, questToast } = state
   const [hoveredChoice, setHoveredChoice] = useState(null)
   const [cardKey, setCardKey]   = useState(0)
   const [showExitModal, setShowExitModal] = useState(false)
@@ -301,9 +345,16 @@ export default function GameScreen({ onSuKy }) {
         />
       )}
 
+      {/* Quest Toast Notification */}
+      <AnimatePresence>
+        {questToast && (
+          <QuestToast toast={questToast} onDismiss={() => dispatch({ type: 'DISMISS_QUEST_TOAST' })} />
+        )}
+      </AnimatePresence>
+
       {/* Header */}
       <div className="relative z-10">
-        <GameHeader arc={currentArc} onSuKy={onSuKy} onHome={() => setShowExitModal(true)} inventory={inventory} />
+        <GameHeader arc={currentArc} onSuKy={onSuKy} onHome={() => setShowExitModal(true)} inventory={inventory} activeQuest={activeQuest} />
       </div>
 
       {/* Stats */}

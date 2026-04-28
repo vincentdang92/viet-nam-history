@@ -12,6 +12,7 @@ import ArcTransitionScreen from './screens/ArcTransitionScreen'
 import SuKyScreen from './screens/SuKyScreen'
 import AdRescueScreen from './screens/AdRescueScreen'
 import ItemRescueScreen from './screens/ItemRescueScreen'
+import TriviaScreen from './screens/TriviaScreen'
 import EndingCard from './ui/EndingCard'
 import { getEnding } from '../engine/endingChecker'
 import { useBgMusic } from '../hooks/useBgMusic'
@@ -72,6 +73,8 @@ function GameRouter({ onSuKy, showSuKy }) {
       return <ArcTransitionScreen key={`arc-${state.currentArc}`} />
     case 'item_rescue':
       return <ItemRescueScreen key="itemrescue" />
+    case 'trivia':
+      return <TriviaScreen key="trivia" />
     case 'ad_rescue':
       return <AdRescueScreen key="adrescue" />
     case 'gameover':

@@ -3,6 +3,7 @@ import { resolveNextEvent } from './eventResolver'
 import { checkEnding } from './endingChecker'
 import { YEAR_PER_CARD, DANGER_MIN, DANGER_MAX, STAT_CEIL } from '../constants/gameConfig'
 import { getApplicableItem } from '../data/items'
+import { getRandomTrivia } from '../data/trivia'
 
 // From data analysis across all arcs: max |negative| = 15, max positive on binhLuc/trieuCuong = 20
 const MAX_NEG_EFFECT = 15
@@ -155,9 +156,36 @@ export function processChoice(state, choiceId) {
     ? [...new Set([...state.unlockedSuKy, choice.unlockSuKy])]
     : state.unlockedSuKy
 
-  const newInventory = choice.giveItem && !(state.inventory || []).includes(choice.giveItem)
+  let newInventory = choice.giveItem && !(state.inventory || []).includes(choice.giveItem)
     ? [...(state.inventory || []), choice.giveItem]
     : (state.inventory || [])
+
+  let activeQuest = state.activeQuest
+  let questToast = null
+
+  if (activeQuest) {
+    let failed = false
+    const { condition } = activeQuest
+    if (condition.type === 'maintain_stat') {
+      const statVal = newStats[condition.stat]
+      if (condition.min !== undefined && statVal < condition.min) failed = true
+      if (condition.max !== undefined && statVal > condition.max) failed = true
+    }
+    
+    if (failed) {
+      questToast = { status: 'failed', title: activeQuest.title, desc: 'Mật chỉ thất bại' }
+      activeQuest = null
+    } else {
+      activeQuest = { ...activeQuest, progress: (activeQuest.progress || 0) + 1 }
+      if (activeQuest.progress >= activeQuest.duration) {
+        questToast = { status: 'completed', title: activeQuest.title, desc: 'Mật chỉ thành công!', reward: activeQuest.rewardItem }
+        if (activeQuest.rewardItem && !newInventory.includes(activeQuest.rewardItem)) {
+          newInventory = [...newInventory, activeQuest.rewardItem]
+        }
+        activeQuest = null
+      }
+    }
+  }
 
   const newFlags = { ...state.flags }
   if (choice.setFlag) Object.assign(newFlags, choice.setFlag)
@@ -169,6 +197,8 @@ export function processChoice(state, choiceId) {
     stats: newStats,
     flags: newFlags,
     inventory: newInventory,
+    activeQuest,
+    questToast,
     yearsReigned: newYearsReigned,
     currentArc: nextArc,
   }
@@ -220,6 +250,39 @@ export function processChoice(state, choiceId) {
   }
 }
 
+// ─── Trivia Processing ──────────────────────────────────────────────────────────
+export function processTriviaResult(state, isCorrect) {
+  const effects = {
+    trieuCuong: isCorrect ? -10 : 10,
+    danTam: isCorrect ? 15 : -5,
+    quocKho: isCorrect ? 10 : 0,
+    binhLuc: 0
+  }
+  
+  const newStats = applyEffects(state.stats, effects)
+  const gameOverCheck = checkGameOver(newStats)
+
+  if (gameOverCheck.isOver) {
+    return {
+      ...state,
+      stats: newStats,
+      gameStatus: 'gameover',
+      gameOverReason: gameOverCheck.reason,
+      triviaData: null,
+    }
+  }
+
+  return {
+    ...state,
+    stats: newStats,
+    gameStatus: 'playing',
+    triviaData: null,
+    questToast: isCorrect 
+      ? { status: 'completed', title: 'Khoa Cử Thành Công', desc: 'Chọn được người tài, quốc gia hưng thịnh!' }
+      : { status: 'failed', title: 'Khoa Cử Thất Bại', desc: 'Tuyển nhầm nịnh thần, triều cương rối ren!' }
+  }
+}
+
 export function dismissFactPopup(state) {
   const base = { ...state, showFactPopup: false, pendingFact: null }
 
@@ -231,6 +294,17 @@ export function dismissFactPopup(state) {
   // After the last card of the game → show ending
   if (state.pendingEnding) {
     return { ...base, gameStatus: 'ending', endingId: state.pendingEnding, pendingEnding: null }
+  }
+
+  // Trigger Trivia every 15 years
+  if (base.yearsReigned - base.lastTriviaYear >= 15 && base.yearsReigned > 0) {
+    const trivia = getRandomTrivia()
+    return {
+      ...base,
+      gameStatus: 'trivia',
+      triviaData: trivia,
+      lastTriviaYear: base.yearsReigned
+    }
   }
 
   return base

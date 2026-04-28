@@ -1,9 +1,10 @@
 'use client'
 
 import { createContext, useContext, useReducer } from 'react'
-import { processChoice, dismissFactPopup, computeRescuedStats } from '../engine/gameEngine'
+import { processChoice, processTriviaResult, dismissFactPopup, computeRescuedStats } from '../engine/gameEngine'
 import { getFirstEvent } from '../engine/eventResolver'
 import { STAT_INITIAL } from '../constants/gameConfig'
+import { getRandomQuest } from '../data/quests'
 
 const INITIAL_STATE = {
   chapter: 'tran_dynasty',
@@ -43,6 +44,10 @@ const INITIAL_STATE = {
   adRescueCount: 0,
   adRescue: null,
   itemRescue: null,
+  activeQuest: null,
+  questToast: null,
+  lastTriviaYear: 0,
+  triviaData: null,
 }
 
 function reducer(state, action) {
@@ -52,13 +57,18 @@ function reducer(state, action) {
         ...INITIAL_STATE,
         gameStatus: 'playing',
         currentEvent: getFirstEvent(1),
+        activeQuest: getRandomQuest(),
       }
     case 'CHOOSE':
       return processChoice(state, action.choiceId)
+    case 'TRIVIA_COMPLETE':
+      return processTriviaResult(state, action.isCorrect)
     case 'DISMISS_FACT':
       return dismissFactPopup(state)
+    case 'DISMISS_QUEST_TOAST':
+      return { ...state, questToast: null }
     case 'START_ARC':
-      return { ...state, gameStatus: 'playing', pendingArcIntro: null }
+      return { ...state, gameStatus: 'playing', pendingArcIntro: null, activeQuest: state.activeQuest || getRandomQuest() }
     case 'RESTART':
       return INITIAL_STATE
     case 'AD_RESCUE_COMPLETE': {
