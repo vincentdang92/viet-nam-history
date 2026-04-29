@@ -201,8 +201,38 @@ function QuestToast({ toast, onDismiss }) {
   )
 }
 
+// ─── Hint Toast ─────────────────────────────────────────────────────────────────
+function HintToast({ toast, onDismiss }) {
+  useEffect(() => {
+    if (toast) {
+      const timer = setTimeout(onDismiss, 5000)
+      return () => clearTimeout(timer)
+    }
+  }, [toast, onDismiss])
+
+  if (!toast) return null
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.9, y: 20 }}
+      className="fixed bottom-32 left-1/2 -translate-x-1/2 z-50 px-5 py-4 rounded-2xl shadow-2xl border bg-yellow-900/95 border-yellow-500/50 text-yellow-50 w-max max-w-[90%]"
+      style={{ backdropFilter: 'blur(10px)' }}
+    >
+      <div className="flex items-start gap-3">
+        <span className="text-2xl mt-0.5">💡</span>
+        <div>
+          <p className="font-bold text-sm text-yellow-300 mb-1">Cố Vấn Lịch Sử</p>
+          <p className="text-sm italic leading-relaxed">"{toast}"</p>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
 // ─── In-game header ─────────────────────────────────────────────────────────────
-function GameHeader({ arc, onSuKy, onHome, inventory, activeQuest }) {
+function GameHeader({ arc, onSuKy, onHome, inventory, activeQuest, hintsLeft, onUseHint }) {
   const { unlocked } = useSuKy()
 
   return (
@@ -253,12 +283,22 @@ function GameHeader({ arc, onSuKy, onHome, inventory, activeQuest }) {
           className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-tran-card border border-tran-border hover:border-tran-secondary/50 transition-colors"
         >
           <span className="text-sm">📖</span>
-          <span className="text-tran-text text-xs">Sử Ký</span>
           {unlocked.length > 0 && (
             <span className="bg-tran-secondary text-tran-bg text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
               {unlocked.length}
             </span>
           )}
+        </button>
+
+        {/* Hint Button */}
+        <button
+          onClick={onUseHint}
+          disabled={hintsLeft <= 0}
+          className={`flex items-center justify-center w-8 h-8 rounded-full border transition-colors
+            ${hintsLeft > 0 ? 'bg-yellow-900/40 border-yellow-600/50 hover:bg-yellow-900/60 text-yellow-200' : 'bg-tran-card border-tran-border/50 text-tran-border opacity-50'}`}
+          title={`Hỏi Cố Vấn (${hintsLeft} lần)`}
+        >
+          <span className="text-sm">💡</span>
         </button>
       </div>
     </div>
@@ -268,7 +308,7 @@ function GameHeader({ arc, onSuKy, onHome, inventory, activeQuest }) {
 // ─── Main screen ────────────────────────────────────────────────────────────────
 export default function GameScreen({ onSuKy }) {
   const { state, dispatch } = useGame()
-  const { currentEvent, stats, currentYear, currentArc, showFactPopup, pendingFact, eventHistory, inventory, activeQuest, questToast } = state
+  const { currentEvent, stats, historicalScore, hintsLeft, hintToast, currentYear, currentArc, showFactPopup, pendingFact, eventHistory, inventory, activeQuest, questToast } = state
   const [hoveredChoice, setHoveredChoice] = useState(null)
   const [cardKey, setCardKey]   = useState(0)
   const [showExitModal, setShowExitModal] = useState(false)
@@ -350,16 +390,40 @@ export default function GameScreen({ onSuKy }) {
         {questToast && (
           <QuestToast toast={questToast} onDismiss={() => dispatch({ type: 'DISMISS_QUEST_TOAST' })} />
         )}
+        {hintToast && (
+          <HintToast toast={hintToast} onDismiss={() => dispatch({ type: 'DISMISS_HINT_TOAST' })} />
+        )}
       </AnimatePresence>
 
       {/* Header */}
       <div className="relative z-10">
-        <GameHeader arc={currentArc} onSuKy={onSuKy} onHome={() => setShowExitModal(true)} inventory={inventory} activeQuest={activeQuest} />
+        <GameHeader 
+          arc={currentArc} 
+          onSuKy={onSuKy} 
+          onHome={() => setShowExitModal(true)} 
+          inventory={inventory} 
+          activeQuest={activeQuest} 
+          hintsLeft={hintsLeft}
+          onUseHint={() => dispatch({ type: 'USE_HINT' })}
+        />
       </div>
 
       {/* Stats */}
-      <div className="px-4 pb-2 shrink-0 relative z-10">
+      <div className="px-4 pb-1 shrink-0 relative z-10">
         <StatsBar stats={previewStats} baseStats={stats} />
+        {/* Historical Score Meter */}
+        <div className="mt-2.5 flex items-center gap-2">
+          <span className="text-[10px] uppercase tracking-widest text-tran-textMuted font-bold">Chính Sử</span>
+          <div className="flex-1 h-1.5 bg-tran-bg rounded-full overflow-hidden border border-tran-border/30">
+            <motion.div 
+              className="h-full bg-gradient-to-r from-yellow-600 to-yellow-400"
+              initial={{ width: `${historicalScore}%` }}
+              animate={{ width: `${historicalScore}%` }}
+              transition={{ type: 'spring', damping: 20 }}
+            />
+          </div>
+          <span className={`text-[10px] font-bold ${historicalScore < 30 ? 'text-red-400 animate-pulse' : 'text-yellow-500'}`}>{historicalScore}%</span>
+        </div>
       </div>
 
       {/* Card */}

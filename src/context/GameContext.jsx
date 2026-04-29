@@ -48,6 +48,9 @@ const INITIAL_STATE = {
   questToast: null,
   lastTriviaYear: 0,
   triviaData: null,
+  historicalScore: 100,
+  hintsLeft: 3,
+  hintToast: null,
 }
 
 function reducer(state, action) {
@@ -69,8 +72,17 @@ function reducer(state, action) {
       return dismissFactPopup(state)
     case 'DISMISS_QUEST_TOAST':
       return { ...state, questToast: null }
+    case 'USE_HINT':
+      if (state.hintsLeft <= 0) return state
+      return {
+        ...state,
+        hintsLeft: state.hintsLeft - 1,
+        hintToast: state.currentEvent?.hint || 'Sử sách luôn có một con đường sáng, hãy nhìn xa trông rộng.'
+      }
+    case 'DISMISS_HINT_TOAST':
+      return { ...state, hintToast: null }
     case 'START_ARC':
-      return { ...state, gameStatus: 'playing', pendingArcIntro: null, activeQuest: state.activeQuest || getRandomQuest() }
+      return { ...state, gameStatus: 'playing', pendingArcIntro: null, activeQuest: state.activeQuest || getRandomQuest(), hintsLeft: 3 }
     case 'RESTART':
       return INITIAL_STATE
     case 'AD_RESCUE_COMPLETE': {

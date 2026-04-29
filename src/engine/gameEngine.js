@@ -62,6 +62,20 @@ export function processChoice(state, choiceId) {
 
   const newStats = applyEffects(state.stats, choice.effects)
 
+  let newHistoricalScore = state.historicalScore ?? 100
+  if (choice.isHistorical !== undefined) {
+    newHistoricalScore = Math.min(100, Math.max(0, newHistoricalScore + (choice.isHistorical ? 10 : -20)))
+  }
+
+  if (newHistoricalScore <= 0) {
+    return {
+      ...state,
+      historicalScore: 0,
+      gameStatus: 'gameover',
+      gameOverReason: 'Dòng thời gian đã sụp đổ do bạn bẻ cong lịch sử quá đà! Đại Việt đã diệt vong theo một nhánh thời gian khác.'
+    }
+  }
+
   const gameOverCheck = checkGameOver(newStats)
   if (gameOverCheck.isOver) {
     const yearAdvance = state.currentEvent.type === 'battle' || state.currentEvent.type === 'campaign' ? 2 : YEAR_PER_CARD
@@ -78,6 +92,7 @@ export function processChoice(state, choiceId) {
     const pendingBase = {
       ...state,
       stats: newStats,
+      historicalScore: newHistoricalScore,
       flags: newFlags,
       yearsReigned: state.yearsReigned + yearAdvance,
       currentYear: state.currentYear + yearAdvance,
@@ -213,6 +228,7 @@ export function processChoice(state, choiceId) {
   const stateForEndingCheck = {
     ...state,
     stats: newStats,
+    historicalScore: newHistoricalScore,
     flags: newFlags,
     inventory: newInventory,
     activeQuest,

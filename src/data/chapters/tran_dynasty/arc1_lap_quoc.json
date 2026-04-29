@@ -13,6 +13,7 @@
       "context": "Lý Chiêu Hoàng, vị nữ vương cuối cùng của nhà Lý, đã nhường ngôi cho Trần Cảnh — người chồng 8 tuổi của bà. Trần Thủ Độ, người chú quyền lực, đứng sau sắp xếp tất cả.",
       "character": "tran_thai_tong",
       "quote": "Trẫm nhận ngôi trời trong tiếng thở dài của thiên hạ...",
+      "hint": "Cơ đồ nhà Lý đã tận, nhưng ân oán không thể dùng bạo lực giải quyết ngay.",
       "choices": [
         {
           "id": "choice_a",
@@ -56,6 +57,7 @@
       "context": "Thái sư Trần Thủ Độ — người chú quyền lực của vua — đề nghị cải tổ toàn bộ hệ thống quan lại. Ông muốn đặt người nhà Trần vào mọi vị trí quan trọng.",
       "character": "tran_thu_do",
       "quote": "Bệ hạ còn nhỏ, để thần lo liệu việc triều chính",
+      "hint": "Một vương triều mới cần một bàn tay thép để nhổ cỏ tận gốc rễ.",
       "choices": [
         {
           "id": "choice_a",
@@ -99,6 +101,7 @@
       "context": "Mưa lũ tàn phá mùa màng ở đồng bằng sông Hồng. Hàng chục nghìn người thiếu lương thực. Quốc khố chưa đầy đủ sau khi mới lên ngôi.",
       "character": "tran_thai_tong",
       "quote": "Trăm họ đói thì vua cũng không yên lòng",
+      "hint": "Dân là gốc của nước. Gốc có vững thì cây mới bền.",
       "choices": [
         {
           "id": "choice_a",
@@ -142,6 +145,7 @@
       "context": "Tin tức từ phương Bắc đáng lo ngại: đế quốc Mông Cổ đang nuốt gọn từng nước một. Các quan võ đề nghị cải tổ và tăng cường quân đội Đại Việt.",
       "character": "tran_thu_do",
       "quote": "Vó ngựa Mông Cổ chưa đến nhưng tiếng vó đã vang rất gần",
+      "hint": "Quân sĩ quý ở tinh nhuệ, binh lực không thể chểnh mảng dẫu đang thời bình.",
       "choices": [
         {
           "id": "choice_a",
@@ -489,6 +493,7 @@
       "context": "Quân Mông Cổ đang áp sát. Trần Hưng Đạo đề xuất chiến lược táo bạo: bỏ Thăng Long, rút quân về phòng thủ có chiều sâu, không quyết chiến trực diện.",
       "character": "tran_hung_dao",
       "quote": "Chúng ta không thể thắng bằng cách đứng yên chờ giặc đến",
+      "hint": "Binh pháp viết: Tránh chỗ thực, đánh chỗ hư. Khi giặc đương nhuệ khí, ta lui.",
       "choices": [
         {
           "id": "choice_a",
