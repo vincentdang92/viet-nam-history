@@ -39,7 +39,7 @@ export default function CombatScreen() {
 
   return (
     <motion.div
-      className="min-h-screen bg-red-950/90 flex flex-col max-w-sm mx-auto relative overflow-hidden"
+      className="h-[100dvh] bg-red-950/90 flex flex-col max-w-sm mx-auto relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

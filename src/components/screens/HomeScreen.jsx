@@ -111,7 +111,7 @@ export default function HomeScreen() {
 
   return (
     <motion.div
-      className="min-h-screen bg-tran-bg flex flex-col items-center justify-center p-6"
+      className="h-[100dvh] overflow-hidden bg-tran-bg flex flex-col items-center justify-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -122,9 +122,10 @@ export default function HomeScreen() {
         style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 30%, rgba(139,26,26,0.15) 0%, transparent 70%)' }}
       />
 
-      <div className="relative w-full max-w-sm">
-        {/* Logo */}
-        <motion.div
+      <div className="relative w-full max-w-sm flex-1 overflow-y-auto px-6 py-6 flex flex-col">
+        <div className="m-auto w-full">
+          {/* Logo */}
+          <motion.div
           className="text-center mb-8"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -427,6 +428,7 @@ export default function HomeScreen() {
           <p>Kéo thẻ trái / phải hoặc nhấn nút để chọn</p>
           <p className="opacity-50">✨ Fun First, Learn Always</p>
         </motion.div>
+        </div>
       </div>
 
       <PlayerInfoPanel open={showInfo} onClose={() => setShowInfo(false)} />

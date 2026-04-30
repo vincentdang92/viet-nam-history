@@ -44,7 +44,7 @@ export default function TriviaScreen() {
 
   return (
     <motion.div
-      className="min-h-screen bg-tran-bg flex flex-col justify-center items-center px-4 max-w-sm mx-auto"
+      className="h-[100dvh] overflow-y-auto hide-scrollbar bg-tran-bg flex flex-col justify-center items-center px-4 py-8 max-w-sm mx-auto"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

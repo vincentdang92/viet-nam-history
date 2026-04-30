@@ -39,7 +39,7 @@ src/
   context/GameContext   # Global state + dispatch ('use client')
   engine/               # gameEngine, statsEngine, eventResolver, endingChecker
   data/chapters/tran_dynasty/  # arc1, arc2, arc3, arc4, arc5 JSON
-  data/                 # characters.json, endings.json, chapters.json, sysEvents.json
+  data/                 # characters.json, endings.json, chapters.json, sysEvents.json, cultureEvents.json
   constants/            # gameConfig.js, theme.js
   hooks/                # useSwipe, useSuKy ('use client')
 ```
@@ -129,6 +129,9 @@ tran-textMuted   #A08070   (chữ mờ)
       "effects": { "binhLuc": 5, "danTam": 0, "quocKho": -5, "trieuCuong": 5 },
       "isHistorical": true,
       "fact": "...",
+      "modernLocation": "...",
+      "specialty": "...",
+      "referenceLink": "...",
       "chainNext": "tran_arc1_006",
       "unlockSuKy": "su_ky_id",
       "setFlag": { "wonBattle1257": true },
@@ -156,4 +159,5 @@ tran-textMuted   #A08070   (chữ mờ)
 6. **Rarity System**: Hệ thống sẽ tự cấp phát độ hiếm (rare, epic, legendary) cho thẻ thường. Không gán cứng thuộc tính `rarity` trong thẻ JSON lịch sử trừ khi đó là thẻ Thần thoại (Mythic).
 7. **Card UI**: Thẻ hiển thị kiểu TCG, có thể lật (Flip) để xem `bio`, `role` của character. Cần tối ưu placeholder SVG nếu không có ảnh.
 8. Luôn đọc các file CLAUDE.md, ARCHITECTURE.md và thư mục agents/ khi làm mới hoặc update tính năng. Cập nhật các tài liệu này nếu thấy cần thiết.
-9. **Framer Motion Gotchas**: Tuyệt đối KHÔNG dùng `AnimatePresence` trực tiếp với các custom function component (như các màn hình Router). Phải bọc chúng trong thẻ `<motion.div>` native có `exit` prop, hoặc dùng chiến thuật Fixed Overlay (`fixed inset-0 z-50`) render đè lên thay vì unmount component cũ để tránh lỗi kẹt `opacity: 0` hay render đúp màn hình.
+9. **Side Quest Injection**: Mọi thẻ ngẫu nhiên (Thương nhân, Thần thoại, Văn hóa) hay Khủng hoảng (Crisis) khi xuất hiện chen ngang vào cốt truyện chính đều áp dụng cơ chế tự động "tiêm" (inject) `chainNext` của mạch chính vào `choices` của chính nó. Điều này đảm bảo sau khi xong sự kiện phụ, cốt truyện sẽ được tiếp diễn thay vì bị văng về thẻ đầu tiên của Arc. Tuyệt đối không xóa logic này trong `eventResolver.js` và `gameEngine.js`.
+10. **Framer Motion Gotchas**: Tuyệt đối KHÔNG dùng `AnimatePresence` trực tiếp với các custom function component (như các màn hình Router). Phải bọc chúng trong thẻ `<motion.div>` native có `exit` prop, hoặc dùng chiến thuật Fixed Overlay (`fixed inset-0 z-50`) render đè lên thay vì unmount component cũ để tránh lỗi kẹt `opacity: 0` hay render đúp màn hình.

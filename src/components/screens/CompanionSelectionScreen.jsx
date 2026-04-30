@@ -26,7 +26,7 @@ export default function CompanionSelectionScreen() {
 
   return (
     <motion.div
-      className="min-h-screen flex flex-col bg-tran-bg px-4 py-6 max-w-sm mx-auto justify-center"
+      className="h-[100dvh] overflow-hidden flex flex-col bg-tran-bg px-4 py-6 max-w-sm mx-auto justify-center"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 1.05 }}

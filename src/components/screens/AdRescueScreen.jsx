@@ -19,7 +19,7 @@ export default function AdRescueScreen() {
 
   return (
     <motion.div
-      className="min-h-screen flex flex-col items-center justify-center p-5 max-w-sm mx-auto"
+      className="h-[100dvh] overflow-hidden flex flex-col items-center justify-center p-5 max-w-sm mx-auto"
       style={{ background: '#110a08' }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

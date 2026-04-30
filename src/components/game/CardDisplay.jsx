@@ -131,6 +131,33 @@ export default function CardDisplay({ event }) {
                 <p className="text-xs text-tran-textMuted uppercase tracking-widest mb-1">Tính cách</p>
                 <p className="text-sm text-tran-secondary/80 font-medium">{charData.personality}</p>
               </div>
+
+              {/* Show culture info on the back of the card if available */}
+              {event.type === 'culture' && event.choices[0]?.modernLocation && (
+                <div className="mt-4 pt-4 border-t border-tran-border/30 w-full text-left text-[11px] space-y-1.5">
+                  <p className="text-tran-textMuted flex items-start gap-1.5">
+                    <span className="shrink-0">📍</span> 
+                    <span><strong className="text-tran-text font-medium">Nay là:</strong> {event.choices[0].modernLocation}</span>
+                  </p>
+                  {event.choices[0].specialty && (
+                    <p className="text-tran-textMuted flex items-start gap-1.5">
+                      <span className="shrink-0">🍜</span> 
+                      <span><strong className="text-tran-text font-medium">Đặc sản:</strong> {event.choices[0].specialty}</span>
+                    </p>
+                  )}
+                  {event.choices[0].referenceLink && (
+                    <a 
+                      href={event.choices[0].referenceLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block mt-1 text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors"
+                      onClick={e => e.stopPropagation()}
+                    >
+                      🔗 Tìm hiểu thêm
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           ) : (
             <div className="flex items-center justify-center h-full text-tran-textMuted text-sm">

@@ -18,7 +18,7 @@ export default function GameOverScreen() {
 
   return (
     <motion.div
-      className="min-h-screen bg-tran-bg flex flex-col items-center justify-center p-6"
+      className="h-[100dvh] overflow-hidden bg-tran-bg flex flex-col items-center justify-center p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}

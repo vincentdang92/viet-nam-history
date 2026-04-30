@@ -19,7 +19,7 @@ export default function NameSetupScreen() {
 
   return (
     <motion.div
-      className="min-h-screen bg-tran-bg flex flex-col items-center justify-center p-6 max-w-sm mx-auto"
+      className="h-[100dvh] overflow-hidden bg-tran-bg flex flex-col items-center justify-center p-6 max-w-sm mx-auto"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}

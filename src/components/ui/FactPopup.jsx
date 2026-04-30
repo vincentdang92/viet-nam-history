@@ -61,7 +61,36 @@ export default function FactPopup({ fact, onDismiss }) {
 
               {/* Body */}
               <div className="px-4 py-3 relative">
-                <p className="text-tran-text text-sm leading-relaxed">{fact.text}</p>
+                <p className="text-tran-text text-sm leading-relaxed mb-3">{fact.text}</p>
+                
+                {(fact.modernLocation || fact.specialty || fact.referenceLink) && (
+                  <div className="mt-3 pt-3 border-t border-tran-border/30 space-y-2 mb-6">
+                    {fact.modernLocation && (
+                      <p className="text-xs text-tran-textMuted flex items-start gap-1.5">
+                        <span className="shrink-0">📍</span> 
+                        <span><strong className="text-tran-text">Địa danh nay:</strong> {fact.modernLocation}</span>
+                      </p>
+                    )}
+                    {fact.specialty && (
+                      <p className="text-xs text-tran-textMuted flex items-start gap-1.5">
+                        <span className="shrink-0">🍜</span> 
+                        <span><strong className="text-tran-text">Đặc sản:</strong> {fact.specialty}</span>
+                      </p>
+                    )}
+                    {fact.referenceLink && (
+                      <a 
+                        href={fact.referenceLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block mt-1 text-xs text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors"
+                        onClick={e => e.stopPropagation()}
+                      >
+                        🔗 Tìm hiểu thêm
+                      </a>
+                    )}
+                  </div>
+                )}
+
                 <button 
                   onClick={(e) => { e.stopPropagation(); setShowFeedback(true) }}
                   className="absolute bottom-1 right-2 text-xs text-amber-600/70 hover:text-amber-500 underline underline-offset-2 flex items-center gap-1"

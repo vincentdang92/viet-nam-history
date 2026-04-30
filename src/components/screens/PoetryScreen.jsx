@@ -31,7 +31,7 @@ export default function PoetryScreen() {
 
   return (
     <motion.div
-      className="min-h-screen flex flex-col justify-center items-center bg-[#1A0F0A] p-4 relative overflow-hidden font-serif"
+      className="h-[100dvh] flex flex-col justify-center items-center bg-[#1A0F0A] p-4 relative overflow-hidden font-serif"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

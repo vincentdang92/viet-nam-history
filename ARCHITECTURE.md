@@ -116,7 +116,9 @@ minh-chu/
 │   │   ├── characters.json       # Danh sách nhân vật lịch sử
 │   │   ├── endings.json          # 7 endings của Chapter Nhà Trần - Hồ - Lê
 │   │   ├── chapters.json         # Danh sách chapters (roadmap)
-│   │   └── sysEvents.json        # Các sự kiện hệ thống (Khủng hoảng, Thương nhân)
+│   │   ├── sysEvents.json        # Các sự kiện hệ thống (Khủng hoảng, Thương nhân)
+│   │   ├── mythicEvents.json     # Các sự kiện thần thoại (Rùa Vàng, Rồng Thiêng)
+│   │   └── cultureEvents.json    # Sự kiện văn hóa, đời sống dân gian (Side Quests)
 │   │
 │   ├── engine/
 │   │   ├── gameEngine.js         # Core logic: xử lý lượt chơi, Combat, Items
@@ -184,7 +186,10 @@ minh-chu/
       "isHistorical": false,
       "fact": "Trong lịch sử, Trần Hưng Đạo được nuôi dưỡng và đào tạo kỹ lưỡng trong triều đình nhà Trần.",
       "chainNext": "tran_arc1_007",
-      "unlockSuKy": null
+      "unlockSuKy": null,
+      "modernLocation": "Khu di tích Kiếp Bạc, Hải Dương",  // Mở rộng cho thẻ văn hóa
+      "specialty": "Vải thiều, Gốm Chu Đậu",               // Mở rộng cho thẻ văn hóa
+      "referenceLink": "https://vi.wikipedia.org/wiki..."  // Mở rộng cho thẻ văn hóa
     }
   ],
   "requiredCondition": null,
@@ -373,24 +378,40 @@ const GAME_OVER_REASONS = {
 }
 ```
 
-### 6.3 Resolve Sự Kiện Tiếp Theo
+### 6.3 Resolve Sự Kiện Tiếp Theo & Cơ Chế Nội Suy (Side Quest Interruption)
 
 ```javascript
 // eventResolver.js
 function resolveNextEvent(state, choice) {
-  // Ưu tiên 1: Chain event từ lựa chọn
-  if (choice.chainNext) {
-    return loadEvent(choice.chainNext)
+  // BƯỚC 1: Tính toán trước thẻ Cốt truyện chính đáng lẽ sẽ xuất hiện (normalNextEvent)
+  let normalNextEvent = null;
+  if (choice.chainNext) normalNextEvent = loadEvent(choice.chainNext);
+  else ... // fallback sang thẻ tiếp theo trong arc
+
+  // BƯỚC 2: Kiểm tra tỷ lệ xuất hiện sự kiện phụ (Chỉ khi thẻ hiện tại không phải là sự kiện phụ)
+  const isCurrentlySideQuest = ["sys_", "mythic_", "culture_"].some(prefix => state.currentEvent?.id?.startsWith(prefix));
+
+  if (!isCurrentlySideQuest) {
+    let sideQuestEvent = null;
+    // Roll xúc xắc: 5% Thần Thoại, 10% Thương Nhân, 30% Văn Hóa...
+    
+    // BƯỚC 3: Tiêm (Inject) chuỗi gốc vào sự kiện phụ
+    if (sideQuestEvent) {
+      return {
+        ...sideQuestEvent,
+        choices: sideQuestEvent.choices.map(c => ({
+          ...c,
+          chainNext: normalNextEvent?.id // Gắn ngầm điểm rơi để khi chơi xong sẽ quay lại mạch chính
+        }))
+      }
+    }
   }
 
-  // Ưu tiên 2: Sự kiện bắt buộc theo năm (milestone)
-  const milestone = checkMilestone(state.currentYear)
-  if (milestone) return loadEvent(milestone)
-
-  // Ưu tiên 3: Sự kiện ngẫu nhiên phù hợp arc hiện tại
-  return loadRandomEvent(state.currentArc, state.eventHistory, state.flags)
+  // Nếu không có sự kiện phụ nào xuất hiện, tiếp tục cốt truyện bình thường
+  return normalNextEvent;
 }
 ```
+*Lưu ý: Cơ chế tiêm `chainNext` này cũng được áp dụng tương tự cho các thẻ Khủng hoảng (Crisis) ở bên trong `gameEngine.js` để đảm bảo game không bị mất dấu mạch truyện chính sau khi khủng hoảng kết thúc.*
 
 ---
 

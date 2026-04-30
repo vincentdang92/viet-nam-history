@@ -125,7 +125,7 @@ export default function DuelScreen() {
 
   if (!ghostData || !currentQId) {
     return (
-      <div className="min-h-screen bg-stone-950 flex flex-col justify-center items-center">
+      <div className="h-[100dvh] overflow-hidden bg-stone-950 flex flex-col justify-center items-center">
         <p className="text-red-500">Dữ liệu Bóng Ma bị lỗi!</p>
         <button onClick={handleQuit} className="mt-4 text-stone-400">Quay về</button>
       </div>
@@ -143,7 +143,7 @@ export default function DuelScreen() {
 
     return (
       <motion.div
-        className="min-h-screen bg-stone-950 flex flex-col justify-center items-center px-4 max-w-sm mx-auto"
+        className="h-[100dvh] overflow-hidden bg-stone-950 flex flex-col justify-center items-center px-4 max-w-sm mx-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
@@ -184,7 +184,7 @@ export default function DuelScreen() {
 
   return (
     <motion.div
-      className="min-h-screen bg-stone-950 flex flex-col px-4 max-w-sm mx-auto relative overflow-hidden"
+      className="h-[100dvh] bg-stone-950 flex flex-col px-4 max-w-sm mx-auto relative overflow-hidden"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 1.05 }}
@@ -221,7 +221,7 @@ export default function DuelScreen() {
         </div>
       </div>
 
-      <div className="w-full flex-1 flex flex-col justify-center relative z-10">
+      <div className="w-full flex-1 flex flex-col justify-center relative z-10 overflow-y-auto hide-scrollbar">
         {/* Timer Bar */}
         <div className="w-full h-1.5 bg-stone-900 rounded-full mb-6 overflow-hidden">
           <motion.div 

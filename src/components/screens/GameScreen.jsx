@@ -302,7 +302,7 @@ export default function GameScreen() {
 
   return (
     <motion.div
-      className={`min-h-screen flex flex-col max-w-sm mx-auto relative transition-colors duration-1000 ${isCampaign ? 'bg-red-950/40' : 'bg-tran-bg'}`}
+      className={`h-[100dvh] overflow-hidden flex flex-col max-w-sm mx-auto relative transition-colors duration-1000 ${isCampaign ? 'bg-red-950/40' : 'bg-tran-bg'}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

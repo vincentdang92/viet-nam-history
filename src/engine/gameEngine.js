@@ -213,7 +213,14 @@ export function processChoice(state, choiceId) {
       eventHistory: [...state.eventHistory, state.currentEvent.id],
       lastChoice: choice,
       showFactPopup: !!choice.fact,
-      pendingFact: choice.fact ? { text: choice.fact, isHistorical: choice.isHistorical, eventId: state.currentEvent.id } : null,
+      pendingFact: choice.fact ? { 
+        text: choice.fact, 
+        isHistorical: choice.isHistorical, 
+        eventId: state.currentEvent.id,
+        modernLocation: choice.modernLocation,
+        specialty: choice.specialty,
+        referenceLink: choice.referenceLink
+      } : null,
       pendingArcIntro: choice.endArc ? nextArc : null,
       questToast,
     }
@@ -221,9 +228,16 @@ export function processChoice(state, choiceId) {
     if (crisisEventId) {
       const crisisEvent = loadEvent(crisisEventId)
       if (crisisEvent) {
+        // Resolve where the game WOULD have gone if not interrupted
+        const nextEvent = resolveNextEvent(pendingBase, choice)
+        // Inject that destination into the crisis event's choices
+        const injectedCrisis = {
+          ...crisisEvent,
+          choices: crisisEvent.choices.map(c => ({ ...c, chainNext: nextEvent?.id }))
+        }
         return {
           ...pendingBase,
-          currentEvent: crisisEvent,
+          currentEvent: injectedCrisis,
           gameStatus: 'playing', // Bypass game over
         }
       }
@@ -298,7 +312,13 @@ export function processChoice(state, choiceId) {
       lastChoice: choice,
       // Show fact before the ending screen
       showFactPopup: true,
-      pendingFact: { text: choice.fact, isHistorical: choice.isHistorical },
+      pendingFact: { 
+        text: choice.fact, 
+        isHistorical: choice.isHistorical,
+        modernLocation: choice.modernLocation,
+        specialty: choice.specialty,
+        referenceLink: choice.referenceLink
+      },
       pendingEnding: endingCheck.endingId,
     }
   }
@@ -316,7 +336,13 @@ export function processChoice(state, choiceId) {
       unlockedSuKy: newSuKy,
       lastChoice: choice,
       showFactPopup: true,
-      pendingFact: { text: choice.fact, isHistorical: choice.isHistorical },
+      pendingFact: { 
+        text: choice.fact, 
+        isHistorical: choice.isHistorical,
+        modernLocation: choice.modernLocation,
+        specialty: choice.specialty,
+        referenceLink: choice.referenceLink
+      },
       pendingEnding: fallbackEndingId,
     }
   }
@@ -329,7 +355,13 @@ export function processChoice(state, choiceId) {
     eventHistory: [...state.eventHistory, state.currentEvent.id],
     lastChoice: choice,
     showFactPopup: true,
-    pendingFact: { text: choice.fact, isHistorical: choice.isHistorical },
+    pendingFact: { 
+      text: choice.fact, 
+      isHistorical: choice.isHistorical,
+      modernLocation: choice.modernLocation,
+      specialty: choice.specialty,
+      referenceLink: choice.referenceLink
+    },
     // Signal arc transition after fact popup dismissal
     pendingArcIntro: choice.endArc ? nextArc : null,
   }
