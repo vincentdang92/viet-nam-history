@@ -219,7 +219,15 @@ export default function HomeScreen() {
           </button>
           
           <button 
-            onClick={() => dispatch({ type: 'START_ARENA' })}
+            onClick={() => {
+              if (!isLinked) {
+                alert("Xin mời Sử Gia liên kết tài khoản (Google hoặc Email) để bước vào Lôi Đài Lịch Sử và ghi danh lên Bảng Vàng!")
+                // Scroll to bottom where the login options are
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+                return
+              }
+              dispatch({ type: 'START_ARENA' })
+            }}
             className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-red-950/40 border border-red-900/50 rounded-xl text-red-400 hover:bg-red-900/40 transition-colors shadow-lg shadow-red-900/20 relative overflow-hidden"
           >
             <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0 0h20v20H0V0zm10 17L3 10l7-7 7 7-7 7z\' fill=\'%23ef4444\' fill-rule=\'evenodd\'/%3E%3C/svg%3E')] animate-[pulse_4s_linear_infinite]" />

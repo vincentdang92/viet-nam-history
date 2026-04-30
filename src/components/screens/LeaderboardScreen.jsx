@@ -5,16 +5,23 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { getTopContributors, getTopArenaPlayers } from '../../lib/firestore'
 import { getContributionTitle, ARENA_BOTS } from '../../constants/gameConfig'
 import { useGame } from '../../context/GameContext'
+import { useAuth } from '../../context/AuthContext'
 import { generateBotGhost } from '../../utils/ghostGenerator'
 
 export default function LeaderboardScreen({ onBack }) {
   const { dispatch } = useGame()
+  const { isLinked } = useAuth()
   const [activeTab, setActiveTab] = useState('arena') // 'arena' | 'contrib'
   const [leaders, setLeaders] = useState([])
   const [loading, setLoading] = useState(true)
   const [selectedUserId, setSelectedUserId] = useState(null)
 
   const handleDuel = (targetUser) => {
+    if (!isLinked) {
+      alert("Xin mời Sử Gia quay lại Màn Hình Chính và liên kết tài khoản để được quyền Tỉ Thí!")
+      return
+    }
+
     let ghostData = targetUser.ghostData
     if (!ghostData && targetUser.isBot) {
       ghostData = generateBotGhost(targetUser)
