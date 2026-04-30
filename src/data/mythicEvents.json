@@ -1,0 +1,73 @@
+{
+  "mythic_rua_vang": {
+    "id": "mythic_rua_vang",
+    "type": "cinematic",
+    "rarity": "legendary",
+    "title": "Cụ Rùa Vàng Nổi Lên",
+    "context": "Vào một đêm trăng sáng trên sông, dòng nước bỗng cuồn cuộn nổi bọt. Một Cụ Rùa Vàng khổng lồ ngoi lên, ngậm một thanh gươm phát sáng rực rỡ dâng lên cho ngài.",
+    "character": "than_kim_quy",
+    "quote": "Bảo kiếm dành cho thiên tử. Thuận thiên thừa vận, vạn thế thái bình!",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Hai tay đón nhận Thuận Thiên Kiếm",
+        "effects": {
+          "binhLuc": 40,
+          "danTam": 30,
+          "trieuCuong": 30
+        },
+        "isHistorical": false,
+        "giveItem": "item_thuan_thien_kiem",
+        "fact": "Truyền thuyết Lê Lợi nhận gươm thần từ Rùa Vàng là biểu tượng cho việc cuộc khởi nghĩa Lam Sơn được thần linh và nhân dân (vùng sông nước) ủng hộ."
+      }
+    ],
+    "isCinematic": true,
+    "background": "river_night"
+  },
+  "mythic_rong_thieng": {
+    "id": "mythic_rong_thieng",
+    "type": "event",
+    "rarity": "epic",
+    "title": "Rồng Thiêng Bay Xuống",
+    "context": "Đang giữa buổi triều ca, bỗng có điềm lành báo ứng. Một đám mây ngũ sắc hội tụ, một con rồng vàng uốn lượn lướt qua nóc điện Thăng Long.",
+    "character": "rong_thieng",
+    "quote": "Chân mệnh thiên tử, quốc thái dân an.",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Lập đàn tạ ơn trời đất",
+        "effects": {
+          "danTam": 40,
+          "trieuCuong": 40
+        },
+        "isHistorical": false,
+        "fact": "Lý Thái Tổ khi dời đô đã thấy Rồng Vàng bay lên nên đặt tên là Thăng Long. Điềm rồng thiêng luôn được coi là phúc lớn của triều đình."
+      }
+    ],
+    "isCinematic": false,
+    "background": "thang_long_palace"
+  },
+  "mythic_tien_ong": {
+    "id": "mythic_tien_ong",
+    "type": "event",
+    "rarity": "epic",
+    "title": "Gặp Tiên Ông Trên Núi",
+    "context": "Trong một chuyến vi hành lên núi Yên Tử, ngài vô tình lạc vào màn sương mù và gặp một ông lão râu tóc bạc phơ đang ngồi chơi cờ một mình.",
+    "character": "tien_ong",
+    "quote": "Thắng thua một ván cờ, hưng vong một triều đại. Uống chén trà này đi!",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Kính cẩn bái tạ và uống trà",
+        "effects": {
+          "quocKho": 50,
+          "danTam": 20
+        },
+        "isHistorical": false,
+        "fact": "Vua Trần Nhân Tông sau này đã xuất gia lên núi Yên Tử tu hành, trở thành Phật Hoàng, để lại di sản thiền tông vô giá cho Đại Việt."
+      }
+    ],
+    "isCinematic": false,
+    "background": "mountain_mist"
+  }
+}

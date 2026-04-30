@@ -35,24 +35,24 @@ const STATS = [
 
 const STEPS = [
   {
-    icon: '🃏',
-    title: 'Đọc thẻ sự kiện',
-    desc: 'Mỗi thẻ là một tình huống lịch sử thật. Có nhân vật, có bối cảnh, có lời thoại.',
+    icon: '📜',
+    title: 'Gánh vác mệnh nước',
+    desc: 'Mỗi quyết định của ngài là một tình huống có thật. Lịch sử được dệt nên từ chính những lựa chọn khó khăn này.',
   },
   {
     icon: '👆',
-    title: 'Kéo hoặc nhấn để chọn',
-    desc: 'Kéo thẻ sang trái / phải, hoặc nhấn vào nút chọn phía dưới. Không có lựa chọn nào hoàn toàn đúng.',
+    title: 'Vuốt để định đoạt',
+    desc: 'Kéo thẻ sang trái / phải để ban thánh chỉ. Chú ý: Không có quyết định nào làm hài lòng tất cả.',
   },
   {
-    icon: '📊',
-    title: 'Theo dõi 4 chỉ số',
-    desc: 'Mỗi quyết định thay đổi chỉ số. Giữ tất cả trong vùng an toàn (không quá thấp, không quá cao).',
+    icon: '⚖️',
+    title: 'Cân bằng quốc gia',
+    desc: 'Giữ 4 trụ cột triều đình vững vàng. Một cột sụp đổ, cơ đồ hàng trăm năm cũng tan thành mây khói.',
   },
   {
     icon: '📖',
-    title: 'Mở khóa Sử Ký',
-    desc: 'Sau mỗi lựa chọn có popup sự thật lịch sử. Các thành tựu đặc biệt mở khóa trang Sử Ký.',
+    title: 'Gìn giữ Sử Ký',
+    desc: 'Mỗi thẻ lật đi là một bài học lịch sử được mở ra. Khám phá sự thật đằng sau những quyết định ngàn năm.',
   },
 ]
 
@@ -138,9 +138,9 @@ export default function HowToPlayModal({ open, onClose }) {
 
             <div className="px-4 pb-6 overflow-y-auto max-h-[82vh]">
               {/* Header */}
-              <div className="text-center mb-5">
-                <p className="text-tran-secondary font-serif font-bold text-lg">Hướng Dẫn Chơi</p>
-                <p className="text-tran-textMuted text-xs mt-1">Dẫn dắt triều đại qua những thăng trầm lịch sử</p>
+              <div className="text-center mb-5 mt-2">
+                <p className="text-tran-secondary font-serif font-bold text-xl uppercase tracking-wider">Cẩm Nang Kế Thế</p>
+                <p className="text-tran-textMuted text-xs mt-2 italic">Gánh vác giang sơn, viết tiếp những trang sử hào hùng của dân tộc Việt Nam</p>
               </div>
 
               {/* How to play steps */}
@@ -189,17 +189,20 @@ export default function HowToPlayModal({ open, onClose }) {
               </Block>
 
               {/* Tips */}
-              <Block title="Mẹo Chơi">
-                <div className="py-2 space-y-2.5">
+              <Block title="Tinh Thần & Giá Trị Cốt Lõi">
+                <div className="py-2 space-y-3.5">
                   {[
-                    { icon: '⚖️', tip: 'Cân bằng là chìa khóa — không có đường thắng nào chỉ chọn một phía.' },
-                    { icon: '📖', tip: 'Đọc fact sau mỗi thẻ — đó là lịch sử thật, không phải hư cấu.' },
-                    { icon: '🎯', tip: 'Thua là bình thường. Lịch sử Việt Nam đầy gian nan — hãy thử lại và học từ thất bại.' },
-                    { icon: '📺', tip: 'Khi sắp thua, có thể xem quảng cáo để hồi sinh một lần.' },
-                  ].map(({ icon, tip }, i) => (
-                    <div key={i} className="flex items-start gap-2">
-                      <span className="text-base shrink-0">{icon}</span>
-                      <p className="text-tran-textMuted text-xs leading-snug">{tip}</p>
+                    { icon: '🇻🇳', title: 'Hồn Thiêng Lịch Sử', tip: 'Mọi sự kiện đều dựa trên chính sử. Hãy để lòng yêu nước soi đường cho mỗi thánh chỉ của ngài.' },
+                    { icon: '⌛', title: 'Dòng Thời Gian', tip: 'Làm trái lịch sử sẽ làm loạn thời không. Nhưng ngài luôn có thể thử nghiệm để trả lời câu hỏi "Nếu như?".' },
+                    { icon: '🛡️', title: 'Cơ Hội Làm Lại', tip: 'Lịch sử đầy gian nan. Nếu triều đại sụp đổ, ngài luôn có quyền Cứu Nguy để sửa sai và đi tiếp.' },
+                    { icon: '✨', title: 'Giải Trí & Tự Hào', tip: 'Trước hết đây là một trò chơi giải trí (Fun First), nhưng đọng lại sẽ là lòng tự hào dân tộc (Learn Always).' },
+                  ].map(({ icon, title, tip }, i) => (
+                    <div key={i} className="flex items-start gap-2.5">
+                      <span className="text-xl shrink-0 mt-0.5">{icon}</span>
+                      <div>
+                        <p className="text-tran-secondary text-xs font-bold mb-0.5">{title}</p>
+                        <p className="text-tran-textMuted text-xs leading-relaxed">{tip}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -207,10 +210,10 @@ export default function HowToPlayModal({ open, onClose }) {
 
               <button
                 onClick={onClose}
-                className="w-full py-3 rounded-xl border border-tran-border text-tran-textMuted text-sm active:opacity-70 transition-opacity"
+                className="w-full py-3.5 mt-2 rounded-xl border border-tran-secondary/30 bg-tran-secondary/10 hover:bg-tran-secondary/20 text-tran-secondary text-sm font-bold uppercase tracking-wider transition-colors"
                 style={{ minHeight: 48 }}
               >
-                Đã hiểu, bắt đầu thôi!
+                Tuân Mệnh! Bắt đầu gánh vác
               </button>
             </div>
           </motion.div>

@@ -70,7 +70,7 @@
           },
           "isHistorical": true,
           "fact": "Trần Thủ Độ nắm thực quyền triều đình suốt nhiều thập kỷ, xây dựng nền móng vững chắc cho nhà Trần.",
-          "chainNext": "tran_arc1_003",
+          "chainNext": "tran_arc1_002b",
           "unlockSuKy": "su_ky_tran_thu_do_001"
         },
         {
@@ -84,13 +84,100 @@
           },
           "isHistorical": false,
           "fact": "Lịch sử cho thấy Trần Thủ Độ đã nắm quyền hầu như tuyệt đối trong giai đoạn đầu nhà Trần.",
-          "chainNext": "tran_arc1_003",
+          "chainNext": "tran_arc1_002b",
           "unlockSuKy": null
         }
       ],
       "requiredCondition": null,
       "isCinematic": false,
       "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc1_002b",
+      "arc": 1,
+      "year": 1226,
+      "type": "historical",
+      "title": "Nhổ Cỏ Tận Gốc",
+      "context": "Để củng cố ngai vàng non trẻ, Thái sư Trần Thủ Độ đến chùa Chân Giáo, nơi cựu hoàng Lý Huệ Tông đang tu hành, và nói: 'Nhổ cỏ phải nhổ tận gốc'.",
+      "character": "tran_thu_do",
+      "quote": "Ngươi đang tu hành, nhưng sự tồn tại của ngươi là mối họa cho xã tắc",
+      "hint": "Một vị vua mềm mỏng không thể giữ vững ngai vàng trong thời kỳ chuyển giao hỗn loạn.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Ép Lý Huệ Tông tự vẫn, diệt trừ hậu họa",
+          "effects": {
+            "binhLuc": 0,
+            "danTam": -15,
+            "quocKho": 0,
+            "trieuCuong": 20
+          },
+          "isHistorical": true,
+          "fact": "Năm 1226, Trần Thủ Độ ép Lý Huệ Tông tự vẫn để chấm dứt hoàn toàn hi vọng phục nghiệp của nhà Lý.",
+          "chainNext": "tran_arc1_002c",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Tha mạng, đày đi nơi xa",
+          "effects": {
+            "binhLuc": -5,
+            "danTam": 10,
+            "quocKho": 0,
+            "trieuCuong": -15
+          },
+          "isHistorical": false,
+          "fact": "Trần Thủ Độ nổi tiếng với chính sách tàn nhẫn và triệt để. Sự mềm lòng sẽ dẫn đến họa loạn.",
+          "chainNext": "tran_arc1_002c",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "temple"
+    },
+    {
+      "id": "tran_arc1_002c",
+      "arc": 1,
+      "year": 1237,
+      "type": "event",
+      "title": "Bi Kịch Phế Lập",
+      "context": "Sau 12 năm, Lý Chiêu Hoàng vẫn chưa sinh con nối dõi. Trần Thủ Độ ép Trần Thái Tông phế Chiêu Hoàng, và lấy người chị dâu (vợ Trần Liễu) đang mang thai 3 tháng lập làm Hoàng hậu mới.",
+      "character": "tran_thai_tong",
+      "quote": "Trẫm làm vua, mà ngay cả vợ mình cũng không giữ được ư?",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Ngậm đắng nuốt cay, chấp nhận sự sắp đặt vì đại cục",
+          "effects": {
+            "binhLuc": 0,
+            "danTam": -10,
+            "quocKho": 0,
+            "trieuCuong": 10
+          },
+          "isHistorical": true,
+          "fact": "Bi kịch này khiến Trần Liễu nổi điên, dấy binh làm loạn ở sông Cái. Dù sau đó được tha chết, nhưng ông mang hận đến tận cuối đời.",
+          "chainNext": "tran_arc1_003",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Phản kháng, bỏ ngôi vua trốn lên núi Yên Tử",
+          "effects": {
+            "binhLuc": -10,
+            "danTam": 10,
+            "quocKho": -5,
+            "trieuCuong": -10
+          },
+          "isHistorical": true,
+          "fact": "Trần Thái Tông thực sự đã trốn lên Yên Tử. Thủ Độ dẫn quân lên uy hiếp sư sãi: 'Vua ở đâu, kinh thành ở đó', buộc Thái Tông phải về.",
+          "chainNext": "tran_arc1_003",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": true,
+      "background": "thang_long_palace"
     },
     {
       "id": "tran_arc1_003",
@@ -376,7 +463,7 @@
           },
           "isHistorical": true,
           "fact": "Nhà Trần phát triển mạnh thương mại, biến Thăng Long thành trung tâm giao thương của Đông Nam Á.",
-          "chainNext": "tran_arc1_010",
+          "chainNext": "tran_arc1_011",
           "unlockSuKy": "su_ky_thuong_mai_001"
         },
         {
@@ -390,56 +477,13 @@
           },
           "isHistorical": false,
           "fact": "Chính sách thuế hợp lý của nhà Trần giúp thu hút thương nhân và phát triển kinh tế lâu dài.",
-          "chainNext": "tran_arc1_010",
+          "chainNext": "tran_arc1_011",
           "unlockSuKy": null
         }
       ],
       "requiredCondition": null,
       "isCinematic": false,
       "background": "thang_long_market"
-    },
-    {
-      "id": "tran_arc1_010",
-      "arc": 1,
-      "year": 1253,
-      "type": "historical",
-      "title": "Hội Nghị Diên Hồng",
-      "context": "Quân Mông Cổ đang tiến sát biên giới phía Bắc. Vua triệu tập hội nghị các bô lão cả nước để hỏi ý kiến: Hòa hay Chiến?",
-      "character": "tran_thai_tong",
-      "quote": "Nên hòa hay nên đánh?",
-      "choices": [
-        {
-          "id": "choice_a",
-          "text": "Chiến! Đánh đến cùng",
-          "effects": {
-            "binhLuc": 0,
-            "danTam": 20,
-            "quocKho": -5,
-            "trieuCuong": 5
-          },
-          "isHistorical": true,
-          "fact": "Hội nghị Diên Hồng năm 1285 (không phải 1253) — các bô lão đồng thanh hô 'Đánh!'. Đây là biểu tượng tinh thần kháng chiến của dân tộc.",
-          "chainNext": "tran_arc1_011",
-          "unlockSuKy": "su_ky_dien_hong_001"
-        },
-        {
-          "id": "choice_b",
-          "text": "Cần bàn thêm, chưa quyết định vội",
-          "effects": {
-            "binhLuc": -5,
-            "danTam": -10,
-            "quocKho": 5,
-            "trieuCuong": -5
-          },
-          "isHistorical": false,
-          "fact": "Trong lịch sử, hội nghị Diên Hồng nổi tiếng vì tinh thần đoàn kết và quyết tâm chiến đấu tuyệt đối.",
-          "chainNext": "tran_arc1_011",
-          "unlockSuKy": null
-        }
-      ],
-      "requiredCondition": null,
-      "isCinematic": true,
-      "background": "thang_long_court"
     },
     {
       "id": "tran_arc1_011",
@@ -462,7 +506,7 @@
           },
           "isHistorical": true,
           "fact": "Nhà Trần chuẩn bị quân sự rất bài bản trước các cuộc kháng Nguyên, bao gồm chiến thuật 'vườn không nhà trống'.",
-          "chainNext": "tran_arc1_012",
+          "chainNext": "tran_arc1_battle_1257_binh_le",
           "unlockSuKy": null
         },
         {
@@ -476,13 +520,99 @@
           },
           "isHistorical": false,
           "fact": "Sự chuẩn bị kỹ lưỡng là yếu tố then chốt giúp nhà Trần đánh bại quân Nguyên.",
-          "chainNext": "tran_arc1_012",
+          "chainNext": "tran_arc1_battle_1257_binh_le",
           "unlockSuKy": null
         }
       ],
       "requiredCondition": null,
       "isCinematic": false,
       "background": "training_ground"
+    },
+    {
+      "id": "tran_arc1_battle_1257_binh_le",
+      "arc": 1,
+      "year": 1257,
+      "type": "battle",
+      "title": "Trận Bình Lệ Nguyên",
+      "context": "Quân Mông Cổ do Ngột Lương Hợp Thai chỉ huy ập đến như bão lụt. Thế giặc quá mạnh, quân ta vỡ trận, Vua bị bao vây nguy ngập.",
+      "character": "le_phu_tran",
+      "quote": "Bệ hạ, cẩn thận mũi tên!",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Lê Phụ Trần dỡ ván thuyền che tên, hộ giá rút lui",
+          "effects": {
+            "binhLuc": -15,
+            "danTam": -5,
+            "quocKho": 0,
+            "trieuCuong": 5
+          },
+          "isHistorical": true,
+          "fact": "Tướng Lê Tần (Lê Phụ Trần) đã dũng cảm lấy ván thuyền che mưa tên cho vua Thái Tông, giúp vua thoát vòng vây an toàn.",
+          "chainNext": "tran_arc1_011_b",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Tử chiến tới cùng không lùi bước",
+          "effects": {
+            "binhLuc": -30,
+            "danTam": 10,
+            "quocKho": 0,
+            "trieuCuong": 10
+          },
+          "isHistorical": false,
+          "fact": "Quân Mông Cổ có sức mạnh kỵ binh áp đảo. Cố chấp đánh trực diện lúc này sẽ dẫn đến sự sụp đổ hoàn toàn của Đại Việt.",
+          "chainNext": "tran_arc1_011_b",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "battle_field"
+    },
+    {
+      "id": "tran_arc1_011_b",
+      "arc": 1,
+      "year": 1258,
+      "type": "event",
+      "title": "Ý Chí Tể Tướng",
+      "context": "Binh bại như núi lở, vua hoang mang định cầu hòa hoặc rút sang nước Tống lánh nạn. Trần Thủ Độ tiến vào bệ kiến.",
+      "character": "tran_thu_do",
+      "quote": "Đầu thần chưa rơi xuống đất, xin bệ hạ đừng lo!",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Tin tưởng Thái sư, củng cố lực lượng chờ thời",
+          "effects": {
+            "binhLuc": 5,
+            "danTam": 15,
+            "quocKho": 0,
+            "trieuCuong": 15
+          },
+          "isHistorical": true,
+          "fact": "Câu nói nổi tiếng của Trần Thủ Độ đã xốc lại tinh thần của vua và toàn quân triều Trần giữa lúc nguy cấp nhất.",
+          "chainNext": "tran_arc1_012",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Gửi cống phẩm sang Mông Cổ xin hòa",
+          "effects": {
+            "binhLuc": -10,
+            "danTam": -20,
+            "quocKho": -15,
+            "trieuCuong": -10
+          },
+          "isHistorical": false,
+          "fact": "Nhà Trần đã chọn cách đánh dứt điểm chứ không đầu hàng hay vội vã xin hòa khi còn cơ hội phản công.",
+          "chainNext": "tran_arc1_012",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "war_council"
     },
     {
       "id": "tran_arc1_012",

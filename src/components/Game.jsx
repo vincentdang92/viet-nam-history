@@ -12,8 +12,12 @@ import ArcTransitionScreen from './screens/ArcTransitionScreen'
 import SuKyScreen from './screens/SuKyScreen'
 import AdRescueScreen from './screens/AdRescueScreen'
 import ItemRescueScreen from './screens/ItemRescueScreen'
+import CompanionSelectionScreen from './screens/CompanionSelectionScreen'
 import TriviaScreen from './screens/TriviaScreen'
+import EspionageScreen from './screens/EspionageScreen'
+import PoetryScreen from './screens/PoetryScreen'
 import CombatScreen from './screens/CombatScreen'
+import ArenaScreen from './screens/ArenaScreen'
 import EndingCard from './ui/EndingCard'
 import { getEnding } from '../engine/endingChecker'
 import { useBgMusic } from '../hooks/useBgMusic'
@@ -53,7 +57,7 @@ function MusicButton({ muted, onToggle }) {
 }
 
 // ─── Router ─────────────────────────────────────────────────────────────────────
-function GameRouter({ onSuKy, showSuKy }) {
+function GameRouter() {
   const { state, dispatch } = useGame()
   const { playerName } = useAuth()
 
@@ -61,25 +65,29 @@ function GameRouter({ onSuKy, showSuKy }) {
     return <NameSetupScreen key="namesetup" />
   }
 
-  if (showSuKy) {
-    return <SuKyScreen key="suky" onBack={() => onSuKy(false)} />
-  }
-
   switch (state.gameStatus) {
     case 'menu':
       return <HomeScreen key="menu" />
     case 'playing':
-      return <GameScreen key="game" onSuKy={() => onSuKy(true)} />
+      return <GameScreen key="game" />
     case 'arc_intro':
       return <ArcTransitionScreen key={`arc-${state.currentArc}`} />
     case 'item_rescue':
       return <ItemRescueScreen key="itemrescue" />
     case 'trivia':
       return <TriviaScreen key="trivia" />
+    case 'espionage':
+      return <EspionageScreen key="espionage" />
+    case 'poetry_puzzle':
+      return <PoetryScreen key="poetry" />
+    case 'companion_selection':
+      return <CompanionSelectionScreen key="companion_selection" />
     case 'combat':
       return <CombatScreen key="combat" />
     case 'ad_rescue':
       return <AdRescueScreen key="adrescue" />
+    case 'arena':
+      return <ArenaScreen key="arena" />
     case 'gameover':
       return <GameOverScreen key="gameover" />
     case 'ending': {
@@ -89,7 +97,7 @@ function GameRouter({ onSuKy, showSuKy }) {
           key="ending"
           ending={ending}
           onRestart={() => dispatch({ type: 'START_GAME' })}
-          onSuKy={() => onSuKy(true)}
+          onSuKy={() => dispatch({ type: 'TOGGLE_SU_KY' })}
         />
       )
     }
@@ -100,9 +108,8 @@ function GameRouter({ onSuKy, showSuKy }) {
 
 // ─── Inner — has access to GameContext + audio ──────────────────────────────────
 function GameInner() {
-  const { state } = useGame()
+  const { state, dispatch } = useGame()
   const { user, updateProfile } = useAuth()
-  const [showSuKy, setShowSuKy] = useState(false)
   const { muted, start, toggle } = useBgMusic()
   const firestoreTimerRef = useRef(null)
 
@@ -116,10 +123,8 @@ function GameInner() {
     const status = state.gameStatus
 
     if (SAVEABLE.includes(status)) {
-      // localStorage — sync, offline fallback
       try { localStorage.setItem('minh_chu_save', JSON.stringify(state)) } catch {}
 
-      // Firestore — debounced to avoid hammering on rapid choices
       if (firestoreTimerRef.current) clearTimeout(firestoreTimerRef.current)
       if (user?.uid) {
         firestoreTimerRef.current = setTimeout(() => {
@@ -129,7 +134,6 @@ function GameInner() {
     }
 
     if (TERMINAL.includes(status)) {
-      // Game ended — wipe the save so "Continue" doesn't appear next session
       localStorage.removeItem('minh_chu_save')
       if (user?.uid) clearGameState(user.uid)
     }
@@ -201,12 +205,13 @@ function GameInner() {
 
   return (
     <>
-      <AnimatePresence mode="wait">
-        <GameRouter
-          key={showSuKy ? 'suky' : state.gameStatus + state.currentArc}
-          onSuKy={setShowSuKy}
-          showSuKy={showSuKy}
-        />
+      <div className="w-full min-h-screen flex flex-col">
+        <GameRouter />
+      </div>
+      <AnimatePresence>
+        {state.showSuKy && (
+          <SuKyScreen key="suky-screen" onBack={() => dispatch({ type: 'TOGGLE_SU_KY' })} />
+        )}
       </AnimatePresence>
       <MusicButton muted={muted} onToggle={toggle} />
     </>

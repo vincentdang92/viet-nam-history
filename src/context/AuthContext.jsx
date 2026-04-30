@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useContext, useState, useEffect, useRef } from 'react'
-import { signInAnonymously, GoogleAuthProvider, linkWithPopup, onAuthStateChanged, signOut } from 'firebase/auth'
+import { signInAnonymously, GoogleAuthProvider, linkWithPopup, onAuthStateChanged, signOut, signInWithCredential, updateEmail, updatePassword, signInWithEmailAndPassword } from 'firebase/auth'
 import { getFirebaseAuth } from '../lib/firebase'
 import { saveUserProfile, loadUserProfile } from '../lib/firestore'
 
@@ -129,6 +129,41 @@ export function AuthProvider({ children }) {
       setUser(result.user)
       return { success: true, email: result.user.email }
     } catch (err) {
+      if (err.code === 'auth/credential-already-in-use') {
+        try {
+          const credential = GoogleAuthProvider.credentialFromError(err)
+          const signInResult = await signInWithCredential(auth, credential)
+          setUser(signInResult.user)
+          return { success: true, email: signInResult.user.email, isExistingAccount: true }
+        } catch (signInErr) {
+          console.error("signInWithCredential error:", signInErr)
+          return { error: signInErr.code }
+        }
+      }
+      return { error: err.code }
+    }
+  }
+
+  const signUpEmail = async (email, password) => {
+    const auth = getFirebaseAuth()
+    if (!auth || !user) return { error: 'not_ready' }
+    try {
+      await updateEmail(user, email)
+      await updatePassword(user, password)
+      return { success: true, email }
+    } catch (err) {
+      return { error: err.code }
+    }
+  }
+
+  const loginEmail = async (email, password) => {
+    const auth = getFirebaseAuth()
+    if (!auth) return { error: 'not_ready' }
+    try {
+      const result = await signInWithEmailAndPassword(auth, email, password)
+      setUser(result.user)
+      return { success: true, email: result.user.email, isExistingAccount: true }
+    } catch (err) {
       return { error: err.code }
     }
   }
@@ -157,6 +192,8 @@ export function AuthProvider({ children }) {
       setPlayerName,
       updateProfile,
       linkGoogle,
+      signUpEmail,
+      loginEmail,
       logout,
       isLinked: !!(user && !user.isAnonymous),
     }}>

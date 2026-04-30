@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Reigns-style edutainment game về lịch sử Việt Nam. Người chơi đóng vai vua/tướng, đưa ra quyết định ảnh hưởng vận mệnh đất nước. MVP: Chapter Nhà Trần (1225–1400).
+Reigns-style edutainment game về lịch sử Việt Nam. Người chơi đóng vai vua/tướng, đưa ra quyết định ảnh hưởng vận mệnh đất nước. MVP: Chapter Kỷ Trần - Hồ - Lê Sơ (1225–1428).
 
 **Core Philosophy:** Fun First, Learn Always — người chơi cảm thấy đang CHƠI GAME nhưng thực ra đang HỌC LỊCH SỬ.
 
@@ -38,8 +38,8 @@ src/
   components/ui/        # FactPopup, EndingCard, SuKyCard
   context/GameContext   # Global state + dispatch ('use client')
   engine/               # gameEngine, statsEngine, eventResolver, endingChecker
-  data/chapters/tran_dynasty/  # arc1, arc2, arc3 JSON
-  data/                 # characters.json, endings.json, chapters.json
+  data/chapters/tran_dynasty/  # arc1, arc2, arc3, arc4, arc5 JSON
+  data/                 # characters.json, endings.json, chapters.json, sysEvents.json
   constants/            # gameConfig.js, theme.js
   hooks/                # useSwipe, useSuKy ('use client')
 ```
@@ -57,12 +57,23 @@ src/
 {
   gameStatus: 'menu' | 'playing' | 'gameover' | 'ending',
   chapter: 'tran_dynasty',
-  currentArc: 1 | 2 | 3,
+  currentArc: 1 | 2 | 3 | 4 | 5,
   currentYear: 1225,
   yearsReigned: 0,
   stats: { binhLuc, danTam, quocKho, trieuCuong },  // 0–100 each
+  historicalScore: 100, // 0-100%
   flags: { tranHungDaoUnlocked, wonBattle1257, wonBattle1285, wonBattle1288 },
   unlockedSuKy: [],
+  unlockedCompanions: [],
+  selectedCompanion: null,
+  activeTitle: null,
+  inventory: [],
+  activeQuest: null,
+  combatState: null,
+  espionageState: null,
+  poetryState: null,
+  mapState: { ... },
+  factionState: { ... },
   currentEvent: { ... },
   showFactPopup: false,
   pendingFact: null,
@@ -135,4 +146,7 @@ tran-textMuted   #A08070   (chữ mờ)
 3. Mọi fact phải dựa trên lịch sử có nguồn gốc rõ ràng
 4. Effects phải balanced — không có lựa chọn nào hoàn toàn "đúng"
 5. Mỗi thẻ phải có ít nhất 1 `fact` popup chứa thông tin lịch sử thật
-6. Luôn đọc các file CLAUDE.md, ARCHITECTURE.md và thư mục agents/ khi làm mới hoặc update tính năng. Cập nhật các tài liệu này nếu thấy cần thiết.
+6. **Rarity System**: Hệ thống sẽ tự cấp phát độ hiếm (rare, epic, legendary) cho thẻ thường. Không gán cứng thuộc tính `rarity` trong thẻ JSON lịch sử trừ khi đó là thẻ Thần thoại (Mythic).
+7. **Card UI**: Thẻ hiển thị kiểu TCG, có thể lật (Flip) để xem `bio`, `role` của character. Cần tối ưu placeholder SVG nếu không có ảnh.
+8. Luôn đọc các file CLAUDE.md, ARCHITECTURE.md và thư mục agents/ khi làm mới hoặc update tính năng. Cập nhật các tài liệu này nếu thấy cần thiết.
+9. **Framer Motion Gotchas**: Tuyệt đối KHÔNG dùng `AnimatePresence` trực tiếp với các custom function component (như các màn hình Router). Phải bọc chúng trong thẻ `<motion.div>` native có `exit` prop, hoặc dùng chiến thuật Fixed Overlay (`fixed inset-0 z-50`) render đè lên thay vì unmount component cũ để tránh lỗi kẹt `opacity: 0` hay render đúp màn hình.

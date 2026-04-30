@@ -1,13 +1,18 @@
 'use client'
 
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import FeedbackModal from './FeedbackModal'
 
 export default function FactPopup({ fact, onDismiss }) {
+  const [showFeedback, setShowFeedback] = useState(false)
   return (
-    <AnimatePresence>
-      {fact && (
-        <motion.div
-          className="fixed inset-0 z-50 flex items-end justify-center p-4 pb-8"
+    <>
+      <AnimatePresence>
+        {fact && (
+          <motion.div
+            key="fact-popup-overlay"
+            className="fixed inset-0 z-50 flex items-end justify-center p-4 pb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -55,8 +60,14 @@ export default function FactPopup({ fact, onDismiss }) {
               </div>
 
               {/* Body */}
-              <div className="px-4 py-3">
+              <div className="px-4 py-3 relative">
                 <p className="text-tran-text text-sm leading-relaxed">{fact.text}</p>
+                <button 
+                  onClick={(e) => { e.stopPropagation(); setShowFeedback(true) }}
+                  className="absolute bottom-1 right-2 text-xs text-amber-600/70 hover:text-amber-500 underline underline-offset-2 flex items-center gap-1"
+                >
+                  <span>📝</span> Báo sai sót
+                </button>
               </div>
 
               {/* CTA */}
@@ -81,7 +92,14 @@ export default function FactPopup({ fact, onDismiss }) {
             </p>
           </motion.div>
         </motion.div>
-      )}
-    </AnimatePresence>
+        )}
+      </AnimatePresence>
+
+      <FeedbackModal 
+        isOpen={showFeedback} 
+        onClose={() => setShowFeedback(false)} 
+        eventId={fact?.eventId} 
+      />
+    </>
   )
 }

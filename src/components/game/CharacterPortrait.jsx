@@ -31,73 +31,71 @@ function getFrameStyle(role, color) {
   switch (role) {
     case 'king':
       return {
-        border: '2px solid rgba(212,160,23,0.6)',
-        boxShadow: `0 0 0 1px rgba(212,160,23,0.25), 0 0 20px ${color}50, 0 0 40px ${color}18`,
+        border: '3px solid rgba(212,160,23,0.8)',
+        boxShadow: `0 0 0 1px rgba(212,160,23,0.3), inset 0 0 20px ${color}80`,
       }
     case 'general':
       return {
-        border: `2px solid ${color}99`,
-        boxShadow: `0 0 0 1px ${color}44, 0 0 16px ${color}44`,
+        border: `3px solid ${color}`,
+        boxShadow: `0 0 0 1px ${color}66, inset 0 0 16px ${color}66`,
       }
     case 'scholar':
       return {
-        border: '2px solid rgba(46,139,87,0.6)',
-        boxShadow: `0 0 0 1px rgba(46,139,87,0.25), 0 0 14px ${color}38`,
+        border: '3px solid rgba(46,139,87,0.8)',
+        boxShadow: `0 0 0 1px rgba(46,139,87,0.3), inset 0 0 14px ${color}50`,
       }
     case 'royal':
       return {
-        border: '2px solid rgba(160,160,160,0.5)',
-        boxShadow: `0 0 12px ${color}28`,
+        border: '3px solid rgba(160,160,160,0.7)',
+        boxShadow: `inset 0 0 12px ${color}40`,
       }
     case 'enemy':
       return {
-        border: '2px solid rgba(74,85,104,0.7)',
-        boxShadow: '0 0 14px rgba(74,85,104,0.5)',
+        border: '3px solid rgba(74,85,104,0.9)',
+        boxShadow: 'inset 0 0 14px rgba(74,85,104,0.6)',
       }
     default:
       return {
-        border: `2px solid ${color}70`,
-        boxShadow: `0 0 16px ${color}30`,
+        border: `3px solid ${color}AA`,
+        boxShadow: `inset 0 0 16px ${color}50`,
       }
   }
 }
 
-// Màu vòng trang trí bên trong
-function getRingColor(role, fallback) {
-  switch (role) {
-    case 'king':    return 'rgba(212,160,23,0.5)'
-    case 'scholar': return 'rgba(46,139,87,0.5)'
-    case 'royal':   return 'rgba(160,160,160,0.4)'
-    case 'enemy':   return 'rgba(74,85,104,0.5)'
-    default:        return `${fallback}50`
-  }
+// Generate SVG Pattern Background for Placeholders
+function getPatternBackground(color) {
+  const c1 = color + '22'
+  const c2 = color + '44'
+  return `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2z' fill='${encodeURIComponent(c2)}' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")`
 }
 
 export default function CharacterPortrait({ characterId, isCinematic }) {
   const char = CHARACTERS[characterId] ?? { label: '?', color: '#5A3020', arc: 1, role: 'general' }
   const { label, color, arc, role } = char
-  const len = label.length
 
   const [imgLoaded, setImgLoaded] = useState(false)
   const [imgError, setImgError] = useState(false)
 
-  const circleSize = isCinematic ? 'w-24 h-24' : 'w-16 h-16'
-  const fontSize = isCinematic
-    ? (len <= 2 ? '2rem' : len <= 4 ? '1.5rem' : '1.15rem')
-    : (len <= 2 ? '1.35rem' : len <= 4 ? '1.05rem' : '0.82rem')
-
   const imgSrc = `/assets/characters/arc${arc}/${characterId}.webp`
   const showImg = imgLoaded && !imgError
-  const ringColor = getRingColor(role, color)
 
   return (
     <div
-      className={`${circleSize} rounded-full flex items-center justify-center shadow-lg mx-auto relative overflow-hidden`}
+      className={`w-full aspect-[4/3] rounded-t-xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
       style={{
-        backgroundColor: color + '22',
+        backgroundColor: color + '11',
         ...getFrameStyle(role, color),
       }}
     >
+      {/* Fallback Pattern Background */}
+      <div 
+        className="absolute inset-0 opacity-80" 
+        style={{ 
+          backgroundImage: getPatternBackground(color),
+          backgroundSize: '60px 60px'
+        }}
+      />
+
       {/* Portrait image — fade in khi load xong */}
       {!imgError && (
         <img
@@ -105,41 +103,29 @@ export default function CharacterPortrait({ characterId, isCinematic }) {
           alt={label}
           onLoad={() => setImgLoaded(true)}
           onError={() => setImgError(true)}
-          className="absolute inset-0 w-full h-full object-cover object-top rounded-full"
+          className="absolute inset-0 w-full h-full object-cover object-top"
           style={{ opacity: showImg ? 1 : 0, transition: 'opacity 0.4s ease' }}
           draggable={false}
         />
       )}
 
-      {/* Letter fallback — hiện khi đang load hoặc lỗi */}
+      {/* Letter fallback overlay — hiện khi đang load hoặc lỗi */}
       <div
-        className="absolute inset-0 flex items-center justify-center rounded-full"
+        className="absolute inset-0 flex flex-col items-center justify-center"
         style={{ opacity: showImg ? 0 : 1, transition: 'opacity 0.4s ease' }}
       >
-        <div
-          className="absolute inset-1 rounded-full opacity-20"
-          style={{ border: `1px solid ${ringColor}` }}
-        />
-        <span
-          className="relative z-10 font-calligraphy italic font-bold leading-none text-center select-none"
-          style={{
-            fontSize,
-            color,
-            textShadow: `0 1px 8px ${color}60`,
-            letterSpacing: '-0.02em',
-          }}
-        >
-          {label}
-        </span>
+        <div className="w-16 h-16 rounded-full flex items-center justify-center border-2 bg-black/40 backdrop-blur-sm" style={{ borderColor: color }}>
+          <span
+            className="font-calligraphy italic font-bold text-3xl leading-none text-center select-none"
+            style={{ color, textShadow: `0 2px 10px ${color}80` }}
+          >
+            {label}
+          </span>
+        </div>
       </div>
-
-      {/* Vòng overlay bên trong khi có ảnh — subtle frame feel */}
-      {showImg && (
-        <div
-          className="absolute inset-0 rounded-full pointer-events-none"
-          style={{ boxShadow: `inset 0 0 0 2px ${ringColor}` }}
-        />
-      )}
+      
+      {/* Inner Vignette / Shadow Overlay for premium feel */}
+      <div className="absolute inset-0 pointer-events-none" style={{ boxShadow: 'inset 0 -20px 40px rgba(0,0,0,0.6)' }} />
     </div>
   )
 }

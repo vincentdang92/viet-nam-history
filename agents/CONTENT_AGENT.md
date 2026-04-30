@@ -18,7 +18,7 @@ Tạo thẻ sự kiện JSON cho game Minh Chủ. Mỗi thẻ là một tình hu
   "id": "tran_arc1_XXX",
   "arc": 1,
   "year": 1237,
-  "type": "historical",
+  "type": "historical", // "historical" | "event" | "battle" | "cinematic" | "espionage"
   "title": "Tên ngắn, ấn tượng",
   "context": "Mô tả bối cảnh 2-3 câu, viết cho người chơi đọc",
   "character": "tran_hung_dao",
@@ -62,6 +62,11 @@ Tạo thẻ sự kiện JSON cho game Minh Chủ. Mỗi thẻ là một tình hu
   "background": "thang_long_palace"
 }
 ```
+
+### Các Loại Thẻ (Types)
+- `historical`: Sự kiện lịch sử bình thường, 2 lựa chọn ảnh hưởng stat.
+- `battle`: Thẻ trận chiến. Hệ thống sẽ tự động bắt lấy và đưa vào màn hình chọn Danh Tướng, sau đó xử lý Sinh Tử Chiến (Combat). Không cần thiết lập choice.
+- `espionage`: Thẻ dò xét giặc. Trong choice_a cần có thêm `espionageData` (Gồm statements có 3 câu khai, 1 câu nói dối `isLie: true`, phần thưởng và hình phạt). Dùng cho mini-game Hỏi Cung.
 
 ## Nhân Vật Có Sẵn
 

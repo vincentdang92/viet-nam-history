@@ -19,6 +19,27 @@ export const ITEMS_DATA = {
     icon: '📜',
     desc: 'Cứu vãn 1 lần khi Dân Tâm cạn kiệt (nhân dân khởi nghĩa). Miễn giảm tô thuế để xoa dịu muôn dân.',
     rescueTrigger: 'danTam_low'
+  },
+  item_an_sac_menh: {
+    id: 'item_an_sac_menh',
+    name: 'Ấn Sắc Mệnh Chi Bảo',
+    icon: '🪨',
+    desc: 'Quốc ấn linh thiêng bảo hộ vương quyền. Cứu vãn 1 lần khi Triều Cương cạn kiệt (quyền thần soán ngôi).',
+    rescueTrigger: 'trieuCuong_low'
+  },
+  item_ho_phu: {
+    id: 'item_ho_phu',
+    name: 'Hổ Phù Trần Triều',
+    icon: '🐯',
+    desc: 'Lệnh bài điều quân tối cao. Cứu vãn 1 lần khi Binh Lực quá cao dẫn đến loạn kiêu binh.',
+    rescueTrigger: 'binhLuc_high'
+  },
+  item_quoc_kho: {
+    id: 'item_quoc_kho',
+    name: 'Ngọc Trai Vân Đồn',
+    icon: '🦪',
+    desc: 'Báu vật biển khơi. Cứu vãn 1 lần khi Quốc Khố cạn kiệt.',
+    rescueTrigger: 'quocKho_low'
   }
 }
 

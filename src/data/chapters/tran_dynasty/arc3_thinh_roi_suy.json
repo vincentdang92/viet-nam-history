@@ -111,7 +111,7 @@
           },
           "isHistorical": true,
           "fact": "Trần Hưng Đạo được thần hóa ngay sau khi mất. Đền Kiếp Bạc ở Hải Dương là nơi thờ chính, thu hút hàng triệu người hành hương đến tận ngày nay.",
-          "chainNext": "tran_arc3_004",
+          "chainNext": "tran_arc3_003_b",
           "unlockSuKy": "su_ky_hung_dao_tuong_linh"
         },
         {
@@ -125,13 +125,56 @@
           },
           "isHistorical": false,
           "fact": "Trần Hưng Đạo xứng đáng được tôn vinh như biểu tượng tinh thần dân tộc — sự thờ phụng ngài phản ánh lòng biết ơn của người Việt.",
-          "chainNext": "tran_arc3_004",
+          "chainNext": "tran_arc3_003_b",
           "unlockSuKy": null
         }
       ],
       "requiredCondition": null,
       "isCinematic": false,
       "background": "kiet_bac_palace"
+    },
+    {
+      "id": "tran_arc3_003_b",
+      "arc": 3,
+      "year": 1308,
+      "type": "event",
+      "title": "Lưỡng Quốc Trạng Nguyên",
+      "context": "Nhà Nguyên uy hiếp, triều đình cần một người tài đi sứ. Trạng nguyên Mạc Đĩnh Chi dù tướng mạo xấu xí nhưng tài ứng đối hơn người được cử đi phương Bắc.",
+      "character": "mac_dinh_chi",
+      "quote": "Trí tuệ không nằm ở vẻ bề ngoài",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Khích lệ ông dùng khẩu khí Đại Việt áp đảo thiên triều",
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 15,
+            "quocKho": 0,
+            "trieuCuong": 10
+          },
+          "isHistorical": true,
+          "fact": "Tại kinh đô nhà Nguyên, Mạc Đĩnh Chi đã đối đáp xuất thần, khiến vua Nguyên khâm phục phong làm 'Lưỡng Quốc Trạng Nguyên'.",
+          "chainNext": "tran_arc3_004",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Yêu cầu ông dập đầu nhún nhường để tránh chiến tranh",
+          "effects": {
+            "binhLuc": 0,
+            "danTam": -15,
+            "quocKho": 5,
+            "trieuCuong": -10
+          },
+          "isHistorical": false,
+          "fact": "Thể diện quốc gia là thứ Đại Việt không bao giờ nhượng bộ. Nhún nhường quá mức chỉ khiến phương Bắc thêm kiêu ngạo.",
+          "chainNext": "tran_arc3_004",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_court"
     },
     {
       "id": "tran_arc3_004",
@@ -369,7 +412,7 @@
           },
           "isHistorical": true,
           "fact": "Lê Văn Hưu hoàn thành Đại Việt Sử Ký năm 1272 — bộ sử chính thức đầu tiên của Việt Nam, ghi lại từ thời Triệu Đà đến cuối nhà Lý. Di sản này sống mãi.",
-          "chainNext": "tran_arc3_010",
+          "chainNext": "tran_arc3_009_b",
           "unlockSuKy": null
         },
         {
@@ -383,6 +426,49 @@
           },
           "isHistorical": false,
           "fact": "Việc ghi chép lịch sử là di sản vô giá. Đại Việt Sử Ký Toàn Thư do Ngô Sĩ Liên viết sau này dựa phần lớn vào tài liệu từ thời Trần.",
+          "chainNext": "tran_arc3_009_b",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc3_009_b",
+      "arc": 3,
+      "year": 1396,
+      "type": "event",
+      "title": "Cải Cách Của Quyền Thần",
+      "context": "Hồ Quý Ly thâu tóm mọi quyền hành, mạnh tay ban hành chính sách Hạn Điền, Hạn Nô để triệt hạ vây cánh vương hầu nhà Trần và phát hành Tiền giấy ('Thông bảo hội sao').",
+      "character": "tran_nhan_tong",
+      "quote": "Bỏ tiền đồng, tiêu tiền giấy. Lòng dân xôn xao...",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Ủng hộ cải cách, dù biết quyền thần sẽ soán ngôi",
+          "effects": {
+            "binhLuc": 10,
+            "danTam": -10,
+            "quocKho": 15,
+            "trieuCuong": -20
+          },
+          "isHistorical": true,
+          "fact": "Cải cách của Hồ Quý Ly rất tiến bộ nhưng quá vội vã và tàn bạo, khiến dân chúng oán hận, góp phần làm nhà Hồ nhanh chóng sụp đổ sau này.",
+          "chainNext": "tran_arc3_010",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Âm thầm hiệu triệu vương hầu chống lại Hồ Quý Ly",
+          "effects": {
+            "binhLuc": -15,
+            "danTam": 5,
+            "quocKho": -5,
+            "trieuCuong": 15
+          },
+          "isHistorical": false,
+          "fact": "Nhiều vương hầu nhà Trần cố gắng đảo chính tiêu diệt Hồ Quý Ly nhưng đều thất bại và bị thảm sát dã man.",
           "chainNext": "tran_arc3_010",
           "unlockSuKy": null
         }

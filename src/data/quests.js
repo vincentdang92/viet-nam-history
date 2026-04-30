@@ -22,6 +22,30 @@ export const QUESTS_DATA = [
     condition: { type: 'maintain_stat', stat: 'binhLuc', min: 60 },
     duration: 5,
     rewardItem: 'item_binh_thu'
+  },
+  {
+    id: 'quest_ho_phu',
+    title: 'Kiểm Soát Quân Quyền',
+    desc: 'Giữ Binh Lực dưới 80 trong vòng 5 lượt.',
+    condition: { type: 'maintain_stat', stat: 'binhLuc', max: 80 },
+    duration: 5,
+    rewardItem: 'item_ho_phu'
+  },
+  {
+    id: 'quest_quoc_kho',
+    title: 'Tích Trữ Lương Thảo',
+    desc: 'Giữ Quốc Khố trên 60 trong vòng 5 lượt.',
+    condition: { type: 'maintain_stat', stat: 'quocKho', min: 60 },
+    duration: 5,
+    rewardItem: 'item_quoc_kho'
+  },
+  {
+    id: 'quest_an_sac_menh',
+    title: 'Củng Cố Vương Quyền',
+    desc: 'Giữ Triều Cương trên 50 trong vòng 5 lượt.',
+    condition: { type: 'maintain_stat', stat: 'trieuCuong', min: 50 },
+    duration: 5,
+    rewardItem: 'item_an_sac_menh'
   }
 ]
 

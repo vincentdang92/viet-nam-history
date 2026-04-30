@@ -1,0 +1,97 @@
+{
+  "sys_crisis_danTam": {
+    "id": "sys_crisis_danTam",
+    "type": "event",
+    "title": "Bạo Loạn Làng Quê",
+    "context": "Lòng dân oán hận thấu trời xanh! Nông dân ở nhiều lộ phủ đã vác cuốc xẻng nổi dậy chống lại triều đình. Đại Việt đứng trước bờ vực diệt vong từ bên trong.",
+    "character": "tran_nhan_tong",
+    "quote": "Lật thuyền cũng là dân... Nước sắp mất rồi chăng?",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Xả quốc khố, phát chẩn cứu đói toàn quốc",
+        "effects": {
+          "quocKho": -40,
+          "danTam": 30
+        },
+        "isHistorical": false,
+        "fact": "Một vị vua sáng suốt biết dùng tiền bạc đúng lúc để chuộc lại lòng dân. Tiền mất có thể kiếm lại, dân mất là mất nước."
+      },
+      {
+        "id": "choice_b",
+        "text": "Điều binh đàn áp đẫm máu",
+        "effects": {
+          "binhLuc": -30,
+          "danTam": 15
+        },
+        "isHistorical": false,
+        "fact": "Đàn áp bằng bạo lực chỉ đổi lấy sự bình yên nhất thời, cái giá phải trả là xương máu của quân dân."
+      }
+    ],
+    "isCinematic": false,
+    "background": "training_ground"
+  },
+  "sys_crisis_quocKho": {
+    "id": "sys_crisis_quocKho",
+    "type": "event",
+    "title": "Khố Kiệt Tài Suy",
+    "context": "Ngân khố cạn kiệt, binh lính không có lương thực, triều đình không có tiền đúc vũ khí. Tiếng oán thán vang vọng từ trong cung ra ngoài nội.",
+    "character": "tran_quang_khai",
+    "quote": "Binh không có thực sao mà đánh giặc? Xin hoàng thượng định đoạt!",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Tịch thu ruộng đất của quý tộc để sung công",
+        "effects": {
+          "trieuCuong": -40,
+          "quocKho": 30
+        },
+        "isHistorical": false,
+        "fact": "Đụng chạm đến quyền lợi của vương hầu quý tộc là con dao hai lưỡi, có thể giải quyết khủng hoảng nhưng triều đình sẽ chia rẽ."
+      },
+      {
+        "id": "choice_b",
+        "text": "Vắt kiệt sức dân, tăng sưu cao thuế nặng",
+        "effects": {
+          "danTam": -40,
+          "quocKho": 30
+        },
+        "isHistorical": false,
+        "fact": "Bóc lột nhân dân khi khốn cùng là biểu hiện của hôn quân bạo chúa, nhưng đôi khi đó là lựa chọn cay đắng."
+      }
+    ],
+    "isCinematic": false,
+    "background": "thang_long_court"
+  },
+  "sys_merchant": {
+    "id": "sys_merchant",
+    "type": "event",
+    "title": "Thương Nhân Phương Bắc",
+    "context": "Một lái buôn Tống triều vượt biển đến Đại Việt, mang theo những bảo vật kỳ lạ. Hắn hứa sẽ dâng lên hoàng thượng nếu được ban thưởng xứng đáng.",
+    "character": "merchant",
+    "quote": "Bảo vật vô giá, chỉ người có tầm nhìn mới biết dùng!",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Mua 'Túi Gấm Trừ Tà' (Tốn 25 Quốc Khố)",
+        "effects": {
+          "quocKho": -25
+        },
+        "giveItem": "item_tui_gam",
+        "isHistorical": false,
+        "fact": "Thương nghiệp dưới thời Trần rất phát triển, đặc biệt là tại trang Vân Đồn, nơi tàu thuyền nước ngoài ra vào tấp nập."
+      },
+      {
+        "id": "choice_b",
+        "text": "Đuổi hắn đi, quốc khố đang cạn (Bỏ qua)",
+        "effects": {
+          "quocKho": 0
+        },
+        "isHistorical": false,
+        "fact": "Không phải lúc nào cũng nên tiêu xài hoang phí. Tiết kiệm quốc khố là kế sách lâu dài."
+      }
+    ],
+    "isCinematic": false,
+    "background": "thang_long_court"
+  }
+}

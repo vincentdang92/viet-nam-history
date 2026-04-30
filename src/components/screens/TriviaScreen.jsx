@@ -8,7 +8,7 @@ const TIME_LIMIT = 10
 
 export default function TriviaScreen() {
   const { state, dispatch } = useGame()
-  const { triviaData } = state
+  const { triviaData, currentYear } = state
   const [timeLeft, setTimeLeft] = useState(TIME_LIMIT)
   const [selectedIdx, setSelectedIdx] = useState(null)
   const [isAnswered, setIsAnswered] = useState(false)
@@ -49,11 +49,16 @@ export default function TriviaScreen() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="w-full bg-tran-card border border-tran-border p-6 rounded-2xl shadow-xl">
-        <div className="flex justify-between items-center mb-6">
+      <div className="w-full bg-stone-900 border-2 border-amber-900/60 p-6 rounded-2xl shadow-2xl relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23d4a017\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
+
+        <div className="flex justify-between items-center mb-6 relative z-10">
           <div>
-            <p className="text-[10px] uppercase tracking-widest text-tran-textMuted font-bold">Kỳ Thi</p>
-            <h2 className="text-xl font-bold text-tran-secondary font-serif">Khoa Cử</h2>
+            <p className="text-[10px] uppercase tracking-widest text-amber-600 font-bold mb-1">
+              Khoa Thi Đình năm {currentYear}
+            </p>
+            <h2 className="text-2xl font-bold text-amber-500 font-serif">Tuyển Chọn Nhân Tài</h2>
           </div>
           
           {/* Timer */}
@@ -76,11 +81,13 @@ export default function TriviaScreen() {
           </div>
         </div>
 
-        <p className="text-tran-text text-lg font-medium mb-6 leading-relaxed">
-          {triviaData.question}
-        </p>
+        <div className="bg-stone-950/50 p-4 rounded-xl border border-amber-900/30 mb-6 relative z-10">
+          <p className="text-stone-200 text-lg font-medium leading-relaxed">
+            {triviaData.question}
+          </p>
+        </div>
 
-        <div className="space-y-3 mb-6">
+        <div className="space-y-3 mb-6 relative z-10">
           {triviaData.options.map((opt, idx) => {
             let btnClass = "border-tran-border text-tran-text hover:border-tran-secondary/50 bg-tran-bg/50"
             if (isAnswered) {
@@ -111,10 +118,16 @@ export default function TriviaScreen() {
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
-            className="text-sm p-4 rounded-xl bg-tran-bg/50 border border-tran-border/50 text-tran-textMuted leading-relaxed"
+            className="text-sm p-4 rounded-xl bg-stone-950/80 border border-amber-900/50 text-stone-300 leading-relaxed relative z-10"
           >
-            {selectedIdx === triviaData.correctIndex ? '✅ Trạng Nguyên xuất thế!' : '❌ Bọn khoa bảng giá áo túi cơm...'}
-            <hr className="my-2 border-tran-border/30" />
+            <div className="font-bold mb-2 flex items-center gap-2">
+              {selectedIdx === triviaData.correctIndex ? (
+                <><span className="text-xl">✅</span> <span className="text-green-400">Trạng Nguyên xuất thế! Khâm thử.</span></>
+              ) : (
+                <><span className="text-xl">❌</span> <span className="text-red-400">Bọn khoa bảng giá áo túi cơm...</span></>
+              )}
+            </div>
+            <hr className="my-2 border-amber-900/30" />
             {triviaData.explanation}
           </motion.div>
         )}

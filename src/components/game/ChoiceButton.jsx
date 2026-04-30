@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { STAT_META } from '../../constants/gameConfig'
 
 function EffectPills({ effects }) {
+  if (!effects) return null
   return (
     <div className="flex flex-wrap gap-1 mt-1.5">
       {Object.entries(effects).map(([key, val]) => {

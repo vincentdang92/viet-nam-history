@@ -5,11 +5,14 @@ import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-mo
 import { useGame } from '../../context/GameContext'
 import { useSuKy } from '../../hooks/useSuKy'
 import StatsBar from '../game/StatsBar'
-import CardDisplay from '../game/CardDisplay'
 import ChoiceButton from '../game/ChoiceButton'
+import SwipeCard from '../game/SwipeCard'
 import YearDisplay from '../game/YearDisplay'
 import FactPopup from '../ui/FactPopup'
+import CampaignMap from '../ui/CampaignMap'
+import FactionPanel from '../ui/FactionPanel'
 import { ITEMS_DATA } from '../../data/items'
+import { TITLES_META } from '../../engine/statsEngine'
 
 const SWIPE_THRESHOLD = 80
 const ARC_LABEL = {
@@ -22,109 +25,6 @@ const ARC_LABEL = {
 const DYNASTY_LABEL = {
   1: 'Nhà Trần', 2: 'Nhà Trần', 3: 'Nhà Trần',
   4: 'Nhà Hồ', 5: 'Lam Sơn',
-}
-
-// ─── Swipe card ────────────────────────────────────────────────────────────────
-function SwipeCard({ event, choices, onChoiceA, onChoiceB, cardKey, showTutorial }) {
-  const x      = useMotionValue(0)
-  const rotate = useTransform(x, [-220, 220], [-14, 14])
-
-  const rightOpacity = useTransform(x, [20, 90], [0, 1])
-  const rightScale   = useTransform(x, [20, 90], [0.85, 1])
-  const leftOpacity  = useTransform(x, [-90, -20], [1, 0])
-  const leftScale    = useTransform(x, [-90, -20], [1, 0.85])
-  const rightTint    = useTransform(x, [0, SWIPE_THRESHOLD], [0, 0.15])
-  const leftTint     = useTransform(x, [-SWIPE_THRESHOLD, 0], [0.15, 0])
-
-  const handleDragEnd = (_, info) => {
-    if (info.offset.x >  SWIPE_THRESHOLD && choices[0]) onChoiceA()
-    else if (info.offset.x < -SWIPE_THRESHOLD && choices[1]) onChoiceB()
-  }
-
-  const isBattle = event?.type === 'battle' || event?.isCinematic || event?.type === 'campaign'
-
-  return (
-    <div className="relative select-none">
-      <motion.div
-        key={cardKey}
-        drag="x"
-        dragConstraints={{ left: 0, right: 0 }}
-        dragElastic={0.6}
-        dragMomentum={false}
-        style={{ x, rotate, touchAction: 'none' }}
-        onDragEnd={handleDragEnd}
-        initial={{ opacity: 0, scale: 0.93, y: 24 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.88, y: -24 }}
-        transition={{ type: 'spring', stiffness: 280, damping: 24 }}
-        className={`relative rounded-2xl shadow-2xl overflow-hidden cursor-grab active:cursor-grabbing
-          ${isBattle
-            ? 'border-2 border-red-700/60 bg-gradient-to-b from-red-950/80 to-tran-card'
-            : 'border border-tran-border bg-tran-card'
-          }`}
-        whileDrag={{ scale: 1.02 }}
-      >
-        {/* Drag tints */}
-        <motion.div className="absolute inset-0 bg-tran-secondary/20 rounded-2xl pointer-events-none z-10" style={{ opacity: rightTint }} />
-        <motion.div className="absolute inset-0 bg-red-800/20 rounded-2xl pointer-events-none z-10" style={{ opacity: leftTint }} />
-
-        {/* Right overlay (choice A) */}
-        <motion.div className="absolute inset-0 flex items-center justify-start pl-4 z-20 pointer-events-none" style={{ opacity: rightOpacity, scale: rightScale }}>
-          <div className="bg-tran-secondary/90 text-tran-bg text-xs font-bold px-3 py-1.5 rounded-xl max-w-[45%] leading-snug">
-            ✓ {choices[0]?.text}
-          </div>
-        </motion.div>
-
-        {/* Left overlay (choice B) */}
-        <motion.div className="absolute inset-0 flex items-center justify-end pr-4 z-20 pointer-events-none" style={{ opacity: leftOpacity, scale: leftScale }}>
-          <div className="bg-red-700/90 text-white text-xs font-bold px-3 py-1.5 rounded-xl max-w-[45%] leading-snug text-right">
-            ✗ {choices[1]?.text}
-          </div>
-        </motion.div>
-
-        {/* Battle glow */}
-        {isBattle && (
-          <motion.div
-            className="absolute inset-0 rounded-2xl pointer-events-none"
-            style={{ boxShadow: '0 0 32px rgba(185,28,28,0.4)' }}
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        )}
-
-        <CardDisplay event={event} />
-      </motion.div>
-
-      {/* Tutorial hint — only on first card */}
-      <AnimatePresence>
-        {showTutorial && (
-          <motion.div
-            className="absolute -bottom-8 inset-x-0 flex items-center justify-center gap-3 pointer-events-none"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ delay: 1.2 }}
-          >
-            <motion.span
-              className="text-tran-secondary text-xs"
-              animate={{ x: [-4, 0, -4] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              ← kéo
-            </motion.span>
-            <span className="text-tran-textMuted text-[10px]">hoặc nhấn nút bên dưới</span>
-            <motion.span
-              className="text-red-400 text-xs"
-              animate={{ x: [4, 0, 4] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              kéo →
-            </motion.span>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  )
 }
 
 // ─── Exit confirmation modal ────────────────────────────────────────────────────
@@ -187,15 +87,15 @@ function QuestToast({ toast, onDismiss }) {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      className={`fixed top-16 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-xl shadow-lg border flex items-center gap-2 w-max max-w-[90%]
+      className={`fixed top-16 left-4 right-4 mx-auto z-50 px-4 py-2 rounded-xl shadow-lg border flex items-center gap-3 max-w-sm
         ${toast.status === 'completed' ? 'bg-green-900/90 border-green-500/50 text-green-100' : 'bg-red-900/90 border-red-500/50 text-red-100'}
       `}
       style={{ backdropFilter: 'blur(8px)' }}
     >
-      <span className="text-xl">{toast.status === 'completed' ? '✨' : '❌'}</span>
-      <div>
-        <p className="font-bold text-sm leading-tight">{toast.title}</p>
-        <p className="text-xs opacity-90">{toast.desc}</p>
+      <span className="text-xl shrink-0">{toast.status === 'completed' ? '✨' : '❌'}</span>
+      <div className="flex-1 min-w-0">
+        <p className="font-bold text-sm leading-tight truncate">{toast.title}</p>
+        <p className="text-xs opacity-90 break-words line-clamp-2">{toast.desc}</p>
       </div>
     </motion.div>
   )
@@ -217,14 +117,14 @@ function HintToast({ toast, onDismiss }) {
       initial={{ opacity: 0, scale: 0.9, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.9, y: 20 }}
-      className="fixed bottom-32 left-1/2 -translate-x-1/2 z-50 px-5 py-4 rounded-2xl shadow-2xl border bg-yellow-900/95 border-yellow-500/50 text-yellow-50 w-max max-w-[90%]"
+      className="fixed bottom-32 left-4 right-4 mx-auto z-50 px-5 py-4 rounded-2xl shadow-2xl border bg-yellow-900/95 border-yellow-500/50 text-yellow-50 max-w-sm"
       style={{ backdropFilter: 'blur(10px)' }}
     >
       <div className="flex items-start gap-3">
-        <span className="text-2xl mt-0.5">💡</span>
-        <div>
+        <span className="text-2xl mt-0.5 shrink-0">💡</span>
+        <div className="flex-1 min-w-0">
           <p className="font-bold text-sm text-yellow-300 mb-1">Cố Vấn Lịch Sử</p>
-          <p className="text-sm italic leading-relaxed">"{toast}"</p>
+          <p className="text-sm italic leading-relaxed break-words">"{toast}"</p>
         </div>
       </div>
     </motion.div>
@@ -232,7 +132,7 @@ function HintToast({ toast, onDismiss }) {
 }
 
 // ─── In-game header ─────────────────────────────────────────────────────────────
-function GameHeader({ arc, onSuKy, onHome, inventory, activeQuest, hintsLeft, onUseHint }) {
+function GameHeader({ arc, activeTitle, onSuKy, onHome, onToggleMap, onToggleFaction, inventory, activeQuest, hintsLeft, onUseHint }) {
   const { unlocked } = useSuKy()
 
   return (
@@ -247,17 +147,41 @@ function GameHeader({ arc, onSuKy, onHome, inventory, activeQuest, hintsLeft, on
           ⌂
         </button>
         <div>
-          <p className="text-tran-textMuted text-[10px] uppercase tracking-widest">{DYNASTY_LABEL[arc] ?? 'Đại Việt'}</p>
+          <p className="text-tran-textMuted text-[10px] uppercase tracking-widest flex items-center gap-1">
+            {DYNASTY_LABEL[arc] ?? 'Đại Việt'}
+            {activeTitle && (
+              <span className="text-tran-secondary bg-tran-secondary/10 px-1 rounded border border-tran-secondary/20">
+                {TITLES_META[activeTitle]?.name}
+              </span>
+            )}
+          </p>
           <p className="text-tran-secondary text-xs font-semibold">{ARC_LABEL[arc]}</p>
         </div>
       </div>
       
       <div className="flex items-center gap-2">
+        {/* Map Toggle Button */}
+        <button
+          onClick={onToggleMap}
+          className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-tran-card border border-tran-border hover:border-tran-secondary/50 transition-colors"
+          title="Bản Đồ Chiến Sự"
+        >
+          <span className="text-sm">🗺️</span>
+        </button>
+
+        {/* Faction Toggle Button */}
+        <button
+          onClick={onToggleFaction}
+          className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-tran-card border border-tran-border hover:border-tran-secondary/50 transition-colors"
+          title="Mạng Lưới Phe Phái"
+        >
+          <span className="text-sm">👥</span>
+        </button>
         {/* Active Quest */}
         {activeQuest && (
           <div className="relative group flex items-center justify-center w-8 h-8 rounded-full bg-tran-card border border-tran-border cursor-help">
             <span className="text-sm">📜</span>
-            <div className="absolute top-full mt-2 right-0 w-48 p-3 bg-tran-bg border border-tran-border rounded-xl shadow-2xl opacity-0 group-hover:opacity-100 pointer-events-none z-50 transition-opacity">
+            <div className="absolute top-full mt-2 right-0 w-48 p-3 bg-tran-bg border border-tran-border rounded-xl shadow-2xl opacity-0 group-hover:opacity-100 group-active:opacity-100 pointer-events-none z-[100] transition-opacity">
               <p className="font-bold text-tran-secondary mb-1 text-xs">{activeQuest.title}</p>
               <p className="text-tran-textMuted text-[10px] leading-relaxed mb-2">{activeQuest.desc}</p>
               <div className="w-full bg-tran-card rounded-full h-1.5 overflow-hidden border border-tran-border/50">
@@ -271,9 +195,15 @@ function GameHeader({ arc, onSuKy, onHome, inventory, activeQuest, hintsLeft, on
         {inventory?.length > 0 && (
           <div className="flex gap-1 mr-1">
             {inventory.map(id => (
-              <span key={id} title={ITEMS_DATA[id]?.name} className="text-lg filter drop-shadow-md">
-                {ITEMS_DATA[id]?.icon}
-              </span>
+              <div key={id} className="relative group cursor-pointer">
+                <span className="text-lg filter drop-shadow-md">
+                  {ITEMS_DATA[id]?.icon}
+                </span>
+                <div className="absolute top-full mt-2 right-0 w-48 p-3 bg-tran-bg border border-tran-border rounded-xl shadow-2xl opacity-0 group-hover:opacity-100 group-active:opacity-100 pointer-events-none z-[100] transition-opacity">
+                  <p className="font-bold text-tran-secondary mb-1 text-xs">{ITEMS_DATA[id]?.name}</p>
+                  <p className="text-tran-textMuted text-[10px] leading-relaxed">{ITEMS_DATA[id]?.desc}</p>
+                </div>
+              </div>
             ))}
           </div>
         )}
@@ -306,7 +236,7 @@ function GameHeader({ arc, onSuKy, onHome, inventory, activeQuest, hintsLeft, on
 }
 
 // ─── Main screen ────────────────────────────────────────────────────────────────
-export default function GameScreen({ onSuKy }) {
+export default function GameScreen() {
   const { state, dispatch } = useGame()
   const { currentEvent, stats, historicalScore, hintsLeft, hintToast, currentYear, currentArc, showFactPopup, pendingFact, eventHistory, inventory, activeQuest, questToast } = state
   const [hoveredChoice, setHoveredChoice] = useState(null)
@@ -375,6 +305,7 @@ export default function GameScreen({ onSuKy }) {
       className={`min-h-screen flex flex-col max-w-sm mx-auto relative transition-colors duration-1000 ${isCampaign ? 'bg-red-950/40' : 'bg-tran-bg'}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
       {/* Campaign background intense glow */}
       {isCampaign && (
@@ -396,17 +327,23 @@ export default function GameScreen({ onSuKy }) {
       </AnimatePresence>
 
       {/* Header */}
-      <div className="relative z-10">
+      <div className="relative z-50">
         <GameHeader 
           arc={currentArc} 
-          onSuKy={onSuKy} 
+          activeTitle={state.activeTitle}
+          onSuKy={() => dispatch({ type: 'TOGGLE_SU_KY' })} 
           onHome={() => setShowExitModal(true)} 
+          onToggleMap={() => dispatch({ type: 'TOGGLE_MAP' })}
+          onToggleFaction={() => dispatch({ type: 'TOGGLE_FACTION' })}
           inventory={inventory} 
           activeQuest={activeQuest} 
           hintsLeft={hintsLeft}
           onUseHint={() => dispatch({ type: 'USE_HINT' })}
         />
       </div>
+
+      <CampaignMap />
+      <FactionPanel />
 
       {/* Stats */}
       <div className="px-4 pb-1 shrink-0 relative z-10">

@@ -1,10 +1,13 @@
 'use client'
 
 import { createContext, useContext, useReducer } from 'react'
-import { processChoice, processTriviaResult, processCombatChoice, dismissFactPopup, computeRescuedStats } from '../engine/gameEngine'
+import { processChoice, processTriviaResult, processCombatChoice, dismissFactPopup, computeRescuedStats, processEspionageResult, processPoetryResult } from '../engine/gameEngine'
 import { getFirstEvent } from '../engine/eventResolver'
 import { STAT_INITIAL } from '../constants/gameConfig'
 import { getRandomQuest } from '../data/quests'
+import { COMPANIONS_DATA } from '../data/companions'
+import { INITIAL_MAP_STATE } from '../constants/mapConfig'
+import { INITIAL_FACTION_STATE } from '../constants/factionConfig'
 
 const INITIAL_STATE = {
   chapter: 'tran_dynasty',
@@ -32,6 +35,9 @@ const INITIAL_STATE = {
     proclamedBinhNgo: false,
   },
   unlockedSuKy: [],
+  unlockedCompanions: ['tran_hung_dao'],
+  selectedCompanion: null,
+  activeTitle: null,
   inventory: [],
   gameStatus: 'menu',
   endingId: null,
@@ -45,9 +51,19 @@ const INITIAL_STATE = {
   adRescue: null,
   itemRescue: null,
   activeQuest: null,
+  mapState: INITIAL_MAP_STATE,
+  isMapOpen: false,
+  showSuKy: false,
+  factionState: INITIAL_FACTION_STATE,
+  isFactionOpen: false,
   questToast: null,
+  // Arena State
+  arenaScore: 0,
+  arenaLives: 3,
+  arenaCombo: 0,
   lastTriviaYear: 0,
   triviaData: null,
+  triviaHistory: [],
   historicalScore: 100,
   hintsLeft: 3,
   hintToast: null,
@@ -62,10 +78,68 @@ function reducer(state, action) {
         currentEvent: getFirstEvent(1),
         activeQuest: getRandomQuest(),
       }
+    case 'START_ARENA':
+      return { ...INITIAL_STATE, gameStatus: 'arena', arenaScore: 0, arenaLives: 3, arenaCombo: 0 }
+    case 'QUIT_ARENA':
+      return { ...state, gameStatus: 'menu' }
+    case 'UPDATE_ARENA_STATE':
+      return { ...state, ...action.payload }
     case 'CHOOSE':
+      if (action.choiceId === 'COMBAT_ATTACK' || action.choiceId === 'COMBAT_DEFEND') {
+        const combatResult = processCombatChoice(state, action.choiceId)
+        return combatResult
+      }
       return processChoice(state, action.choiceId)
+    case 'SELECT_COMPANION': {
+      const comp = COMPANIONS_DATA[action.companionId]
+      let maxPlayerHP = state.combatState.maxPlayerHP
+      let playerHP = state.combatState.playerHP
+      let maxEnemyHP = state.combatState.maxEnemyHP
+      let enemyHP = state.combatState.enemyHP
+
+      if (comp?.effect?.type === 'buff_hp') {
+        maxPlayerHP += comp.effect.value
+        playerHP = maxPlayerHP
+      } else if (comp?.effect?.type === 'debuff_enemy_hp') {
+        maxEnemyHP -= comp.effect.value
+        enemyHP = maxEnemyHP
+      }
+
+      return {
+        ...state,
+        selectedCompanion: action.companionId,
+        gameStatus: 'combat',
+        combatState: {
+          ...state.combatState,
+          maxPlayerHP,
+          playerHP,
+          maxEnemyHP,
+          enemyHP,
+          dodgedFirstHit: false,
+          companionBuffs: true
+        }
+      }
+    }
+    case 'START_COMBAT_WITHOUT_COMPANION':
+      return {
+        ...state,
+        selectedCompanion: null,
+        gameStatus: 'combat'
+      }
     case 'COMBAT_CHOICE':
       return processCombatChoice(state, action.choiceId)
+    case 'ESPIONAGE_COMPLETE':
+      return processEspionageResult(state, action.isSuccess)
+    case 'POETRY_COMPLETE':
+      return processPoetryResult(state, action.isSuccess)
+    case 'TOGGLE_MAP':
+      return { ...state, isMapOpen: !state.isMapOpen }
+    case 'TOGGLE_FACTION':
+      return { ...state, isFactionOpen: !state.isFactionOpen }
+    case 'TOGGLE_SU_KY':
+      return { ...state, showSuKy: !state.showSuKy }
+    case 'UPDATE_FACTION_STATE':
+      return { ...state, factionState: { ...state.factionState, ...action.payload } }
     case 'TRIVIA_COMPLETE':
       return processTriviaResult(state, action.isCorrect)
     case 'DISMISS_FACT':

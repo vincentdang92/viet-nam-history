@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAuth } from '../../context/AuthContext'
 import { useGame } from '../../context/GameContext'
-import { STAT_META, STAT_KEYS } from '../../constants/gameConfig'
+import { STAT_META, STAT_KEYS, getContributionTitle } from '../../constants/gameConfig'
 import { checkFirestoreConnection } from '../../lib/firestore'
 import HowToPlayModal from './HowToPlayModal'
 import { useSuKy } from '../../hooks/useSuKy'
@@ -125,6 +125,11 @@ export default function PlayerInfoPanel({ open, onClose }) {
               <Section title="Người chơi">
                 <Row label="Tên hiệu" value={playerName || '—'} valueColor="#D4A017" />
                 <Row label="Đổi tên còn lại" value={Math.max(0, 2 - (profile?.nameChangeCount || 0))} valueColor="#A08070" />
+                <Row 
+                  label="Danh hiệu cống hiến" 
+                  value={getContributionTitle(profile?.contributionScore || 0).title} 
+                  valueColor={getContributionTitle(profile?.contributionScore || 0).color} 
+                />
                 <Row label="Sử Ký đã mở" value={`${profile?.unlockedSuKy?.length || 0} / ${totalSuKy}`} valueColor="#F5E6D0" />
                 <Row label="Kết Cục đã mở" value={`${profile?.milestones?.length || 0} / 5`} valueColor="#F5E6D0" />
                 <Row

@@ -1,13 +1,21 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import CharacterPortrait from './CharacterPortrait'
+import charactersData from '../../data/characters.json'
 
 const TYPE_BADGE = {
   battle:     { label: '⚔️ Trận Chiến',        cls: 'bg-red-900/70 text-red-200 border border-red-700/50' },
   cinematic:  { label: '✨ Sự Kiện Trọng Đại',  cls: 'bg-yellow-900/70 text-yellow-200 border border-yellow-700/50' },
   historical: { label: '📜 Lịch Sử',            cls: 'bg-purple-900/60 text-purple-200' },
   event:      { label: '🎭 Sự Kiện',            cls: 'bg-blue-900/60 text-blue-200' },
+}
+
+const RARITY_FOIL = {
+  legendary: 'linear-gradient(135deg, rgba(255,215,0,0) 0%, rgba(255,215,0,0.4) 50%, rgba(255,255,255,0.6) 55%, rgba(255,215,0,0) 60%)',
+  rare: 'linear-gradient(135deg, rgba(192,192,192,0) 0%, rgba(192,192,192,0.3) 50%, rgba(255,255,255,0.6) 55%, rgba(192,192,192,0) 60%)',
+  epic: 'linear-gradient(135deg, rgba(138,43,226,0) 0%, rgba(138,43,226,0.4) 50%, rgba(255,255,255,0.6) 55%, rgba(138,43,226,0) 60%)',
 }
 
 const stagger = {
@@ -19,53 +27,118 @@ const stagger = {
 }
 
 export default function CardDisplay({ event }) {
+  const [isFlipped, setIsFlipped] = useState(false)
+
   if (!event) return null
 
   const badge   = TYPE_BADGE[event.type] ?? TYPE_BADGE.event
   const isBig   = event.type === 'battle' || event.isCinematic
+  const rarity  = event.rarity || 'common'
+  
+  // Find character data for the back side
+  const charData = charactersData.find(c => c.id === event.character)
 
   return (
-    <motion.div
-      className="flex flex-col gap-3 p-4"
-      variants={stagger.container}
-      initial="initial"
-      animate="animate"
+    <div 
+      className="w-full relative cursor-pointer" 
+      style={{ perspective: 1200 }}
+      onClick={() => setIsFlipped(!isFlipped)}
     >
-      {/* Header row */}
-      <motion.div variants={stagger.item} className="flex items-center justify-between">
-        <span className={`text-xs px-2 py-0.5 rounded-full ${badge.cls}`}>
-          {badge.label}
-        </span>
-        <span className="text-tran-textMuted text-xs font-mono">{event.year}</span>
-      </motion.div>
-
-      {/* Portrait */}
-      <motion.div variants={stagger.item}>
-        <CharacterPortrait characterId={event.character} isCinematic={isBig} />
-      </motion.div>
-
-      {/* Title + quote */}
-      <motion.div variants={stagger.item} className="text-center">
-        <h2
-          className={`text-tran-text font-serif font-bold leading-snug
-            ${isBig ? 'text-2xl' : 'text-xl'}`}
-        >
-          {event.title}
-        </h2>
-        {event.quote && (
-          <p className="text-tran-secondary italic text-sm mt-1.5 leading-snug">
-            &ldquo;{event.quote}&rdquo;
-          </p>
-        )}
-      </motion.div>
-
-      {/* Context */}
-      <motion.p
-        variants={stagger.item}
-        className="text-tran-text/80 text-sm leading-relaxed text-center pb-1"
+      <motion.div
+        className="w-full relative preserve-3d"
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        transition={{ type: 'spring', stiffness: 260, damping: 25 }}
+        style={{ transformStyle: 'preserve-3d' }}
       >
-        {event.context}
-      </motion.p>
-    </motion.div>
+        {/* === FRONT SIDE === */}
+        <motion.div 
+          className="w-full flex flex-col backface-hidden pb-4"
+          style={{ backfaceVisibility: 'hidden' }}
+          variants={stagger.container}
+          initial="initial"
+          animate="animate"
+        >
+          {/* Portrait taking upper half */}
+          <motion.div variants={stagger.item} className="w-full relative">
+            <CharacterPortrait characterId={event.character} isCinematic={isBig} />
+            
+            {/* Absolute positioning for Badge and Year over the portrait */}
+            <div className="absolute top-3 left-3 right-3 flex items-start justify-between z-10 pointer-events-none">
+              <span className={`text-[10px] px-2.5 py-1 rounded-full shadow-md backdrop-blur-md font-medium ${badge.cls}`}>
+                {badge.label}
+              </span>
+              <span className="bg-black/60 text-tran-secondary text-xs font-mono px-2 py-1 rounded-lg border border-tran-secondary/30 backdrop-blur-md">
+                {event.year}
+              </span>
+            </div>
+          </motion.div>
+
+          {/* Title + Quote + Context (Lower half) */}
+          <motion.div variants={stagger.item} className="flex-1 flex flex-col items-center p-5 pt-4 text-center justify-center">
+            <h2 className={`text-tran-text font-serif font-bold leading-snug ${isBig ? 'text-2xl' : 'text-xl'} mb-2`}>
+              {event.title}
+            </h2>
+            
+            <p className="text-tran-text/80 text-sm leading-relaxed mb-3">
+              {event.context}
+            </p>
+            
+            {event.quote && (
+              <p className="text-tran-secondary italic text-[13px] leading-snug border-t border-tran-border/30 pt-3 mt-auto w-full">
+                &ldquo;{event.quote}&rdquo;
+              </p>
+            )}
+          </motion.div>
+
+          {/* Holographic Shimmer Overlay */}
+          {RARITY_FOIL[rarity] && (
+            <motion.div 
+              className="absolute inset-0 z-20 pointer-events-none mix-blend-color-dodge opacity-60 rounded-2xl"
+              style={{ backgroundImage: RARITY_FOIL[rarity], backgroundSize: '200% 200%' }}
+              animate={{ backgroundPosition: ['0% 0%', '200% 200%'] }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+            />
+          )}
+          
+          {/* Hint to flip */}
+          {charData && (
+            <div className="absolute top-3 right-3 z-10 text-[10px] bg-black/60 text-tran-textMuted px-2 py-1 rounded-lg flex items-center gap-1">
+              <span>Nhấn lật</span> 🔄
+            </div>
+          )}
+        </motion.div>
+
+        {/* === BACK SIDE === */}
+        <div 
+          className="absolute inset-0 bg-tran-card rounded-2xl p-6 border-2 border-tran-border/50 flex flex-col backface-hidden"
+          style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+        >
+          {charData ? (
+            <div className="flex flex-col h-full text-center items-center justify-center">
+              <div className="w-16 h-1 h-1 bg-tran-border/50 rounded-full mb-6 mx-auto" />
+              <h3 className="text-2xl font-serif text-tran-secondary font-bold mb-1">{charData.fullName}</h3>
+              <p className="text-xs text-tran-textMuted mb-4 font-mono">{charData.years}</p>
+              
+              <div className="w-full bg-black/30 rounded-xl p-4 mb-4 border border-tran-border/30">
+                <p className="text-sm text-tran-text/90 italic">"{charData.role}"</p>
+              </div>
+              
+              <p className="text-sm leading-relaxed text-tran-text/80 mb-6 text-left">
+                {charData.bio}
+              </p>
+              
+              <div className="mt-auto pt-4 border-t border-tran-border/30 w-full">
+                <p className="text-xs text-tran-textMuted uppercase tracking-widest mb-1">Tính cách</p>
+                <p className="text-sm text-tran-secondary/80 font-medium">{charData.personality}</p>
+              </div>
+            </div>
+          ) : (
+            <div className="flex items-center justify-center h-full text-tran-textMuted text-sm">
+              Dữ liệu nhân vật đã thất lạc trong sử sách...
+            </div>
+          )}
+        </div>
+      </motion.div>
+    </div>
   )
 }

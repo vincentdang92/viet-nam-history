@@ -113,6 +113,10 @@
           "fact": "Binh thư yếu lược của Trần Hưng Đạo là bộ sách quân sự đầu tiên của Việt Nam, đặt nền móng cho nghệ thuật chiến tranh dân tộc.",
           "chainNext": "tran_arc2_004",
           "unlockSuKy": null,
+          "setMapNode": {
+            "thang_long": "enemy",
+            "van_kiep": "enemy"
+          },
           "giveItem": "item_binh_thu"
         },
         {
@@ -241,7 +245,7 @@
           },
           "isHistorical": true,
           "fact": "Trần Quốc Toản tự chiêu mộ 1,000 quân riêng và lập nhiều chiến công. Cờ hiệu 'Phá cường địch, báo hoàng ân' của ông trở thành biểu tượng tinh thần kháng chiến.",
-          "chainNext": "tran_arc2_007",
+          "chainNext": "tran_arc2_espionage_01",
           "unlockSuKy": "su_ky_tran_quoc_toan_001"
         },
         {
@@ -255,13 +259,68 @@
           },
           "isHistorical": false,
           "fact": "Trong lịch sử, Trần Quốc Toản không được tham dự nhưng tự mình ra đi đánh giặc, trở thành biểu tượng lòng yêu nước của tuổi trẻ.",
-          "chainNext": "tran_arc2_007",
+          "chainNext": "tran_arc2_espionage_01",
           "unlockSuKy": null
         }
       ],
       "requiredCondition": null,
       "isCinematic": false,
       "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc2_espionage_01",
+      "arc": 2,
+      "year": 1280,
+      "type": "espionage",
+      "title": "Bắt Được Tù Binh Nguyên",
+      "context": "Biên giới báo về: quân ta bắt được một toán do thám của giặc Nguyên Mông. Khi tra hỏi, chúng khai ra 3 điều. Nhờ tình báo, ngài biết chắc chắn có 1 lời nói dối. Hãy tìm ra nó!",
+      "character": "enemy_general",
+      "quote": "Bọn ta là đạo quân bách chiến bách thắng, các ngươi cứ chờ xem...",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Đích thân thẩm vấn (Hỏi Cung)",
+          "espionageData": {
+            "statements": [
+              {
+                "text": "Hốt Tất Liệt đã đích thân cầm quân sang đánh Đại Việt lần này.",
+                "isLie": true,
+                "fact": "Trong cả 3 lần xâm lược Đại Việt, Đại Hãn Hốt Tất Liệt chưa bao giờ đích thân cầm quân, mà giao cho Ngột Lương Hợp Thai, Thoát Hoan..."
+              },
+              {
+                "text": "Đạo quân chủ lực của Thoát Hoan có tới 50 vạn người.",
+                "isLie": false
+              },
+              {
+                "text": "Tướng Toa Đô đang chỉ huy đạo thủy quân đánh thốc từ Chiêm Thành (phía Nam) lên.",
+                "isLie": false
+              }
+            ],
+            "reward": {
+              "binhLuc": 10,
+              "historicalScore": 15
+            },
+            "penalty": {
+              "binhLuc": -10,
+              "historicalScore": -15
+            }
+          },
+          "chainNext": "tran_arc2_007"
+        },
+        {
+          "id": "choice_b",
+          "text": "Giao cho bộ hạ xử lý (Bỏ qua)",
+          "effects": {
+            "trieuCuong": -5
+          },
+          "isHistorical": false,
+          "fact": "Thông tin tình báo chính xác là chìa khóa để Trần Hưng Đạo vạch ra kế hoạch vườn không nhà trống.",
+          "chainNext": "tran_arc2_007"
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "battlefield"
     },
     {
       "id": "tran_arc2_007",
@@ -284,7 +343,7 @@
           },
           "isHistorical": true,
           "fact": "Hội nghị Bình Than giao toàn quyền quân sự cho Trần Hưng Đạo — sự nhất thống chỉ huy là yếu tố then chốt cho chiến thắng.",
-          "chainNext": "tran_arc2_battle_1285",
+          "chainNext": "tran_arc2_006b",
           "unlockSuKy": "su_ky_binh_than_001"
         },
         {
@@ -298,13 +357,220 @@
           },
           "isHistorical": false,
           "fact": "Thống nhất chỉ huy là bài học lịch sử quan trọng — chỉ huy phân tán thường dẫn đến thất bại trước kẻ thù mạnh.",
-          "chainNext": "tran_arc2_battle_1285",
+          "chainNext": "tran_arc2_006b",
           "unlockSuKy": null
         }
       ],
       "requiredCondition": null,
       "isCinematic": false,
       "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc2_006b",
+      "arc": 2,
+      "year": 1284,
+      "type": "historical",
+      "title": "Hội Nghị Diên Hồng",
+      "context": "Quân Nguyên Mông với 50 vạn quân đang áp sát biên giới. Thượng hoàng Trần Thánh Tông triệu tập bô lão cả nước về điện Diên Hồng để hỏi kế sách: Hòa hay Chiến?",
+      "character": "tran_nhan_tong",
+      "quote": "Ý dân là ý trời. Nên hòa hay nên đánh?",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Bô lão đồng thanh: 'Đánh!'",
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 20,
+            "quocKho": -5,
+            "trieuCuong": 5
+          },
+          "isHistorical": true,
+          "fact": "Hội nghị Diên Hồng năm 1284 là biểu tượng của tinh thần dân chủ quân sự và ý chí quyết chiến của toàn dân tộc Đại Việt.",
+          "chainNext": "tran_arc2_poetry_01",
+          "unlockSuKy": "su_ky_dien_hong_001"
+        },
+        {
+          "id": "choice_b",
+          "text": "Khuyên nhà vua nên nhượng bộ để tránh cảnh binh đao",
+          "effects": {
+            "binhLuc": -10,
+            "danTam": -15,
+            "quocKho": 5,
+            "trieuCuong": -10
+          },
+          "isHistorical": false,
+          "fact": "Sự đoàn kết tuyệt đối giữa triều đình và nhân dân là chìa khóa duy nhất để đánh bại đế quốc Mông Cổ.",
+          "chainNext": "tran_arc2_poetry_01",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": true,
+      "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc2_poetry_01",
+      "arc": 2,
+      "year": 1284,
+      "type": "poetry",
+      "title": "Hịch Tướng Sĩ",
+      "context": "Trước sức ép của 50 vạn quân Nguyên Mông, một số tướng sĩ Đại Việt bắt đầu chao đảo, lo sợ. Trần Hưng Đạo liền soạn bài Hịch Tướng Sĩ để khơi dậy lòng tự hào dân tộc và tinh thần quyết chiến.",
+      "character": "tran_hung_dao",
+      "quote": "Bọn giặc kia khác nào cú diều, sao không thấy nhục?",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Đọc Hịch Tướng Sĩ trước ba quân",
+          "poetryData": {
+            "passage": "Ta thường tới bữa quên ăn, nửa đêm vỗ gối; ruột đau như cắt, [BLANK] đầm đìa; chỉ căm tức chưa xả thịt lột da, nuốt gan uống máu quân thù.",
+            "correctWord": "nước mắt",
+            "options": [
+              "mồ hôi",
+              "huyết tuôn",
+              "nước mắt",
+              "than oán"
+            ],
+            "reward": {
+              "binhLuc": 20,
+              "danTam": 15
+            },
+            "penalty": {
+              "binhLuc": -10,
+              "danTam": -5
+            }
+          },
+          "chainNext": "tran_arc2_007b"
+        },
+        {
+          "id": "choice_b",
+          "text": "Bỏ qua, tập trung vào luyện binh (Không đọc Hịch)",
+          "effects": {
+            "binhLuc": 5,
+            "danTam": -5
+          },
+          "isHistorical": false,
+          "fact": "Hịch Tướng Sĩ là đòn bẩy tinh thần quan trọng nhất, không có nó, khó lòng vực dậy nhuệ khí ba quân.",
+          "chainNext": "tran_arc2_007b"
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "training_ground"
+    },
+    {
+      "id": "tran_arc2_007b",
+      "arc": 2,
+      "year": 1284,
+      "type": "event",
+      "title": "Lời Thề Sát Thát",
+      "context": "Lời hịch của Trần Hưng Đạo khiến ba quân bừng bừng sát khí. Binh sĩ đua nhau thích hai chữ 'Sát Thát' (Giết giặc Thát Đát) vào cánh tay để thề sống chết với quân thù.",
+      "character": "tran_quoc_toan",
+      "quote": "Sát Thát! Sát Thát!",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Ủng hộ và ngợi khen tinh thần ba quân",
+          "effects": {
+            "binhLuc": 15,
+            "danTam": 10,
+            "quocKho": 0,
+            "trieuCuong": 0
+          },
+          "isHistorical": true,
+          "fact": "Hai chữ 'Sát Thát' thể hiện ý chí quyết tử của quân đội nhà Trần, khiến quân Nguyên phải khiếp sợ khi giáp lá cà.",
+          "chainNext": "tran_arc2_007c",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Ngăn cấm vì lo sợ quân lính kích động làm trái quân lệnh",
+          "effects": {
+            "binhLuc": -10,
+            "danTam": -5,
+            "quocKho": 0,
+            "trieuCuong": 5
+          },
+          "isHistorical": false,
+          "fact": "Sĩ khí là vũ khí mạnh nhất của quân Đại Việt lúc bấy giờ. Kìm hãm sĩ khí là tự cắt đi con đường sống.",
+          "chainNext": "tran_arc2_007c",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "training_ground"
+    },
+    {
+      "id": "tran_arc2_007c",
+      "arc": 2,
+      "year": 1285,
+      "type": "event",
+      "title": "Sự Phản Bội Của Hoàng Tộc",
+      "context": "Quân Nguyên thế lớn như chẻ tre. Chiêu Quốc Vương Trần Ích Tắc (chú vua) vì hèn nhát và tham vọng ngai vàng, đã mang cả gia quyến sang đầu hàng Thoát Hoan.",
+      "character": "tran_ich_tac",
+      "quote": "Kẻ thức thời mới là trang tuấn kiệt...",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Xóa tên khỏi hoàng tộc, gọi là 'Ả Trần' (đồ hèn như đàn bà)",
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 10,
+            "quocKho": 0,
+            "trieuCuong": 10
+          },
+          "isHistorical": true,
+          "fact": "Nhà Trần vô cùng căm phẫn sự phản bội này, phế truất Ích Tắc khỏi tông thất và gọi mỉa mai là 'Ả Trần'.",
+          "chainNext": "tran_arc2_007d",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Bưng bít thông tin để tránh quân lính hoang mang",
+          "effects": {
+            "binhLuc": -10,
+            "danTam": -15,
+            "quocKho": 0,
+            "trieuCuong": -10
+          },
+          "isHistorical": false,
+          "fact": "Nhà Trần chọn cách công khai trừng phạt sự phản bội để răn đe kẻ khác và củng cố tinh thần chiến đấu.",
+          "chainNext": "tran_arc2_007d",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_court"
+    },
+    {
+      "id": "tran_arc2_007d",
+      "arc": 2,
+      "year": 1285,
+      "type": "event",
+      "title": "Bảo Vệ Thiên Mạc",
+      "context": "Trần Bình Trọng nhận lệnh chặn hậu bảo vệ Thượng hoàng rút lui. Ông bị bắt, giặc dùng phú quý dụ dỗ nhưng ông kiên quyết từ chối.",
+      "character": "tran_binh_trong",
+      "quote": "Ta thà làm ma nước Nam, chứ không thèm làm vương đất Bắc!",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Tử tiết oanh liệt",
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 20,
+            "quocKho": 0,
+            "trieuCuong": 15
+          },
+          "isHistorical": true,
+          "fact": "Sự hy sinh oanh liệt và câu nói bất hủ của Trần Bình Trọng trở thành bản anh hùng ca bất diệt, cổ vũ tinh thần quyết tử của quân dân nhà Trần.",
+          "chainNext": "tran_arc2_battle_1285",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": true,
+      "background": "battle_field"
     },
     {
       "id": "tran_arc2_battle_1285",
@@ -327,10 +593,15 @@
           },
           "isHistorical": true,
           "fact": "Trần Quang Khải đại thắng tại Chương Dương và Hàm Tử năm 1285, thu hồi Thăng Long. Đây là lần thứ hai quân Nguyên bị đánh bại.",
-          "chainNext": "tran_arc2_008",
+          "chainNext": "tran_arc2_faction_02",
           "unlockSuKy": "su_ky_chuong_duong_001",
           "setFlag": {
             "wonBattle1285": true
+          },
+          "setMapNode": {
+            "thang_long": "player",
+            "chuong_duong": "player",
+            "ham_tu": "player"
           }
         },
         {
@@ -344,7 +615,7 @@
           },
           "isHistorical": false,
           "fact": "Sự chủ động phản công là yếu tố quyết định — thụ động sẽ tạo điều kiện cho quân Nguyên củng cố vị thế.",
-          "chainNext": "tran_arc2_008",
+          "chainNext": "tran_arc2_faction_02",
           "unlockSuKy": null,
           "setFlag": {
             "wonBattle1285": false
@@ -354,6 +625,92 @@
       "requiredCondition": null,
       "isCinematic": true,
       "background": "battle_field"
+    },
+    {
+      "id": "tran_arc2_faction_02",
+      "arc": 2,
+      "year": 1285,
+      "type": "historical",
+      "title": "Bảo Nghĩa Vương Trần Bình Trọng",
+      "context": "Trong trận chiến ở bãi Thiên Mạc để bảo vệ vua rút lui, Bảo Nghĩa Vương Trần Bình Trọng bị giặc bắt. Tướng Nguyên dụ dỗ: 'Có muốn làm vương đất Bắc không?'",
+      "character": "tran_thai_tong",
+      "quote": "Ta thà làm ma nước Nam, chứ không thèm làm vương đất Bắc!",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Vinh danh sự hi sinh lẫm liệt, truy phong phong tước",
+          "effects": {
+            "binhLuc": -10,
+            "danTam": 20,
+            "quocKho": -5,
+            "trieuCuong": 5
+          },
+          "isHistorical": true,
+          "fact": "Sự hi sinh và câu nói của Trần Bình Trọng trở thành bản hùng ca bất tử, khích lệ mãnh liệt tinh thần kháng chiến của toàn quân.",
+          "chainNext": "tran_arc2_faction_01",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Đau xót và giấu kín tin tức để tránh quân lính hoang mang",
+          "effects": {
+            "binhLuc": -10,
+            "danTam": -5,
+            "quocKho": 0,
+            "trieuCuong": -5
+          },
+          "isHistorical": false,
+          "fact": "Một tấm gương hi sinh lẫm liệt phải được ngợi ca để hun đúc nhuệ khí, không thể giấu kín.",
+          "chainNext": "tran_arc2_faction_01",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": true,
+      "background": "battle_field"
+    },
+    {
+      "id": "tran_arc2_faction_01",
+      "arc": 2,
+      "year": 1285,
+      "type": "event",
+      "title": "Bóng Đen Gia Tộc",
+      "context": "Giữa lúc thế giặc mạnh nhất, một cú sốc lớn giáng xuống triều đình: Chiêu Quốc Vương Trần Ích Tắc, người được đánh giá là thông minh tài trí bậc nhất hoàng tộc, đã đem cả gia quyến đầu hàng Thoát Hoan.",
+      "character": "tran_ich_tac",
+      "quote": "Bảo toàn dòng máu là thượng sách. Ngươi không hiểu đâu!",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Công khai phản bố, tước bỏ hoàng tịch",
+          "effects": {
+            "danTam": -10,
+            "trieuCuong": 5
+          },
+          "isHistorical": true,
+          "fact": "Sau này khi dẹp xong giặc, triều đình không gọi Ích Tắc bằng tên mà gọi là Ả Trần (kẻ hèn nhát như đàn bà).",
+          "chainNext": "tran_arc2_008",
+          "setCharacterStatus": {
+            "tran_ich_tac": "traitor"
+          }
+        },
+        {
+          "id": "choice_b",
+          "text": "Bưng bít thông tin để giữ vững sĩ khí",
+          "effects": {
+            "danTam": 5,
+            "trieuCuong": -10
+          },
+          "isHistorical": false,
+          "fact": "Việc một hoàng thân quốc thích đầu hàng là cú sốc lớn, không thể bưng bít. Phải biến sự phản bội thành ngọn lửa căm phẫn.",
+          "chainNext": "tran_arc2_008",
+          "setCharacterStatus": {
+            "tran_ich_tac": "traitor"
+          }
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_court"
     },
     {
       "id": "tran_arc2_008",
@@ -376,7 +733,7 @@
           },
           "isHistorical": true,
           "fact": "Sau mỗi lần Thăng Long bị chiếm, nhà Trần đều tổ chức tái thiết nhanh chóng để khôi phục lòng tin của nhân dân.",
-          "chainNext": "tran_arc2_009",
+          "chainNext": "tran_arc2_010",
           "unlockSuKy": null
         },
         {
@@ -390,56 +747,13 @@
           },
           "isHistorical": false,
           "fact": "Trong lịch sử, nhà Trần cân bằng cả hai — vừa tái thiết vừa chuẩn bị cho cuộc tấn công tiếp theo.",
-          "chainNext": "tran_arc2_009",
+          "chainNext": "tran_arc2_010",
           "unlockSuKy": null
         }
       ],
       "requiredCondition": null,
       "isCinematic": false,
       "background": "thang_long_palace"
-    },
-    {
-      "id": "tran_arc2_009",
-      "arc": 2,
-      "year": 1286,
-      "type": "event",
-      "title": "Triều Thần Bàn Hòa",
-      "context": "Một số quan văn đề nghị gửi sứ giả cầu hòa với Nguyên Mông, tránh lần tấn công thứ ba. Quân Nguyên đang chuẩn bị đội quân mới còn lớn hơn.",
-      "character": "tran_hung_dao",
-      "quote": "Hòa với kẻ chưa bao giờ giữ lời hứa — đó không phải là hòa bình",
-      "choices": [
-        {
-          "id": "choice_a",
-          "text": "Bác bỏ — tiếp tục chuẩn bị kháng chiến",
-          "effects": {
-            "binhLuc": 5,
-            "danTam": 5,
-            "quocKho": -5,
-            "trieuCuong": 5
-          },
-          "isHistorical": true,
-          "fact": "Nhà Trần kiên quyết không cầu hòa sau năm 1285. Quyết tâm này đã dẫn đến chiến thắng Bạch Đằng vang dội năm 1288.",
-          "chainNext": "tran_arc2_010",
-          "unlockSuKy": null
-        },
-        {
-          "id": "choice_b",
-          "text": "Gửi sứ giả thăm dò, xem có thể đàm phán không",
-          "effects": {
-            "binhLuc": -5,
-            "danTam": -5,
-            "quocKho": 10,
-            "trieuCuong": -5
-          },
-          "isHistorical": false,
-          "fact": "Quân Nguyên không có ý định đàm phán thực sự — cầu hòa sẽ chỉ cho họ thời gian chuẩn bị tốt hơn.",
-          "chainNext": "tran_arc2_010",
-          "unlockSuKy": null
-        }
-      ],
-      "requiredCondition": null,
-      "isCinematic": false,
-      "background": "thang_long_court"
     },
     {
       "id": "tran_arc2_010",

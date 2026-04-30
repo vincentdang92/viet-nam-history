@@ -20,9 +20,9 @@ Nhưng thực ra đang HỌC LỊCH SỬ
 ```
 
 ### MVP Scope
-- Chapter đầu tiên: Nhà Trần (1225–1400)
-- ~45–50 thẻ sự kiện
-- 5 endings khác nhau
+- Chapter đầu tiên: Kỷ Trần - Hồ - Lê Sơ (1225–1428)
+- ~70–80 thẻ sự kiện
+- 7 endings khác nhau
 - Web app, mobile-first, không cần backend
 
 ---
@@ -67,6 +67,8 @@ minh-chu/
 │   │   │   ├── HomeScreen.jsx    # Màn hình chào + chọn chapter
 │   │   │   ├── GameScreen.jsx    # Màn hình chơi chính
 │   │   │   ├── GameOverScreen.jsx# Màn hình kết thúc + ending
+│   │   │   ├── PoetryScreen.jsx  # Mini-game điền khuyết Hùng Văn
+│   │   │   ├── EspionageScreen.jsx# Mini-game Hỏi cung
 │   │   │   └── SuKyScreen.jsx    # Thư viện sự kiện đã unlock
 │   │   │
 │   │   ├── game/
@@ -83,6 +85,8 @@ minh-chu/
 │   │   │   ├── EndingCard.jsx    # Card ending cuối game
 │   │   │   ├── SuKyCard.jsx      # Card trong thư viện Sử Ký
 │   │   │   ├── ProgressBar.jsx   # Thanh chỉ số animation
+│   │   │   ├── CampaignMap.jsx   # Bản Đồ Chiến Sự tương tác
+│   │   │   ├── FactionPanel.jsx  # Mạng lưới Gia Phả và Phe Phái
 │   │   │   └── Modal.jsx         # Generic modal wrapper
 │   │   │
 │   │   └── layout/
@@ -103,20 +107,25 @@ minh-chu/
 │   │   │   └── tran_dynasty/
 │   │   │       ├── arc1_lap_quoc.json      # Arc 1: Lập Quốc (1225–1257)
 │   │   │       ├── arc2_khang_nguyen.json  # Arc 2: Ba Lần Kháng Nguyên
-│   │   │       └── arc3_thinh_roi_suy.json # Arc 3: Thịnh Rồi Suy
+│   │   │       ├── arc3_thinh_roi_suy.json # Arc 3: Thịnh Rồi Suy
+│   │   │       ├── arc4_nha_ho.json        # Arc 4: Nhà Hồ & Thuộc Minh (1400–1418)
+│   │   │       └── arc5_lam_son.json       # Arc 5: Khởi Nghĩa Lam Sơn (1418–1428)
 │   │   │
 │   │   ├── characters.json       # Danh sách nhân vật lịch sử
-│   │   ├── endings.json          # 5 endings của Chapter Nhà Trần
-│   │   └── chapters.json         # Danh sách chapters (roadmap)
+│   │   ├── endings.json          # 7 endings của Chapter Nhà Trần - Hồ - Lê
+│   │   ├── chapters.json         # Danh sách chapters (roadmap)
+│   │   └── sysEvents.json        # Các sự kiện hệ thống (Khủng hoảng, Thương nhân)
 │   │
 │   ├── engine/
-│   │   ├── gameEngine.js         # Core logic: xử lý lượt chơi
+│   │   ├── gameEngine.js         # Core logic: xử lý lượt chơi, Combat, Items
 │   │   ├── statsEngine.js        # Tính toán thay đổi chỉ số
 │   │   ├── eventResolver.js      # Resolve sự kiện + chain events
 │   │   └── endingChecker.js      # Kiểm tra điều kiện ending
 │   │
 │   ├── constants/
 │   │   ├── gameConfig.js         # Cấu hình game (min/max chỉ số...)
+│   │   ├── mapConfig.js          # Cấu hình Bản Đồ Chiến Sự
+│   │   ├── factionConfig.js      # Cấu hình Mạng Lưới Nhân Vật
 │   │   └── theme.js              # Màu sắc, font theo triều đại
 │   │
 │   └── utils/
@@ -250,6 +259,18 @@ minh-chu/
     quocKho: 50,       // 💰 Quốc Khố
     trieuCuong: 50     // 📜 Triều Cương
   },
+  
+  // Chỉ số mở rộng
+  historicalScore: 100, // Thanh Chính Sử (100% -> 0%)
+
+  // Inventory & Nhiệm Vụ
+  inventory: [],       // Mảng ID vật phẩm
+  activeQuest: null,   // Nhiệm vụ đang active
+
+  // Danh Tướng Đồng Hành
+  unlockedCompanions: [], // Mảng ID tướng
+  selectedCompanion: null,
+  combatState: null,
 
   // Sự kiện hiện tại
   currentEvent: null,
@@ -285,44 +306,41 @@ minh-chu/
 function processChoice(state, choiceId) {
   const choice = getCurrentChoice(state, choiceId)
 
-  // 1. Áp dụng effects lên stats
+  // 1. Áp dụng effects lên stats & historicalScore
   const newStats = applyEffects(state.stats, choice.effects)
+  const newHistoricalScore = updateHistoricalScore(state.historicalScore, choice.isHistorical)
 
-  // 2. Kiểm tra game over
+  // 2. Cảnh báo Lịch Sử (Không Permadeath)
+  if (newHistoricalScore <= 0) {
+    // Kích hoạt Quest Toast cảnh báo "Dòng thời gian hỗn loạn" nhưng vẫn cho chơi tiếp
+  }
+
+  // 3. Kiểm tra game over & Cứu nguy (Targeted Rescue)
   const gameOverCheck = checkGameOver(newStats)
   if (gameOverCheck.isOver) {
-    return { ...state, gameStatus: "gameover", gameOverReason: gameOverCheck.reason }
+    return handleRescueOrGameOver(state, gameOverCheck, nextEvent, choice)
+    // Hệ thống sẽ kiểm tra xem người chơi có Item hay Ads Cứu Nguy hay không.
+    // Nếu có, chỉ phục hồi DUY NHẤT chỉ số gây ra Game Over, các chỉ số khác giữ nguyên.
   }
 
-  // 3. Cập nhật năm trị vì
-  const newYear = state.currentYear + getYearAdvance(state.currentEvent)
+  // 4. Xử lý Nhiệm Vụ (Quests)
+  const { newQuest, questToast, newInventory } = processQuest(state)
 
-  // 4. Unlock Sử Ký nếu có
-  const newSuKy = choice.unlockSuKy
-    ? [...state.unlockedSuKy, choice.unlockSuKy]
-    : state.unlockedSuKy
-
-  // 5. Cập nhật flags
-  const newFlags = updateFlags(state.flags, state.currentEvent, choiceId)
-
-  // 6. Kiểm tra ending
-  const endingCheck = checkEnding({ ...state, stats: newStats, flags: newFlags })
-  if (endingCheck.hasEnding) {
-    return { ...state, gameStatus: "ending", endingId: endingCheck.endingId }
-  }
-
-  // 7. Load sự kiện tiếp theo
+  // 4. Giải quyết Combat / Trivia
+  // Nếu gặp thẻ battle -> chuyển sang màn hình chọn Companion -> Combat
+  // Nếu đủ 15 năm -> kích hoạt Khoa Cử (Trivia)
+  
+  // 5. Cập nhật năm trị vì, Flags, Sử Ký
+  
+  // 6. Load sự kiện tiếp theo
   const nextEvent = resolveNextEvent(state, choice)
 
   return {
     ...state,
     stats: newStats,
-    currentYear: newYear,
-    yearsReigned: state.yearsReigned + getYearAdvance(state.currentEvent),
+    historicalScore: newHistoricalScore,
     currentEvent: nextEvent,
-    unlockedSuKy: newSuKy,
-    flags: newFlags,
-    eventHistory: [...state.eventHistory, state.currentEvent.id]
+    // ...
   }
 }
 ```
@@ -416,14 +434,26 @@ const THEMES = {
 └─────────────────────────────┘
 ```
 
-### 7.4 Animation Priorities
+### 7.4 Hệ Thống Độ Hiếm (Rarity System) & Thẻ Bài (TCG Style)
+
+- **Giao diện Thẻ Bài**: Thẻ được thiết kế theo tỷ lệ 4:3 cho phần hình ảnh (Artwork), có thể lật (Flip 3D) để xem tiểu sử nhân vật ở mặt sau. Khi chưa có ảnh thật, sẽ dùng pattern họa tiết cổ phong làm nền.
+- **Biến thể Rarity**: Khi load một sự kiện, có tỷ lệ nhất định để biến thẻ thường thành thẻ hiếm:
+  - `legendary` (2%): Viền vàng, nhân đôi (x2) hiệu ứng buff, xóa bỏ hiệu ứng phạt.
+  - `epic` (6%): Nhân 1.5 hiệu ứng buff, giảm một nửa hiệu ứng phạt.
+  - `rare` (12%): Nhân 1.2 hiệu ứng buff.
+- **Sự kiện Thần Thoại (Mythic Events)**: Có xác suất 5% xuất hiện thẻ ẩn (vd: Gặp cụ Rùa Vàng, Rồng thiêng bay xuống...) cung cấp vật phẩm đặc biệt hoặc thay đổi cục diện mạnh.
+
+### 7.5 Animation Priorities
 
 ```
 1. Card entrance animation (quan trọng nhất — ấn tượng đầu tiên)
-2. Stats bar change animation (feedback tức thì sau lựa chọn)
-3. Fact popup slide-in (reward cảm giác)
-4. Screen transitions (liền mạch giữa các màn hình)
-5. Game over animation (dramatic, đáng nhớ)
+2. Card 3D Flip (nhấn lật xem thông tin)
+3. Foil Shimmer overlay (hiệu ứng lấp lánh cho thẻ hiếm)
+4. Stats bar change animation (feedback tức thì sau lựa chọn)
+5. Screen transitions (liền mạch giữa các màn hình)
+
+**Cảnh Báo Kỹ Thuật (Framer Motion Gotchas):**
+Tuyệt đối KHÔNG dùng `AnimatePresence` trực tiếp lên các custom component không có `forwardRef` (vd: `GameRouter` hay `GameScreen`). Lỗi này sẽ làm UI bị kẹt vĩnh viễn ở `opacity: 0` hoặc render 2 màn hình chồng lên nhau do không unmount được. Để chuyển trang mượt mà, luôn bọc chúng bằng `<motion.div>` native có prop `exit`. Với các tính năng mở phụ (Sử Ký, Bản Đồ, Gia Phả), ưu tiên dùng kỹ thuật Overlay (`fixed inset-0 z-[100]`) đè lên màn chơi để giữ nguyên state phía dưới thay vì đổi routing.
 ```
 
 ---
@@ -454,7 +484,7 @@ const THEMES = {
 □ Viết đủ 45–50 thẻ sự kiện Chapter Nhà Trần
 □ FactPopup sau mỗi lựa chọn
 □ Chain events hoạt động
-□ 3–5 endings khác nhau
+□ 7 endings khác nhau
 □ SuKy screen cơ bản
 ```
 
