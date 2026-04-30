@@ -69,6 +69,8 @@ minh-chu/
 │   │   │   ├── GameOverScreen.jsx# Màn hình kết thúc + ending
 │   │   │   ├── PoetryScreen.jsx  # Mini-game điền khuyết Hùng Văn
 │   │   │   ├── EspionageScreen.jsx# Mini-game Hỏi cung
+│   │   │   ├── ArenaScreen.jsx   # Lôi Đài Lịch Sử (Quiz Mode)
+│   │   │   ├── DuelScreen.jsx    # Tỉ Thí Bóng Ma (PvP Ghost Mode)
 │   │   │   └── SuKyScreen.jsx    # Thư viện sự kiện đã unlock
 │   │   │
 │   │   ├── game/
@@ -288,8 +290,15 @@ minh-chu/
   // Sử Ký
   unlockedSuKy: [],
 
+  // Arena / PvP Ghost Mode
+  arenaScore: 0,
+  arenaLives: 3,
+  arenaCombo: 0,
+  duelTarget: null,
+  duelGhost: null,
+
   // Game status
-  gameStatus: "playing",  // "playing" | "gameover" | "ending"
+  gameStatus: "playing",  // "playing" | "gameover" | "ending" | "arena" | "duel"
   endingId: null,
   gameOverReason: null
 }

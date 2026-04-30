@@ -61,6 +61,8 @@ const INITIAL_STATE = {
   arenaScore: 0,
   arenaLives: 3,
   arenaCombo: 0,
+  duelTarget: null,
+  duelGhost: null,
   lastTriviaYear: 0,
   triviaData: null,
   triviaHistory: [],
@@ -84,6 +86,18 @@ function reducer(state, action) {
       return { ...state, gameStatus: 'menu' }
     case 'UPDATE_ARENA_STATE':
       return { ...state, ...action.payload }
+    case 'START_DUEL':
+      return { 
+        ...INITIAL_STATE, 
+        gameStatus: 'duel', 
+        duelTarget: action.payload.targetUser,
+        duelGhost: action.payload.ghostData,
+        arenaScore: 0, 
+        arenaLives: 3, 
+        arenaCombo: 0 
+      }
+    case 'QUIT_DUEL':
+      return { ...state, gameStatus: 'menu', duelTarget: null, duelGhost: null }
     case 'CHOOSE':
       if (action.choiceId === 'COMBAT_ATTACK' || action.choiceId === 'COMBAT_DEFEND') {
         const combatResult = processCombatChoice(state, action.choiceId)

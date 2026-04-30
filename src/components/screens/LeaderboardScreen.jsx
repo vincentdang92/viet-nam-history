@@ -1,14 +1,34 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { getTopContributors, getTopArenaPlayers } from '../../lib/firestore'
 import { getContributionTitle, ARENA_BOTS } from '../../constants/gameConfig'
+import { useGame } from '../../context/GameContext'
+import { generateBotGhost } from '../../utils/ghostGenerator'
 
 export default function LeaderboardScreen({ onBack }) {
+  const { dispatch } = useGame()
   const [activeTab, setActiveTab] = useState('arena') // 'arena' | 'contrib'
   const [leaders, setLeaders] = useState([])
   const [loading, setLoading] = useState(true)
+  const [selectedUserId, setSelectedUserId] = useState(null)
+
+  const handleDuel = (targetUser) => {
+    let ghostData = targetUser.ghostData
+    if (!ghostData && targetUser.isBot) {
+      ghostData = generateBotGhost(targetUser)
+    } else if (typeof ghostData === 'string') {
+      try { ghostData = JSON.parse(ghostData) } catch (e) {}
+    }
+    
+    if (!ghostData || !ghostData.questions || ghostData.questions.length === 0) {
+      alert("Người chơi này chưa có đủ dữ liệu lịch sử thi đấu hợp lệ!")
+      return
+    }
+
+    dispatch({ type: 'START_DUEL', payload: { targetUser, ghostData } })
+  }
 
   useEffect(() => {
     setLoading(true)
@@ -94,33 +114,66 @@ export default function LeaderboardScreen({ onBack }) {
                 return (
                   <motion.div 
                     key={user.id}
-                    className={`flex items-center gap-3 p-3 rounded-xl border ${user.isBot ? 'bg-stone-900/50 border-stone-800/50 opacity-80' : 'bg-stone-900 border-stone-800'}`}
+                    className={`rounded-xl border transition-all ${user.isBot ? 'bg-stone-900/50 border-stone-800/50 opacity-80' : 'bg-stone-900 border-stone-800'} ${selectedUserId === user.id ? 'border-amber-600 shadow-lg shadow-amber-900/20' : ''}`}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.05 }}
                   >
-                    <div className="w-8 flex justify-center">
-                      <span className={`text-lg font-bold ${idx < 3 ? 'text-amber-500' : 'text-stone-500'}`}>
-                        #{idx + 1}
-                      </span>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <p className="font-medium text-stone-200 truncate">
-                          {user.playerName || 'Ẩn Danh'}
-                        </p>
-                        {user.isBot && <span className="text-[10px] bg-stone-800 text-stone-400 px-1.5 py-0.5 rounded">NPC</span>}
+                    <div 
+                      className="flex items-center gap-3 p-3 cursor-pointer"
+                      onClick={() => setSelectedUserId(selectedUserId === user.id ? null : user.id)}
+                    >
+                      <div className="w-8 flex justify-center">
+                        <span className={`text-lg font-bold ${idx < 3 ? 'text-amber-500' : 'text-stone-500'}`}>
+                          #{idx + 1}
+                        </span>
                       </div>
-                      {titleMeta && (
-                        <p className="text-xs font-medium" style={{ color: titleMeta.color }}>
-                          {titleMeta.title}
-                        </p>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2">
+                          <p className="font-medium text-stone-200 truncate">
+                            {user.playerName || 'Ẩn Danh'}
+                          </p>
+                          {user.isBot && <span className="text-[10px] bg-stone-800 text-stone-400 px-1.5 py-0.5 rounded">NPC</span>}
+                        </div>
+                        {titleMeta && (
+                          <p className="text-xs font-medium" style={{ color: titleMeta.color }}>
+                            {titleMeta.title}
+                          </p>
+                        )}
+                      </div>
+                      <div className="text-right">
+                        <p className={`font-bold ${activeTab === 'arena' ? 'text-red-400' : 'text-amber-500'}`}>{user.score || 0}</p>
+                        <p className="text-[10px] text-stone-500">điểm</p>
+                      </div>
+                    </div>
+
+                    <AnimatePresence>
+                      {selectedUserId === user.id && activeTab === 'arena' && (
+                        <motion.div 
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="overflow-hidden border-t border-stone-800/50 bg-stone-950/30"
+                        >
+                          <div className="p-3 flex justify-between items-center gap-4">
+                            <p className="text-xs text-stone-400 flex-1">
+                              {user.isBot 
+                                ? 'Thách đấu với Danh nhân lịch sử để kiểm chứng tài năng.'
+                                : 'Đấu lại bóng ma (Ghost) dựa trên lịch sử thi đấu của người này.'}
+                            </p>
+                            <button 
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                handleDuel(user)
+                              }}
+                              className="bg-red-800 hover:bg-red-700 text-red-100 px-4 py-2 rounded-lg text-sm font-bold shadow-lg transition-colors flex items-center gap-2"
+                            >
+                              <span>⚔️</span> Tỉ Thí
+                            </button>
+                          </div>
+                        </motion.div>
                       )}
-                    </div>
-                    <div className="text-right">
-                      <p className={`font-bold ${activeTab === 'arena' ? 'text-red-400' : 'text-amber-500'}`}>{user.score || 0}</p>
-                      <p className="text-[10px] text-stone-500">điểm</p>
-                    </div>
+                    </AnimatePresence>
                   </motion.div>
                 )
               })}

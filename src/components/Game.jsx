@@ -18,6 +18,7 @@ import EspionageScreen from './screens/EspionageScreen'
 import PoetryScreen from './screens/PoetryScreen'
 import CombatScreen from './screens/CombatScreen'
 import ArenaScreen from './screens/ArenaScreen'
+import DuelScreen from './screens/DuelScreen'
 import EndingCard from './ui/EndingCard'
 import { getEnding } from '../engine/endingChecker'
 import { useBgMusic } from '../hooks/useBgMusic'
@@ -88,6 +89,8 @@ function GameRouter() {
       return <AdRescueScreen key="adrescue" />
     case 'arena':
       return <ArenaScreen key="arena" />
+    case 'duel':
+      return <DuelScreen key="duel" />
     case 'gameover':
       return <GameOverScreen key="gameover" />
     case 'ending': {

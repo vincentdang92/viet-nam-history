@@ -22,11 +22,22 @@ export default function ArenaScreen() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [hasSubmitted, setHasSubmitted] = useState(false)
 
+  // Ghost Recording State
+  const [ghostQuestions, setGhostQuestions] = useState([])
+  const [ghostActions, setGhostActions] = useState([])
+  const [questionStartTime, setQuestionStartTime] = useState(null)
+
   // Hàm chọn câu hỏi ngẫu nhiên (chỉ chọn từ Kỷ Trần - arc 1 đến 5)
   const pickNextQuestion = useCallback(() => {
     const eligible = TRIVIA_DATA.filter(t => t.arcs.some(a => a >= 1 && a <= 5))
     const randomIdx = Math.floor(Math.random() * eligible.length)
-    setCurrentQ(eligible[randomIdx])
+    const q = eligible[randomIdx]
+    setCurrentQ(q)
+    
+    // Ghost Recording
+    setGhostQuestions(prev => [...prev, q.id])
+    setQuestionStartTime(performance.now())
+    
     setTimeLeft(TIME_LIMIT)
     setIsAnswered(false)
     setSelectedIdx(null)
@@ -54,6 +65,10 @@ export default function ArenaScreen() {
     setSelectedIdx(idx)
 
     const isCorrect = !isTimeout && idx === currentQ.correctIndex
+    
+    // Record action for ghost
+    const delayMs = questionStartTime ? Math.floor(performance.now() - questionStartTime) : TIME_LIMIT * 1000
+    setGhostActions(prev => [...prev, { delayMs: Math.min(delayMs, TIME_LIMIT * 1000), isCorrect }])
 
     let newLives = state.arenaLives
     let newScore = state.arenaScore
@@ -89,7 +104,13 @@ export default function ArenaScreen() {
   const handleSubmitScore = async () => {
     if (!user || isSubmitting || hasSubmitted) return
     setIsSubmitting(true)
-    await submitArenaScore(user.uid, playerName, state.arenaScore)
+    
+    const ghostData = {
+      questions: ghostQuestions,
+      actions: ghostActions
+    }
+    
+    await submitArenaScore(user.uid, playerName, state.arenaScore, ghostData)
     setIsSubmitting(false)
     setHasSubmitted(true)
   }

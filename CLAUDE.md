@@ -77,6 +77,13 @@ src/
   currentEvent: { ... },
   showFactPopup: false,
   pendingFact: null,
+  
+  // Arena & Ghost Mode
+  arenaScore: 0,
+  arenaLives: 3,
+  arenaCombo: 0,
+  duelTarget: null,
+  duelGhost: null,
 }
 ```
 

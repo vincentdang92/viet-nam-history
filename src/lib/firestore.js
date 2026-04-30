@@ -134,9 +134,36 @@ export async function getTopContributors() {
   }
 }
 
+export async function addContributionScore(userId, playerName, points) {
+  const db = getFirestoreDB()
+  if (!db || !userId) return false
+  try {
+    const lbRef = doc(db, 'leaderboard', userId)
+    const docSnap = await getDoc(lbRef)
+    
+    if (docSnap.exists()) {
+      await setDoc(lbRef, {
+        score: docSnap.data().score + points,
+        updatedAt: serverTimestamp()
+      }, { merge: true })
+    } else {
+      await setDoc(lbRef, {
+        userId,
+        playerName: playerName || 'Ẩn Danh',
+        score: points,
+        updatedAt: serverTimestamp()
+      })
+    }
+    return true
+  } catch (err) {
+    console.error('Lỗi cộng điểm cống hiến:', err)
+    return false
+  }
+}
+
 // ─── LÔI ĐÀI (ARENA) ─────────────────────────────────────────────────────────────
 
-export async function submitArenaScore(userId, playerName, score) {
+export async function submitArenaScore(userId, playerName, score, ghostData = null) {
   const db = getFirestoreDB()
   if (!db) return false
   try {
@@ -148,12 +175,19 @@ export async function submitArenaScore(userId, playerName, score) {
       if (data.score >= score) return true // Keep existing high score
     }
 
-    await setDoc(arenaRef, {
+    const payload = {
       userId,
       playerName: playerName || 'Ẩn Danh',
       score,
       updatedAt: serverTimestamp()
-    })
+    }
+
+    if (ghostData && ghostData.questions && ghostData.questions.length > 0) {
+      // Only save if it's a valid ghost run
+      payload.ghostData = JSON.stringify(ghostData)
+    }
+
+    await setDoc(arenaRef, payload)
     return true
   } catch (err) {
     console.error('Lỗi lưu điểm Lôi Đài:', err)
