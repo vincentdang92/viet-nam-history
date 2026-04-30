@@ -6,6 +6,7 @@ import { useGame } from '../../context/GameContext'
 import { useAuth } from '../../context/AuthContext'
 import { loadGameState } from '../../lib/firestore'
 import PlayerInfoPanel from '../ui/PlayerInfoPanel'
+import AuthRequiredModal from '../ui/AuthRequiredModal'
 import LeaderboardScreen from './LeaderboardScreen'
 import chapters from '../../data/chapters.json'
 import { useSuKy } from '../../hooks/useSuKy'
@@ -37,6 +38,7 @@ export default function HomeScreen() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showEmailForm, setShowEmailForm] = useState(false)
+  const [showAuthModal, setShowAuthModal] = useState(false)
 
   const handleLinkGoogle = async () => {
     setLinking(true)
@@ -221,9 +223,7 @@ export default function HomeScreen() {
           <button 
             onClick={() => {
               if (!isLinked) {
-                alert("Xin mời Sử Gia liên kết tài khoản (Google hoặc Email) để bước vào Lôi Đài Lịch Sử và ghi danh lên Bảng Vàng!")
-                // Scroll to bottom where the login options are
-                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+                setShowAuthModal(true)
                 return
               }
               dispatch({ type: 'START_ARENA' })
@@ -430,6 +430,17 @@ export default function HomeScreen() {
       </div>
 
       <PlayerInfoPanel open={showInfo} onClose={() => setShowInfo(false)} />
+
+      <AnimatePresence>
+        {showAuthModal && (
+          <AuthRequiredModal
+            isOpen={showAuthModal}
+            onClose={() => setShowAuthModal(false)}
+            title="Đăng Ký Tham Gia Lôi Đài"
+            message="Sử Gia cần liên kết tài khoản (Google hoặc Email) để bước vào Lôi Đài Lịch Sử và ghi danh lên Bảng Vàng."
+          />
+        )}
+      </AnimatePresence>
 
       <AnimatePresence>
         {showLeaderboard && (

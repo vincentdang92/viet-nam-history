@@ -7,6 +7,7 @@ import { getContributionTitle, ARENA_BOTS } from '../../constants/gameConfig'
 import { useGame } from '../../context/GameContext'
 import { useAuth } from '../../context/AuthContext'
 import { generateBotGhost } from '../../utils/ghostGenerator'
+import AuthRequiredModal from '../ui/AuthRequiredModal'
 
 export default function LeaderboardScreen({ onBack }) {
   const { dispatch } = useGame()
@@ -15,10 +16,11 @@ export default function LeaderboardScreen({ onBack }) {
   const [leaders, setLeaders] = useState([])
   const [loading, setLoading] = useState(true)
   const [selectedUserId, setSelectedUserId] = useState(null)
+  const [showAuthModal, setShowAuthModal] = useState(false)
 
   const handleDuel = (targetUser) => {
     if (!isLinked) {
-      alert("Xin mời Sử Gia quay lại Màn Hình Chính và liên kết tài khoản để được quyền Tỉ Thí!")
+      setShowAuthModal(true)
       return
     }
 
@@ -188,6 +190,17 @@ export default function LeaderboardScreen({ onBack }) {
           )}
         </div>
       </div>
+      
+      <AnimatePresence>
+        {showAuthModal && (
+          <AuthRequiredModal
+            isOpen={showAuthModal}
+            onClose={() => setShowAuthModal(false)}
+            title="Thiếu Lệnh Bài Tỉ Thí"
+            message="Xin mời Sử Gia liên kết tài khoản (Google) để được quyền gửi chiến thư khiêu chiến trên Lôi Đài!"
+          />
+        )}
+      </AnimatePresence>
     </motion.div>
   )
 }
