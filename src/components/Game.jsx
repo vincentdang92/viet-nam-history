@@ -36,26 +36,7 @@ const SAVEABLE = ['playing', 'arc_intro', 'ad_rescue']
 const TERMINAL = ['gameover', 'ending']
 
 // ─── Floating music toggle button ──────────────────────────────────────────────
-function MusicButton({ muted, onToggle }) {
-  return (
-    <motion.button
-      onClick={onToggle}
-      title={muted ? 'Bật nhạc' : 'Tắt nhạc'}
-      className="fixed top-3 right-3 z-50 w-8 h-8 rounded-full flex items-center justify-center text-base select-none"
-      style={{
-        background: 'rgba(45,31,26,0.85)',
-        border: '1px solid rgba(90,48,32,0.7)',
-        backdropFilter: 'blur(4px)',
-      }}
-      whileTap={{ scale: 0.85 }}
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 0.5 }}
-    >
-      {muted ? '🔇' : '🎵'}
-    </motion.button>
-  )
-}
+// (Removed, now integrated into GameScreen.jsx and Settings)
 
 // ─── Router ─────────────────────────────────────────────────────────────────────
 function GameRouter() {
@@ -101,6 +82,7 @@ function GameRouter() {
           ending={ending}
           onRestart={() => dispatch({ type: 'START_GAME' })}
           onSuKy={() => dispatch({ type: 'TOGGLE_SU_KY' })}
+          onContinue={state.pendingArcIntro ? () => dispatch({ type: 'CONTINUE_NEXT_ARC' }) : undefined}
         />
       )
     }
@@ -216,7 +198,6 @@ function GameInner() {
           <SuKyScreen key="suky-screen" onBack={() => dispatch({ type: 'TOGGLE_SU_KY' })} />
         )}
       </AnimatePresence>
-      <MusicButton muted={muted} onToggle={toggle} />
     </>
   )
 }

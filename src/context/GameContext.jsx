@@ -3,6 +3,7 @@
 import { createContext, useContext, useReducer } from 'react'
 import { processChoice, processTriviaResult, processCombatChoice, dismissFactPopup, computeRescuedStats, processEspionageResult, processPoetryResult } from '../engine/gameEngine'
 import { getFirstEvent } from '../engine/eventResolver'
+import { checkEnding } from '../engine/endingChecker'
 import { STAT_INITIAL } from '../constants/gameConfig'
 import { getRandomQuest } from '../data/quests'
 import { COMPANIONS_DATA } from '../data/companions'
@@ -79,6 +80,12 @@ function reducer(state, action) {
         gameStatus: 'playing',
         currentEvent: getFirstEvent(1),
         activeQuest: getRandomQuest(),
+      }
+    case 'CONTINUE_NEXT_ARC':
+      return {
+        ...state,
+        gameStatus: state.pendingArcIntro ? 'arc_intro' : 'playing',
+        pendingEnding: null,
       }
     case 'START_ARENA':
       return { ...INITIAL_STATE, gameStatus: 'arena', arenaScore: 0, arenaLives: 3, arenaCombo: 0 }
@@ -186,13 +193,24 @@ function reducer(state, action) {
         adRescueCount: (state.adRescueCount ?? 0) + 1,
       }
     }
-    case 'AD_RESCUE_SKIP':
+    case 'AD_RESCUE_SKIP': {
+      const endingCheck = checkEnding(state)
+      if (endingCheck.hasEnding) {
+        return {
+          ...state,
+          gameStatus: 'ending',
+          endingId: endingCheck.endingId,
+          adRescue: null,
+          adRescueCount: (state.adRescueCount ?? 0) + 1,
+        }
+      }
       return {
         ...state,
         gameStatus: 'gameover',
         adRescue: null,
         adRescueCount: (state.adRescueCount ?? 0) + 1,
       }
+    }
     case 'ITEM_RESCUE_COMPLETE': {
       const { rescuedStats, pendingState, itemId } = state.itemRescue ?? {}
       if (!pendingState) return { ...state, gameStatus: 'gameover', itemRescue: null }
@@ -223,6 +241,15 @@ function reducer(state, action) {
             pendingState,
             rescuedStats: computeRescuedStats(pendingState.stats, tier.bonus)
           }
+        }
+      }
+      const endingCheck = checkEnding(state)
+      if (endingCheck.hasEnding) {
+        return {
+          ...state,
+          gameStatus: 'ending',
+          endingId: endingCheck.endingId,
+          itemRescue: null,
         }
       }
       return {

@@ -8,6 +8,7 @@ import { STAT_META, STAT_KEYS, getContributionTitle } from '../../constants/game
 import { checkFirestoreConnection } from '../../lib/firestore'
 import HowToPlayModal from './HowToPlayModal'
 import { useSuKy } from '../../hooks/useSuKy'
+import { useBgMusic } from '../../hooks/useBgMusic'
 
 const ARC_LABEL = {
   1: 'Lập Quốc', 2: 'Kháng Nguyên', 3: 'Thịnh Rồi Suy',
@@ -74,6 +75,7 @@ export default function PlayerInfoPanel({ open, onClose }) {
   const { state } = useGame()
   const [dbStatus, setDbStatus] = useState(null) // null = checking
   const [showHowToPlay, setShowHowToPlay] = useState(false)
+  const { muted, toggle: toggleMusic } = useBgMusic()
 
   useEffect(() => {
     if (!open) return
@@ -199,6 +201,14 @@ export default function PlayerInfoPanel({ open, onClose }) {
               </Section>
 
               <div className="space-y-3 mb-3">
+                <button
+                  onClick={toggleMusic}
+                  className="w-full py-3 rounded-xl border border-tran-secondary/30 bg-tran-secondary/5 text-tran-secondary text-sm active:opacity-70 flex items-center justify-center gap-2 font-medium"
+                  style={{ minHeight: 48 }}
+                >
+                  <span>{muted ? '🔇' : '🎵'}</span> {muted ? 'Bật âm thanh' : 'Tắt âm thanh'}
+                </button>
+
                 <button
                   onClick={() => setShowHowToPlay(true)}
                   className="w-full py-3 rounded-xl border border-tran-secondary/50 bg-tran-secondary/10 text-tran-secondary text-sm active:opacity-70 flex items-center justify-center gap-2 font-medium"

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { getRatingStars } from '../../utils/helpers'
 
-export default function EndingCard({ ending, onRestart, onSuKy }) {
+export default function EndingCard({ ending, onRestart, onSuKy, onContinue }) {
   if (!ending) return null
 
   return (
@@ -43,12 +43,21 @@ export default function EndingCard({ ending, onRestart, onSuKy }) {
         </div>
 
         <div className="flex gap-3">
-          <button
-            onClick={onRestart}
-            className="flex-1 py-3 rounded-xl border border-tran-border text-tran-text text-sm hover:bg-tran-card transition-colors"
-          >
-            Chơi Lại
-          </button>
+          {onContinue ? (
+            <button
+              onClick={onContinue}
+              className="flex-1 py-3 rounded-xl bg-tran-primary text-white text-sm font-medium shadow-lg hover:opacity-90 transition-opacity"
+            >
+              Tiếp Tục Thời Kỳ Tiếp Theo
+            </button>
+          ) : (
+            <button
+              onClick={onRestart}
+              className="flex-1 py-3 rounded-xl border border-tran-border text-tran-text text-sm hover:bg-tran-card transition-colors"
+            >
+              Chơi Lại
+            </button>
+          )}
           {onSuKy && (
             <button
               onClick={onSuKy}

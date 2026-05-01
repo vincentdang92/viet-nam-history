@@ -81,7 +81,7 @@ export default function CharacterPortrait({ characterId, isCinematic }) {
 
   return (
     <div
-      className={`w-full aspect-[4/3] rounded-t-xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
+      className={`w-full aspect-[3/2] rounded-t-xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
       style={{
         backgroundColor: color + '11',
         ...getFrameStyle(role, color),

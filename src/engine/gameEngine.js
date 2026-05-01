@@ -72,6 +72,16 @@ export function handleRescueOrGameOver(stateBase, gameOverCheck, nextEvent, choi
   }
 
   // 3. Game Over (no rescue left)
+  const endingCheck = checkEnding(stateBase)
+  if (endingCheck.hasEnding) {
+    return {
+      ...stateBase,
+      gameStatus: 'ending',
+      endingId: endingCheck.endingId,
+      lastChoice: choice,
+    }
+  }
+
   return {
     ...stateBase,
     gameStatus: 'gameover',
@@ -163,7 +173,7 @@ export function processChoice(state, choiceId) {
   }
   newHistoricalScore = Math.max(0, newHistoricalScore)
 
-  const gameOverCheck = checkGameOver(newStats)
+  const gameOverCheck = choice.endArc ? { isOver: false } : checkGameOver(newStats)
   if (gameOverCheck.isOver) {
     const yearAdvance = state.currentEvent.type === 'battle' || state.currentEvent.type === 'campaign' ? 2 : YEAR_PER_CARD
     const nextArc = choice.endArc ? state.currentArc + 1 : state.currentArc
@@ -289,6 +299,7 @@ export function processChoice(state, choiceId) {
   if (choice.setFlag) Object.assign(newFlags, choice.setFlag)
 
   const nextArc = choice.endArc ? state.currentArc + 1 : state.currentArc
+  const nextEvent = resolveNextEvent({ ...state, currentArc: nextArc }, choice)
 
   const stateForEndingCheck = {
     ...state,
@@ -300,9 +311,16 @@ export function processChoice(state, choiceId) {
     questToast,
     yearsReigned: newYearsReigned,
     currentArc: nextArc,
+    currentEvent: nextEvent,
+    pendingArcIntro: choice.endArc ? nextArc : null,
   }
 
-  const endingCheck = checkEnding(stateForEndingCheck)
+  // Only check for endings when an arc finishes
+  let endingCheck = { hasEnding: false }
+  if (choice.endArc) {
+    endingCheck = checkEnding({ ...stateForEndingCheck, currentArc: state.currentArc })
+  }
+
   if (endingCheck.hasEnding) {
     return {
       ...stateForEndingCheck,
@@ -322,8 +340,6 @@ export function processChoice(state, choiceId) {
       pendingEnding: endingCheck.endingId,
     }
   }
-
-  const nextEvent = resolveNextEvent(stateForEndingCheck, choice)
 
   if (!nextEvent) {
     const fallbackEndingId = stateForEndingCheck.currentArc >= 5

@@ -13,6 +13,7 @@ import CampaignMap from '../ui/CampaignMap'
 import FactionPanel from '../ui/FactionPanel'
 import { ITEMS_DATA } from '../../data/items'
 import { TITLES_META } from '../../engine/statsEngine'
+import { useBgMusic } from '../../hooks/useBgMusic'
 
 const SWIPE_THRESHOLD = 80
 const ARC_LABEL = {
@@ -132,11 +133,14 @@ function HintToast({ toast, onDismiss }) {
 }
 
 // ─── In-game header ─────────────────────────────────────────────────────────────
+
 function GameHeader({ arc, activeTitle, onSuKy, onHome, onToggleMap, onToggleFaction, inventory, activeQuest, hintsLeft, onUseHint }) {
   const { unlocked } = useSuKy()
+  const { muted, toggle: toggleMusic } = useBgMusic()
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <div className="flex items-center justify-between px-4 pt-3 pb-1 shrink-0">
+    <div className="flex items-center justify-between px-4 pt-3 pb-1 shrink-0 relative">
       <div className="flex items-center gap-3">
         <button
           onClick={onHome}
@@ -160,23 +164,6 @@ function GameHeader({ arc, activeTitle, onSuKy, onHome, onToggleMap, onToggleFac
       </div>
       
       <div className="flex items-center gap-2">
-        {/* Map Toggle Button */}
-        <button
-          onClick={onToggleMap}
-          className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-tran-card border border-tran-border hover:border-tran-secondary/50 transition-colors"
-          title="Bản Đồ Chiến Sự"
-        >
-          <span className="text-sm">🗺️</span>
-        </button>
-
-        {/* Faction Toggle Button */}
-        <button
-          onClick={onToggleFaction}
-          className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-tran-card border border-tran-border hover:border-tran-secondary/50 transition-colors"
-          title="Mạng Lưới Phe Phái"
-        >
-          <span className="text-sm">👥</span>
-        </button>
         {/* Active Quest */}
         {activeQuest && (
           <div className="relative group flex items-center justify-center w-8 h-8 rounded-full bg-tran-card border border-tran-border cursor-help">
@@ -199,37 +186,70 @@ function GameHeader({ arc, activeTitle, onSuKy, onHome, onToggleMap, onToggleFac
                 <span className="text-lg filter drop-shadow-md">
                   {ITEMS_DATA[id]?.icon}
                 </span>
-                <div className="absolute top-full mt-2 right-0 w-48 p-3 bg-tran-bg border border-tran-border rounded-xl shadow-2xl opacity-0 group-hover:opacity-100 group-active:opacity-100 pointer-events-none z-[100] transition-opacity">
-                  <p className="font-bold text-tran-secondary mb-1 text-xs">{ITEMS_DATA[id]?.name}</p>
-                  <p className="text-tran-textMuted text-[10px] leading-relaxed">{ITEMS_DATA[id]?.desc}</p>
+                <div className="absolute top-full mt-1 right-0 w-32 p-2 bg-tran-bg border border-tran-border rounded-lg shadow-xl opacity-0 group-hover:opacity-100 pointer-events-none z-[100] transition-opacity">
+                  <p className="font-bold text-tran-secondary text-[11px] mb-0.5">{ITEMS_DATA[id]?.name}</p>
+                  <p className="text-tran-textMuted text-[9px] leading-tight">{ITEMS_DATA[id]?.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         )}
 
+        {/* Su Ky Toggle Button */}
         <button
           onClick={onSuKy}
-          className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-tran-card border border-tran-border hover:border-tran-secondary/50 transition-colors"
+          className="relative flex items-center justify-center w-9 h-9 rounded-lg bg-tran-card border border-tran-border hover:border-tran-secondary/50 transition-colors"
+          title="Sử Ký"
         >
-          <span className="text-sm">📖</span>
-          {unlocked.length > 0 && (
-            <span className="bg-tran-secondary text-tran-bg text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
-              {unlocked.length}
+          <span className="text-lg">📖</span>
+          {unlocked?.length > 0 && (
+            <span className="absolute -top-1 -right-1 flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-tran-secondary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-tran-secondary border border-tran-bg"></span>
             </span>
           )}
         </button>
 
-        {/* Hint Button */}
-        <button
-          onClick={onUseHint}
-          disabled={hintsLeft <= 0}
-          className={`flex items-center justify-center w-8 h-8 rounded-full border transition-colors
-            ${hintsLeft > 0 ? 'bg-yellow-900/40 border-yellow-600/50 hover:bg-yellow-900/60 text-yellow-200' : 'bg-tran-card border-tran-border/50 text-tran-border opacity-50'}`}
-          title={`Hỏi Cố Vấn (${hintsLeft} lần)`}
-        >
-          <span className="text-sm">💡</span>
-        </button>
+        {/* Expandable Menu Button */}
+        <div className="relative z-[60]">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex items-center justify-center w-9 h-9 rounded-lg bg-tran-card border border-tran-border hover:border-tran-secondary/50 transition-colors"
+          >
+            <span className="text-tran-textMuted text-lg leading-none">{menuOpen ? '×' : '⋮'}</span>
+          </button>
+          
+          <AnimatePresence>
+            {menuOpen && (
+              <motion.div 
+                initial={{ opacity: 0, x: 20, scale: 0.95 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: 20, scale: 0.95 }}
+                transition={{ duration: 0.15 }}
+                className="absolute top-full right-0 mt-2 bg-tran-bg/95 backdrop-blur-md border border-tran-border rounded-xl shadow-2xl p-2 flex flex-col gap-2 min-w-[140px]"
+              >
+                <button
+                  onClick={() => { onToggleMap(); setMenuOpen(false) }}
+                  className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-tran-card text-tran-textMuted hover:text-tran-secondary transition-colors text-left text-sm"
+                >
+                  <span>🗺️</span> Bản đồ
+                </button>
+                <button
+                  onClick={() => { onToggleFaction(); setMenuOpen(false) }}
+                  className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-tran-card text-tran-textMuted hover:text-tran-secondary transition-colors text-left text-sm"
+                >
+                  <span>👥</span> Phe phái
+                </button>
+                <button
+                  onClick={toggleMusic}
+                  className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-tran-card text-tran-textMuted hover:text-tran-secondary transition-colors text-left text-sm border-t border-tran-border/30 pt-3 mt-1"
+                >
+                  <span>{muted ? '🔇' : '🎵'}</span> {muted ? 'Bật nhạc' : 'Tắt nhạc'}
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   )

@@ -233,16 +233,17 @@ export default function ArenaScreen() {
         </motion.div>
       )}
 
-      <div className="w-full flex-1 flex flex-col justify-center relative z-10 overflow-y-auto hide-scrollbar">
-        {/* Timer Bar */}
-        <div className="w-full h-1.5 bg-stone-900 rounded-full mb-6 overflow-hidden">
-          <motion.div 
-            className={`h-full ${timeLeft > 3 ? 'bg-amber-500' : 'bg-red-500'}`}
-            initial={{ width: '100%' }}
-            animate={{ width: `${(timeLeft / TIME_LIMIT) * 100}%` }}
-            transition={{ duration: 1, ease: 'linear' }}
-          />
-        </div>
+      {/* Timer Bar (Pinned to top) */}
+      <div className="w-full h-1.5 bg-stone-900 rounded-full mb-2 overflow-hidden relative z-20 shrink-0 shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+        <motion.div 
+          className={`h-full ${timeLeft > 3 ? 'bg-amber-500' : 'bg-red-500'}`}
+          initial={{ width: '100%' }}
+          animate={{ width: `${(timeLeft / TIME_LIMIT) * 100}%` }}
+          transition={{ duration: 1, ease: 'linear' }}
+        />
+      </div>
+
+      <div className="w-full flex-1 flex flex-col justify-center relative z-10 overflow-y-auto hide-scrollbar pb-4 pt-2">
 
         <div className="bg-stone-900/80 p-5 rounded-2xl border border-red-900/30 mb-8 backdrop-blur-sm shadow-xl shadow-red-900/10">
           <p className="text-stone-200 text-lg font-medium leading-relaxed">

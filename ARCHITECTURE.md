@@ -611,3 +611,70 @@ npx vercel --prod
 
 *Tài liệu này là nguồn sự thật duy nhất (single source of truth) cho dự án Minh Chủ MVP.*
 *Cập nhật tài liệu này mỗi khi có thay đổi lớn về kiến trúc.*
+
+
+---
+
+# 📜 Dòng Chảy Lịch Sử: Kỷ Trần - Hồ - Lê Sơ (1225 - 1428)
+
+Tài liệu này tổng hợp toàn bộ bức tranh toàn cảnh về dòng chảy cốt truyện của game hiện tại, hỗ trợ cho việc thiết kế thêm nội dung hoặc mở rộng sang các thời kỳ khác sau này.
+
+Tổng cộng chúng ta đã có **5 Arc** liên hoàn, tái hiện 203 năm biến động cực kỳ kịch tính của lịch sử dân tộc với **70 thẻ sự kiện chính** được thiết kế chi tiết.
+
+---
+
+## 🟢 Arc 1: Lập Quốc (1225–1257)
+**Trọng tâm:** Cuộc chuyển giao quyền lực khốc liệt từ nhà Lý sang nhà Trần và bước đầu đối phó với họa ngoại xâm.
+*   **Tổng số sự kiện:** 16 sự kiện.
+*   **Chiến dịch / Trận đánh lớn:** 2 trận.
+*   **Các mốc tiêu điểm:**
+    *   **1225:** Ngai Vàng Chuyển Tay (Lý Chiêu Hoàng nhường ngôi cho Trần Cảnh, sự dàn xếp máu lạnh của Trần Thủ Độ).
+    *   **1237:** Thiếu Niên Trần Quốc Tuấn (Hé lộ tài năng quân sự xuất chúng).
+    *   **1257:** Trận Đông Bộ Đầu — Kháng Nguyên Lần Thứ Nhất (Cuộc thử lửa đầu tiên bảo vệ nền độc lập).
+
+## 🟡 Arc 2: Ba Lần Kháng Nguyên (1257–1288)
+**Trọng tâm:** Kỷ nguyên vàng son hào hùng nhất của nhà Trần, đối đầu trực diện với Đế chế Mông Nguyên thống trị lục địa Á-Âu.
+*   **Tổng số sự kiện:** 22 sự kiện *(Arc đồ sộ nhất hiện tại)*.
+*   **Chiến dịch / Trận đánh lớn:** 4 trận.
+*   **Các mốc tiêu điểm:**
+    *   **1260:** Hịch Tướng Sĩ (Trần Quốc Tuấn khơi dậy tinh thần yêu nước).
+    *   **1284:** Hội Nghị Diên Hồng ("Sát Thát" - triều đình và bô lão đồng lòng quyết không hàng).
+    *   **1288:** Bạch Đằng: Đại Thắng Lịch Sử (Chôn vùi hoàn toàn dã tâm của giặc ngoại xâm).
+
+## 🟠 Arc 3: Thịnh Rồi Suy (1288–1400)
+**Trọng tâm:** Sự xuống dốc về đạo đức trị quốc và những nỗ lực bấu víu quyền lực cuối cùng của nhà Trần.
+*   **Tổng số sự kiện:** 12 sự kiện.
+*   **Chiến dịch / Trận đánh lớn:** 0 (Chủ yếu là biến cố triều chính và khủng hoảng nội bộ).
+*   **Các mốc tiêu điểm:**
+    *   **1293:** Trần Nhân Tông Xuất Gia (Sự ra đời của Thiền phái Trúc Lâm).
+    *   **1320:** Thế Hệ Vua Mới (Sự mục nát bắt đầu manh nha).
+    *   **1400:** Màn Hạ — Nhà Trần Kết Thúc (Sự trỗi dậy của Hồ Quý Ly).
+> *Kết thúc Arc 3, nếu người chơi không bị game over sớm, lịch sử sẽ sang trang với triều đại mới.*
+
+## 🔴 Arc 4: Nhà Hồ & Thuộc Minh (1400–1418)
+**Trọng tâm:** Những cải cách cấp tiến nhưng mất lòng dân của Nhà Hồ, dẫn đến bi kịch mất nước và đêm đen Bắc thuộc lần thứ 4.
+*   **Tổng số sự kiện:** 9 sự kiện.
+*   **Chiến dịch / Trận đánh lớn:** 1 trận.
+*   **Các mốc tiêu điểm:**
+    *   **1400:** Triều Đại Mới, Nền Móng Cũ (Hồ Quý Ly lập ra Đại Ngu).
+    *   **1405:** Bóng Ma Từ Phương Bắc (Giặc Minh mượn cớ xâm lăng, đàn áp khốc liệt làm dân số sụt giảm thê thảm từ 3.120.000 xuống còn hơn 162.000 hộ).
+    *   **1416:** Hội Thề Lũng Nhai (Lê Lợi và 18 hào kiệt kết nghĩa anh em).
+
+## 🔵 Arc 5: Khởi Nghĩa Lam Sơn (1418–1428)
+**Trọng tâm:** 10 năm nếm mật nằm gai đánh đuổi quân Minh, kết thúc bi kịch và mở ra bình minh cho triều Hậu Lê.
+*   **Tổng số sự kiện:** 11 sự kiện.
+*   **Chiến dịch / Trận đánh lớn:** 2 trận.
+*   **Các mốc tiêu điểm:**
+    *   **1418:** Bình Định Vương Dựng Cờ (Khởi nghĩa Lam Sơn bùng nổ, đối mặt với đói khát, 3 lần lui quân lên núi Chí Linh, Lê Lai liều mình cứu chúa).
+    *   **1424:** Nguyễn Chích Và Nước Cờ Quyết Định (Chuyển hướng tiến vào Nghệ An tạo bàn đạp giải phóng).
+    *   **1428:** Bình Ngô Đại Cáo (Khúc khải hoàn vĩ đại, tuyên cáo độc lập).
+
+---
+
+## 🛠 Hướng Dẫn Tích Hợp Nội Dung Mới Trong Tương Lai
+Khi cần mở rộng Chapter tiếp theo (Ví dụ: Nhà Lê Sơ - Thời Hồng Đức hoặc Nhà Lý), vui lòng tuân thủ cấu trúc sau:
+1. Đảm bảo khai báo file dữ liệu trong `src/data/chapters.json`.
+2. Tạo file JSON riêng biệt cho mỗi Arc nằm trong `src/data/chapters/<tên_triều_đại>/`.
+3. Bổ sung nhân vật mới vào `characters.json`.
+4. Cập nhật các câu hỏi phụ vào `trivia.js`.
+5. Tạo các Flag cần thiết và check kết cục tại `endingChecker.js`.

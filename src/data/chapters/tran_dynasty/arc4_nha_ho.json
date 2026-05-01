@@ -11,7 +11,7 @@
       "year": 1400,
       "type": "historical",
       "title": "Triều Đại Mới, Nền Móng Cũ",
-      "context": "Hồ Quý Ly ép vua Thiếu Đế nhường ngôi vào tháng 2 năm 1400, lập ra nhà Hồ, đổi quốc hiệu thành Đại Ngu và dời đô vào Tây Đô — tòa thành đá xây chỉ trong 3 tháng tại Thanh Hóa.",
+      "context": "Hồ Quý Ly ép vua Thiếu Đế nhường ngôi vào tháng 2 năm 1400, lập ra nhà Hồ, đổi quốc hiệu thành Đại Ngu ('An vui lớn'). Ông ra lệnh sát hại 370 người tôn thất nhà Trần để nhổ cỏ tận gốc, rồi dời đô vào Tây Đô — tòa thành đá khổng lồ tại Thanh Hóa.",
       "character": "ho_quy_ly",
       "quote": "Triều Trần đã suy vong. Ta không soán ngôi — ta cứu lấy đất nước khỏi tan rã.",
       "choices": [
@@ -172,7 +172,7 @@
       "year": 1406,
       "type": "battle",
       "title": "Đại Quân Minh Vượt Biên",
-      "context": "Trương Phụ và Mộc Thạnh dẫn đại quân Minh tràn vào Đại Việt qua hai ngả Lạng Sơn và Vân Nam. Quân nhà Hồ bố trí phòng thủ nhưng thiếu lòng dân ủng hộ và nhiều tướng phản bội.",
+      "context": "Năm 1406, mượn cớ 'phù Trần diệt Hồ', Trương Phụ và Mộc Thạnh dẫn 80 vạn đại quân Minh tràn vào Đại Việt qua hai ngả Lạng Sơn và Vân Nam. Quân nhà Hồ bố trí phòng thủ nhưng thiếu lòng dân ủng hộ.",
       "character": "ho_han_thuong",
       "quote": "Quân số địch gấp mười lần ta. Nhưng đây là đất của cha ông — mỗi tấc đất phải được bảo vệ bằng máu.",
       "choices": [
@@ -256,7 +256,7 @@
       "year": 1408,
       "type": "historical",
       "title": "Đêm Dài Giao Chỉ",
-      "context": "Nhà Minh đổi tên Đại Việt thành 'Giao Chỉ', cai trị trực tiếp. Sách vở chữ Nôm bị đốt, trí thức bị bắt sang Trung Quốc, dân phải nộp thuế nặng và phu dịch. Văn hóa Việt đứng trước nguy cơ bị xóa sổ.",
+      "context": "Nhà Minh đổi tên Đại Việt thành 'Giao Chỉ', sáp nhập vào Trung Quốc. Chúng thực thi đồng hóa tàn bạo, bắt dân nộp sưu thuế nặng nề. Năm 1408 có 3.120.000 người, nhưng sau 10 năm tàn phá chỉ còn 162.558 hộ với 450.288 nhân khẩu.",
       "character": "truong_phu",
       "quote": "Từ nay Giao Chỉ là quận huyện của thiên triều. Phong tục, y phục, ngôn ngữ phải theo Hán lễ.",
       "choices": [
@@ -270,7 +270,7 @@
             "trieuCuong": 0
           },
           "isHistorical": true,
-          "fact": "Nhà Minh ra lệnh thu gom và đốt tất cả sách chữ Nôm và tài liệu lịch sử Việt Nam. Nhiều trí thức đã liều mình giữ lại tri thức dân tộc. Nguyễn Trãi — con trai Nguyễn Phi Khanh bị bắt đưa sang Tàu — đã trốn về nước và ghi lại kiến thức này để phục vụ sự nghiệp cứu nước.",
+          "fact": "Nhà Minh thu gom và đốt tất cả sách chữ Nôm. Tướng Trương Phụ tàn sát dã man: chặt đầu, đốt xác người Việt để khủng bố tinh thần. Dưới thời thuộc Minh, dân tộc ta rơi vào cảnh lầm than tột cùng, đúng như Nguyễn Trãi viết: 'Nướng dân đen trên ngọn lửa hung tàn'.",
           "unlockSuKy": "su_ky_thuoc_minh",
           "chainNext": "tran_arc4_008"
         },
