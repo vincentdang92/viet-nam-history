@@ -205,23 +205,37 @@
     "id": "culture_quoc_hoc_vien",
     "type": "culture",
     "rarity": "epic",
-    "title": "Mở Khoa Thái Học Sinh",
-    "context": "Đất nước thái bình, vua Trần Thái Tông hạ chiếu mở khoa thi Thái học sinh để kén chọn nhân tài, đắp tượng Khổng Tử và Chu Công tại Quốc học viện.",
+    "title": "Khoa Thi Đình Đầu Tiên",
+    "context": "Đất nước thái bình, vua Trần Thái Tông hạ chiếu mở khoa thi Đình để kén chọn nhân tài cho đất nước. Đây là khoa thi đầu tiên trong lịch sử đặt ra danh hiệu Tam Khôi.",
     "character": "scholar",
     "quote": "Kẻ sĩ mong ngày bảng vàng đề danh, đem tài trí phụng sự quốc gia.",
     "choices": [
       {
         "id": "choice_a",
-        "text": "Tổ chức khoa thi, chọn Tam Khôi",
+        "text": "Mở rộng thi cử cho toàn dân",
         "effects": {
           "trieuCuong": 20,
           "quocKho": -10,
-          "danTam": 10
+          "danTam": 15
         },
         "isHistorical": true,
-        "fact": "Năm 1247, nhà Trần mở khoa thi lấy Tam Khôi (Trạng Nguyên, Bảng Nhãn, Thám Hoa). Nhà sử học Lê Văn Hưu chính là Bảng nhãn của khoa thi này khi mới 18 tuổi.",
+        "fact": "Khoa thi Đình năm 1247 ghi nhận kỷ lục vô tiền khoáng hậu: Trạng Nguyên Nguyễn Hiền (13 tuổi), Bảng Nhãn Lê Văn Hưu (18 tuổi), Thám Hoa Đặng Ma La (14 tuổi). Đây là khoa đầu tiên Đại Việt lấy danh hiệu Tam Khôi.",
         "modernLocation": "Văn Miếu - Quốc Tử Giám, Hà Nội",
         "specialty": "Bánh cốm Hàng Than, Trà sen Tây Hồ",
+        "referenceLink": "https://vi.wikipedia.org/wiki/Khoa_b%E1%BA%A3ng_Vi%E1%BB%87t_Nam"
+      },
+      {
+        "id": "choice_b",
+        "text": "Chỉ ưu tiên con cháu vương hầu",
+        "effects": {
+          "trieuCuong": -10,
+          "quocKho": 5,
+          "danTam": -20
+        },
+        "isHistorical": false,
+        "fact": "Nếu chỉ chọn người trong hoàng tộc, Đại Việt đã không thể có những nhân tài kiệt xuất như Lê Văn Hưu (tác giả Đại Việt Sử Ký) hay trạng nguyên nhỏ tuổi nhất Nguyễn Hiền.",
+        "modernLocation": "Văn Miếu - Quốc Tử Giám, Hà Nội",
+        "specialty": "Bánh phu thê, Trà sen",
         "referenceLink": "https://vi.wikipedia.org/wiki/Khoa_b%E1%BA%A3ng_Vi%E1%BB%87t_Nam"
       }
     ],

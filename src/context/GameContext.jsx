@@ -74,28 +74,28 @@ const INITIAL_STATE = {
   checkpoint: null,
 }
 
-function init(initialState) {
-  const savedState = loadGame()
-  if (savedState) {
-    if (savedState.gameStatus === 'playing' && !savedState.currentEvent) return initialState
-    return { 
-      ...initialState, 
-      ...savedState, 
-      showFactPopup: false, 
-      pendingFact: null 
-    }
-  }
-  return initialState
-}
-
 function reducer(state, action) {
   switch (action.type) {
+    case 'LOAD_GAME':
+      return {
+        ...INITIAL_STATE,
+        ...action.savedState,
+        showFactPopup: false,
+        pendingFact: null,
+        gameStatus: action.savedState.gameStatus || 'playing'
+      }
     case 'START_GAME': {
       clearGame()
+      const startingArc = action.arcId || 1
+      let startingYear = 1225
+      if (startingArc === 7) startingYear = 1527
+      
       return {
         ...INITIAL_STATE,
         gameStatus: 'playing',
-        currentEvent: getFirstEvent(1),
+        currentArc: startingArc,
+        currentYear: startingYear,
+        currentEvent: getFirstEvent(startingArc),
         activeQuest: getRandomQuest(),
       }
     }
@@ -360,7 +360,7 @@ function reducer(state, action) {
 const GameContext = createContext(null)
 
 export function GameProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, INITIAL_STATE, init)
+  const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
 
   useEffect(() => {
     if (state.gameStatus !== 'menu') {

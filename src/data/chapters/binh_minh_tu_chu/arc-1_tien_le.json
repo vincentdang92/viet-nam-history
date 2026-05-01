@@ -1,0 +1,146 @@
+{
+  "arcId": -1,
+  "title": "Mặc Giáp Xuất Chinh",
+  "years": "980–1009",
+  "intro": "Lê Hoàn khoác hoàng bào ra trận, dẹp tan quân Tống trên sông Bạch Đằng, đánh Chiêm Thành, mở ra thời kỳ Tiền Lê ngắn ngủi nhưng oai hùng.",
+  "events": [
+    {
+      "id": "arc_minus1_start",
+      "arc": -1,
+      "year": 980,
+      "type": "event",
+      "characterId": "le_hoan",
+      "text": "Nhà Tống thấy Đinh Toàn còn nhỏ, bèn xuất quân sang xâm lược. Thái hậu Dương Vân Nga lấy áo long cổn khoác lên người Thập đạo Tướng quân Lê Hoàn, tôn lên làm vua.",
+      "leftChoice": {
+        "text": "Nhận áo, lên ngôi Hoàng đế",
+        "effects": {
+          "binhLuc": 20,
+          "danTam": 15,
+          "quocKho": 0,
+          "trieuCuong": 20
+        },
+        "nextEvent": "arc_minus1_bach_dang"
+      },
+      "rightChoice": {
+        "text": "Từ chối, chỉ làm Nhiếp chính",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": -10,
+          "quocKho": 0,
+          "trieuCuong": -15
+        },
+        "nextEvent": "arc_minus1_bach_dang"
+      }
+    },
+    {
+      "id": "arc_minus1_bach_dang",
+      "arc": -1,
+      "year": 981,
+      "type": "battle",
+      "characterId": "le_hoan",
+      "text": "Quân Tống kéo sang bờ cõi. Lê Hoàn đích thân cầm quân, áp dụng chiến thuật của Ngô Quyền, đóng cọc trên sông Bạch Đằng chống giặc.",
+      "leftChoice": {
+        "text": "Dụ địch vào bãi cọc",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": 20,
+          "quocKho": -5,
+          "trieuCuong": 15
+        },
+        "nextEvent": "arc_minus1_chinh_chiem"
+      },
+      "rightChoice": {
+        "text": "Chặn đánh ở biên giới",
+        "effects": {
+          "binhLuc": -20,
+          "danTam": -5,
+          "quocKho": -10,
+          "trieuCuong": 5
+        },
+        "nextEvent": "arc_minus1_chinh_chiem"
+      }
+    },
+    {
+      "id": "arc_minus1_chinh_chiem",
+      "arc": -1,
+      "year": 982,
+      "type": "event",
+      "characterId": "le_hoan",
+      "text": "Tướng Tống Hầu Nhân Bảo tử trận, giặc tan. Nhưng phía Nam, Chiêm Thành lại dám bắt giữ sứ giả của Đại Cồ Việt.",
+      "leftChoice": {
+        "text": "Thân chinh phạt Chiêm",
+        "effects": {
+          "binhLuc": -15,
+          "danTam": 15,
+          "quocKho": 20,
+          "trieuCuong": 10
+        },
+        "nextEvent": "arc_minus1_tranh_ngoi"
+      },
+      "rightChoice": {
+        "text": "Bỏ qua để dưỡng sức",
+        "effects": {
+          "binhLuc": 5,
+          "danTam": -10,
+          "quocKho": 5,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc_minus1_tranh_ngoi"
+      }
+    },
+    {
+      "id": "arc_minus1_tranh_ngoi",
+      "arc": -1,
+      "year": 1005,
+      "type": "event",
+      "characterId": "le_hoan",
+      "text": "Lê Hoàn (Lê Đại Hành) băng hà. Các con là Lê Long Việt, Lê Long Đĩnh đánh nhau ròng rã 8 tháng để tranh ngôi báu.",
+      "leftChoice": {
+        "text": "Ủng hộ Long Đĩnh đoạt ngôi",
+        "effects": {
+          "binhLuc": -15,
+          "danTam": -25,
+          "quocKho": -10,
+          "trieuCuong": -20
+        },
+        "nextEvent": "arc_minus1_end"
+      },
+      "rightChoice": {
+        "text": "Cố gắng dàn xếp",
+        "effects": {
+          "binhLuc": -5,
+          "danTam": 5,
+          "quocKho": 0,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc_minus1_end"
+      }
+    },
+    {
+      "id": "arc_minus1_end",
+      "arc": -1,
+      "year": 1009,
+      "type": "event",
+      "characterId": "ly_cong_uan",
+      "text": "Lê Long Đĩnh tàn bạo, hoang dâm nên mang bệnh nặng, nằm mà thiết triều (Ngọa triều). Lòng người oán hận, trăm quan hướng về Điện tiền Chỉ huy sứ Lý Công Uẩn.",
+      "leftChoice": {
+        "text": "Tôn Lý Công Uẩn lên ngôi",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": 25,
+          "quocKho": 10,
+          "trieuCuong": 25
+        }
+      },
+      "rightChoice": {
+        "text": "Tiếp tục phò nhà Lê",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": -20,
+          "quocKho": -5,
+          "trieuCuong": -25
+        }
+      }
+    }
+  ]
+}

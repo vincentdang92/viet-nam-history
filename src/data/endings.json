@@ -137,5 +137,43 @@
     "description": "Sự sa đọa của những vị vua cuối thời Lê sơ đã tạo cơ hội cho Mạc Đăng Dung cướp ngôi. Dù triều đại nhà Mạc mang lại sự bình ổn tạm thời, nhưng hạt giống của cuộc nội chiến Nam Bắc Triều khốc liệt đã được gieo xuống.",
     "historicalNote": "Nhà Lê sơ tồn tại đúng 100 năm (1428-1527), sau đó rơi vào thời kỳ chia cắt Nam - Bắc triều suốt hơn nửa thế kỷ.",
     "unlockSuKy": []
+  },
+  {
+    "id": "ending_chia_cat_vinh_vien",
+    "title": "Vĩnh Viễn Chia Cắt",
+    "subtitle": "Trịnh - Nguyễn phân tranh bất phân thắng bại, giang sơn chia đôi",
+    "rating": 3,
+    "conditions": {
+      "minArc": 8
+    },
+    "description": "Cuộc nội chiến Trịnh - Nguyễn kéo dài bào mòn sinh lực đất nước. Lấy sông Gianh làm giới hạn, Đại Việt bị chia cắt thành Đàng Trong và Đàng Ngoài ròng rã hàng thế kỷ.",
+    "historicalNote": "Nội chiến Trịnh - Nguyễn kéo dài gần 50 năm với 7 lần giao tranh lớn, tạo ra vết thương sâu sắc trong lòng dân tộc.",
+    "unlockSuKy": []
+  },
+  {
+    "id": "ending_hao_khi_tay_son",
+    "title": "Hào Khí Tây Sơn",
+    "subtitle": "Nguyễn Huệ đại phá quân Thanh, thống nhất giang sơn",
+    "rating": 5,
+    "conditions": {
+      "minArc": 9,
+      "minDanTam": 60,
+      "minBinhLuc": 60
+    },
+    "description": "Chiến công thần tốc vang dội của Hoàng đế Quang Trung đã dẹp tan mọi thế lực cát cứ và ngoại xâm, tạo ra cơ hội thống nhất đất nước sau gần 300 năm chia cắt.",
+    "historicalNote": "Vua Quang Trung không chỉ là nhà quân sự thiên tài mà còn thực hiện nhiều chính sách cải cách tiến bộ, nhưng sự ra đi đột ngột của ông đã khiến cơ đồ Tây Sơn nhanh chóng sụp đổ.",
+    "unlockSuKy": []
+  },
+  {
+    "id": "ending_gia_long_thong_nhat",
+    "title": "Sự Khởi Đầu Mới",
+    "subtitle": "Nhà Nguyễn thống nhất toàn vẹn lãnh thổ",
+    "rating": 5,
+    "conditions": {
+      "minArc": 9
+    },
+    "description": "Nguyễn Ánh kiên trì trải qua 25 năm nếm mật nằm gai, cuối cùng đánh bại Tây Sơn. Lần đầu tiên từ ngàn năm, nước Việt thống nhất liền một dải từ Mục Nam Quan đến Mũi Cà Mau.",
+    "historicalNote": "Năm 1802, Nguyễn Ánh lên ngôi, lấy niên hiệu Gia Long, đặt quốc hiệu là Việt Nam, mở ra triều đại phong kiến cuối cùng của đất nước.",
+    "unlockSuKy": []
   }
 ]

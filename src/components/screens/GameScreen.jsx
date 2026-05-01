@@ -16,13 +16,7 @@ import { TITLES_META } from '../../engine/statsEngine'
 import { useBgMusic } from '../../hooks/useBgMusic'
 
 const SWIPE_THRESHOLD = 80
-const ARC_LABEL = {
-  1: 'Lập Quốc',
-  2: 'Kháng Nguyên',
-  3: 'Thịnh Rồi Suy',
-  4: 'Nhà Hồ & Thuộc Minh',
-  5: 'Lam Sơn Khởi Nghĩa',
-}
+import { formatArcName, ARC_LABEL } from '../../utils/helpers'
 const DYNASTY_LABEL = {
   1: 'Nhà Trần', 2: 'Nhà Trần', 3: 'Nhà Trần',
   4: 'Nhà Hồ', 5: 'Lam Sơn',
@@ -159,7 +153,7 @@ function GameHeader({ arc, activeTitle, onSuKy, onHome, onToggleMap, onToggleFac
               </span>
             )}
           </p>
-          <p className="text-tran-secondary text-xs font-semibold">{ARC_LABEL[arc]}</p>
+          <p className="text-tran-secondary text-xs font-semibold">{formatArcName(arc)} - {ARC_LABEL[arc]}</p>
         </div>
       </div>
       

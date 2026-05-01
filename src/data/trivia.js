@@ -61,7 +61,7 @@ export const TRIVIA_DATA = [
     question: 'Tam khôi (Trạng Nguyên, Bảng Nhãn, Thám Hoa) được chính thức định ra vào năm nào?',
     options: ['1232', '1247', '1304', '1396'],
     correctIndex: 1,
-    explanation: 'Năm 1247, nhà Trần chính thức định ra danh hiệu Tam khôi để vinh danh 3 người đỗ cao nhất.'
+    explanation: 'Năm 1247 (đời Trần Thái Tông), nhà Trần tổ chức khoa thi Đình đầu tiên đặt ra danh hiệu Tam khôi. Điểm đặc biệt là cả 3 người đỗ đầu đều ở độ tuổi thiếu niên (13, 14 và 18 tuổi).'
   },
   {
     id: 'triv_1_10', arcs: [1],
@@ -76,6 +76,20 @@ export const TRIVIA_DATA = [
     options: ['Khuyến nông sứ', 'Hà đê chánh phó sứ', 'Đồn điền sứ', 'Thái y viện'],
     correctIndex: 1,
     explanation: 'Nhà Trần rất chú trọng nông nghiệp nên đã lập chức "Hà đê chánh phó sứ" để chuyên quản lý hệ thống đê điều.'
+  },
+  {
+    id: 'triv_1_12', arcs: [1, 3],
+    question: 'Ai là Bảng nhãn trong khoa thi Đình năm 1247, và sau này trở thành nhà sử học vĩ đại của triều Trần?',
+    options: ['Ngô Sĩ Liên', 'Lê Văn Hưu', 'Nguyễn Trãi', 'Phan Phu Tiên'],
+    correctIndex: 1,
+    explanation: 'Lê Văn Hưu đỗ Bảng nhãn năm 1247 khi 18 tuổi. Ông chính là tác giả của "Đại Việt sử ký" - bộ quốc sử đầu tiên của nước ta.'
+  },
+  {
+    id: 'triv_1_13', arcs: [1],
+    question: 'Trong khoa thi Đình lấy Tam khôi đầu tiên (1247), người đỗ Thám hoa khi mới 14 tuổi là ai?',
+    options: ['Lương Thế Vinh', 'Nguyễn Hiền', 'Đặng Ma La', 'Trần Hưng Đạo'],
+    correctIndex: 2,
+    explanation: 'Đặng Ma La đỗ Thám hoa ở tuổi 14. Khoa thi 1247 vinh danh 3 "thần đồng": Trạng nguyên Nguyễn Hiền (13 tuổi), Bảng nhãn Lê Văn Hưu (18 tuổi) và Thám hoa Đặng Ma La (14 tuổi).'
   },
 
   // === ARC 2: KHÁNG NGUYÊN (1258 - 1288) ===

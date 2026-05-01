@@ -50,16 +50,16 @@ export default function SwipeCard({ id, event, choices, onChoiceA, onChoiceB, ca
         <motion.div className="absolute inset-0 bg-red-800/20 rounded-2xl pointer-events-none z-10" style={{ opacity: leftTint }} />
 
         {/* Right overlay (choice A) */}
-        <motion.div className="absolute inset-0 flex items-center justify-start pl-3 sm:pl-4 z-20 pointer-events-none" style={{ opacity: rightOpacity, scale: rightScale }}>
-          <div className="bg-tran-secondary/90 text-tran-bg text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-1.5 rounded-xl max-w-[45%] leading-snug">
-            ✓ {choices[0]?.text}
+        <motion.div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none" style={{ opacity: rightOpacity, scale: rightScale }}>
+          <div className="border-[6px] border-double border-amber-500 text-amber-500 bg-black/60 backdrop-blur-sm font-serif font-black uppercase text-lg sm:text-xl px-6 py-4 rotate-[-12deg] shadow-[0_0_30px_rgba(245,158,11,0.4)] text-center max-w-[85%] leading-snug tracking-wider rounded-sm mix-blend-hard-light">
+            {choices[0]?.text}
           </div>
         </motion.div>
 
         {/* Left overlay (choice B) */}
-        <motion.div className="absolute inset-0 flex items-center justify-end pr-3 sm:pr-4 z-20 pointer-events-none" style={{ opacity: leftOpacity, scale: leftScale }}>
-          <div className="bg-red-700/90 text-white text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-1.5 rounded-xl max-w-[45%] leading-snug text-right">
-            ✗ {choices[1]?.text}
+        <motion.div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none" style={{ opacity: leftOpacity, scale: leftScale }}>
+          <div className="border-[6px] border-double border-red-600 text-red-500 bg-black/60 backdrop-blur-sm font-serif font-black uppercase text-lg sm:text-xl px-6 py-4 rotate-[12deg] shadow-[0_0_30px_rgba(220,38,38,0.4)] text-center max-w-[85%] leading-snug tracking-wider rounded-sm mix-blend-hard-light">
+            {choices[1]?.text}
           </div>
         </motion.div>
 

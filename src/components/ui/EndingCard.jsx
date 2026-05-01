@@ -42,7 +42,7 @@ export default function EndingCard({ ending, onRestart, onRestartChapter, onSuKy
           </div>
         </div>
 
-        {debugInfo && import.meta.env.DEV && (
+        {debugInfo && process.env.NODE_ENV === 'development' && (
           <div className="bg-red-900/40 border border-red-500/50 rounded-xl p-3 mb-6 text-left">
             <p className="text-red-300 text-xs font-bold mb-1">🛠 DEBUG INFO</p>
             {debugInfo.isGameOver ? (
@@ -75,7 +75,7 @@ export default function EndingCard({ ending, onRestart, onRestartChapter, onSuKy
                   Làm Lại Chương Này ↺
                 </button>
               )}
-              {onResurrect && import.meta.env.DEV && (
+              {onResurrect && process.env.NODE_ENV === 'development' && (
                 <button
                   onClick={onResurrect}
                   className="w-full py-3 rounded-xl bg-purple-700 text-white text-sm font-medium shadow-lg hover:bg-purple-600 transition-colors"

@@ -1,0 +1,310 @@
+[
+  {
+    "id": "arc8_start",
+    "arc": 8,
+    "year": 1627,
+    "type": "event",
+    "characterId": "trinh_trang",
+    "text": "Nghịch thần họ Nguyễn ở phương Nam mượn cớ không nộp cống, xưng hùng xưng bá. Ta lệnh xuất đại binh dẹp loạn!",
+    "leftChoice": {
+      "text": "Đem quân giao chiến",
+      "effects": {
+        "binhLuc": -15,
+        "danTam": -5,
+        "quocKho": -15,
+        "trieuCuong": 10
+      },
+      "nextEvent": "arc8_luy_thay"
+    },
+    "rightChoice": {
+      "text": "Thuyết phục giảng hòa",
+      "effects": {
+        "binhLuc": 5,
+        "danTam": 5,
+        "quocKho": 5,
+        "trieuCuong": -15
+      },
+      "nextEvent": "arc8_luy_thay"
+    }
+  },
+  {
+    "id": "arc8_luy_thay",
+    "arc": 8,
+    "year": 1630,
+    "type": "event",
+    "characterId": "nguyen_phuc_nguyen",
+    "text": "Đào Duy Từ hiến kế xây Lũy Thầy ở Quảng Bình để phòng thủ quân Trịnh. Việc này tốn kém nhưng bảo vệ được cơ đồ Đàng Trong.",
+    "leftChoice": {
+      "text": "Dốc toàn lực xây Lũy",
+      "effects": {
+        "binhLuc": 20,
+        "danTam": -10,
+        "quocKho": -15,
+        "trieuCuong": 5
+      },
+      "nextEvent": "arc8_tran_ninh"
+    },
+    "rightChoice": {
+      "text": "Tập trung nông nghiệp",
+      "effects": {
+        "binhLuc": -15,
+        "danTam": 15,
+        "quocKho": 10,
+        "trieuCuong": -5
+      },
+      "nextEvent": "arc8_tran_ninh"
+    }
+  },
+  {
+    "id": "arc8_tran_ninh",
+    "arc": 8,
+    "year": 1648,
+    "type": "battle",
+    "characterId": "trinh_trang",
+    "text": "Trận Trấn Ninh khốc liệt. Quân Trịnh huy động lực lượng lớn quyết phá Lũy Thầy, nhưng bị vấp phải sự kháng cự dữ dội.",
+    "leftChoice": {
+      "text": "Tử thủ Lũy Thầy",
+      "effects": {
+        "binhLuc": -20,
+        "danTam": 5,
+        "quocKho": -10,
+        "trieuCuong": 15
+      },
+      "nextEvent": "arc8_phan_cong"
+    },
+    "rightChoice": {
+      "text": "Trá hàng để mai phục",
+      "effects": {
+        "binhLuc": -5,
+        "danTam": -10,
+        "quocKho": -5,
+        "trieuCuong": -10
+      },
+      "nextEvent": "arc8_phan_cong"
+    }
+  },
+  {
+    "id": "arc8_phan_cong",
+    "arc": 8,
+    "year": 1655,
+    "type": "event",
+    "characterId": "nguyen_phuc_nguyen",
+    "text": "Quân Nguyễn phản công vượt sông Gianh, đánh chiếm 7 huyện Nghệ An. Có nên tiến thẳng ra Bắc Hà?",
+    "leftChoice": {
+      "text": "Thừa thắng tiến quân",
+      "effects": {
+        "binhLuc": -15,
+        "danTam": -10,
+        "quocKho": -15,
+        "trieuCuong": 10
+      },
+      "nextEvent": "arc8_dinh_chien"
+    },
+    "rightChoice": {
+      "text": "Thu quân về Nam",
+      "effects": {
+        "binhLuc": 10,
+        "danTam": 5,
+        "quocKho": 5,
+        "trieuCuong": -10
+      },
+      "nextEvent": "arc8_dinh_chien"
+    }
+  },
+  {
+    "id": "arc8_dinh_chien",
+    "arc": 8,
+    "year": 1672,
+    "type": "event",
+    "characterId": "trinh_trang",
+    "text": "Trải qua 7 lần đại chiến suốt nửa thế kỷ đều bất phân thắng bại, nhân dân lầm than. Có nên lấy sông Gianh làm giới tuyến đình chiến?",
+    "leftChoice": {
+      "text": "Ký hòa ước đình chiến",
+      "effects": {
+        "binhLuc": 10,
+        "danTam": 25,
+        "quocKho": 10,
+        "trieuCuong": -5
+      },
+      "nextEvent": "arc8_thuong_mai"
+    },
+    "rightChoice": {
+      "text": "Quyết đánh đến cùng",
+      "effects": {
+        "binhLuc": -20,
+        "danTam": -25,
+        "quocKho": -20,
+        "trieuCuong": 5
+      },
+      "nextEvent": "arc8_thuong_mai"
+    }
+  },
+  {
+    "id": "arc8_thuong_mai",
+    "arc": 8,
+    "year": 1680,
+    "type": "event",
+    "characterId": "nguyen_phuc_nguyen",
+    "text": "Hòa bình lập lại. Cảng Hội An ở Đàng Trong trở thành nơi giao thương sầm uất với thương nhân Nhật, Hoa và phương Tây.",
+    "leftChoice": {
+      "text": "Mở cửa giao thương",
+      "effects": {
+        "binhLuc": -5,
+        "danTam": 10,
+        "quocKho": 25,
+        "trieuCuong": -10
+      },
+      "nextEvent": "arc8_gia_dinh"
+    },
+    "rightChoice": {
+      "text": "Đóng cửa bế quan",
+      "effects": {
+        "binhLuc": 10,
+        "danTam": -5,
+        "quocKho": -15,
+        "trieuCuong": 15
+      },
+      "nextEvent": "arc8_gia_dinh"
+    }
+  },
+  {
+    "id": "arc8_gia_dinh",
+    "arc": 8,
+    "year": 1698,
+    "type": "event",
+    "characterId": "nguyen_hoang",
+    "text": "Lễ Thành Hầu Nguyễn Hữu Cảnh vào Nam kinh lý, lập ra phủ Gia Định, chính thức đặt chủ quyền lên vùng đất Nam Bộ trù phú.",
+    "leftChoice": {
+      "text": "Đưa dân vào khai hoang",
+      "effects": {
+        "binhLuc": -5,
+        "danTam": 15,
+        "quocKho": 15,
+        "trieuCuong": 5
+      },
+      "nextEvent": "arc8_xung_vuong"
+    },
+    "rightChoice": {
+      "text": "Đóng quân trấn giữ",
+      "effects": {
+        "binhLuc": 15,
+        "danTam": -5,
+        "quocKho": -5,
+        "trieuCuong": 10
+      },
+      "nextEvent": "arc8_xung_vuong"
+    }
+  },
+  {
+    "id": "arc8_xung_vuong",
+    "arc": 8,
+    "year": 1744,
+    "type": "event",
+    "characterId": "nguyen_phuc_nguyen",
+    "text": "Chúa Nguyễn Phúc Khoát chính thức xưng Vương, đúc ấn, định triều phục như một quốc gia độc lập ở Đàng Trong.",
+    "leftChoice": {
+      "text": "Cổ vũ ý chí tự cường",
+      "effects": {
+        "binhLuc": 5,
+        "danTam": 10,
+        "quocKho": -5,
+        "trieuCuong": 15
+      },
+      "nextEvent": "arc8_ca_mau"
+    },
+    "rightChoice": {
+      "text": "Vẫn tôn phù nhà Lê",
+      "effects": {
+        "binhLuc": 0,
+        "danTam": -5,
+        "quocKho": 5,
+        "trieuCuong": -10
+      },
+      "nextEvent": "arc8_ca_mau"
+    }
+  },
+  {
+    "id": "arc8_ca_mau",
+    "arc": 8,
+    "year": 1757,
+    "type": "event",
+    "characterId": "nguyen_hoang",
+    "text": "Chúa Nguyễn tiếp nhận vùng đất Tầm Phong Long, hoàn thiện bản đồ lãnh thổ phương Nam tới tận mũi Cà Mau.",
+    "leftChoice": {
+      "text": "Xây đồn lũy bảo vệ",
+      "effects": {
+        "binhLuc": -10,
+        "danTam": 5,
+        "quocKho": -10,
+        "trieuCuong": 10
+      },
+      "nextEvent": "arc8_kieu_binh"
+    },
+    "rightChoice": {
+      "text": "Giao thương tự do",
+      "effects": {
+        "binhLuc": -5,
+        "danTam": 10,
+        "quocKho": 15,
+        "trieuCuong": -5
+      },
+      "nextEvent": "arc8_kieu_binh"
+    }
+  },
+  {
+    "id": "arc8_kieu_binh",
+    "arc": 8,
+    "year": 1767,
+    "type": "event",
+    "characterId": "trinh_trang",
+    "text": "Trong khi Đàng Trong mở cõi, thì ở Đàng Ngoài, lính kiêu binh (Tam phủ) cậy công làm loạn, giết đại thần, ép chúa Trịnh.",
+    "leftChoice": {
+      "text": "Phát bổng lộc xoa dịu",
+      "effects": {
+        "binhLuc": 5,
+        "danTam": -10,
+        "quocKho": -20,
+        "trieuCuong": -15
+      },
+      "nextEvent": "arc8_dang_thi_hue"
+    },
+    "rightChoice": {
+      "text": "Trừng trị nghiêm khắc",
+      "effects": {
+        "binhLuc": -20,
+        "danTam": 10,
+        "quocKho": 5,
+        "trieuCuong": 15
+      },
+      "nextEvent": "arc8_dang_thi_hue"
+    }
+  },
+  {
+    "id": "arc8_dang_thi_hue",
+    "arc": 8,
+    "year": 1780,
+    "type": "event",
+    "characterId": "trinh_trang",
+    "text": "Chúa Trịnh Sâm sủng ái Đặng Thị Huệ, phế bỏ con trưởng lập con thứ mới 4 tuổi, khiến phủ chúa hỗn loạn, dân oán thán.",
+    "leftChoice": {
+      "text": "Can ngăn chúa",
+      "effects": {
+        "binhLuc": 0,
+        "danTam": 10,
+        "quocKho": 0,
+        "trieuCuong": -15
+      },
+      "nextEvent": "arc9_start"
+    },
+    "rightChoice": {
+      "text": "A dua bợ đỡ",
+      "effects": {
+        "binhLuc": 0,
+        "danTam": -20,
+        "quocKho": 10,
+        "trieuCuong": -20
+      },
+      "nextEvent": "arc9_start"
+    }
+  }
+]

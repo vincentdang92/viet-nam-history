@@ -11,7 +11,8 @@ const DEFAULT_PROFILE = {
   playerName: null,
   nameChangeCount: 0,
   unlockedSuKy: [],
-  milestones: []
+  milestones: [],
+  maxArcReached: 1
 }
 
 export function AuthProvider({ children }) {
@@ -52,6 +53,7 @@ export function AuthProvider({ children }) {
             const merged = { ...prev }
             if (remoteProfile.playerName) merged.playerName = remoteProfile.playerName
             if (remoteProfile.nameChangeCount !== undefined) merged.nameChangeCount = Math.max(prev.nameChangeCount, remoteProfile.nameChangeCount)
+            if (remoteProfile.maxArcReached !== undefined) merged.maxArcReached = Math.max(prev.maxArcReached || 1, remoteProfile.maxArcReached)
             
             // Merge arrays (unique items only)
             merged.unlockedSuKy = [...new Set([...prev.unlockedSuKy, ...(remoteProfile.unlockedSuKy || [])])]

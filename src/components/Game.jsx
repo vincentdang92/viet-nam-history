@@ -97,7 +97,7 @@ function GameRouter() {
 // ─── Inner — has access to GameContext + audio ──────────────────────────────────
 function GameInner() {
   const { state, dispatch } = useGame()
-  const { user, updateProfile } = useAuth()
+  const { user, profile, updateProfile } = useAuth()
   const { muted, start, toggle } = useBgMusic()
   const firestoreTimerRef = useRef(null)
 
@@ -137,6 +137,13 @@ function GameInner() {
       updateProfile({ unlockedSuKy: state.unlockedSuKy })
     }
   }, [state.unlockedSuKy]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Sync maxArcReached to global profile
+  useEffect(() => {
+    if (state.gameStatus !== 'menu' && state.currentArc > (profile?.maxArcReached || 1)) {
+      updateProfile({ maxArcReached: state.currentArc })
+    }
+  }, [state.gameStatus, state.currentArc, profile?.maxArcReached]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Sync unlocked Endings (Milestones) to global profile
   useEffect(() => {

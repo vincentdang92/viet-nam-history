@@ -1,0 +1,146 @@
+{
+  "arcId": 0,
+  "title": "Hào Khí Thăng Long",
+  "years": "1009–1225",
+  "intro": "Lý Công Uẩn dời đô về Thăng Long, mở ra hơn 200 năm rực rỡ của Đại Việt. Lịch sử ghi danh Lý Thường Kiệt với chiến công phá Tống, phạt Chiêm và bài thơ thần Nam Quốc Sơn Hà.",
+  "events": [
+    {
+      "id": "arc0_start",
+      "arc": 0,
+      "year": 1010,
+      "type": "event",
+      "characterId": "ly_cong_uan",
+      "text": "Hoa Lư chật hẹp không hợp làm nơi định đô muôn đời. Lý Thái Tổ viết 'Thiên đô chiếu', quyết định dời đô về thành Đại La. Thuyền vừa cập bến, có rồng vàng bay lên.",
+      "leftChoice": {
+        "text": "Đổi tên thành Thăng Long",
+        "effects": {
+          "binhLuc": 5,
+          "danTam": 20,
+          "quocKho": -15,
+          "trieuCuong": 25
+        },
+        "nextEvent": "arc0_van_mieu"
+      },
+      "rightChoice": {
+        "text": "Giữ tên Đại La",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": 5,
+          "quocKho": 0,
+          "trieuCuong": 5
+        },
+        "nextEvent": "arc0_van_mieu"
+      }
+    },
+    {
+      "id": "arc0_van_mieu",
+      "arc": 0,
+      "year": 1070,
+      "type": "event",
+      "characterId": "ly_thanh_tong",
+      "text": "Lý Thánh Tông đổi tên nước là Đại Việt. Để phát triển giáo dục, ngài cho xây dựng Văn Miếu, đắp tượng Khổng Tử và tứ phối.",
+      "leftChoice": {
+        "text": "Ủng hộ việc lập Văn Miếu",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": 15,
+          "quocKho": -10,
+          "trieuCuong": 20
+        },
+        "nextEvent": "arc0_ung_chau"
+      },
+      "rightChoice": {
+        "text": "Tập trung xây dựng quân đội",
+        "effects": {
+          "binhLuc": 20,
+          "danTam": -5,
+          "quocKho": -10,
+          "trieuCuong": 5
+        },
+        "nextEvent": "arc0_ung_chau"
+      }
+    },
+    {
+      "id": "arc0_ung_chau",
+      "arc": 0,
+      "year": 1075,
+      "type": "battle",
+      "characterId": "ly_thuong_kiet",
+      "text": "Quân Tống rục rịch chuẩn bị lương thảo ở Ung Châu, Khâm Châu để sang xâm lược Đại Việt. Thái úy Lý Thường Kiệt chủ trương 'Ngồi yên đợi giặc, không bằng đem quân đánh trước'.",
+      "leftChoice": {
+        "text": "Tiên phát chế nhân (Đánh trước)",
+        "effects": {
+          "binhLuc": -15,
+          "danTam": 20,
+          "quocKho": 25,
+          "trieuCuong": 15
+        },
+        "nextEvent": "arc0_nhu_nguyet"
+      },
+      "rightChoice": {
+        "text": "Tử thủ ở Thăng Long",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": -15,
+          "quocKho": -5,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc0_nhu_nguyet"
+      }
+    },
+    {
+      "id": "arc0_nhu_nguyet",
+      "arc": 0,
+      "year": 1077,
+      "type": "battle",
+      "characterId": "ly_thuong_kiet",
+      "text": "Tướng Tống Quách Quỳ đem 10 vạn quân đánh sang. Ta lập phòng tuyến trên sông Như Nguyệt. Đêm khuya, trong đền Trương Hống vang lên bài thơ thần 'Nam quốc sơn hà'.",
+      "leftChoice": {
+        "text": "Mở cuộc phản công lớn",
+        "effects": {
+          "binhLuc": -20,
+          "danTam": 30,
+          "quocKho": -10,
+          "trieuCuong": 20
+        },
+        "nextEvent": "arc0_suy_tan"
+      },
+      "rightChoice": {
+        "text": "Phòng ngự bị động",
+        "effects": {
+          "binhLuc": -30,
+          "danTam": -20,
+          "quocKho": -20,
+          "trieuCuong": -15
+        },
+        "nextEvent": "arc0_suy_tan"
+      }
+    },
+    {
+      "id": "arc0_suy_tan",
+      "arc": 0,
+      "year": 1225,
+      "type": "event",
+      "characterId": "tran_thu_do",
+      "text": "Sau hơn 200 năm trị vì, nhà Lý suy yếu. Nữ vương Lý Chiêu Hoàng bị Điện tiền Chỉ huy sứ Trần Thủ Độ ép nhường ngôi cho chồng là Trần Cảnh (8 tuổi).",
+      "leftChoice": {
+        "text": "Chấp nhận nhường ngôi",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 5,
+          "quocKho": 10,
+          "trieuCuong": 20
+        }
+      },
+      "rightChoice": {
+        "text": "Kêu gọi trung thần chống lại",
+        "effects": {
+          "binhLuc": -25,
+          "danTam": -20,
+          "quocKho": -10,
+          "trieuCuong": -30
+        }
+      }
+    }
+  ]
+}

@@ -10,6 +10,7 @@ import AuthRequiredModal from '../ui/AuthRequiredModal'
 import LeaderboardScreen from './LeaderboardScreen'
 import chapters from '../../data/chapters.json'
 import { useSuKy } from '../../hooks/useSuKy'
+import { formatArcName, ARC_LABEL } from '../../utils/helpers'
 
 const RESUMABLE = ['playing', 'arc_intro', 'ad_rescue']
 
@@ -23,7 +24,7 @@ const stagger = {
   },
 }
 
-const ARC_SHORT = { 1: 'Lập Quốc', 2: 'Kháng Nguyên', 3: 'Thịnh Rồi Suy', 4: 'Nhà Hồ & Thuộc Minh', 5: 'Lam Sơn' }
+const ARC_SHORT = ARC_LABEL
 
 export default function HomeScreen() {
   const { dispatch } = useGame()
@@ -39,6 +40,7 @@ export default function HomeScreen() {
   const [password, setPassword] = useState('')
   const [showEmailForm, setShowEmailForm] = useState(false)
   const [showAuthModal, setShowAuthModal] = useState(false)
+  const [confirmArcId, setConfirmArcId] = useState(null)
 
   const handleLinkGoogle = async () => {
     setLinking(true)
@@ -243,7 +245,7 @@ export default function HomeScreen() {
                   <div>
                     <p className="text-tran-secondary font-bold text-sm">▶ Tiếp Tục</p>
                     <p className="text-tran-textMuted text-[10px] mt-0.5">
-                      Chương {savedState.currentArc} · {ARC_SHORT[savedState.currentArc]} · Năm {savedState.currentYear}
+                      {formatArcName(savedState.currentArc)} · {ARC_SHORT[savedState.currentArc]} · Năm {savedState.currentYear}
                     </p>
                   </div>
                   <span className="text-tran-secondary text-lg shrink-0">⚔️</span>
@@ -261,20 +263,12 @@ export default function HomeScreen() {
           >
             {chapters.map((ch) => (
               <motion.div key={ch.id} variants={stagger.item}>
-                <motion.button
+                <div
                   className={`w-full p-3 rounded-xl border text-left
                     ${ch.available
-                      ? 'border-tran-secondary/40 bg-tran-card hover:bg-tran-secondary/5'
-                      : 'border-tran-border/20 bg-tran-card/30 cursor-not-allowed opacity-40'
+                      ? 'border-tran-secondary/40 bg-tran-card'
+                      : 'border-tran-border/20 bg-tran-card/30 opacity-40'
                     }`}
-                  onClick={() => {
-                    if (!ch.available) return
-                    setSavedState(null)
-                    dispatch({ type: 'START_GAME' })
-                  }}
-                  disabled={!ch.available}
-                  whileTap={ch.available ? { scale: 0.98 } : {}}
-                  whileHover={ch.available ? { borderColor: 'rgba(212,160,23,0.7)' } : {}}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1 min-w-0">
@@ -288,11 +282,49 @@ export default function HomeScreen() {
                       </div>
                       <p className="text-tran-textMuted text-[10px] leading-snug">{ch.subtitle}</p>
                     </div>
-                    <span className="text-tran-textMuted text-sm shrink-0 mt-0.5">
-                      {ch.available ? '▶' : '🔒'}
-                    </span>
+                    {!ch.available && (
+                      <span className="text-tran-textMuted text-sm shrink-0 mt-0.5">🔒</span>
+                    )}
                   </div>
-                </motion.button>
+
+                  {ch.available && (
+                    <div className="flex flex-col gap-1.5 mt-3 border-t border-tran-border/30 pt-3">
+                      {ch.arcs.map(arc => {
+                        const isUnlocked = arc.id <= (profile?.maxArcReached || 1)
+                        return (
+                          <button
+                            key={arc.id}
+                            disabled={!isUnlocked}
+                            onClick={() => {
+                              if (!isUnlocked) return
+                              if (savedState) {
+                                setConfirmArcId(arc.id)
+                                return
+                              }
+                              setSavedState(null)
+                              dispatch({ type: 'START_GAME', arcId: arc.id })
+                            }}
+                            className={`flex items-center justify-between p-2.5 rounded-lg text-xs transition-colors
+                              ${isUnlocked 
+                                ? 'bg-tran-secondary/10 border border-tran-secondary/20 text-tran-text hover:bg-tran-secondary/20 active:scale-[0.98]' 
+                                : 'bg-stone-900/40 border border-transparent text-tran-textMuted/40 cursor-not-allowed'}`}
+                          >
+                            <div className="flex items-center gap-2 truncate">
+                              <span className={`font-serif font-bold shrink-0 ${isUnlocked ? 'text-tran-secondary' : ''}`}>
+                                {formatArcName(arc.id)}
+                              </span>
+                              <span className="opacity-50 shrink-0">-</span>
+                              <span className="truncate">{arc.title}</span>
+                            </div>
+                            <span className="text-[10px] shrink-0 ml-2">
+                              {isUnlocked ? '▶' : '🔒'}
+                            </span>
+                          </button>
+                        )
+                      })}
+                    </div>
+                  )}
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -370,6 +402,44 @@ export default function HomeScreen() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* New Game Confirm Modal */}
+      {confirmArcId !== null && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in">
+          <div className="bg-stone-900 border border-amber-900/50 rounded-xl p-6 max-w-sm w-full shadow-2xl relative">
+            <button 
+              onClick={() => setConfirmArcId(null)}
+              className="absolute top-3 right-3 text-stone-400 hover:text-white p-1"
+            >
+              ✕
+            </button>
+            <h3 className="text-xl font-bold text-amber-500 mb-2 font-serif text-center">Cảnh Báo</h3>
+            
+            <p className="text-sm text-stone-400 mb-6 text-center">
+              Khởi tạo dòng thời gian mới sẽ xóa hoàn toàn tiến trình Chương đang chơi dở. Bạn có chắc chắn muốn bắt đầu lại?
+            </p>
+
+            <div className="flex gap-2">
+              <button
+                onClick={() => setConfirmArcId(null)}
+                className="flex-1 py-2 px-4 bg-stone-800 hover:bg-stone-700 text-stone-300 rounded font-medium transition-colors"
+              >
+                Hủy
+              </button>
+              <button
+                onClick={() => {
+                  setSavedState(null)
+                  dispatch({ type: 'START_GAME', arcId: confirmArcId })
+                  setConfirmArcId(null)
+                }}
+                className="flex-1 py-2 px-4 bg-amber-700 hover:bg-amber-600 text-white rounded font-medium transition-colors"
+              >
+                Đồng Ý Xóa
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </motion.div>
   )
 }

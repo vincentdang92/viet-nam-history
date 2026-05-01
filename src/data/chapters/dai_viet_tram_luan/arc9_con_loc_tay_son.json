@@ -1,0 +1,366 @@
+[
+  {
+    "id": "arc9_start",
+    "arc": 9,
+    "year": 1771,
+    "type": "event",
+    "characterId": "nguyen_nhac",
+    "text": "Bất mãn với ách thống trị tàn bạo của Trương Phúc Loan, ba anh em Tây Sơn dựng cờ khởi nghĩa ở An Khê. Khẩu hiệu: 'Lấy của nhà giàu chia cho người nghèo'.",
+    "leftChoice": {
+      "text": "Tham gia nghĩa quân",
+      "effects": {
+        "binhLuc": 15,
+        "danTam": 20,
+        "quocKho": -5,
+        "trieuCuong": -15
+      },
+      "nextEvent": "arc9_quy_nhon"
+    },
+    "rightChoice": {
+      "text": "Tố giác với triều đình",
+      "effects": {
+        "binhLuc": -10,
+        "danTam": -25,
+        "quocKho": 10,
+        "trieuCuong": 10
+      },
+      "nextEvent": "arc9_quy_nhon"
+    }
+  },
+  {
+    "id": "arc9_quy_nhon",
+    "arc": 9,
+    "year": 1773,
+    "type": "event",
+    "characterId": "nguyen_nhac",
+    "text": "Nguyễn Nhạc dùng mưu tự nhốt mình vào cũi để lính Tây Sơn khiêng vào thành Quy Nhơn nộp cho triều đình. Nửa đêm mở cũi đánh từ trong ra.",
+    "leftChoice": {
+      "text": "Phối hợp phá thành",
+      "effects": {
+        "binhLuc": 10,
+        "danTam": 10,
+        "quocKho": 15,
+        "trieuCuong": -10
+      },
+      "nextEvent": "arc9_diet_nguyen"
+    },
+    "rightChoice": {
+      "text": "Phóng hỏa đốt kho",
+      "effects": {
+        "binhLuc": 5,
+        "danTam": -5,
+        "quocKho": -5,
+        "trieuCuong": -15
+      },
+      "nextEvent": "arc9_diet_nguyen"
+    }
+  },
+  {
+    "id": "arc9_diet_nguyen",
+    "arc": 9,
+    "year": 1777,
+    "type": "event",
+    "characterId": "nguyen_hue",
+    "text": "Tây Sơn đánh chiếm Gia Định, bắt và giết chúa Nguyễn Phúc Thuần cùng Thái thượng vương. Chỉ còn người cháu Nguyễn Ánh (15 tuổi) trốn thoát.",
+    "leftChoice": {
+      "text": "Truy bắt Nguyễn Ánh",
+      "effects": {
+        "binhLuc": -10,
+        "danTam": 0,
+        "quocKho": 0,
+        "trieuCuong": 15
+      },
+      "nextEvent": "arc9_cau_vien"
+    },
+    "rightChoice": {
+      "text": "Củng cố Gia Định",
+      "effects": {
+        "binhLuc": 5,
+        "danTam": 15,
+        "quocKho": 10,
+        "trieuCuong": 0
+      },
+      "nextEvent": "arc9_cau_vien"
+    }
+  },
+  {
+    "id": "arc9_cau_vien",
+    "arc": 9,
+    "year": 1784,
+    "type": "event",
+    "characterId": "nguyen_anh",
+    "text": "Tuyệt vọng, Nguyễn Ánh phải sang cầu viện vua Xiêm La (Thái Lan). 5 vạn quân Xiêm và 300 chiến thuyền mượn cớ đó tiến vào Gia Định.",
+    "leftChoice": {
+      "text": "Mở cổng thành đón Xiêm",
+      "effects": {
+        "binhLuc": -10,
+        "danTam": -25,
+        "quocKho": -10,
+        "trieuCuong": -20
+      },
+      "nextEvent": "arc9_rach_gam"
+    },
+    "rightChoice": {
+      "text": "Gửi mật báo cho Tây Sơn",
+      "effects": {
+        "binhLuc": 0,
+        "danTam": 15,
+        "quocKho": 0,
+        "trieuCuong": 5
+      },
+      "nextEvent": "arc9_rach_gam"
+    }
+  },
+  {
+    "id": "arc9_rach_gam",
+    "arc": 9,
+    "year": 1785,
+    "type": "battle",
+    "characterId": "nguyen_hue",
+    "text": "Quân Xiêm kiêu ngạo. Nguyễn Huệ vào Nam, dùng mưu dụ địch vào đoạn sông Rạch Gầm - Xoài Mút có địa thế hiểm trở để mai phục.",
+    "leftChoice": {
+      "text": "Nã pháo từ hai bờ",
+      "effects": {
+        "binhLuc": -5,
+        "danTam": 15,
+        "quocKho": -10,
+        "trieuCuong": 10
+      },
+      "nextEvent": "arc9_bac_tien"
+    },
+    "rightChoice": {
+      "text": "Dùng thuyền lửa thiêu rụi",
+      "effects": {
+        "binhLuc": -10,
+        "danTam": 20,
+        "quocKho": -5,
+        "trieuCuong": 15
+      },
+      "nextEvent": "arc9_bac_tien"
+    }
+  },
+  {
+    "id": "arc9_bac_tien",
+    "arc": 9,
+    "year": 1786,
+    "type": "event",
+    "characterId": "nguyen_hue",
+    "text": "Sau khi dẹp xong phía Nam, Nguyễn Huệ lấy cớ 'Phù Lê Diệt Trịnh', đánh tan thế lực họ Trịnh ở Thăng Long sau hơn 200 năm tồn tại.",
+    "leftChoice": {
+      "text": "Trao lại quyền cho vua Lê",
+      "effects": {
+        "binhLuc": -5,
+        "danTam": 20,
+        "quocKho": 0,
+        "trieuCuong": 20
+      },
+      "nextEvent": "arc9_chieu_thong"
+    },
+    "rightChoice": {
+      "text": "Tự lập làm vương",
+      "effects": {
+        "binhLuc": 5,
+        "danTam": -15,
+        "quocKho": 10,
+        "trieuCuong": -15
+      },
+      "nextEvent": "arc9_chieu_thong"
+    }
+  },
+  {
+    "id": "arc9_chieu_thong",
+    "arc": 9,
+    "year": 1788,
+    "type": "event",
+    "characterId": "trinh_trang",
+    "text": "Vua Lê Chiêu Thống hèn nhát bỏ Thăng Long, chạy sang nhà Thanh cầu viện. Tôn Sĩ Nghị lập tức dẫn 29 vạn quân Thanh tràn sang.",
+    "leftChoice": {
+      "text": "Bỏ ngỏ Thăng Long lui binh",
+      "effects": {
+        "binhLuc": 10,
+        "danTam": -10,
+        "quocKho": 0,
+        "trieuCuong": -15
+      },
+      "nextEvent": "arc9_len_ngoi"
+    },
+    "rightChoice": {
+      "text": "Tử chiến tại biên giới",
+      "effects": {
+        "binhLuc": -25,
+        "danTam": 10,
+        "quocKho": -15,
+        "trieuCuong": 5
+      },
+      "nextEvent": "arc9_len_ngoi"
+    }
+  },
+  {
+    "id": "arc9_len_ngoi",
+    "arc": 9,
+    "year": 1788,
+    "type": "event",
+    "characterId": "nguyen_hue",
+    "text": "Để danh chính ngôn thuận đánh giặc, Nguyễn Huệ lên ngôi Hoàng đế tại núi Bân (Phú Xuân), lấy niên hiệu là Quang Trung, rồi thần tốc kéo quân ra Bắc.",
+    "leftChoice": {
+      "text": "Ban hịch khích lệ tướng sĩ",
+      "effects": {
+        "binhLuc": 15,
+        "danTam": 20,
+        "quocKho": -5,
+        "trieuCuong": 10
+      },
+      "nextEvent": "arc9_ngoc_hoi"
+    },
+    "rightChoice": {
+      "text": "Bắt lính gấp rút",
+      "effects": {
+        "binhLuc": 25,
+        "danTam": -15,
+        "quocKho": -5,
+        "trieuCuong": 5
+      },
+      "nextEvent": "arc9_ngoc_hoi"
+    }
+  },
+  {
+    "id": "arc9_ngoc_hoi",
+    "arc": 9,
+    "year": 1789,
+    "type": "battle",
+    "characterId": "nguyen_hue",
+    "text": "Đánh cho để dài tóc! Đánh cho để đen răng! Mùng 5 Tết Kỷ Dậu, quân Tây Sơn bất ngờ công phá đồn Ngọc Hồi - Đống Đa, 29 vạn quân Thanh đại bại.",
+    "leftChoice": {
+      "text": "Dùng voi chiến xông pha",
+      "effects": {
+        "binhLuc": -15,
+        "danTam": 25,
+        "quocKho": -10,
+        "trieuCuong": 20
+      },
+      "nextEvent": "arc9_cai_cach"
+    },
+    "rightChoice": {
+      "text": "Kết rơm tẩm nước làm thuẫn",
+      "effects": {
+        "binhLuc": -5,
+        "danTam": 20,
+        "quocKho": -5,
+        "trieuCuong": 15
+      },
+      "nextEvent": "arc9_cai_cach"
+    }
+  },
+  {
+    "id": "arc9_cai_cach",
+    "arc": 9,
+    "year": 1790,
+    "type": "event",
+    "characterId": "nguyen_hue",
+    "text": "Đất nước sạch bóng quân thù. Vua Quang Trung ban Chiếu Lập Học, đưa chữ Nôm thành chữ viết chính thức và phục hồi kinh tế.",
+    "leftChoice": {
+      "text": "Khuyến khích công thương",
+      "effects": {
+        "binhLuc": 0,
+        "danTam": 15,
+        "quocKho": 20,
+        "trieuCuong": 10
+      },
+      "nextEvent": "arc9_bang_ha"
+    },
+    "rightChoice": {
+      "text": "Chuẩn bị binh lực đánh Tàu",
+      "effects": {
+        "binhLuc": 20,
+        "danTam": -5,
+        "quocKho": -15,
+        "trieuCuong": 10
+      },
+      "nextEvent": "arc9_bang_ha"
+    }
+  },
+  {
+    "id": "arc9_bang_ha",
+    "arc": 9,
+    "year": 1792,
+    "type": "event",
+    "characterId": "nguyen_hue",
+    "text": "Giữa lúc chí lớn chưa thành, vua Quang Trung đột ngột băng hà ở tuổi 39. Toàn quân và dân đau xót, nhà Tây Sơn như rắn mất đầu.",
+    "leftChoice": {
+      "text": "Tổ chức quốc tang",
+      "effects": {
+        "binhLuc": -10,
+        "danTam": -15,
+        "quocKho": -10,
+        "trieuCuong": -20
+      },
+      "nextEvent": "arc9_suy_yeu"
+    },
+    "rightChoice": {
+      "text": "Giữ kín tin để giặc không ngờ",
+      "effects": {
+        "binhLuc": 0,
+        "danTam": -5,
+        "quocKho": 0,
+        "trieuCuong": -10
+      },
+      "nextEvent": "arc9_suy_yeu"
+    }
+  },
+  {
+    "id": "arc9_suy_yeu",
+    "arc": 9,
+    "year": 1795,
+    "type": "event",
+    "characterId": "nguyen_anh",
+    "text": "Sau cái chết của Quang Trung, Tây Sơn suy yếu do nội bộ lục đục. Trong khi đó, Nguyễn Ánh ở Gia Định không ngừng củng cố thế lực.",
+    "leftChoice": {
+      "text": "Theo phe Nguyễn Ánh",
+      "effects": {
+        "binhLuc": 10,
+        "danTam": 10,
+        "quocKho": 10,
+        "trieuCuong": 10
+      },
+      "nextEvent": "arc9_thong_nhat"
+    },
+    "rightChoice": {
+      "text": "Trung thành với vua Cảnh Thịnh",
+      "effects": {
+        "binhLuc": -15,
+        "danTam": -10,
+        "quocKho": -15,
+        "trieuCuong": -15
+      },
+      "nextEvent": "arc9_thong_nhat"
+    }
+  },
+  {
+    "id": "arc9_thong_nhat",
+    "arc": 9,
+    "year": 1802,
+    "type": "event",
+    "characterId": "nguyen_anh",
+    "text": "Nguyễn Ánh đánh bại hoàn toàn Tây Sơn, lên ngôi vua lấy hiệu là Gia Long. Nước Việt chính thức thống nhất sau gần 300 năm chia cắt.",
+    "leftChoice": {
+      "text": "Định đô tại Phú Xuân",
+      "effects": {
+        "binhLuc": 5,
+        "danTam": 5,
+        "quocKho": 10,
+        "trieuCuong": 20
+      },
+      "nextEvent": null
+    },
+    "rightChoice": {
+      "text": "Dẹp tàn dư Tây Sơn",
+      "effects": {
+        "binhLuc": -5,
+        "danTam": -10,
+        "quocKho": 5,
+        "trieuCuong": 15
+      },
+      "nextEvent": null
+    }
+  }
+]

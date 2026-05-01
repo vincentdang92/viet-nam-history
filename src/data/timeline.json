@@ -1,4 +1,12 @@
 [
+  { "year": 938, "arc": -2, "title": "Trận Bạch Đằng Lần I", "desc": "Ngô Quyền đánh bại quân Nam Hán trên sông Bạch Đằng, chấm dứt nghìn năm Bắc thuộc, mở ra kỷ nguyên độc lập." },
+  { "year": 968, "arc": -2, "title": "Đại Cồ Việt Thành Lập", "desc": "Đinh Bộ Lĩnh dẹp yên loạn 12 sứ quân, xưng Hoàng đế, đặt quốc hiệu là Đại Cồ Việt, đóng đô ở Hoa Lư." },
+  { "year": 980, "arc": -1, "title": "Khoác Hoàng Bào", "desc": "Thái hậu Dương Vân Nga trao áo long cổn cho Thập đạo tướng quân Lê Hoàn để lãnh đạo kháng chiến chống Tống." },
+  { "year": 981, "arc": -1, "title": "Đại Phá Quân Tống", "desc": "Lê Hoàn kế thừa chiến thuật cọc ngầm Bạch Đằng, đánh bại thủy quân Tống, chém chết chủ tướng Hầu Nhân Bảo." },
+  { "year": 1010, "arc": 0, "title": "Dời Đô Về Thăng Long", "desc": "Lý Thái Tổ ban Chiếu dời đô, chuyển kinh đô từ Hoa Lư chật hẹp ra thành Đại La, đổi tên thành Thăng Long." },
+  { "year": 1054, "arc": 0, "title": "Quốc Hiệu Đại Việt", "desc": "Vua Lý Thánh Tông đổi tên nước từ Đại Cồ Việt thành Đại Việt, mở ra một kỷ nguyên phát triển rực rỡ." },
+  { "year": 1070, "arc": 0, "title": "Xây Dựng Văn Miếu", "desc": "Nhà Lý lập Văn Miếu, đắp tượng Khổng Tử, đặt nền móng cho nền giáo dục nho học khoa bảng đầu tiên." },
+  { "year": 1077, "arc": 0, "title": "Nam Quốc Sơn Hà", "desc": "Lý Thường Kiệt lập phòng tuyến sông Như Nguyệt, đánh bại quân Tống. Bài thơ thần vang lên như bản tuyên ngôn độc lập đầu tiên." },
   { "year": 1225, "arc": 1, "title": "Nhà Trần Lập Quốc", "desc": "Lý Chiêu Hoàng nhường ngôi cho Trần Cảnh — nhà Lý kết thúc sau 216 năm, nhà Trần bắt đầu." },
   { "year": 1232, "arc": 1, "title": "Diệt Tông Thất Nhà Lý", "desc": "Trần Thủ Độ tập hợp họ Lý vào lễ giỗ và giết hết — xóa bỏ nguy cơ phục hồi nhà Lý." },
   { "year": 1253, "arc": 1, "title": "Lập Quốc Tử Giám", "desc": "Trường đại học đầu tiên của Việt Nam được mở rộng và củng cố để đào tạo quan lại." },
@@ -32,5 +40,19 @@
   { "year": 1527, "arc": 7, "title": "Nhà Mạc Lên Ngôi", "desc": "Mạc Đăng Dung phế truất Lê Cung Hoàng, lập ra nhà Mạc. Đại Việt bước vào thời kỳ Nam-Bắc triều phân tranh." },
   { "year": 1533, "arc": 7, "title": "Dựng Cờ Trung Hưng", "desc": "Nguyễn Kim tìm được dòng dõi nhà Lê, tôn lên làm Lê Trang Tông tại Ai Lao, bắt đầu công cuộc 'Phù Lê Diệt Mạc'." },
   { "year": 1545, "arc": 7, "title": "Nguyễn Kim Bị Ám Sát", "desc": "Nguyễn Kim bị hàng tướng Mạc là Dương Chấp Nhất đầu độc bằng dưa hấu. Quyền lực rơi vào tay con rể Trịnh Kiểm." },
-  { "year": 1592, "arc": 7, "title": "Chiếm Lại Đông Đô", "desc": "Trịnh Tùng (con Trịnh Kiểm) dẫn quân đánh bại triều Mạc, chiếm lại Thăng Long. Quyền lực thực sự nằm trong tay Chúa Trịnh." }
+  { "year": 1592, "arc": 7, "title": "Chiếm Lại Đông Đô", "desc": "Trịnh Tùng (con Trịnh Kiểm) dẫn quân đánh bại triều Mạc, chiếm lại Thăng Long. Quyền lực thực sự nằm trong tay Chúa Trịnh." },
+  { "year": 1627, "arc": 8, "title": "Khởi Đầu Trịnh - Nguyễn Phân Tranh", "desc": "Chúa Trịnh Tráng đem quân đánh chúa Nguyễn Phúc Nguyên ở Đàng Trong. Cuộc nội chiến tàn khốc bắt đầu kéo dài gần 50 năm với 7 lần giao tranh lớn." },
+  { "year": 1630, "arc": 8, "title": "Xây Dựng Lũy Thầy", "desc": "Đào Duy Từ hiến kế xây dựng hệ thống phòng thủ kiên cố ở Đồng Hới (Quảng Bình), giúp Đàng Trong chặn đứng nhiều cuộc tấn công quy mô lớn của Đàng Ngoài." },
+  { "year": 1672, "arc": 8, "title": "Đình Chiến Sông Gianh", "desc": "Sau lần giao tranh thứ 7 bất phân thắng bại, chúa Trịnh Tạc và chúa Nguyễn Phúc Tần chấp nhận giảng hòa, lấy sông Gianh (Quảng Bình) làm ranh giới chia cắt Đàng Trong và Đàng Ngoài." },
+  { "year": 1698, "arc": 8, "title": "Lập Phủ Gia Định", "desc": "Nguyễn Hữu Cảnh vâng lệnh chúa Nguyễn vào kinh lý phương Nam, lập ra phủ Gia Định. Xác lập chủ quyền chính thức của người Việt tại vùng Sài Gòn - Đồng Nai ngày nay." },
+  { "year": 1757, "arc": 8, "title": "Hoàn Thiện Lãnh Thổ Phương Nam", "desc": "Chúa Nguyễn hoàn thiện bản đồ lãnh thổ phương Nam tới tận mũi Cà Mau, tạo nên hình chữ S trải dài cho nước Việt." },
+  { "year": 1767, "arc": 8, "title": "Nạn Kiêu Binh Ở Đàng Ngoài", "desc": "Chúa Trịnh Giang rồi Trịnh Sâm dung túng lính kiêu binh (lính tam phủ). Chúng cậy công làm loạn, ép ép chúa, giết hại đại thần, khiến Đàng Ngoài suy yếu trầm trọng." },
+  { "year": 1771, "arc": 9, "title": "Khởi Nghĩa Tây Sơn", "desc": "Ba anh em Nguyễn Nhạc, Nguyễn Huệ, Nguyễn Lữ dựng cờ khởi nghĩa tại ấp Tây Sơn, giương cao khẩu hiệu 'Lấy của nhà giàu chia cho người nghèo'." },
+  { "year": 1777, "arc": 9, "title": "Chúa Nguyễn Sụp Đổ", "desc": "Quân Tây Sơn đánh chiếm Gia Định, tiêu diệt thế lực họ Nguyễn ở Đàng Trong. Chỉ còn Nguyễn Ánh (15 tuổi) may mắn chạy thoát." },
+  { "year": 1785, "arc": 9, "title": "Trận Rạch Gầm - Xoài Mút", "desc": "Nguyễn Huệ dùng mưu mai phục, đánh tan 5 vạn quân Xiêm La do Nguyễn Ánh cầu viện chỉ trong một đêm. Chấm dứt dã tâm xâm lược của Xiêm." },
+  { "year": 1786, "arc": 9, "title": "Tây Sơn Bắc Tiến", "desc": "Nguyễn Huệ tiến quân ra Bắc với khẩu hiệu 'Phù Lê diệt Trịnh', lật đổ ách thống trị hơn 200 năm của chúa Trịnh, trao lại quyền cho vua Lê Hiển Tông." },
+  { "year": 1788, "arc": 9, "title": "Lê Chiêu Thống Cầu Viện", "desc": "Vua Lê Chiêu Thống hèn nhát bỏ chạy sang nhà Thanh cầu viện. Càn Long mượn cớ, cử Tôn Sĩ Nghị dẫn 29 vạn quân tràn sang Thăng Long." },
+  { "year": 1789, "arc": 9, "title": "Trận Ngọc Hồi - Đống Đa", "desc": "Hoàng đế Quang Trung (Nguyễn Huệ) thần tốc hành quân ra Bắc, đại phá 29 vạn quân Thanh vào đúng dịp Tết Kỷ Dậu. Vua Lê Chiêu Thống bỏ chạy sang Tàu." },
+  { "year": 1792, "arc": 9, "title": "Vua Quang Trung Băng Hà", "desc": "Hoàng đế Quang Trung đột ngột qua đời khi những hoài bão lớn còn dang dở. Trụ cột sụp đổ, nhà Tây Sơn nhanh chóng suy yếu." },
+  { "year": 1802, "arc": 9, "title": "Nhà Nguyễn Thành Lập", "desc": "Nguyễn Ánh đánh bại hoàn toàn nhà Tây Sơn, lên ngôi vua lấy niên hiệu là Gia Long. Nước Việt chính thức thống nhất sau gần 300 năm chia cắt." }
 ]

@@ -1,5 +1,17 @@
 [
   {
+    "id": "binh_minh_tu_chu",
+    "title": "Bình Minh Tự Chủ",
+    "subtitle": "938 – 1225",
+    "description": "Từ cọc tiêu Bạch Đằng phá Nam Hán, dẹp loạn 12 sứ quân đến kỷ nguyên rực rỡ của Đại Việt thời Lý.",
+    "available": true,
+    "arcs": [
+      { "id": -2, "title": "Cọc Tiêu Bạch Đằng", "years": "938–968" },
+      { "id": -1, "title": "Mặc Giáp Xuất Chinh", "years": "980–1009" },
+      { "id": 0, "title": "Hào Khí Thăng Long", "years": "1009–1225" }
+    ]
+  },
+  {
     "id": "tran_dynasty",
     "title": "Kỷ Trần - Hồ - Lê Sơ",
     "subtitle": "1225 – 1527",
@@ -19,7 +31,7 @@
     "title": "Phân Tranh & Thống Nhất",
     "subtitle": "1527 – 1802",
     "description": "250 năm nội chiến liên miên từ Nam Bắc triều đến Trịnh Nguyễn phân tranh, khép lại bằng hào khí Tây Sơn thần tốc.",
-    "available": false,
+    "available": true,
     "arcs": [
       { "id": 7, "title": "Màn Sương Phản Nghịch", "years": "1527–1592" },
       { "id": 8, "title": "Sông Gianh Chia Cắt", "years": "1627–1777" },

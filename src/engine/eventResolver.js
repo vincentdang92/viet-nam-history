@@ -1,13 +1,33 @@
+import arcMinus2 from '../data/chapters/binh_minh_tu_chu/arc-2_ngo_dinh.json'
+import arcMinus1 from '../data/chapters/binh_minh_tu_chu/arc-1_tien_le.json'
+import arc0 from '../data/chapters/binh_minh_tu_chu/arc0_ly.json'
 import arc1 from '../data/chapters/tran_dynasty/arc1_lap_quoc.json'
 import arc2 from '../data/chapters/tran_dynasty/arc2_khang_nguyen.json'
 import arc3 from '../data/chapters/tran_dynasty/arc3_thinh_roi_suy.json'
 import arc4 from '../data/chapters/tran_dynasty/arc4_nha_ho.json'
 import arc5 from '../data/chapters/tran_dynasty/arc5_lam_son.json'
+import arc6 from '../data/chapters/tran_dynasty/arc6_le_so.json'
+import arc7 from '../data/chapters/dai_viet_tram_luan/arc7_man_suong_phan_nghich.json'
+import arc8 from '../data/chapters/dai_viet_tram_luan/arc8_song_gianh_chia_cat.json'
+import arc9 from '../data/chapters/dai_viet_tram_luan/arc9_con_loc_tay_son.json'
 import sysEvents from '../data/sysEvents.json'
 import mythicEvents from '../data/mythicEvents.json'
 import cultureEvents from '../data/cultureEvents.json'
 
-const ARCS = { 1: arc1, 2: arc2, 3: arc3, 4: arc4, 5: arc5 }
+const ARCS = {
+  '-2': arcMinus2,
+  '-1': arcMinus1,
+  0: arc0,
+  1: arc1,
+  2: arc2,
+  3: arc3,
+  4: arc4,
+  5: arc5,
+  6: arc6,
+  7: arc7,
+  8: arc8,
+  9: arc9
+}
 
 export function loadEvent(id) {
   for (const arc of Object.values(ARCS)) {

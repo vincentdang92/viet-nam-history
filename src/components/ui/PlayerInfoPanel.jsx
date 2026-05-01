@@ -10,10 +10,7 @@ import HowToPlayModal from './HowToPlayModal'
 import { useSuKy } from '../../hooks/useSuKy'
 import { useBgMusic } from '../../hooks/useBgMusic'
 
-const ARC_LABEL = {
-  1: 'Lập Quốc', 2: 'Kháng Nguyên', 3: 'Thịnh Rồi Suy',
-  4: 'Nhà Hồ & Thuộc Minh', 5: 'Lam Sơn',
-}
+import { formatArcName, ARC_LABEL } from '../../utils/helpers'
 
 const ENV_COLOR = {
   production: '#4CAF50',
@@ -145,7 +142,7 @@ export default function PlayerInfoPanel({ open, onClose }) {
               {/* Current session — only while playing */}
               {isPlaying && (
                 <Section title="Phiên chơi hiện tại">
-                  <Row label="Chương" value={`Arc ${state.currentArc} · ${ARC_LABEL[state.currentArc] || ''}`} />
+                  <Row label="Chương" value={`${formatArcName(state.currentArc)} · ${ARC_LABEL[state.currentArc] || ''}`} />
                   <Row label="Năm" value={state.currentYear} />
                   <Row label="Năm trị vì" value={`${state.yearsReigned} năm`} />
                   <Row

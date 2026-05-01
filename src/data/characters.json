@@ -474,8 +474,128 @@
     "portrait": null,
     "personality": "Mưu trí, võ nghệ cao cường, quyết đoán thâm sâu",
     "arc": [
-      6
+      6,
+      7
     ],
     "bio": "Xuất thân từ lính túc vệ nhờ sức vóc hơn người. Dẹp yên các thế lực cát cứ khi nhà Lê suy yếu, sau đó ép Lê Cung Hoàng nhường ngôi, lập ra nhà Mạc."
+  },
+  {
+    "id": "nguyen_kim",
+    "name": "Nguyễn Kim",
+    "fullName": "Nguyễn Kim",
+    "years": "1468–1545",
+    "role": "Thượng phụ Thái sư, Người dựng cờ Trung Hưng",
+    "portrait": null,
+    "personality": "Trung nghĩa với nhà Lê, mưu trí kiên nhẫn",
+    "arc": [
+      7
+    ],
+    "bio": "Cựu thần nhà Lê, không chịu hàng nhà Mạc. Sang Ai Lao tìm được hậu duệ nhà Lê để lập thành vua, bắt đầu công cuộc 'Phù Lê Diệt Mạc' nhưng bị ám sát khi nghiệp lớn chưa thành."
+  },
+  {
+    "id": "trinh_kiem",
+    "name": "Trịnh Kiểm",
+    "fullName": "Trịnh Kiểm",
+    "years": "1503–1570",
+    "role": "Thái sư, người mở đầu cơ nghiệp Chúa Trịnh",
+    "portrait": null,
+    "personality": "Đa mưu, quyết đoán, đôi khi tàn nhẫn để đoạt quyền",
+    "arc": [
+      7
+    ],
+    "bio": "Con rể của Nguyễn Kim. Sau khi cha vợ mất, ông nắm lấy binh quyền, loại bỏ các thế lực chống đối (kể cả em vợ là Nguyễn Uông) để củng cố quyền lực tuyệt đối ở Nam Triều."
+  },
+  {
+    "id": "trinh_tung",
+    "name": "Trịnh Tùng",
+    "fullName": "Trịnh Tùng",
+    "years": "1550–1623",
+    "role": "Bình An Vương, Vị Chúa Trịnh đầu tiên",
+    "portrait": null,
+    "personality": "Dũng mãnh, đầy tham vọng, tàn bạo với kẻ thù",
+    "arc": [
+      7,
+      8
+    ],
+    "bio": "Con trai thứ của Trịnh Kiểm. Lãnh đạo Nam Triều đánh bại nhà Mạc, chiếm lại Thăng Long năm 1592. Ép vua Lê phong tước Vương, chính thức mở ra thời kỳ Vua Lê - Chúa Trịnh."
+  },
+  {
+    "id": "nguyen_hoang",
+    "name": "Nguyễn Hoàng",
+    "fullName": "Nguyễn Hoàng (Chúa Tiên)",
+    "years": "1525–1613",
+    "role": "Chúa Nguyễn đầu tiên, người khai phá Đàng Trong",
+    "portrait": null,
+    "personality": "Tầm nhìn xa, ẩn nhẫn chờ thời, khoan hòa thu phục lòng dân",
+    "arc": [
+      7,
+      8
+    ],
+    "bio": "Con thứ của Nguyễn Kim. Nghe lời Trạng Trình 'Hoành Sơn nhất đái, vạn đại dung thân', xin vào trấn thủ Thuận Hóa để tránh bị Trịnh Kiểm hãm hại, tạo nền móng vững chắc cho họ Nguyễn ở phương Nam."
+  },
+  {
+    "id": "trinh_trang",
+    "name": "Trịnh Tráng",
+    "fullName": "Trịnh Tráng",
+    "years": "1577–1657",
+    "role": "Thanh Đô Vương",
+    "portrait": null,
+    "personality": "Kiêu ngạo, tham vọng thống nhất đất nước",
+    "arc": [
+      8
+    ],
+    "bio": "Người phát động cuộc chiến tranh Trịnh - Nguyễn phân tranh khi Chúa Nguyễn Phúc Nguyên từ chối nộp thuế và trả lại sắc phong."
+  },
+  {
+    "id": "nguyen_phuc_nguyen",
+    "name": "Nguyễn Phúc Nguyên",
+    "fullName": "Nguyễn Phúc Nguyên (Chúa Sãi)",
+    "years": "1563–1635",
+    "role": "Chúa Nguyễn thứ hai",
+    "portrait": null,
+    "personality": "Tự cường, phát triển kinh tế, mở rộng ngoại giao",
+    "arc": [
+      8
+    ],
+    "bio": "Chính thức tuyên bố ly khai khỏi Đàng Ngoài, xây dựng Đàng Trong thành một thế lực độc lập hùng mạnh, mở rộng giao thương với phương Tây và Nhật Bản."
+  },
+  {
+    "id": "nguyen_hue",
+    "name": "Nguyễn Huệ",
+    "fullName": "Nguyễn Huệ (Quang Trung)",
+    "years": "1573–1792",
+    "role": "Vị hoàng đế bách chiến bách thắng của Tây Sơn",
+    "portrait": null,
+    "personality": "Thần tốc, táo bạo, nhà quân sự thiên tài",
+    "arc": [
+      9
+    ],
+    "bio": "Một trong ba anh em Tây Sơn. Đánh tan 5 vạn quân Xiêm ở Rạch Gầm - Xoài Mút, tiêu diệt 29 vạn quân Thanh ở Ngọc Hồi - Đống Đa. Là vị anh hùng áo vải vĩ đại bậc nhất lịch sử Việt Nam."
+  },
+  {
+    "id": "nguyen_nhac",
+    "name": "Nguyễn Nhạc",
+    "fullName": "Nguyễn Nhạc (Thái Đức Hoàng Đế)",
+    "years": "1743–1793",
+    "role": "Thủ lĩnh khởi nghĩa Tây Sơn",
+    "portrait": null,
+    "personality": "Khôn khéo, mưu lược nhưng thiếu tầm nhìn toàn cục",
+    "arc": [
+      9
+    ],
+    "bio": "Anh cả của Nguyễn Huệ. Người phất cờ khởi nghĩa Tây Sơn lật đổ chúa Nguyễn, lên ngôi Hoàng đế tại Quy Nhơn."
+  },
+  {
+    "id": "nguyen_anh",
+    "name": "Nguyễn Ánh",
+    "fullName": "Nguyễn Ánh (Gia Long)",
+    "years": "1762–1820",
+    "role": "Người sống sót duy nhất, Hoàng đế khai quốc Nhà Nguyễn",
+    "portrait": null,
+    "personality": "Kiên cường vô song, nhẫn nhục, sẵn sàng cầu viện ngoại bang",
+    "arc": [
+      9
+    ],
+    "bio": "Hậu duệ chúa Nguyễn trốn thoát khỏi cuộc thảm sát của Tây Sơn. Nếm mật nằm gai suốt 25 năm, nhiều lần chết hụt, cuối cùng đánh bại Tây Sơn và thống nhất hoàn toàn Việt Nam năm 1802."
   }
 ]

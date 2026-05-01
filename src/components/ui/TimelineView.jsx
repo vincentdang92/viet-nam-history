@@ -11,13 +11,7 @@ const ARC_COLOR = {
   5: '#8B5A00',
 }
 
-const ARC_LABEL = {
-  1: 'Nhà Trần — Lập Quốc',
-  2: 'Nhà Trần — Kháng Nguyên',
-  3: 'Nhà Trần — Thịnh Rồi Suy',
-  4: 'Nhà Hồ & Thuộc Minh',
-  5: 'Lam Sơn Khởi Nghĩa',
-}
+import { formatArcName, ARC_LABEL } from '../../utils/helpers'
 
 export default function TimelineView() {
   let lastArc = null
@@ -40,7 +34,7 @@ export default function TimelineView() {
               >
                 <div className="h-px flex-1" style={{ background: color + '50' }} />
                 <span className="text-[10px] font-semibold uppercase tracking-widest px-2" style={{ color }}>
-                  {ARC_LABEL[event.arc]}
+                  {formatArcName(event.arc)} - {ARC_LABEL[event.arc]}
                 </span>
                 <div className="h-px flex-1" style={{ background: color + '50' }} />
               </motion.div>

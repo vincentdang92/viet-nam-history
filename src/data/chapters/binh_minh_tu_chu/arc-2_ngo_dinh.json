@@ -1,0 +1,146 @@
+{
+  "arcId": -2,
+  "title": "Cọc Tiêu Bạch Đằng",
+  "years": "938–968",
+  "intro": "Bình minh của nền độc lập sau nghìn năm Bắc thuộc. Bắt đầu từ trận thủy chiến vĩ đại trên sông Bạch Đằng của Ngô Quyền, cho đến khi Đinh Bộ Lĩnh dẹp loạn 12 sứ quân, thống nhất giang sơn.",
+  "events": [
+    {
+      "id": "arc_minus2_start",
+      "arc": -2,
+      "year": 938,
+      "type": "battle",
+      "characterId": "ngo_quyen",
+      "text": "Kiều Công Tiễn phản trạch cầu viện Nam Hán. Tướng giặc Hoằng Tháo dẫn thủy quân sang xâm lược. Cửa biển Bạch Đằng dâng triều, ta phải làm sao?",
+      "leftChoice": {
+        "text": "Đóng cọc nhọn bọc sắt",
+        "effects": {
+          "binhLuc": 20,
+          "danTam": 20,
+          "quocKho": -10,
+          "trieuCuong": 10
+        },
+        "nextEvent": "arc_minus2_xung_vuong"
+      },
+      "rightChoice": {
+        "text": "Nghênh chiến trực diện",
+        "effects": {
+          "binhLuc": -20,
+          "danTam": -10,
+          "quocKho": 0,
+          "trieuCuong": -5
+        },
+        "nextEvent": "arc_minus2_xung_vuong"
+      }
+    },
+    {
+      "id": "arc_minus2_xung_vuong",
+      "arc": -2,
+      "year": 939,
+      "type": "event",
+      "characterId": "ngo_quyen",
+      "text": "Quân Nam Hán đại bại, Hoằng Tháo bỏ mạng. Đất nước hoàn toàn độc lập sau nghìn năm Bắc thuộc. Ta quyết định xưng Vương.",
+      "leftChoice": {
+        "text": "Đóng đô ở Cổ Loa",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 15,
+          "quocKho": 10,
+          "trieuCuong": 20
+        },
+        "nextEvent": "arc_minus2_loan_12"
+      },
+      "rightChoice": {
+        "text": "Đóng đô ở Đại La",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": 5,
+          "quocKho": -5,
+          "trieuCuong": 10
+        },
+        "nextEvent": "arc_minus2_loan_12"
+      }
+    },
+    {
+      "id": "arc_minus2_loan_12",
+      "arc": -2,
+      "year": 965,
+      "type": "event",
+      "characterId": "dinh_bo_linh",
+      "text": "Ngô Quyền mất, triều đình lục đục. Đất nước vỡ vụn thành 12 sứ quân cát cứ, đánh giết lẫn nhau.",
+      "leftChoice": {
+        "text": "Liên kết Phạm Phòng Át",
+        "effects": {
+          "binhLuc": 15,
+          "danTam": 10,
+          "quocKho": 10,
+          "trieuCuong": 10
+        },
+        "nextEvent": "arc_minus2_dai_co_viet"
+      },
+      "rightChoice": {
+        "text": "Dùng vũ lực dẹp từng sứ quân",
+        "effects": {
+          "binhLuc": -15,
+          "danTam": -10,
+          "quocKho": -10,
+          "trieuCuong": 15
+        },
+        "nextEvent": "arc_minus2_dai_co_viet"
+      }
+    },
+    {
+      "id": "arc_minus2_dai_co_viet",
+      "arc": -2,
+      "year": 968,
+      "type": "event",
+      "characterId": "dinh_bo_linh",
+      "text": "Với tài cầm quân bách chiến bách thắng (Vạn Thắng Vương), loạn 12 sứ quân bị dẹp yên. Ta xưng là Hoàng đế, đặt tên nước là Đại Cồ Việt.",
+      "leftChoice": {
+        "text": "Đóng đô ở Hoa Lư",
+        "effects": {
+          "binhLuc": 15,
+          "danTam": 10,
+          "quocKho": 5,
+          "trieuCuong": 20
+        },
+        "nextEvent": "arc_minus2_am_sat"
+      },
+      "rightChoice": {
+        "text": "Mở rộng giao thương",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": 15,
+          "quocKho": 25,
+          "trieuCuong": 10
+        },
+        "nextEvent": "arc_minus2_am_sat"
+      }
+    },
+    {
+      "id": "arc_minus2_am_sat",
+      "arc": -2,
+      "year": 979,
+      "type": "event",
+      "characterId": "dinh_bo_linh",
+      "text": "Nửa đêm, Đỗ Thích nằm mơ thấy sao sa vào miệng, liền nảy sinh cuồng vọng, ám sát cả Đinh Tiên Hoàng lẫn Nam Việt Vương Đinh Liễn. Triều đình rúng động.",
+      "leftChoice": {
+        "text": "Lập Đinh Toàn (6 tuổi) lên ngôi",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": -15,
+          "quocKho": 0,
+          "trieuCuong": -25
+        }
+      },
+      "rightChoice": {
+        "text": "Tôn Lê Hoàn làm vua ngay",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 5,
+          "quocKho": 0,
+          "trieuCuong": 20
+        }
+      }
+    }
+  ]
+}
