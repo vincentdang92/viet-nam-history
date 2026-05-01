@@ -40,26 +40,26 @@ export default function CardDisplay({ event }) {
 
   return (
     <div 
-      className="w-full relative cursor-pointer" 
+      className="w-full h-full relative cursor-pointer flex flex-col" 
       style={{ perspective: 1200 }}
       onClick={() => setIsFlipped(!isFlipped)}
     >
       <motion.div
-        className="w-full relative preserve-3d"
+        className="w-full h-full relative preserve-3d flex flex-col"
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         transition={{ type: 'spring', stiffness: 260, damping: 25 }}
         style={{ transformStyle: 'preserve-3d' }}
       >
         {/* === FRONT SIDE === */}
         <motion.div 
-          className="w-full flex flex-col backface-hidden pb-4"
+          className="absolute inset-0 w-full h-full flex flex-col backface-hidden pb-4"
           style={{ backfaceVisibility: 'hidden' }}
           variants={stagger.container}
           initial="initial"
           animate="animate"
         >
           {/* Portrait taking upper half */}
-          <motion.div variants={stagger.item} className="w-full relative">
+          <motion.div variants={stagger.item} className="w-full relative shrink-0">
             <CharacterPortrait characterId={event.character} isCinematic={isBig} />
             
             {/* Absolute positioning for Badge and Year over the portrait */}
@@ -74,7 +74,7 @@ export default function CardDisplay({ event }) {
           </motion.div>
 
           {/* Title + Quote + Context (Lower half) */}
-          <motion.div variants={stagger.item} className="flex-1 flex flex-col items-center p-5 pt-4 text-center justify-center">
+          <motion.div variants={stagger.item} className="flex-1 flex flex-col items-center p-5 pt-4 text-center justify-start overflow-y-auto min-h-0">
             <h2 className={`text-tran-text font-serif font-bold leading-snug ${isBig ? 'text-2xl' : 'text-xl'} mb-2`}>
               {event.title}
             </h2>
@@ -114,7 +114,7 @@ export default function CardDisplay({ event }) {
           style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
         >
           {charData ? (
-            <div className="flex flex-col h-full text-center items-center justify-center">
+            <div className="flex flex-col h-full text-center items-center justify-start overflow-y-auto no-scrollbar">
               <div className="w-16 h-1 h-1 bg-tran-border/50 rounded-full mb-6 mx-auto" />
               <h3 className="text-2xl font-serif text-tran-secondary font-bold mb-1">{charData.fullName}</h3>
               <p className="text-xs text-tran-textMuted mb-4 font-mono">{charData.years}</p>

@@ -197,7 +197,7 @@
           },
           "isHistorical": false,
           "fact": "Trong thực tế, nhà Trần không duy trì được truyền thống học hỏi từ cha ông — đây là điểm yếu dần hiện ra trong các đời vua sau.",
-          "chainNext": "tran_arc3_005",
+          "chainNext": "tran_arc3_invention_01",
           "unlockSuKy": null
         },
         {
@@ -211,8 +211,51 @@
           },
           "isHistorical": true,
           "fact": "Sự thiếu kỷ luật trong đào tạo vua trẻ là một trong những nguyên nhân dẫn đến sự suy tàn của nhà Trần vào cuối thế kỷ 14.",
-          "chainNext": "tran_arc3_005",
+          "chainNext": "tran_arc3_invention_01",
           "unlockSuKy": "su_ky_suy_vong_001"
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "thang_long_palace"
+    },
+    {
+      "id": "tran_arc3_invention_01",
+      "arc": 3,
+      "year": 1325,
+      "type": "culture",
+      "title": "Phát Minh Khoa Học: Lung Linh Nghi",
+      "context": "Hậu tước Đặng Lộ chế tạo thành công 'Lung linh nghi' — một dụng cụ thiên văn học cực kỳ tinh xảo để đo đạc vị trí các vì sao, làm lịch Hiệp Kỷ và dự báo thời tiết.",
+      "character": "dang_lo",
+      "quote": "Lòng người khó đoán, nhưng đạo trời thì có thể tính được bằng toán lý.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Cấp vốn sản xuất hàng loạt để các quan Khâm Thiên Giám sử dụng",
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 10,
+            "quocKho": -5,
+            "trieuCuong": 5
+          },
+          "isHistorical": true,
+          "fact": "Lung linh nghi là một phát minh vĩ đại của Đặng Lộ thời Trần, cho thấy trình độ khoa học và thiên văn của Đại Việt lúc bấy giờ rất đáng nể.",
+          "chainNext": "tran_arc3_005",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Cho rằng đây chỉ là trò tiêu khiển vô bổ, không đầu tư thêm",
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 0,
+            "quocKho": 0,
+            "trieuCuong": -5
+          },
+          "isHistorical": false,
+          "fact": "Việc dự báo thời tiết chính xác giúp ích rất nhiều cho nền nông nghiệp lúa nước và phòng tránh bão lụt.",
+          "chainNext": "tran_arc3_005",
+          "unlockSuKy": null
         }
       ],
       "requiredCondition": null,
@@ -240,7 +283,7 @@
           },
           "isHistorical": false,
           "fact": "Thực tế lịch sử cho thấy các vua Trần cuối thường không thực hiện được điều này, dẫn đến sự suy tàn của triều đại.",
-          "chainNext": "tran_arc3_006",
+          "chainNext": "tran_arc3_invention_02",
           "unlockSuKy": null
         },
         {
@@ -261,6 +304,49 @@
       "requiredCondition": null,
       "isCinematic": false,
       "background": "thang_long_palace"
+    },
+    {
+      "id": "tran_arc3_invention_02",
+      "arc": 3,
+      "year": 1350,
+      "type": "culture",
+      "title": "Y Học Dân Tộc: Nam Dược Thần Hiệu",
+      "context": "Dịch bệnh lan rộng, Thiền sư Tuệ Tĩnh đề xướng phương châm 'Nam dược trị Nam nhân' (Dùng thuốc Nam chữa bệnh người Nam), và viết cuốn Nam Dược Thần Hiệu.",
+      "character": "tue_tinh",
+      "quote": "Bảo vệ sinh mạng bá tánh không cần tìm đâu xa, thuốc ngay dưới chân ta.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Phổ biến sách thuốc Nam, cho thợ khắc ván in gửi đi các làng",
+          "effects": {
+            "binhLuc": 5,
+            "danTam": 15,
+            "quocKho": -5,
+            "trieuCuong": 0
+          },
+          "isHistorical": true,
+          "fact": "Tuệ Tĩnh được tôn là vị Thánh thuốc Nam. Ông đã đặt nền móng cho Y học cổ truyền Việt Nam, độc lập với phương Bắc.",
+          "chainNext": "tran_arc3_006",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Giam sách trong nội cung, chỉ dùng cho hoàng gia và quý tộc",
+          "effects": {
+            "binhLuc": -5,
+            "danTam": -15,
+            "quocKho": 0,
+            "trieuCuong": -5
+          },
+          "isHistorical": false,
+          "fact": "Cứu người là lẽ đạo lớn nhất của y học. Tuệ Tĩnh đã dành cả đời để chữa bệnh miễn phí cho bá tánh.",
+          "chainNext": "tran_arc3_006",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "countryside"
     },
     {
       "id": "tran_arc3_006",
@@ -438,8 +524,8 @@
       "id": "tran_arc3_009_b",
       "arc": 3,
       "year": 1396,
-      "type": "event",
-      "title": "Cải Cách Của Quyền Thần",
+      "type": "culture",
+      "title": "Phát Minh Tiền Giấy & Cải Cách Quyền Thần",
       "context": "Hồ Quý Ly thâu tóm mọi quyền hành, mạnh tay ban hành chính sách Hạn Điền, Hạn Nô để triệt hạ vây cánh vương hầu nhà Trần và phát hành Tiền giấy ('Thông bảo hội sao').",
       "character": "tran_nhan_tong",
       "quote": "Bỏ tiền đồng, tiêu tiền giấy. Lòng dân xôn xao...",

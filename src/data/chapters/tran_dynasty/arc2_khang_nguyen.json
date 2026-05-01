@@ -305,7 +305,7 @@
               "historicalScore": -15
             }
           },
-          "chainNext": "tran_arc2_007"
+          "chainNext": "tran_arc2_invention_01"
         },
         {
           "id": "choice_b",
@@ -315,12 +315,55 @@
           },
           "isHistorical": false,
           "fact": "Thông tin tình báo chính xác là chìa khóa để Trần Hưng Đạo vạch ra kế hoạch vườn không nhà trống.",
-          "chainNext": "tran_arc2_007"
+          "chainNext": "tran_arc2_invention_01"
         }
       ],
       "requiredCondition": null,
       "isCinematic": false,
       "background": "battlefield"
+    },
+    {
+      "id": "tran_arc2_invention_01",
+      "arc": 2,
+      "year": 1282,
+      "type": "culture",
+      "title": "Phát Minh Văn Học: Văn Tế Cá Sấu",
+      "context": "Sông Phú Lương xuất hiện cá sấu lớn làm hại dân. Hình bộ Thượng thư Nguyễn Thuyên được vua sai làm văn tế ném xuống sông. Lạ thay, cá sấu bỏ đi hết. Bài văn được viết hoàn toàn bằng chữ Nôm.",
+      "character": "han_thuyen",
+      "quote": "Lấy chữ của dân tộc ta, viết tiếng nói của dân tộc ta, thần linh ắt sẽ thấu hiểu.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Cho phép phổ biến chữ Nôm, ban tước Hàn Thuyên cho ông",
+          "effects": {
+            "binhLuc": 0,
+            "danTam": 10,
+            "quocKho": -5,
+            "trieuCuong": 5
+          },
+          "isHistorical": true,
+          "fact": "Nguyễn Thuyên được vua Trần ban tước Hàn Thuyên vì có công phát triển thơ phú chữ Nôm (Hàn luật), đánh dấu bước ngoặt độc lập về ngôn ngữ văn học của Đại Việt.",
+          "chainNext": "tran_arc2_007",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Phớt lờ, vẫn chuộng chữ Hán làm ngôn ngữ chính thức duy nhất",
+          "effects": {
+            "binhLuc": 0,
+            "danTam": -5,
+            "quocKho": 0,
+            "trieuCuong": -5
+          },
+          "isHistorical": false,
+          "fact": "Chữ Nôm đã giúp văn hóa Đại Việt cắm rễ sâu vào dân gian, tạo ra một bản sắc riêng biệt không thể bị đồng hóa bởi phương Bắc.",
+          "chainNext": "tran_arc2_007",
+          "unlockSuKy": null
+        }
+      ],
+      "requiredCondition": null,
+      "isCinematic": false,
+      "background": "countryside"
     },
     {
       "id": "tran_arc2_007",

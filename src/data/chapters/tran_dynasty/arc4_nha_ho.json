@@ -147,7 +147,7 @@
           },
           "isHistorical": true,
           "fact": "Hồ Quý Ly cho phục kích và giết Trần Thiêm Bình khi đoàn sứ bộ Minh đưa hắn trở về năm 1406. Đây chính là cái cớ mà Minh Thành Tổ (Yongle) cần để phát động chiến tranh xâm lược Đại Việt — một cuộc chiến mà ông đã lên kế hoạch từ trước.",
-          "chainNext": "tran_arc4_005"
+          "chainNext": "tran_arc4_invention_01"
         },
         {
           "id": "choice_b",
@@ -160,7 +160,49 @@
           },
           "isHistorical": false,
           "fact": "Dù nhà Hồ có nhượng bộ ngoại giao, nhà Minh vẫn quyết tâm thôn tính Đại Việt. Minh Thành Tổ muốn kiểm soát vùng biển Đông Nam Á và tuyến thương mại phía Nam — Đại Việt là mục tiêu chiến lược không thể tránh khỏi.",
-          "chainNext": "tran_arc4_005"
+          "chainNext": "tran_arc4_invention_01"
+        }
+      ],
+      "isCinematic": false,
+      "background": "tay_do_palace"
+    },
+    {
+      "id": "tran_arc4_invention_01",
+      "arc": 4,
+      "year": 1405,
+      "type": "culture",
+      "title": "Phát Minh Quân Sự: Súng Thần Cơ & Cổ Lâu Thuyền",
+      "context": "Nhận thấy nguy cơ xâm lược, Tả tướng quốc Hồ Nguyên Trừng dốc sức nghiên cứu vũ khí. Ông đúc thành công 'Súng thần cơ' (đại bác nòng trơn) và đóng 'Cổ lâu thuyền' (thuyền chiến hai tầng).",
+      "character": "ho_nguyen_trung",
+      "quote": "Thần không sợ đánh giặc, chỉ sợ lòng dân không theo.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Dồn toàn lực ngân khố để đúc súng và đóng thuyền chiến",
+          "effects": {
+            "binhLuc": 20,
+            "danTam": -5,
+            "quocKho": -15,
+            "trieuCuong": 5
+          },
+          "isHistorical": true,
+          "fact": "Súng thần cơ của Hồ Nguyên Trừng có sức công phá khủng khiếp. Sau này khi nhà Hồ thất thủ, nhà Minh đã bắt ông sang Trung Quốc để chế tạo súng cho họ, tôn ông làm 'Thần Cơ Hỏa Khí'.",
+          "chainNext": "tran_arc4_005",
+          "unlockSuKy": null
+        },
+        {
+          "id": "choice_b",
+          "text": "Phát triển vũ khí từ từ, ưu tiên giữ lại ngân khố để phòng đói kém",
+          "effects": {
+            "binhLuc": 5,
+            "danTam": 5,
+            "quocKho": 5,
+            "trieuCuong": -5
+          },
+          "isHistorical": false,
+          "fact": "Vũ khí tân tiến là không đủ nếu thiếu sự ủng hộ của nhân dân. Lời tấu 'chỉ sợ lòng dân không theo' của Hồ Nguyên Trừng đã trở thành sự thật cay đắng của nhà Hồ.",
+          "chainNext": "tran_arc4_005",
+          "unlockSuKy": null
         }
       ],
       "isCinematic": false,

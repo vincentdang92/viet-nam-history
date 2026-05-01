@@ -29,7 +29,7 @@ export default function SwipeCard({ event, choices, onChoiceA, onChoiceB, cardKe
   const isBattle = event?.type === 'battle' || event?.isCinematic || event?.type === 'campaign' || event?.type === 'combat_card'
 
   return (
-    <div className="relative select-none">
+    <div className="relative select-none w-full h-full flex flex-col">
       <motion.div
         key={cardKey}
         drag="x"
@@ -42,7 +42,7 @@ export default function SwipeCard({ event, choices, onChoiceA, onChoiceB, cardKe
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.88, y: -24 }}
         transition={{ type: 'spring', stiffness: 280, damping: 24 }}
-        className={`relative rounded-2xl shadow-2xl overflow-hidden cursor-grab active:cursor-grabbing
+        className={`relative w-full h-full flex flex-col rounded-2xl shadow-2xl overflow-hidden cursor-grab active:cursor-grabbing
           ${isBattle
             ? 'border-2 border-red-700/60 bg-gradient-to-b from-red-950/80 to-tran-card'
             : 'border border-tran-border bg-tran-card'
