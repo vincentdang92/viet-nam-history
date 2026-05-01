@@ -54,15 +54,15 @@ export default function SwipeCard({ event, choices, onChoiceA, onChoiceB, cardKe
         <motion.div className="absolute inset-0 bg-red-800/20 rounded-2xl pointer-events-none z-10" style={{ opacity: leftTint }} />
 
         {/* Right overlay (choice A) */}
-        <motion.div className="absolute inset-0 flex items-center justify-start pl-4 z-20 pointer-events-none" style={{ opacity: rightOpacity, scale: rightScale }}>
-          <div className="bg-tran-secondary/90 text-tran-bg text-xs font-bold px-3 py-1.5 rounded-xl max-w-[45%] leading-snug">
+        <motion.div className="absolute inset-0 flex items-center justify-start pl-3 sm:pl-4 z-20 pointer-events-none" style={{ opacity: rightOpacity, scale: rightScale }}>
+          <div className="bg-tran-secondary/90 text-tran-bg text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-1.5 rounded-xl max-w-[45%] leading-snug">
             ✓ {choices[0]?.text}
           </div>
         </motion.div>
 
         {/* Left overlay (choice B) */}
-        <motion.div className="absolute inset-0 flex items-center justify-end pr-4 z-20 pointer-events-none" style={{ opacity: leftOpacity, scale: leftScale }}>
-          <div className="bg-red-700/90 text-white text-xs font-bold px-3 py-1.5 rounded-xl max-w-[45%] leading-snug text-right">
+        <motion.div className="absolute inset-0 flex items-center justify-end pr-3 sm:pr-4 z-20 pointer-events-none" style={{ opacity: leftOpacity, scale: leftScale }}>
+          <div className="bg-red-700/90 text-white text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-1.5 rounded-xl max-w-[45%] leading-snug text-right">
             ✗ {choices[1]?.text}
           </div>
         </motion.div>

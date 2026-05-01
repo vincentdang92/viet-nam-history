@@ -74,17 +74,17 @@ export default function CardDisplay({ event }) {
           </motion.div>
 
           {/* Title + Quote + Context (Lower half) */}
-          <motion.div variants={stagger.item} className="flex-1 flex flex-col items-center p-5 pt-4 text-center justify-start overflow-y-auto min-h-0">
-            <h2 className={`text-tran-text font-serif font-bold leading-snug ${isBig ? 'text-2xl' : 'text-xl'} mb-2`}>
+          <motion.div variants={stagger.item} className="flex-1 flex flex-col items-center p-4 sm:p-5 pt-3 sm:pt-4 text-center justify-start overflow-y-auto min-h-0">
+            <h2 className={`text-tran-text font-serif font-bold leading-snug ${isBig ? 'text-[1.35rem] sm:text-2xl' : 'text-lg sm:text-xl'} mb-1.5 sm:mb-2`}>
               {event.title}
             </h2>
             
-            <p className="text-tran-text/80 text-sm leading-relaxed mb-3">
+            <p className="text-tran-text/80 text-[13px] sm:text-sm leading-relaxed mb-2.5 sm:mb-3">
               {event.context}
             </p>
             
             {event.quote && (
-              <p className="text-tran-secondary italic text-[13px] leading-snug border-t border-tran-border/30 pt-3 mt-auto w-full">
+              <p className="text-tran-secondary italic text-[11px] sm:text-[13px] leading-snug border-t border-tran-border/30 pt-2.5 sm:pt-3 mt-auto w-full">
                 &ldquo;{event.quote}&rdquo;
               </p>
             )}
@@ -110,26 +110,26 @@ export default function CardDisplay({ event }) {
 
         {/* === BACK SIDE === */}
         <div 
-          className="absolute inset-0 bg-tran-card rounded-2xl p-6 border-2 border-tran-border/50 flex flex-col backface-hidden"
+          className="absolute inset-0 bg-tran-card rounded-2xl p-5 sm:p-6 border-2 border-tran-border/50 flex flex-col backface-hidden"
           style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
         >
           {charData ? (
             <div className="flex flex-col h-full text-center items-center justify-start overflow-y-auto no-scrollbar">
-              <div className="w-16 h-1 h-1 bg-tran-border/50 rounded-full mb-6 mx-auto" />
-              <h3 className="text-2xl font-serif text-tran-secondary font-bold mb-1">{charData.fullName}</h3>
-              <p className="text-xs text-tran-textMuted mb-4 font-mono">{charData.years}</p>
+              <div className="w-16 h-1 bg-tran-border/50 rounded-full mb-4 sm:mb-6 mx-auto" />
+              <h3 className="text-xl sm:text-2xl font-serif text-tran-secondary font-bold mb-1">{charData.fullName}</h3>
+              <p className="text-[11px] sm:text-xs text-tran-textMuted mb-3 sm:mb-4 font-mono">{charData.years}</p>
               
-              <div className="w-full bg-black/30 rounded-xl p-4 mb-4 border border-tran-border/30">
-                <p className="text-sm text-tran-text/90 italic">"{charData.role}"</p>
+              <div className="w-full bg-black/30 rounded-xl p-3 sm:p-4 mb-3 sm:mb-4 border border-tran-border/30">
+                <p className="text-[13px] sm:text-sm text-tran-text/90 italic">"{charData.role}"</p>
               </div>
               
-              <p className="text-sm leading-relaxed text-tran-text/80 mb-6 text-left">
+              <p className="text-[13px] sm:text-sm leading-relaxed text-tran-text/80 mb-4 sm:mb-6 text-left">
                 {charData.bio}
               </p>
               
-              <div className="mt-auto pt-4 border-t border-tran-border/30 w-full">
-                <p className="text-xs text-tran-textMuted uppercase tracking-widest mb-1">Tính cách</p>
-                <p className="text-sm text-tran-secondary/80 font-medium">{charData.personality}</p>
+              <div className="mt-auto pt-3 sm:pt-4 border-t border-tran-border/30 w-full">
+                <p className="text-[10px] sm:text-xs text-tran-textMuted uppercase tracking-widest mb-1">Tính cách</p>
+                <p className="text-[13px] sm:text-sm text-tran-secondary/80 font-medium">{charData.personality}</p>
               </div>
 
               {/* Show culture info on the back of the card if available */}
