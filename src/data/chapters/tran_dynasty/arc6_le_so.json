@@ -1,0 +1,403 @@
+[
+  {
+    "id": "tran_arc6_001",
+    "arc": 6,
+    "year": 1428,
+    "type": "event",
+    "title": "Bình Ngô Khải Hoàn",
+    "context": "Mùa xuân năm Mậu Thân 1428, Lê Lợi lên ngôi Hoàng đế, xưng là Lê Thái Tổ, khôi phục quốc hiệu Đại Việt. Đất nước hoang tàn sau 20 năm chiến tranh cần được kiến thiết lại.",
+    "character": "le_thai_to",
+    "quote": "Trải hai mươi năm nếm mật nằm gai, nay non sông đã thu về một mối.",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Ban hành 'Quân điền', chia lại ruộng đất cho dân cày",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": 20,
+          "quocKho": 10,
+          "trieuCuong": 5
+        },
+        "isHistorical": true,
+        "fact": "Chính sách Quân điền của Lê Thái Tổ là một bước tiến lịch sử, đảm bảo ai cũng có ruộng cày, phục hồi nhanh chóng kinh tế nông nghiệp.",
+        "chainNext": "tran_arc6_002"
+      },
+      {
+        "id": "choice_b",
+        "text": "Thưởng ruộng đất làm thái ấp riêng cho các công thần Lam Sơn",
+        "effects": {
+          "binhLuc": 5,
+          "danTam": -10,
+          "quocKho": 0,
+          "trieuCuong": 10
+        },
+        "isHistorical": false,
+        "fact": "Dù các công thần có công lớn, nhưng việc tập trung quá nhiều ruộng đất vào tay họ sẽ dẫn đến nạn kiêu binh và bần cùng hóa nông dân.",
+        "chainNext": "tran_arc6_002"
+      }
+    ],
+    "isCinematic": true,
+    "background": "dong_do_palace"
+  },
+  {
+    "id": "tran_arc6_002",
+    "arc": 6,
+    "year": 1442,
+    "type": "event",
+    "title": "Thảm Án Lệ Chi Viên",
+    "context": "Vua Lê Thái Tông đột ngột băng hà tại Trại vải (Lệ Chi Viên). Các quyền thần nhân cơ hội này khép tội Nguyễn Trãi và vợ là Nguyễn Thị Lộ tội mưu sát vua.",
+    "character": "nguyen_trai",
+    "quote": "Thương sinh mười vạn sầu bao xiết. Góc biển chân trời một chiếc thuyền.",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Bất lực nhìn quyền thần lộng hành, gia tộc Nguyễn Trãi bị tru di",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": -25,
+          "quocKho": 0,
+          "trieuCuong": -15
+        },
+        "isHistorical": true,
+        "fact": "Thảm án Lệ Chi Viên là án oan lớn nhất trong lịch sử phong kiến Việt Nam, tước đi mạng sống của một vị đại anh hùng dân tộc.",
+        "chainNext": "tran_arc6_003"
+      },
+      {
+        "id": "choice_b",
+        "text": "Điều tra lại án oan, trừng trị phe cánh quyền thần",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": 10,
+          "quocKho": 0,
+          "trieuCuong": 10
+        },
+        "isHistorical": false,
+        "fact": "Trong thực tế, triều đình lúc bấy giờ bị kiểm soát bởi các công thần khai quốc, một vị vua nhỏ tuổi không thể lật lại vụ án ngay lúc đó.",
+        "chainNext": "tran_arc6_003"
+      }
+    ],
+    "isCinematic": false,
+    "background": "tay_do_palace"
+  },
+  {
+    "id": "tran_arc6_003",
+    "arc": 6,
+    "year": 1459,
+    "type": "event",
+    "title": "Loạn Nghi Dân",
+    "context": "Lạng Sơn vương Lê Nghi Dân đem lòng oán hận vì bị phế ngôi Thái tử, đã dẫn theo bọn vô lại đêm khuya bắc thang vào thành, giết chết vua Lê Nhân Tông và Thái hậu.",
+    "character": "le_thanh_tong",
+    "quote": "Xã tắc rụng rời, giặc giã ngay trong cung cấm.",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Cam chịu sự bạo ngược của Lê Nghi Dân",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": -15,
+          "quocKho": -5,
+          "trieuCuong": -20
+        },
+        "isHistorical": false,
+        "fact": "Lê Nghi Dân trị vì tàn bạo, tín nhiệm gian thần, khiến cả triều đình và dân chúng đều oán phẫn tột độ.",
+        "chainNext": "tran_arc6_004"
+      },
+      {
+        "id": "choice_b",
+        "text": "Các đại thần Nguyễn Xí, Đinh Liệt xướng nghĩa trừ gian",
+        "effects": {
+          "binhLuc": 5,
+          "danTam": 10,
+          "quocKho": 0,
+          "trieuCuong": 10
+        },
+        "isHistorical": true,
+        "fact": "Các cựu thần Lam Sơn đã lật đổ Lê Nghi Dân và tôn hoàng tử Tư Thành lên ngôi, mở ra thời kỳ rực rỡ nhất của nhà Lê sơ.",
+        "chainNext": "tran_arc6_004"
+      }
+    ],
+    "isCinematic": false,
+    "background": "dong_do_palace"
+  },
+  {
+    "id": "tran_arc6_004",
+    "arc": 6,
+    "year": 1460,
+    "type": "event",
+    "title": "Minh Quân Xuất Thế",
+    "context": "Lê Tư Thành lên ngôi vua, lấy niên hiệu là Quang Thuận (Lê Thánh Tông). Ông minh oan cho Nguyễn Trãi, ban hành nhiều chính sách nhằm tập quyền và củng cố đất nước.",
+    "character": "le_thanh_tong",
+    "quote": "Bậc đế vương phải lấy việc đạo lý để sửa trị thiên hạ.",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Bãi bỏ quyền lực của Tể tướng, đích thân vua điều hành Lục bộ",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": 10,
+          "quocKho": 10,
+          "trieuCuong": 25
+        },
+        "isHistorical": true,
+        "fact": "Đây là bước đi táo bạo giúp Lê Thánh Tông triệt tiêu quyền lực của các công thần, tập trung toàn bộ vương quyền về tay hoàng đế.",
+        "chainNext": "tran_arc6_invention_01"
+      },
+      {
+        "id": "choice_b",
+        "text": "Tiếp tục giao quyền cho các cựu thần Lam Sơn cai quản",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 0,
+          "quocKho": 0,
+          "trieuCuong": -10
+        },
+        "isHistorical": false,
+        "fact": "Nếu không cải cách bộ máy, quyền thần sẽ tiếp tục lộng hành, tạo tiền lệ cho các cuộc binh biến như thời Lê Nghi Dân.",
+        "chainNext": "tran_arc6_invention_01"
+      }
+    ],
+    "isCinematic": true,
+    "background": "dong_do_palace"
+  },
+  {
+    "id": "tran_arc6_invention_01",
+    "arc": 6,
+    "year": 1470,
+    "type": "culture",
+    "title": "Phát Minh: Kỹ Thuật In Mộc Bản",
+    "context": "Lương Như Hộc hai lần đi sứ phương Bắc, lén học được nghề in bản gỗ. Ông đem kỹ thuật này truyền lại cho dân làng Liễu Tràng, giúp Đại Việt tự chủ việc in ấn sách vở.",
+    "character": "luong_nhu_hoc",
+    "quote": "Chữ nghĩa là hồn cốt non sông, phải in để truyền muôn đời.",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Tài trợ mở các xưởng in lớn, phổ biến sách nho học",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": 15,
+          "quocKho": -5,
+          "trieuCuong": 10
+        },
+        "isHistorical": true,
+        "fact": "Lương Như Hộc được tôn làm ông tổ nghề in Việt Nam. Nghề in giúp văn hóa và giáo dục thời Hồng Đức phát triển mạnh mẽ chưa từng có.",
+        "chainNext": "tran_arc6_005"
+      },
+      {
+        "id": "choice_b",
+        "text": "Giữ bí mật nghề in trong hoàng cung để kiểm soát tri thức",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": -5,
+          "quocKho": 5,
+          "trieuCuong": 10
+        },
+        "isHistorical": false,
+        "fact": "Triều Lê Thánh Tông khuyến khích học hành mở mang, nghề in được truyền rộng rãi ra dân gian tạo nên sự hưng thịnh về giáo dục.",
+        "chainNext": "tran_arc6_005"
+      }
+    ],
+    "isCinematic": false,
+    "background": "culture_background"
+  },
+  {
+    "id": "tran_arc6_005",
+    "arc": 6,
+    "year": 1471,
+    "type": "battle",
+    "title": "Nam Tiến Phạt Chiêm",
+    "context": "Vua Chiêm Thành là Trà Toàn liên tục quấy nhiễu biên giới. Lê Thánh Tông quyết định đích thân cầm 26 vạn đại quân chinh phạt, mở rộng lãnh thổ về phương Nam.",
+    "character": "le_thanh_tong",
+    "quote": "Bờ cõi nước ta, một tấc núi, một tấc sông đâu dễ vứt bỏ.",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Tổng tấn công kinh đô Đồ Bàn, bắt sống Trà Toàn",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": 15,
+          "quocKho": 20,
+          "trieuCuong": 15
+        },
+        "isHistorical": true,
+        "fact": "Trận này quân Đại Việt đại thắng, phá vỡ thế lực của Chiêm Thành, lãnh thổ Đại Việt mở rộng tới tận đèo Cù Mông.",
+        "chainNext": "tran_arc6_invention_02"
+      },
+      {
+        "id": "choice_b",
+        "text": "Chỉ phòng thủ biên giới, gửi sứ giả cầu hòa",
+        "effects": {
+          "binhLuc": 5,
+          "danTam": -10,
+          "quocKho": 5,
+          "trieuCuong": -5
+        },
+        "isHistorical": false,
+        "fact": "Lê Thánh Tông nổi tiếng với tư tưởng bảo vệ và mở rộng chủ quyền. Ông không bao giờ chấp nhận sự xâm phạm biên cương.",
+        "chainNext": "tran_arc6_invention_02"
+      }
+    ],
+    "isCinematic": true,
+    "background": "champ_border"
+  },
+  {
+    "id": "tran_arc6_invention_02",
+    "arc": 6,
+    "year": 1480,
+    "type": "culture",
+    "title": "Đại Thành Toán Pháp",
+    "context": "Trạng lường Lương Thế Vinh biên soạn cuốn 'Đại Thành Toán Pháp', hệ thống hóa các kiến thức toán học, hình học, đo đạc ruộng đất cực kỳ thiết thực cho dân chúng.",
+    "character": "luong_the_vinh",
+    "quote": "Muốn tính được lòng người, trước phải rành phép đo đất.",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Đưa toán học vào kỳ thi, áp dụng đo đạc đê điều",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": 10,
+          "quocKho": 15,
+          "trieuCuong": 5
+        },
+        "isHistorical": true,
+        "fact": "Sách của Lương Thế Vinh và Vũ Hữu (người tính toán xây cổng thành) được dùng làm giáo trình chuẩn mực suốt hàng trăm năm.",
+        "chainNext": "tran_arc6_culture_01"
+      },
+      {
+        "id": "choice_b",
+        "text": "Vẫn chỉ chuộng văn chương phú lục, xem thường toán học",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": -5,
+          "quocKho": -10,
+          "trieuCuong": -5
+        },
+        "isHistorical": false,
+        "fact": "Tuy Nho giáo thịnh hành, nhưng Lê Thánh Tông là người rất thực tế. Ông coi trọng kiến thức đo lường để phục vụ phát triển nông nghiệp.",
+        "chainNext": "tran_arc6_culture_01"
+      }
+    ],
+    "isCinematic": false,
+    "background": "culture_background"
+  },
+  {
+    "id": "tran_arc6_culture_01",
+    "arc": 6,
+    "year": 1483,
+    "type": "historical",
+    "title": "Luật Hồng Đức & Bản Đồ Hồng Đức",
+    "context": "Lê Thánh Tông ban hành Quốc Triều Hình Luật (Luật Hồng Đức), bộ luật tiến bộ nhất phong kiến Việt Nam, bảo vệ quyền lợi phụ nữ. Đồng thời cho vẽ Bản đồ Hồng Đức xác lập chủ quyền toàn diện.",
+    "character": "le_thanh_tong",
+    "quote": "Pháp luật là cán cân của nhà nước, là thước đo của lòng dân.",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Thi hành luật pháp nghiêm minh, bảo vệ chủ quyền biên giới",
+        "effects": {
+          "binhLuc": 5,
+          "danTam": 20,
+          "quocKho": 10,
+          "trieuCuong": 20
+        },
+        "isHistorical": true,
+        "fact": "Bộ luật Hồng Đức là đỉnh cao của lập pháp phong kiến, trong đó ghi nhận nhiều quyền lợi cho phụ nữ và bảo vệ người dân thấp cổ bé họng.",
+        "chainNext": "tran_arc6_006"
+      },
+      {
+        "id": "choice_b",
+        "text": "Áp dụng toàn bộ luật nhà Minh mà không chỉnh sửa",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": -15,
+          "quocKho": 0,
+          "trieuCuong": -10
+        },
+        "isHistorical": false,
+        "fact": "Đại Việt luôn giữ tinh thần độc lập. Luật Hồng Đức kết hợp hài hòa giữa Nho giáo và những tập tục truyền thống tốt đẹp của người Việt.",
+        "chainNext": "tran_arc6_006"
+      }
+    ],
+    "isCinematic": false,
+    "background": "dong_do_palace"
+  },
+  {
+    "id": "tran_arc6_006",
+    "arc": 6,
+    "year": 1509,
+    "type": "event",
+    "title": "Kỷ Nguyên Bóng Tối",
+    "context": "Sau thời kỳ Hồng Đức thịnh trị, các vua đời sau như Uy Mục (vua Quỷ), Tương Dực (vua Lợn) tàn bạo, hoang dâm vô độ. Triều đình rối ren, dân tình oán thán.",
+    "character": "le_thanh_tong",
+    "quote": "Đất nước loạn lạc là do kẻ đứng đầu bất tài, bất đức.",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Xây dựng 'Cửu trùng đài' xa hoa, mặc dân đói khổ",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": -30,
+          "quocKho": -30,
+          "trieuCuong": -25
+        },
+        "isHistorical": true,
+        "fact": "Sự ăn chơi sa đọa và bạo ngược của các vị vua cuối thời Lê Sơ đã phá nát cơ đồ mà Thái Tổ và Thánh Tông dày công gây dựng.",
+        "chainNext": "tran_arc6_007"
+      },
+      {
+        "id": "choice_b",
+        "text": "Lắng nghe lời can gián, dừng mọi công trình tốn kém",
+        "effects": {
+          "binhLuc": 5,
+          "danTam": 10,
+          "quocKho": 15,
+          "trieuCuong": 5
+        },
+        "isHistorical": false,
+        "fact": "Vua Tương Dực bị dân gian chê cười là 'vua lợn' vì thói hoang dâm, xây dựng Cửu trùng đài tốn kém máu xương của vô số bá tánh.",
+        "chainNext": "tran_arc6_007"
+      }
+    ],
+    "isCinematic": false,
+    "background": "tay_do_palace"
+  },
+  {
+    "id": "tran_arc6_007",
+    "arc": 6,
+    "year": 1527,
+    "type": "event",
+    "title": "Hoàng Hôn Nhà Lê Sơ",
+    "context": "Quyền thần Mạc Đăng Dung nổi lên dẹp loạn, thao túng triều chính. Đến năm 1527, ông bức vua Lê Cung Hoàng nhường ngôi, lập ra nhà Mạc, kết thúc 100 năm nhà Lê sơ.",
+    "character": "mac_dang_dung",
+    "quote": "Nhà Lê đã mạt, mệnh trời đã chuyển.",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Phế truất vua Lê, chính thức lên ngôi Hoàng đế",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": -10,
+          "quocKho": 0,
+          "trieuCuong": 10
+        },
+        "isHistorical": true,
+        "fact": "Mạc Đăng Dung lập ra nhà Mạc. Ngay sau đó, cựu thần nhà Lê dấy binh chống lại, mở ra thời kỳ Nam Bắc Triều rực lửa.",
+        "chainNext": "ending"
+      },
+      {
+        "id": "choice_b",
+        "text": "Tiếp tục làm quyền thần phò tá vua Lê bù nhìn",
+        "effects": {
+          "binhLuc": -5,
+          "danTam": 5,
+          "quocKho": 0,
+          "trieuCuong": -15
+        },
+        "isHistorical": false,
+        "fact": "Mạc Đăng Dung đã dứt khoát đoạt lấy ngôi báu thay vì tiếp tục núp bóng nhà Lê như họ Trịnh sau này.",
+        "chainNext": "ending"
+      }
+    ],
+    "isCinematic": true,
+    "background": "dong_do_palace",
+    "endArc": true
+  }
+]

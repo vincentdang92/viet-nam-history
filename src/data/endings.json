@@ -110,5 +110,32 @@
     "description": "Sau hai mươi năm đô hộ của nhà Minh và mười năm kháng chiến gian khổ, Đại Việt cuối cùng được giải phóng. Lê Lợi lên ngôi, khép lại trang sử đau thương và mở ra một triều đại mới.",
     "historicalNote": "Khởi Nghĩa Lam Sơn (1418-1428) là một trong những cuộc kháng chiến vĩ đại nhất lịch sử Đông Nam Á — từ vài trăm người đến chiến thắng đại quân cả trăm nghìn người của nhà Minh.",
     "unlockSuKy": ["su_ky_dong_quan"]
+  },
+  {
+    "id": "ending_hong_duc_thinh_tri",
+    "title": "Hồng Đức Thịnh Trị",
+    "subtitle": "Kỷ nguyên vàng son vĩ đại nhất lịch sử",
+    "rating": 5,
+    "conditions": {
+      "minArc": 6,
+      "minYears": 280,
+      "minDanTam": 60,
+      "minQuocKho": 60
+    },
+    "description": "Dưới thời Lê Thánh Tông, Đại Việt đạt đến đỉnh cao chói lọi chưa từng có. Lãnh thổ rộng mở, pháp luật nghiêm minh, văn hóa giáo dục rực rỡ. Bạn đã tái hiện hoàn hảo một thời đại hoàng kim.",
+    "historicalNote": "Thời Hồng Đức (1460-1497) được lịch sử ghi nhận là giai đoạn phát triển toàn diện và rực rỡ nhất của chế độ phong kiến Việt Nam.",
+    "unlockSuKy": []
+  },
+  {
+    "id": "ending_nam_bac_trieu",
+    "title": "Bình Minh Tắt Ngấm",
+    "subtitle": "Quyền thần tiếm ngôi, đất nước chia cắt",
+    "rating": 3,
+    "conditions": {
+      "minArc": 6
+    },
+    "description": "Sự sa đọa của những vị vua cuối thời Lê sơ đã tạo cơ hội cho Mạc Đăng Dung cướp ngôi. Dù triều đại nhà Mạc mang lại sự bình ổn tạm thời, nhưng hạt giống của cuộc nội chiến Nam Bắc Triều khốc liệt đã được gieo xuống.",
+    "historicalNote": "Nhà Lê sơ tồn tại đúng 100 năm (1428-1527), sau đó rơi vào thời kỳ chia cắt Nam - Bắc triều suốt hơn nửa thế kỷ.",
+    "unlockSuKy": []
   }
 ]

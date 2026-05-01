@@ -38,8 +38,11 @@ export function checkEnding(state) {
   // Catch-all: only for arc 3 (Nhà Trần era). Arc 5 catch-all below.
   if (currentArc === 3) return { hasEnding: true, endingId: 'ending_default' }
 
-  // Arc 5+ catch-all
-  if (currentArc >= 5) return { hasEnding: true, endingId: 'ending_doc_lap' }
+  // Arc 5 catch-all
+  if (currentArc === 5) return { hasEnding: true, endingId: 'ending_doc_lap' }
+
+  // Arc 6 catch-all
+  if (currentArc >= 6) return { hasEnding: true, endingId: 'ending_nam_bac_trieu' }
 
   return { hasEnding: false }
 }

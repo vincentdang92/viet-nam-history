@@ -140,7 +140,8 @@
     "personality": "Kiên nghị, gần gũi dân, biết trọng dụng nhân tài",
     "arc": [
       4,
-      5
+      5,
+      6
     ],
     "bio": "Hào trưởng đất Lam Sơn, Thanh Hóa. Phát động Khởi Nghĩa Lam Sơn năm 1418, lãnh đạo 10 năm kháng chiến đánh bại quân Minh, sáng lập nhà Lê năm 1428."
   },
@@ -166,7 +167,8 @@
     "portrait": null,
     "personality": "Học rộng tài cao, nhân nghĩa, tầm nhìn chính trị sâu sắc",
     "arc": [
-      5
+      5,
+      6
     ],
     "bio": "Con trai Nguyễn Phi Khanh. Gia nhập Lê Lợi, viết Bình Ngô sách và Bình Ngô Đại Cáo — tuyên ngôn độc lập đầu tiên của Việt Nam. Một trong những nhà thơ, nhà chính trị vĩ đại nhất lịch sử."
   },
@@ -423,5 +425,57 @@
       5
     ],
     "bio": "Được Lê Lợi lập làm vua trên danh nghĩa để đáp ứng yêu sách 'lập con cháu nhà Trần' của Vương Thông, tạo cớ cho quân Minh rút lui danh dự."
+  },
+  {
+    "id": "le_thanh_tong",
+    "name": "Lê Thánh Tông",
+    "fullName": "Lê Tư Thành (Lê Thánh Tông)",
+    "years": "1442–1497",
+    "role": "Vị minh quân vĩ đại nhất triều Lê sơ",
+    "portrait": null,
+    "personality": "Sáng suốt, cương nghị, văn võ song toàn",
+    "arc": [
+      6
+    ],
+    "bio": "Hoàng đế thứ 5 của nhà Lê sơ. Đưa Đại Việt bước vào kỷ nguyên Hồng Đức rực rỡ nhất về văn hóa, pháp luật, và mở rộng bờ cõi."
+  },
+  {
+    "id": "luong_nhu_hoc",
+    "name": "Lương Như Hộc",
+    "fullName": "Lương Như Hộc",
+    "years": "1420–1501",
+    "role": "Ông tổ nghề in Việt Nam",
+    "portrait": null,
+    "personality": "Hiếu học, ham khám phá, thương dân",
+    "arc": [
+      6
+    ],
+    "bio": "Học lén nghề in của phương Bắc mang về Đại Việt. Truyền nghề cho dân làng Hồng Lục, Liễu Tràng, mở ra kỷ nguyên mới cho nền xuất bản nước nhà."
+  },
+  {
+    "id": "luong_the_vinh",
+    "name": "Lương Thế Vinh",
+    "fullName": "Lương Thế Vinh (Trạng Lường)",
+    "years": "1441–1496",
+    "role": "Thần đồng toán học, Trạng nguyên Đại Việt",
+    "portrait": null,
+    "personality": "Thông minh tuyệt đỉnh, phóng khoáng, thực tế",
+    "arc": [
+      6
+    ],
+    "bio": "Nhà toán học kiệt xuất thời Hồng Đức, tác giả Đại thành Toán pháp. Nổi tiếng với việc dùng toán học để đo đạc ruộng đất, đê điều và cân voi."
+  },
+  {
+    "id": "mac_dang_dung",
+    "name": "Mạc Đăng Dung",
+    "fullName": "Mạc Đăng Dung",
+    "years": "1483–1541",
+    "role": "Quyền thần, Hoàng đế khai quốc nhà Mạc",
+    "portrait": null,
+    "personality": "Mưu trí, võ nghệ cao cường, quyết đoán thâm sâu",
+    "arc": [
+      6
+    ],
+    "bio": "Xuất thân từ lính túc vệ nhờ sức vóc hơn người. Dẹp yên các thế lực cát cứ khi nhà Lê suy yếu, sau đó ép Lê Cung Hoàng nhường ngôi, lập ra nhà Mạc."
   }
 ]

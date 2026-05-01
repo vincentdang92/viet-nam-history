@@ -2,15 +2,16 @@
   {
     "id": "tran_dynasty",
     "title": "Kỷ Trần - Hồ - Lê Sơ",
-    "subtitle": "1225 – 1428",
-    "description": "Từ vinh quang ba lần kháng Nguyên đến những năm tháng lầm than thuộc Minh và sự trỗi dậy của Khởi nghĩa Lam Sơn.",
+    "subtitle": "1225 – 1527",
+    "description": "Từ vinh quang kháng Nguyên, lầm than thuộc Minh, khởi nghĩa Lam Sơn đến thời kỳ đỉnh cao Hồng Đức.",
     "available": true,
     "arcs": [
       { "id": 1, "title": "Lập Quốc", "years": "1225–1257" },
       { "id": 2, "title": "Ba Lần Kháng Nguyên", "years": "1257–1288" },
       { "id": 3, "title": "Thịnh Rồi Suy", "years": "1288–1400" },
       { "id": 4, "title": "Nhà Hồ & Thuộc Minh", "years": "1400–1418" },
-      { "id": 5, "title": "Khởi Nghĩa Lam Sơn", "years": "1418–1428" }
+      { "id": 5, "title": "Khởi Nghĩa Lam Sơn", "years": "1418–1428" },
+      { "id": 6, "title": "Đỉnh Cao Đại Việt", "years": "1428–1527" }
     ]
   },
   {
@@ -18,14 +19,6 @@
     "title": "Nhà Lý",
     "subtitle": "1009 – 1225",
     "description": "Triều đại khai sáng với Kinh thành Thăng Long và nền văn hóa Phật giáo huy hoàng.",
-    "available": false,
-    "arcs": []
-  },
-  {
-    "id": "le_dynasty",
-    "title": "Nhà Lê Sơ",
-    "subtitle": "1428 – 1527",
-    "description": "Khởi nghĩa Lam Sơn đánh đuổi quân Minh, lập nên triều đại hưng thịnh kéo dài.",
     "available": false,
     "arcs": []
   }
