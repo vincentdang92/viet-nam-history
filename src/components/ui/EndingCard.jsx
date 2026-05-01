@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { getRatingStars } from '../../utils/helpers'
 
-export default function EndingCard({ ending, onRestart, onSuKy, onContinue }) {
+export default function EndingCard({ ending, onRestart, onRestartChapter, onSuKy, onContinue, onResurrect, debugInfo }) {
   if (!ending) return null
 
   return (
@@ -42,30 +42,68 @@ export default function EndingCard({ ending, onRestart, onSuKy, onContinue }) {
           </div>
         </div>
 
-        <div className="flex gap-3">
+        {debugInfo && import.meta.env.DEV && (
+          <div className="bg-red-900/40 border border-red-500/50 rounded-xl p-3 mb-6 text-left">
+            <p className="text-red-300 text-xs font-bold mb-1">🛠 DEBUG INFO</p>
+            {debugInfo.isGameOver ? (
+              <>
+                <p className="text-red-200 text-xs">Trạng thái: <strong>Game Over (Chết)</strong></p>
+                <p className="text-red-200 text-xs">Nguyên nhân: {debugInfo.reason}</p>
+                <p className="text-red-200 text-xs italic mt-1 opacity-80">Lý do hiện Ending: Thỏa mãn điều kiện Good Ending trước khi chết.</p>
+              </>
+            ) : (
+              <p className="text-red-200 text-xs">Trạng thái: <strong>Kết Thúc Chương Bình Thường</strong></p>
+            )}
+          </div>
+        )}
+
+        <div className="flex flex-col gap-3">
           {onContinue ? (
             <button
               onClick={onContinue}
-              className="flex-1 py-3 rounded-xl bg-tran-primary text-white text-sm font-medium shadow-lg hover:opacity-90 transition-opacity"
+              className="w-full py-3.5 rounded-xl bg-tran-primary text-white text-sm font-bold shadow-lg hover:opacity-90 transition-opacity"
             >
               Tiếp Tục Thời Kỳ Tiếp Theo
             </button>
           ) : (
-            <button
-              onClick={onRestart}
-              className="flex-1 py-3 rounded-xl border border-tran-border text-tran-text text-sm hover:bg-tran-card transition-colors"
-            >
-              Chơi Lại
-            </button>
+            <>
+              {onRestartChapter && (
+                <button
+                  onClick={onRestartChapter}
+                  className="w-full py-3.5 rounded-xl bg-tran-primary text-white text-sm font-bold shadow-lg hover:opacity-90 transition-opacity"
+                >
+                  Làm Lại Chương Này ↺
+                </button>
+              )}
+              {onResurrect && import.meta.env.DEV && (
+                <button
+                  onClick={onResurrect}
+                  className="w-full py-3 rounded-xl bg-purple-700 text-white text-sm font-medium shadow-lg hover:bg-purple-600 transition-colors"
+                >
+                  Phục Sinh & Đi Tiếp (Debug)
+                </button>
+              )}
+            </>
           )}
-          {onSuKy && (
-            <button
-              onClick={onSuKy}
-              className="flex-1 py-3 rounded-xl bg-tran-secondary/20 border border-tran-secondary/40 text-tran-secondary text-sm hover:bg-tran-secondary/30 transition-colors"
-            >
-              Xem Sử Ký
-            </button>
-          )}
+
+          <div className="flex gap-3 mt-2">
+            {!onContinue && (
+              <button
+                onClick={onRestart}
+                className="flex-1 py-3 rounded-xl border border-red-900/40 bg-tran-card text-tran-text text-sm hover:bg-tran-card/80 transition-colors"
+              >
+                Chơi Lại Từ Đầu
+              </button>
+            )}
+            {onSuKy && (
+              <button
+                onClick={onSuKy}
+                className="flex-1 py-3 rounded-xl bg-tran-secondary/20 border border-tran-secondary/40 text-tran-secondary text-sm hover:bg-tran-secondary/30 transition-colors"
+              >
+                Xem Sử Ký
+              </button>
+            )}
+          </div>
         </div>
       </motion.div>
     </motion.div>

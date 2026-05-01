@@ -72,19 +72,29 @@ export default function GameOverScreen() {
             <p className="text-tran-text text-sm leading-relaxed">{state.gameOverReason}</p>
           </motion.div>
 
-          <motion.div variants={stagger.item} className="flex gap-3">
-            <button
-              onClick={() => dispatch({ type: 'RESTART' })}
-              className="flex-1 py-3 rounded-xl border border-tran-border text-tran-text text-sm hover:bg-tran-card/80 active:scale-95 transition-all"
-            >
-              Trang Chủ
-            </button>
-            <button
-              onClick={() => dispatch({ type: 'START_GAME' })}
-              className="flex-1 py-3 rounded-xl bg-tran-primary border border-tran-primary/50 text-tran-text text-sm hover:bg-tran-primary/80 active:scale-95 transition-all"
-            >
-              Chơi Lại ↺
-            </button>
+          <motion.div variants={stagger.item} className="flex flex-col gap-3">
+            {state.checkpoint && (
+              <button
+                onClick={() => dispatch({ type: 'RESTART_CHAPTER' })}
+                className="w-full py-3.5 rounded-xl bg-tran-primary border border-tran-primary/50 text-tran-text text-sm font-bold shadow-lg hover:bg-tran-primary/80 active:scale-95 transition-all"
+              >
+                Làm Lại Chương {state.currentArc} ↺
+              </button>
+            )}
+            <div className="flex gap-3">
+              <button
+                onClick={() => dispatch({ type: 'START_GAME' })}
+                className="flex-1 py-3 rounded-xl border border-red-900/40 bg-tran-card text-tran-text text-sm hover:bg-tran-card/80 active:scale-95 transition-all"
+              >
+                Chơi Lại Từ Đầu
+              </button>
+              <button
+                onClick={() => dispatch({ type: 'RESTART' })}
+                className="flex-1 py-3 rounded-xl border border-tran-border text-tran-text text-sm hover:bg-tran-card/80 active:scale-95 transition-all"
+              >
+                Trang Chủ
+              </button>
+            </div>
           </motion.div>
         </motion.div>
       </div>

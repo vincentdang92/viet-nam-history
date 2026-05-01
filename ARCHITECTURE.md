@@ -711,4 +711,24 @@ Khi cần mở rộng Chapter tiếp theo (Ví dụ: Nhà Lê Sơ - Thời Hồn
 2. Tạo file JSON riêng biệt cho mỗi Arc nằm trong `src/data/chapters/<tên_triều_đại>/`.
 3. Bổ sung nhân vật mới vào `characters.json`.
 4. Cập nhật các câu hỏi phụ vào `trivia.js`.
+
+---
+
+## 🐞 Công Cụ Debug (Ending & Phục Sinh)
+
+Game đã tích hợp sẵn hệ thống **Debug Panel** tại màn hình kết thúc (`EndingCard`) để hỗ trợ quá trình phát triển và kiểm thử nội dung:
+
+- **Phân Biệt Nguồn Kích Hoạt (Trigger Source)**: Bảng Debug Panel (màu đỏ) sẽ hiển thị chi tiết Ending này được kích hoạt do người chơi đã vượt qua toàn bộ sự kiện của một Chapter (Normal Arc Ending), hay là do họ bị Game Over (tụt chỉ số về 0) nhưng thỏa mãn các điều kiện để nhận Good Ending thay vì màn hình Game Over thông thường.
+- **Tính Năng Phục Sinh (Resurrect)**: Nếu Ending được kích hoạt bởi Game Over (VD: người chơi đang test Arc 3 nhưng lỡ tay làm chỉ số Binh Lực tụt về 0 và dính Good Ending), nút "Phục Sinh & Đi Tiếp" sẽ xuất hiện thay vì ẩn đi. Bấm vào nút này sẽ lập tức buff chỉ số vừa chết lên mức an toàn (30) và đưa người chơi quay lại đúng sự kiện tiếp theo để test tiếp, không cần phải chơi lại từ đầu. *(Lưu ý: Bảng Debug và nút Phục Sinh sẽ tự động bị ẩn đi ở môi trường Production - khi người chơi thực sự trải nghiệm game).*
+
+---
+
+## 💾 Hệ Thống Lưu Trữ (Persistence) & Checkpoint
+
+Game được thiết kế cho chiến dịch lịch sử dài kỳ, do đó tích hợp hệ thống lưu trữ qua `src/services/storageService.js`.
+
+- **Tự Động Lưu (Auto-save):** Trạng thái Game (`currentGameState`) được tự động lưu xuống `localStorage` sau mỗi sự kiện hoặc thao tác. Việc này cho phép người chơi đóng trình duyệt và mở lại chơi tiếp bình thường.
+- **Phân Tách Dữ Liệu (Scoping):** Tên file save dưới local sẽ được gán kèm UserID (VD: `minh_chu_save_guest`). Việc này dọn sẵn đường cho Firebase Auth để không bị conflict dữ liệu khi nhiều người dùng xài chung 1 thiết bị.
+- **Chơi Lại Chương Này (Checkpoint):** Mỗi khi bắt đầu một Arc mới (`START_ARC`), hệ thống sẽ chụp lại một `checkpoint` snapshot. Khi người chơi bị Game Over, họ sẽ có tùy chọn "Làm Lại Chương Này" (hồi sinh toàn bộ chỉ số về 50, quay về đầu Arc hiện tại) để giảm bớt cảm giác chán nản so với việc bắt buộc phải "Chơi Lại Từ Đầu" (Reset hoàn toàn về năm 1225).
+- **Loại Bỏ Good Ending Trá Hình:** Khi người chơi chết (Game Over do cạn kiệt/bùng nổ chỉ số), hệ thống sẽ KHÔNG trao các Ending từ 3 sao trở lên để tránh nhầm lẫn. Người chơi sẽ thấy đúng màn hình sụp đổ, biết được nguyên do và tự chọn Làm lại chương hoặc Chơi lại từ đầu.
 5. Tạo các Flag cần thiết và check kết cục tại `endingChecker.js`.

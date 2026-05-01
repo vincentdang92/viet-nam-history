@@ -4,7 +4,7 @@ const SORTED_ENDINGS = [...endings].sort(
   (a, b) => Object.keys(b.conditions).length - Object.keys(a.conditions).length
 )
 
-export function checkEnding(state) {
+export function checkEnding(state, isGameOver = false) {
   const { currentArc, stats, flags, yearsReigned } = state
 
   // Arc 1-2: never trigger endings
@@ -13,6 +13,11 @@ export function checkEnding(state) {
   if (currentArc === 4) return { hasEnding: false }
 
   for (const ending of SORTED_ENDINGS) {
+    // If we are checking during a Game Over, skip any Good Endings (rating >= 3)
+    if (isGameOver && ending.rating >= 3) {
+      continue
+    }
+
     const c = ending.conditions
     let match = true
 

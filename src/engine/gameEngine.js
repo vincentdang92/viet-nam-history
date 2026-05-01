@@ -72,13 +72,19 @@ export function handleRescueOrGameOver(stateBase, gameOverCheck, nextEvent, choi
   }
 
   // 3. Game Over (no rescue left)
-  const endingCheck = checkEnding(stateBase)
+  const endingCheck = checkEnding(stateBase, true)
   if (endingCheck.hasEnding) {
     return {
       ...stateBase,
       gameStatus: 'ending',
       endingId: endingCheck.endingId,
       lastChoice: choice,
+      endingDebugInfo: {
+        isGameOver: true,
+        triggerStat: gameOverCheck.triggerStat,
+        reason: gameOverCheck.reason,
+        nextEvent: nextEvent,
+      }
     }
   }
 
@@ -338,6 +344,9 @@ export function processChoice(state, choiceId) {
         referenceLink: choice.referenceLink
       },
       pendingEnding: endingCheck.endingId,
+      endingDebugInfo: {
+        isGameOver: false,
+      }
     }
   }
 
@@ -360,6 +369,9 @@ export function processChoice(state, choiceId) {
         referenceLink: choice.referenceLink
       },
       pendingEnding: fallbackEndingId,
+      endingDebugInfo: {
+        isGameOver: false,
+      }
     }
   }
 

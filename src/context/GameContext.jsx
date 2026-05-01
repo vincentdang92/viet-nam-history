@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useReducer } from 'react'
+import { createContext, useContext, useReducer, useEffect } from 'react'
 import { processChoice, processTriviaResult, processCombatChoice, dismissFactPopup, computeRescuedStats, processEspionageResult, processPoetryResult } from '../engine/gameEngine'
 import { getFirstEvent } from '../engine/eventResolver'
 import { checkEnding } from '../engine/endingChecker'
@@ -9,6 +9,7 @@ import { getRandomQuest } from '../data/quests'
 import { COMPANIONS_DATA } from '../data/companions'
 import { INITIAL_MAP_STATE } from '../constants/mapConfig'
 import { INITIAL_FACTION_STATE } from '../constants/factionConfig'
+import { loadGame, saveGame, clearGame } from '../services/storageService'
 
 const INITIAL_STATE = {
   chapter: 'tran_dynasty',
@@ -70,23 +71,60 @@ const INITIAL_STATE = {
   historicalScore: 100,
   hintsLeft: 3,
   hintToast: null,
+  checkpoint: null,
+}
+
+function init(initialState) {
+  const savedState = loadGame()
+  if (savedState) {
+    if (savedState.gameStatus === 'playing' && !savedState.currentEvent) return initialState
+    return { 
+      ...initialState, 
+      ...savedState, 
+      showFactPopup: false, 
+      pendingFact: null 
+    }
+  }
+  return initialState
 }
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'START_GAME':
+    case 'START_GAME': {
+      clearGame()
       return {
         ...INITIAL_STATE,
         gameStatus: 'playing',
         currentEvent: getFirstEvent(1),
         activeQuest: getRandomQuest(),
       }
+    }
     case 'CONTINUE_NEXT_ARC':
       return {
         ...state,
         gameStatus: state.pendingArcIntro ? 'arc_intro' : 'playing',
         pendingEnding: null,
       }
+    case 'RESURRECT_FROM_ENDING': {
+      if (!state.endingDebugInfo || !state.endingDebugInfo.isGameOver) return state
+      
+      // Khôi phục 4 chỉ số về mức ban đầu (50)
+      const newStats = {
+        binhLuc: STAT_INITIAL,
+        danTam: STAT_INITIAL,
+        quocKho: STAT_INITIAL,
+        trieuCuong: STAT_INITIAL,
+      }
+      
+      return {
+        ...state,
+        stats: newStats,
+        gameStatus: 'playing',
+        currentEvent: state.endingDebugInfo.nextEvent || state.currentEvent,
+        endingId: null,
+        endingDebugInfo: null,
+      }
+    }
     case 'START_ARENA':
       return { ...INITIAL_STATE, gameStatus: 'arena', arenaScore: 0, arenaLives: 3, arenaCombo: 0 }
     case 'QUIT_ARENA':
@@ -176,10 +214,42 @@ function reducer(state, action) {
       }
     case 'DISMISS_HINT_TOAST':
       return { ...state, hintToast: null }
-    case 'START_ARC':
-      return { ...state, gameStatus: 'playing', pendingArcIntro: null, activeQuest: state.activeQuest || getRandomQuest(), hintsLeft: 3 }
-    case 'RESTART':
+    case 'START_ARC': {
+      // Create a snapshot (checkpoint) before starting the arc
+      const checkpointSnapshot = { ...state, checkpoint: null, currentEvent: null }
+      return { 
+        ...state, 
+        gameStatus: 'playing', 
+        pendingArcIntro: null, 
+        activeQuest: state.activeQuest || getRandomQuest(), 
+        hintsLeft: 3,
+        checkpoint: checkpointSnapshot
+      }
+    }
+    case 'RESTART_CHAPTER': {
+      if (!state.checkpoint) return state
+      
+      const newStats = {
+        binhLuc: STAT_INITIAL,
+        danTam: STAT_INITIAL,
+        quocKho: STAT_INITIAL,
+        trieuCuong: STAT_INITIAL,
+      }
+      
+      return {
+        ...state.checkpoint,
+        stats: newStats,
+        gameStatus: 'playing',
+        currentEvent: getFirstEvent(state.checkpoint.currentArc),
+        checkpoint: state.checkpoint
+      }
+    }
+    case 'TOGGLE_FACT':
+      return { ...state, showFactPopup: !state.showFactPopup }
+    case 'RESTART': {
+      clearGame()
       return INITIAL_STATE
+    }
     case 'AD_RESCUE_COMPLETE': {
       const { rescuedStats, pendingState, bonus } = state.adRescue ?? {}
       if (!pendingState) return { ...state, gameStatus: 'gameover', adRescue: null }
@@ -290,7 +360,14 @@ function reducer(state, action) {
 const GameContext = createContext(null)
 
 export function GameProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
+  const [state, dispatch] = useReducer(reducer, INITIAL_STATE, init)
+
+  useEffect(() => {
+    if (state.gameStatus !== 'menu') {
+      saveGame(state)
+    }
+  }, [state])
+
   return (
     <GameContext.Provider value={{ state, dispatch }}>
       {children}

@@ -81,8 +81,11 @@ function GameRouter() {
           key="ending"
           ending={ending}
           onRestart={() => dispatch({ type: 'START_GAME' })}
+          onRestartChapter={state.checkpoint ? () => dispatch({ type: 'RESTART_CHAPTER' }) : undefined}
           onSuKy={() => dispatch({ type: 'TOGGLE_SU_KY' })}
           onContinue={state.pendingArcIntro && state.currentArc < 10 ? () => dispatch({ type: 'CONTINUE_NEXT_ARC' }) : undefined}
+          debugInfo={state.endingDebugInfo}
+          onResurrect={state.endingDebugInfo?.isGameOver ? () => dispatch({ type: 'RESURRECT_FROM_ENDING' }) : undefined}
         />
       )
     }
