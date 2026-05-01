@@ -15,7 +15,7 @@ export default function ItemRescueScreen() {
 
   return (
     <motion.div
-      className="h-[100dvh] overflow-hidden bg-tran-bg flex flex-col justify-center items-center px-6 max-w-sm mx-auto relative"
+      className="h-[100dvh] overflow-hidden bg-tran-bg flex flex-col justify-center items-center px-6 w-full max-w-md mx-auto relative"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

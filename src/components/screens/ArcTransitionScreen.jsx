@@ -40,7 +40,7 @@ export default function ArcTransitionScreen() {
         style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 40%, rgba(212,160,23,0.08) 0%, transparent 70%)' }}
       />
 
-      <div className="relative w-full max-w-sm">
+      <div className="relative w-full max-w-md">
         <motion.div
           variants={stagger.container}
           initial="initial"

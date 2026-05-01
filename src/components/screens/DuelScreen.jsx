@@ -143,7 +143,7 @@ export default function DuelScreen() {
 
     return (
       <motion.div
-        className="h-[100dvh] overflow-hidden bg-stone-950 flex flex-col justify-center items-center px-4 max-w-sm mx-auto"
+        className="h-[100dvh] overflow-hidden bg-stone-950 flex flex-col justify-center items-center px-4 w-full max-w-md mx-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
@@ -184,7 +184,7 @@ export default function DuelScreen() {
 
   return (
     <motion.div
-      className="h-[100dvh] bg-stone-950 flex flex-col px-4 max-w-sm mx-auto relative overflow-hidden"
+      className="h-[100dvh] bg-stone-950 flex flex-col px-4 w-full max-w-md mx-auto relative overflow-hidden"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 1.05 }}

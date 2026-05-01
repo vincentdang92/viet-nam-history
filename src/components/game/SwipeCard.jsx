@@ -5,7 +5,7 @@ import CardDisplay from './CardDisplay'
 
 const SWIPE_THRESHOLD = 80
 
-export default function SwipeCard({ event, choices, onChoiceA, onChoiceB, cardKey, showTutorial }) {
+export default function SwipeCard({ id, event, choices, onChoiceA, onChoiceB, cardKey, showTutorial }) {
   const x      = useMotionValue(0)
   const rotate = useTransform(x, [-220, 220], [-14, 14])
 
@@ -29,7 +29,7 @@ export default function SwipeCard({ event, choices, onChoiceA, onChoiceB, cardKe
   const isBattle = event?.type === 'battle' || event?.isCinematic || event?.type === 'campaign' || event?.type === 'combat_card'
 
   return (
-    <div className="relative select-none w-full h-full flex flex-col">
+    <div id={id || `event-wrapper-${event?.id}`} className="relative select-none w-full h-full flex flex-col">
       <motion.div
         key={cardKey}
         drag="x"
@@ -42,11 +42,7 @@ export default function SwipeCard({ event, choices, onChoiceA, onChoiceB, cardKe
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.88, y: -24 }}
         transition={{ type: 'spring', stiffness: 280, damping: 24 }}
-        className={`relative w-full h-full flex flex-col rounded-2xl shadow-2xl overflow-hidden cursor-grab active:cursor-grabbing
-          ${isBattle
-            ? 'border-2 border-red-700/60 bg-gradient-to-b from-red-950/80 to-tran-card'
-            : 'border border-tran-border bg-tran-card'
-          }`}
+        className={`relative w-full h-full flex flex-col shadow-2xl overflow-hidden cursor-grab active:cursor-grabbing rounded-none ${isBattle ? 'bg-red-950/80' : 'bg-tran-card'}`}
         whileDrag={{ scale: 1.02 }}
       >
         {/* Drag tints */}

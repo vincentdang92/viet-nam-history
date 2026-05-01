@@ -119,7 +119,7 @@ export default function HomeScreen() {
         style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 30%, rgba(139,26,26,0.15) 0%, transparent 70%)' }}
       />
 
-      <div className="relative w-full max-w-sm flex-1 overflow-y-auto px-6 py-4 flex flex-col hide-scrollbar">
+      <div className="relative w-full max-w-md flex-1 overflow-y-auto px-6 py-4 flex flex-col hide-scrollbar">
         <div className="m-auto w-full flex flex-col h-full">
           {/* Logo */}
           <motion.div

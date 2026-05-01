@@ -12,7 +12,7 @@ export default function SuKyScreen({ onBack }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] bg-tran-bg flex flex-col w-full max-w-sm mx-auto"
+      className="fixed inset-0 z-[100] bg-tran-bg flex flex-col w-full max-w-md mx-auto"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}

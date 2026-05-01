@@ -58,8 +58,8 @@ export default function CardDisplay({ event }) {
           initial="initial"
           animate="animate"
         >
-          {/* Portrait taking upper half */}
-          <motion.div variants={stagger.item} className="w-full relative shrink-0">
+          {/* Portrait taking full card */}
+          <motion.div variants={stagger.item} className="absolute inset-0 w-full h-full shrink-0">
             <CharacterPortrait characterId={event.character} isCinematic={isBig} />
             
             {/* Absolute positioning for Badge and Year over the portrait */}
@@ -73,18 +73,17 @@ export default function CardDisplay({ event }) {
             </div>
           </motion.div>
 
-          {/* Title + Quote + Context (Lower half) */}
-          <motion.div variants={stagger.item} className="flex-1 flex flex-col items-center p-4 sm:p-5 pt-3 sm:pt-4 text-center justify-start overflow-y-auto min-h-0">
-            <h2 className={`text-tran-text font-serif font-bold leading-snug ${isBig ? 'text-[1.35rem] sm:text-2xl' : 'text-lg sm:text-xl'} mb-1.5 sm:mb-2`}>
+          <motion.div variants={stagger.item} className="absolute bottom-0 left-0 w-full flex flex-col items-center p-4 sm:p-5 pt-12 pb-5 text-center justify-end z-10 bg-gradient-to-t from-black via-black/80 to-transparent">
+            <h2 className={`text-tran-text font-serif font-bold leading-snug ${isBig ? 'text-[1.35rem] sm:text-2xl' : 'text-lg sm:text-xl'} mb-1.5 sm:mb-2 drop-shadow-md`}>
               {event.title}
             </h2>
             
-            <p className="text-tran-text/80 text-[13px] sm:text-sm leading-relaxed mb-2.5 sm:mb-3">
+            <p className="text-tran-text/90 text-[13px] sm:text-sm leading-relaxed mb-2.5 sm:mb-3 drop-shadow-md">
               {event.context}
             </p>
             
             {event.quote && (
-              <p className="text-tran-secondary italic text-[11px] sm:text-[13px] leading-snug border-t border-tran-border/30 pt-2.5 sm:pt-3 mt-auto w-full">
+              <p className="text-tran-secondary italic text-[11px] sm:text-[13px] leading-snug pt-2.5 sm:pt-3 w-full drop-shadow-md">
                 &ldquo;{event.quote}&rdquo;
               </p>
             )}

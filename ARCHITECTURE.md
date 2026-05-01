@@ -97,7 +97,25 @@ minh-chu/
 │   │
 │   ├── context/
 │   │   └── GameContext.jsx       # Global game state
-│   │
+
+---
+
+## 4. UI ARCHITECTURE: LAYOUT "TAM TÀI" (Thiên - Địa - Nhân)
+
+Màn hình chơi chính (`GameScreen.jsx`) được thiết kế theo tỷ lệ màn hình dọc (mobile-first), chia làm 3 phần rõ rệt:
+
+1. **Phần Thiên (Header & Stats - 15%)**
+   - Nổi (Floating) trên cùng bằng hiệu ứng Glassmorphism.
+   - Gồm thông tin triều đại và 4 thanh chỉ số cốt lõi.
+
+2. **Phần Nhân (Main Event Card - 55%)**
+   - Thẻ sự kiện Borderless (không viền).
+   - Ảnh chân dung chiếm 100% diện tích, overlay văn bản ở đáy thẻ bằng Gradient đen.
+
+3. **Phần Địa (Choice Cards - 30%)**
+   - Nơi người chơi ra quyết định qua 2 thẻ (Nhu - Cương).
+   - Thiết kế thẩm mỹ Mộc Bản/Sắc Phong với hiệu ứng Dấu Ấn Hoàng Gia khi Click/Tap.
+
 │   ├── hooks/
 │   │   ├── useGameState.js       # Logic game chính
 │   │   ├── useSwipe.js           # Gesture swipe

@@ -40,7 +40,7 @@ function ExitModal({ onContinue, onHome }) {
       transition={{ duration: 0.2 }}
     >
       <motion.div
-        className="w-full max-w-sm rounded-2xl border border-tran-border bg-tran-card shadow-2xl overflow-hidden"
+        className="w-full max-w-md rounded-2xl border border-tran-border bg-tran-card shadow-2xl overflow-hidden"
         initial={{ y: 80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 80, opacity: 0 }}
@@ -88,7 +88,7 @@ function QuestToast({ toast, onDismiss }) {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      className={`fixed top-16 left-4 right-4 mx-auto z-50 px-4 py-2 rounded-xl shadow-lg border flex items-center gap-3 max-w-sm
+      className={`fixed top-16 left-4 right-4 mx-auto z-50 px-4 py-2 rounded-xl shadow-lg border flex items-center gap-3 w-full max-w-md
         ${toast.status === 'completed' ? 'bg-green-900/90 border-green-500/50 text-green-100' : 'bg-red-900/90 border-red-500/50 text-red-100'}
       `}
       style={{ backdropFilter: 'blur(8px)' }}
@@ -118,7 +118,7 @@ function HintToast({ toast, onDismiss }) {
       initial={{ opacity: 0, scale: 0.9, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.9, y: 20 }}
-      className="fixed bottom-32 left-4 right-4 mx-auto z-50 px-5 py-4 rounded-2xl shadow-2xl border bg-yellow-900/95 border-yellow-500/50 text-yellow-50 max-w-sm"
+      className="fixed bottom-32 left-4 right-4 mx-auto z-50 px-5 py-4 rounded-2xl shadow-2xl border bg-yellow-900/95 border-yellow-500/50 text-yellow-50 w-full max-w-md"
       style={{ backdropFilter: 'blur(10px)' }}
     >
       <div className="flex items-start gap-3">
@@ -258,7 +258,10 @@ function GameHeader({ arc, activeTitle, onSuKy, onHome, onToggleMap, onToggleFac
 // ─── Main screen ────────────────────────────────────────────────────────────────
 export default function GameScreen() {
   const { state, dispatch } = useGame()
-  const { currentEvent, stats, historicalScore, hintsLeft, hintToast, currentYear, currentArc, showFactPopup, pendingFact, eventHistory, inventory, activeQuest, questToast } = state
+  const { currentEvent: baseEvent, stats, historicalScore, hintsLeft, hintToast, currentYear, currentArc, showFactPopup, pendingFact, eventHistory, inventory, activeQuest, questToast } = state
+  const inCombat = state.gameStatus === 'combat' && state.combatState
+  const currentEvent = inCombat ? state.combatState.currentCard : baseEvent
+  const combatKey = inCombat ? `-${state.combatState.playerHP}-${state.combatState.enemyHP}` : ''
   const [hoveredChoice, setHoveredChoice] = useState(null)
   const [cardKey, setCardKey]   = useState(0)
   const [showExitModal, setShowExitModal] = useState(false)
@@ -322,7 +325,7 @@ export default function GameScreen() {
 
   return (
     <motion.div
-      className={`h-[100dvh] overflow-hidden flex flex-col max-w-sm mx-auto relative transition-colors duration-1000 ${isCampaign ? 'bg-red-950/40' : 'bg-tran-bg'}`}
+      className={`h-[100dvh] overflow-hidden flex flex-col w-full max-w-md mx-auto relative transition-colors duration-1000 ${isCampaign ? 'bg-red-950/40' : 'bg-tran-bg'}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -346,47 +349,52 @@ export default function GameScreen() {
         )}
       </AnimatePresence>
 
-      {/* Header */}
-      <div className="relative z-50">
-        <GameHeader 
-          arc={currentArc} 
-          activeTitle={state.activeTitle}
-          onSuKy={() => dispatch({ type: 'TOGGLE_SU_KY' })} 
-          onHome={() => setShowExitModal(true)} 
-          onToggleMap={() => dispatch({ type: 'TOGGLE_MAP' })}
-          onToggleFaction={() => dispatch({ type: 'TOGGLE_FACTION' })}
-          inventory={inventory} 
-          activeQuest={activeQuest} 
-          hintsLeft={hintsLeft}
-          onUseHint={() => dispatch({ type: 'USE_HINT' })}
-        />
+      {/* Header & Stats (Phần Thiên - 15%) - Floating Overlay */}
+      <div className="absolute top-0 left-0 w-full z-50 flex flex-col pointer-events-none">
+        <div className="pointer-events-auto">
+          <GameHeader 
+            arc={currentArc} 
+            activeTitle={state.activeTitle}
+            onSuKy={() => dispatch({ type: 'TOGGLE_SU_KY' })} 
+            onHome={() => setShowExitModal(true)} 
+            onToggleMap={() => dispatch({ type: 'TOGGLE_MAP' })}
+            onToggleFaction={() => dispatch({ type: 'TOGGLE_FACTION' })}
+            inventory={inventory} 
+            activeQuest={activeQuest} 
+            hintsLeft={hintsLeft}
+            onUseHint={() => dispatch({ type: 'USE_HINT' })}
+          />
+        </div>
+        <div className="px-4 mt-2 pointer-events-auto">
+          <StatsBar stats={previewStats} baseStats={stats} />
+          {/* Historical Score Meter */}
+          <div className="mt-2 flex items-center justify-center gap-2 bg-black/40 backdrop-blur-md rounded-full px-3 py-1 w-max mx-auto border border-white/10 shadow-lg">
+            <span className="text-[9px] uppercase tracking-widest text-tran-textMuted font-bold">Chính Sử</span>
+            <div className="w-20 h-1 bg-black/60 rounded-full overflow-hidden">
+              <motion.div 
+                className="h-full bg-gradient-to-r from-yellow-600 to-yellow-400"
+                initial={{ width: `${historicalScore}%` }}
+                animate={{ width: `${historicalScore}%` }}
+                transition={{ type: 'spring', damping: 20 }}
+              />
+            </div>
+            <span className={`text-[9px] font-bold ${historicalScore < 30 ? 'text-red-400 animate-pulse' : 'text-yellow-500'}`}>{historicalScore}%</span>
+          </div>
+        </div>
       </div>
 
       <CampaignMap />
       <FactionPanel />
 
-      {/* Stats */}
-      <div className="px-4 pb-1 shrink-0 relative z-10">
-        <StatsBar stats={previewStats} baseStats={stats} />
-        {/* Historical Score Meter */}
-        <div className="mt-2.5 flex items-center gap-2">
-          <span className="text-[10px] uppercase tracking-widest text-tran-textMuted font-bold">Chính Sử</span>
-          <div className="flex-1 h-1.5 bg-tran-bg rounded-full overflow-hidden border border-tran-border/30">
-            <motion.div 
-              className="h-full bg-gradient-to-r from-yellow-600 to-yellow-400"
-              initial={{ width: `${historicalScore}%` }}
-              animate={{ width: `${historicalScore}%` }}
-              transition={{ type: 'spring', damping: 20 }}
-            />
-          </div>
-          <span className={`text-[10px] font-bold ${historicalScore < 30 ? 'text-red-400 animate-pulse' : 'text-yellow-500'}`}>{historicalScore}%</span>
-        </div>
-      </div>
-
-      {/* Card */}
-      <div className="flex-1 flex flex-col justify-center px-4 py-3 min-h-0 relative z-10">
+      {/* Main Event Card (Phần Nhân - 65%) */}
+      {/* Căn chỉnh margins để nằm dưới phần Thiên một chút, nhưng vẫn lộ ra background */}
+      <div 
+        id={`event-wrapper-${currentEvent?.id}`} 
+        className="flex-1 flex flex-col justify-end px-0 pb-2 pt-[18vh] min-h-0 relative z-10"
+      >
         <AnimatePresence mode="wait">
           <SwipeCard
+            id={`event-card-${currentEvent?.id}`}
             key={cardKey}
             event={currentEvent}
             choices={choices}
@@ -398,24 +406,26 @@ export default function GameScreen() {
         </AnimatePresence>
       </div>
 
-      {/* Year + choices */}
-      <div className="px-4 pb-6 pt-4 shrink-0 space-y-2 relative z-10">
+      {/* Choice Cards (Phần Địa - 30%) */}
+      <div className="px-4 pb-8 pt-2 shrink-0 flex flex-col justify-end relative z-20 h-[30vh]">
+        <YearDisplay year={currentYear} arc={currentArc} />
+        
         {isCampaign && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-4"
+            className="text-center mt-2 mb-1"
           >
             <span className="bg-red-900 text-red-200 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-widest shadow-md border border-red-700">
               Chiến Dịch
             </span>
           </motion.div>
         )}
-        <YearDisplay year={currentYear} arc={currentArc} />
-        <div className="space-y-2 mt-2">
+
+        <div className="flex justify-around gap-3 w-full mt-3 h-full pb-2">
           {choices.map((choice, i) => (
             <ChoiceButton
-              key={choice.id}
+              key={`${cardKey}-${choice.id}${combatKey}`}
               choice={choice}
               index={i}
               onClick={() => handleChoice(choice.id)}

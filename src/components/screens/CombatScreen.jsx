@@ -39,7 +39,7 @@ export default function CombatScreen() {
 
   return (
     <motion.div
-      className="h-[100dvh] bg-red-950/90 flex flex-col max-w-sm mx-auto relative overflow-hidden"
+      className="h-[100dvh] bg-red-950/90 flex flex-col w-full max-w-md mx-auto relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -68,9 +68,10 @@ export default function CombatScreen() {
       </div>
 
       {/* Card Area */}
-      <div className="flex-1 flex flex-col justify-center px-4 py-2 min-h-0 relative z-10">
+      <div id={`event-wrapper-${mockEvent?.id}`} className="flex-1 flex flex-col justify-center px-4 py-2 min-h-0 relative z-10">
         <AnimatePresence mode="wait">
           <SwipeCard
+            id={`event-card-${mockEvent?.id}`}
             key={cardKey}
             event={mockEvent}
             choices={choices}
@@ -97,10 +98,10 @@ export default function CombatScreen() {
           </h2>
         </div>
 
-        <div className="space-y-2">
+        <div className="flex justify-around gap-3 w-full">
           {choices.map((choice, i) => (
             <ChoiceButton
-              key={choice.id}
+              key={`${cardKey}-${choice.id}`}
               choice={{ ...choice, effects: {} }}
               index={i}
               hovered={hoveredChoice === i}

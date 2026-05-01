@@ -106,7 +106,7 @@ function reducer(state, action) {
     case 'QUIT_DUEL':
       return { ...state, gameStatus: 'menu', duelTarget: null, duelGhost: null }
     case 'CHOOSE':
-      if (action.choiceId === 'COMBAT_ATTACK' || action.choiceId === 'COMBAT_DEFEND') {
+      if (state.gameStatus === 'combat' && (action.choiceId === 'atk' || action.choiceId === 'def')) {
         const combatResult = processCombatChoice(state, action.choiceId)
         return combatResult
       }

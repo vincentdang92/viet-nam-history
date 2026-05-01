@@ -29,7 +29,7 @@ export default function GameOverScreen() {
         style={{ background: 'radial-gradient(ellipse at center, transparent 40%, rgba(139,26,26,0.35) 100%)' }}
       />
 
-      <div className="relative w-full max-w-sm text-center">
+      <div className="relative w-full max-w-md text-center">
         {/* Skull */}
         <motion.div
           initial={{ scale: 0, rotate: -20 }}

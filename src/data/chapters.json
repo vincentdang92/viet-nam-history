@@ -21,5 +21,17 @@
       { "id": 5, "title": "Khởi Nghĩa Lam Sơn", "years": "1418–1428" },
       { "id": 6, "title": "Đỉnh Cao Đại Việt", "years": "1428–1527" }
     ]
+  },
+  {
+    "id": "dai_viet_tram_luan",
+    "title": "Phân Tranh & Thống Nhất",
+    "subtitle": "1527 – 1802",
+    "description": "250 năm nội chiến liên miên từ Nam Bắc triều đến Trịnh Nguyễn phân tranh, khép lại bằng hào khí Tây Sơn thần tốc.",
+    "available": false,
+    "arcs": [
+      { "id": 7, "title": "Màn Sương Phản Nghịch", "years": "1527–1592" },
+      { "id": 8, "title": "Sông Gianh Chia Cắt", "years": "1627–1777" },
+      { "id": 9, "title": "Cơn Lốc Tây Sơn", "years": "1771–1802" }
+    ]
   }
 ]

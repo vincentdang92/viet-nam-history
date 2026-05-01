@@ -13,7 +13,13 @@ function StatItem({ statKey, value, base }) {
     <div className="flex flex-col gap-0.5 flex-1 min-w-0">
       {/* Label row */}
       <div className="flex items-center gap-1">
-        <span className="text-xs leading-none shrink-0">{meta.icon}</span>
+        <motion.span 
+          className="text-xs leading-none shrink-0"
+          animate={delta !== 0 ? { scale: [1, 1.2, 1], opacity: [1, 0.8, 1] } : { scale: 1, opacity: 1 }}
+          transition={{ repeat: Infinity, duration: 1 }}
+        >
+          {meta.icon}
+        </motion.span>
         <span className="text-tran-textMuted text-[10px] truncate leading-none flex-1">{meta.label}</span>
         <span
           className="text-[11px] font-bold leading-none shrink-0 tabular-nums"
@@ -49,7 +55,7 @@ function StatItem({ statKey, value, base }) {
 
 export default function StatsBar({ stats, baseStats }) {
   return (
-    <div className="grid grid-cols-2 gap-x-3 gap-y-2.5 px-4 py-3 bg-black/30 rounded-xl">
+    <div className="grid grid-cols-2 gap-x-3 gap-y-2.5 px-4 py-3 bg-black/40 backdrop-blur-md rounded-xl border border-white/10 shadow-xl">
       {STAT_KEYS.map(key => (
         <StatItem
           key={key}

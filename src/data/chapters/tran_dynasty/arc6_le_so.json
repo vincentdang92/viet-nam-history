@@ -73,7 +73,24 @@
         },
         "isHistorical": false,
         "fact": "Trong thực tế, triều đình lúc bấy giờ bị kiểm soát bởi các công thần khai quốc, một vị vua nhỏ tuổi không thể lật lại vụ án ngay lúc đó.",
-        "chainNext": "tran_arc6_003"
+        "chainNext": "tran_arc6_003",
+        "espionageData": {
+          "targetName": "Cung nhân Tấu",
+          "clues": [
+            { "text": "Ta thấy ngự y Tấu hay ra vào cung Thái hậu.", "isLie": false },
+            { "text": "Thái Tông vốn có bệnh không tiện nói.", "isLie": false },
+            { "text": "Chính mắt ta thấy phu nhân Nguyễn Thị Lộ ép vua uống thuốc độc!", "isLie": true }
+          ],
+          "reward": {
+            "danTam": 20,
+            "trieuCuong": 20
+          },
+          "penalty": {
+            "danTam": -20,
+            "trieuCuong": -10,
+            "binhLuc": -10
+          }
+        }
       }
     ],
     "isCinematic": false,

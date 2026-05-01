@@ -81,10 +81,10 @@ export default function CharacterPortrait({ characterId, isCinematic }) {
 
   return (
     <div
-      className={`w-full aspect-[3/2] rounded-t-xl flex items-center justify-center shadow-2xl relative overflow-hidden`}
+      className={`absolute inset-0 w-full h-full rounded-2xl flex items-center justify-center overflow-hidden`}
       style={{
         backgroundColor: color + '11',
-        ...getFrameStyle(role, color),
+        boxShadow: `inset 0 0 40px ${color}50`, // Soft inner shadow instead of borders
       }}
     >
       {/* Fallback Pattern Background */}
