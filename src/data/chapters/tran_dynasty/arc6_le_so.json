@@ -60,7 +60,8 @@
         },
         "isHistorical": true,
         "fact": "Thảm án Lệ Chi Viên là án oan lớn nhất trong lịch sử phong kiến Việt Nam, tước đi mạng sống của một vị đại anh hùng dân tộc.",
-        "chainNext": "tran_arc6_003"
+        "chainNext": "tran_arc6_003",
+        "unlockSuKy": "su_ky_le_chi_vien_001"
       },
       {
         "id": "choice_b",
@@ -317,7 +318,8 @@
         },
         "isHistorical": true,
         "fact": "Bộ luật Hồng Đức là đỉnh cao của lập pháp phong kiến, trong đó ghi nhận nhiều quyền lợi cho phụ nữ và bảo vệ người dân thấp cổ bé họng.",
-        "chainNext": "tran_arc6_006"
+        "chainNext": "tran_arc6_006",
+        "unlockSuKy": "su_ky_hong_duc_001"
       },
       {
         "id": "choice_b",

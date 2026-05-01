@@ -82,7 +82,7 @@ function GameRouter() {
           ending={ending}
           onRestart={() => dispatch({ type: 'START_GAME' })}
           onSuKy={() => dispatch({ type: 'TOGGLE_SU_KY' })}
-          onContinue={state.pendingArcIntro && state.currentArc < 6 ? () => dispatch({ type: 'CONTINUE_NEXT_ARC' }) : undefined}
+          onContinue={state.pendingArcIntro && state.currentArc < 10 ? () => dispatch({ type: 'CONTINUE_NEXT_ARC' }) : undefined}
         />
       )
     }

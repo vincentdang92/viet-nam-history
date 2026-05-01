@@ -124,12 +124,15 @@ Màn hình chơi chính (`GameScreen.jsx`) được thiết kế theo tỷ lệ 
 │   │
 │   ├── data/
 │   │   ├── chapters/
-│   │   │   └── tran_dynasty/
-│   │   │       ├── arc1_lap_quoc.json      # Arc 1: Lập Quốc (1225–1257)
-│   │   │       ├── arc2_khang_nguyen.json  # Arc 2: Ba Lần Kháng Nguyên
-│   │   │       ├── arc3_thinh_roi_suy.json # Arc 3: Thịnh Rồi Suy
-│   │   │       ├── arc4_nha_ho.json        # Arc 4: Nhà Hồ & Thuộc Minh (1400–1418)
-│   │   │       └── arc5_lam_son.json       # Arc 5: Khởi Nghĩa Lam Sơn (1418–1428)
+│   │   │   ├── tran_dynasty/             # Chapter 1: Hào Khí Đông A
+│   │   │   │   ├── arc1_lap_quoc.json      # Arc 1: Lập Quốc (1225–1257)
+│   │   │   │   ├── arc2_khang_nguyen.json  # Arc 2: Ba Lần Kháng Nguyên
+│   │   │   │   ├── arc3_thinh_roi_suy.json # Arc 3: Thịnh Rồi Suy
+│   │   │   │   ├── arc4_nha_ho.json        # Arc 4: Nhà Hồ & Thuộc Minh (1400–1418)
+│   │   │   │   ├── arc5_lam_son.json       # Arc 5: Khởi Nghĩa Lam Sơn (1418–1428)
+│   │   │   │   └── arc6_le_so.json         # Arc 6: Thời Kỳ Lê Sơ (1428-1527)
+│   │   │   └── dai_viet_tram_luan/       # Chapter 2: Phân Tranh & Thống Nhất
+│   │   │       └── arc7_man_suong_phan_nghich.json # Arc 7: Nam-Bắc Triều (1527-1592)
 │   │   │
 │   │   ├── characters.json       # Danh sách nhân vật lịch sử
 │   │   ├── endings.json          # 7 endings của Chapter Nhà Trần - Hồ - Lê

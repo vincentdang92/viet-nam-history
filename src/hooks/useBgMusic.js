@@ -2,50 +2,55 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react'
 
+let globalAudio = null
+let globalStarted = false
+const subscribers = new Set()
+
+function notifySubscribers(isMuted) {
+  subscribers.forEach(cb => cb(isMuted))
+}
+
 export function useBgMusic() {
-  const audioRef   = useRef(null)
-  const startedRef = useRef(false)
   const [muted, setMuted] = useState(false)
 
   useEffect(() => {
     const saved = localStorage.getItem('bgm_muted') === 'true'
     setMuted(saved)
 
-    const audio = new Audio('/assets/nhac_nen_01.mp3')
-    audio.loop   = true
-    audio.volume = 0.35
-    audioRef.current = audio
+    if (typeof window !== 'undefined' && !globalAudio) {
+      globalAudio = new Audio('/assets/nhac_nen_01.mp3')
+      globalAudio.loop = true
+      globalAudio.volume = 0.35
+    }
+
+    const handleChange = (newMuted) => setMuted(newMuted)
+    subscribers.add(handleChange)
 
     return () => {
-      audio.pause()
-      audio.src = ''
+      subscribers.delete(handleChange)
     }
   }, [])
 
-  // Start once — safe to call multiple times
   const start = useCallback(() => {
-    if (startedRef.current) return
-    startedRef.current = true
-    const audio = audioRef.current
-    if (!audio) return
-    // Read current muted state from localStorage to avoid stale closure
+    if (globalStarted || !globalAudio) return
+    globalStarted = true
     const isMuted = localStorage.getItem('bgm_muted') === 'true'
-    if (!isMuted) audio.play().catch(() => {})
+    if (!isMuted) globalAudio.play().catch(() => {})
   }, [])
 
   const toggle = useCallback(() => {
-    const audio = audioRef.current
-    if (!audio) return
-    setMuted(prev => {
-      const next = !prev
-      localStorage.setItem('bgm_muted', String(next))
-      if (next) {
-        audio.pause()
-      } else if (startedRef.current) {
-        audio.play().catch(() => {})
-      }
-      return next
-    })
+    if (!globalAudio) return
+    const next = !(localStorage.getItem('bgm_muted') === 'true')
+    localStorage.setItem('bgm_muted', String(next))
+    
+    if (next) {
+      globalAudio.pause()
+    } else {
+      globalStarted = true
+      globalAudio.play().catch(() => {})
+    }
+    
+    notifySubscribers(next)
   }, [])
 
   return { muted, start, toggle }

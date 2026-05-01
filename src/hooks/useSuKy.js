@@ -232,6 +232,46 @@ const SU_KY_DATA = {
     source: 'Bình Ngô Đại Cáo — Nguyễn Trãi, 1428',
     learnMore: 'https://vi.wikipedia.org/wiki/B%C3%ACnh_Ng%C3%B4_%C4%91%E1%BA%A1i_c%C3%A1o',
   },
+  
+  // ── Arc 6: Nhà Lê Sơ ────────────────────────────────────────────────────────
+  su_ky_le_chi_vien_001: {
+    id: 'su_ky_le_chi_vien_001',
+    title: 'Thảm Án Lệ Chi Viên',
+    category: 'Sự Kiện',
+    shortFact: 'Vụ án oan khuất nhất lịch sử khiến Nguyễn Trãi bị tru di tam tộc',
+    detail: 'Năm 1442, vua Lê Thái Tông đi tuần phương Đông, ghé vào Lệ Chi Viên (Bắc Ninh) thăm Nguyễn Trãi rồi đột tử. Nguyễn Trãi và vợ là Nguyễn Thị Lộ bị quy tội giết vua, dẫn đến án tru di tam tộc. Hơn 20 năm sau, vua Lê Thánh Tông mới rửa oan cho ông.',
+    source: 'Đại Việt Sử Ký Toàn Thư',
+    learnMore: 'https://vi.wikipedia.org/wiki/V%E1%BB%A5_%C3%A1n_L%E1%BB%87_Chi_Vi%C3%AAn',
+  },
+  su_ky_hong_duc_001: {
+    id: 'su_ky_hong_duc_001',
+    title: 'Kỷ Nguyên Hồng Đức',
+    category: 'Sự Kiện',
+    shortFact: 'Thời kỳ hoàng kim rực rỡ nhất của chế độ phong kiến Việt Nam',
+    detail: 'Dưới thời Lê Thánh Tông (niên hiệu Hồng Đức 1470-1497), Đại Việt phát triển rực rỡ về mọi mặt: ban hành bộ Quốc Triều Hình Luật (Luật Hồng Đức) bảo vệ quyền phụ nữ, vẽ bản đồ Hồng Đức, lập hội Tao Đàn và mở mang bờ cõi về phương Nam.',
+    source: 'Đại Việt Sử Ký Toàn Thư',
+    learnMore: 'https://vi.wikipedia.org/wiki/L%C3%AA_Th%C3%A1nh_T%C3%B4ng',
+  },
+
+  // ── Arc 7: Nam Bắc Triều ────────────────────────────────────────────────────
+  su_ky_mac_dang_dung_001: {
+    id: 'su_ky_mac_dang_dung_001',
+    title: 'Mạc Thái Tổ — Đăng Dung',
+    category: 'Nhân Vật',
+    shortFact: 'Từ một võ trạng nguyên cầm giáo, trở thành người phế lập ba đời vua Lê',
+    detail: 'Mạc Đăng Dung xuất thân làm lính cầm lọng, nhờ tài võ nghệ mà thăng tiến tột bậc. Lợi dụng sự suy yếu của triều Lê Sơ, ông dẹp yên các cuộc nổi loạn rồi ép Lê Cung Hoàng nhường ngôi năm 1527, lập ra triều Mạc. Ông bị sử cũ phê phán là "nghịch thần" nhưng thực tế đã ổn định đất nước sau nhiều năm loạn lạc.',
+    source: 'Đại Việt Sử Ký Toàn Thư',
+    learnMore: 'https://vi.wikipedia.org/wiki/M%E1%BA%A1c_%C4%90%C4%83ng_Dung',
+  },
+  su_ky_trang_trinh_001: {
+    id: 'su_ky_trang_trinh_001',
+    title: 'Trạng Trình Nguyễn Bỉnh Khiêm',
+    category: 'Nhân Vật',
+    shortFact: 'Nhà tiên tri vĩ đại nhất sử Việt với lời sấm "Hoành Sơn nhất đái, vạn đại dung thân"',
+    detail: 'Nguyễn Bỉnh Khiêm (1491–1585) đỗ Trạng nguyên đời nhà Mạc. Khi triều chính suy đồi, ông cáo quan về quê lập am Bạch Vân. Ông được các thế lực Lê, Trịnh, Nguyễn, Mạc nể trọng và hỏi ý kiến. Lời khuyên "Hoành Sơn nhất đái, vạn đại dung thân" đã giúp Nguyễn Hoàng lập nên cơ nghiệp ở Đàng Trong.',
+    source: 'Sấm Trạng Trình',
+    learnMore: 'https://vi.wikipedia.org/wiki/Nguy%E1%BB%85n_B%E1%BB%89nh_Khi%C3%AAm',
+  },
 }
 
 export function useSuKy() {

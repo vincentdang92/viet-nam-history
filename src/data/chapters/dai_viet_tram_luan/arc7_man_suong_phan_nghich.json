@@ -1,0 +1,264 @@
+[
+  {
+    "id": "tram_luan_arc7_001",
+    "arc": 7,
+    "year": 1527,
+    "type": "event",
+    "title": "Bức Tử Lê Cung Hoàng",
+    "context": "Mạc Đăng Dung ép vua Lê Cung Hoàng nhường ngôi, lập ra triều Mạc. Vua Lê bị giam lỏng, triều thần run sợ.",
+    "character": "le_cung_hoang",
+    "quote": "Trời đoạt mệnh nhà Lê, hay lòng người phản trắc?",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Kiên quyết không nhường ngôi, thà chết vinh",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": 15,
+          "quocKho": -10,
+          "trieuCuong": 5
+        },
+        "isHistorical": false,
+        "fact": "Vua Lê Cung Hoàng thực tế đã chấp nhận nhường ngôi để bảo toàn tính mạng, nhưng sau đó vẫn bị Mạc Đăng Dung ép tự tử.",
+        "chainNext": "tram_luan_arc7_002"
+      },
+      {
+        "id": "choice_b",
+        "text": "Nhường ngôi để bảo toàn tính mạng hoàng tộc",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": -10,
+          "quocKho": 0,
+          "trieuCuong": -15
+        },
+        "isHistorical": true,
+        "fact": "Sau khi nhường ngôi, vua Lê Cung Hoàng và Thái hậu bị giam lỏng rồi bị ép uống thuốc độc tự sát để tuyệt hậu nhà Lê.",
+        "chainNext": "tram_luan_arc7_002"
+      }
+    ],
+    "isCinematic": true,
+    "background": "dong_do_palace"
+  },
+  {
+    "id": "tram_luan_arc7_002",
+    "arc": 7,
+    "year": 1528,
+    "type": "historical",
+    "title": "Thanh Định Nam Đao",
+    "context": "Đế nghiệp đã lập, Mạc Thái Tổ (Đăng Dung) cho rèn thanh Đại Đao dài hơn 2 mét, nặng tới 25kg làm trấn quốc bảo kiếm để uy hiếp các cựu thần nhà Lê.",
+    "character": "mac_dang_dung",
+    "quote": "Bảo kiếm sắc bén đến đâu cũng không bằng thu phục được nhân tâm.",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Ban chiếu chiêu an, dùng võ uy kết hợp văn trị",
+        "effects": {
+          "binhLuc": 20,
+          "danTam": -5,
+          "quocKho": 5,
+          "trieuCuong": 10
+        },
+        "isHistorical": true,
+        "fact": "Thanh Long Đao của Mạc Đăng Dung hiện vẫn được thờ tại Hải Phòng. Đây là một trong những vũ khí thực chiến đáng sợ nhất lịch sử.",
+        "chainNext": "tram_luan_arc7_003",
+        "unlockSuKy": "su_ky_mac_dang_dung_001"
+      },
+      {
+        "id": "choice_b",
+        "text": "Dùng Định Nam Đao thảm sát toàn bộ cựu thần nhà Lê",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": -25,
+          "quocKho": 0,
+          "trieuCuong": -20
+        },
+        "isHistorical": false,
+        "fact": "Mạc Đăng Dung tuy lên ngôi bằng bạo lực nhưng sau đó lại có nhiều chính sách khoan dung, thu hút được nhiều sĩ phu ra giúp sức.",
+        "chainNext": "tram_luan_arc7_003"
+      }
+    ],
+    "isCinematic": false,
+    "background": "mac_capital"
+  },
+  {
+    "id": "tram_luan_arc7_003",
+    "arc": 7,
+    "year": 1533,
+    "type": "event",
+    "title": "Dựng Cờ Trung Hưng",
+    "context": "Hữu vệ Điện tiền tướng quân Nguyễn Kim bỏ trốn sang Ai Lao, tìm được con trai của Lê Chiêu Tông là Lê Duy Ninh, tôn lên làm Lê Trang Tông. Kỷ nguyên Nam - Bắc triều bắt đầu.",
+    "character": "nguyen_kim",
+    "quote": "Bề tôi nhà Lê, dẫu muôn đời vẫn là bề tôi nhà Lê.",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Kêu gọi hào kiệt bốn phương, dựng cờ 'Phù Lê Diệt Mạc'",
+        "effects": {
+          "binhLuc": 15,
+          "danTam": 20,
+          "quocKho": -10,
+          "trieuCuong": 10
+        },
+        "isHistorical": true,
+        "action": "JOIN_FACTION_LE",
+        "fact": "Hành động của Nguyễn Kim đã mở ra thời kỳ Nam Bắc Triều rực lửa kéo dài gần 60 năm giữa nhà Mạc và nhà Lê Trung Hưng.",
+        "chainNext": "tram_luan_arc7_culture_01"
+      },
+      {
+        "id": "choice_b",
+        "text": "Ám sát Mạc Đăng Dung, kết thúc chiến tranh nhanh gọn",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": -10,
+          "quocKho": 0,
+          "trieuCuong": -15
+        },
+        "isHistorical": false,
+        "fact": "Mạc Đăng Dung là một võ tướng dũng mãnh tột bậc, việc ám sát ông trong kinh thành là điều bất khả thi.",
+        "chainNext": "tram_luan_arc7_culture_01"
+      }
+    ],
+    "isCinematic": true,
+    "background": "tay_do_palace"
+  },
+  {
+    "id": "tram_luan_arc7_culture_01",
+    "arc": 7,
+    "year": 1535,
+    "type": "culture",
+    "title": "Trạng Trình Khuyên Hậu Thế",
+    "context": "Danh sĩ Nguyễn Bỉnh Khiêm thi đỗ Trạng nguyên. Thấy triều chính nhà Mạc bắt đầu suy đồi, ông dâng sớ xin chém 18 lộng thần nhưng vua không nghe.",
+    "character": "nguyen_binh_khiem",
+    "quote": "Hoành Sơn nhất đái, vạn đại dung thân.",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Cáo quan về quê lập am Bạch Vân, để lại sấm truyền",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": 25,
+          "quocKho": 0,
+          "trieuCuong": 15
+        },
+        "isHistorical": true,
+        "fact": "Trạng Trình Nguyễn Bỉnh Khiêm là nhà tiên tri vĩ đại nhất sử Việt. Những lời sấm truyền của ông đã định hình lại toàn bộ cục diện Trịnh - Nguyễn sau này.",
+        "chainNext": "tram_luan_arc7_004",
+        "unlockSuKy": "su_ky_trang_trinh_001"
+      },
+      {
+        "id": "choice_b",
+        "text": "Cam chịu hầu hạ lộng thần để giữ vinh hoa phú quý",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": -20,
+          "quocKho": 15,
+          "trieuCuong": -10
+        },
+        "isHistorical": false,
+        "fact": "Nguyễn Bỉnh Khiêm là người thanh cao, ông thà bỏ làm quan chứ không bao giờ chịu thỏa hiệp với cường quyền ác bá.",
+        "chainNext": "tram_luan_arc7_004"
+      }
+    ],
+    "isCinematic": false,
+    "background": "culture_background"
+  },
+  {
+    "id": "tram_luan_arc7_004",
+    "arc": 7,
+    "year": 1545,
+    "type": "event",
+    "title": "Mật Kế Hàng Tướng",
+    "context": "Tướng nhà Mạc là Dương Chấp Nhất đầu hàng quân Lê. Một hôm, hắn mời Nguyễn Kim sang dinh thự ăn quả dưa hấu. Cảm thấy có điềm chẳng lành...",
+    "character": "nguyen_kim",
+    "quote": "Lòng dạ kẻ địch như nước dưới sâu, biết đâu mà dò?",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Từ chối dùng dưa, sai người điều tra động cơ",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": 5,
+          "quocKho": 0,
+          "trieuCuong": 10
+        },
+        "isHistorical": false,
+        "fact": "Trong thực tế, Nguyễn Kim đã ăn miếng dưa có độc và chết ngay sau đó. Quyền lực rơi vào tay con rể ông là Trịnh Kiểm.",
+        "chainNext": "tram_luan_arc7_005"
+      },
+      {
+        "id": "choice_b",
+        "text": "Tra hỏi tỳ nữ hầu hạ để tìm ra sự thật",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": 0,
+          "quocKho": 0,
+          "trieuCuong": 0
+        },
+        "isHistorical": true,
+        "fact": "Nguyễn Kim bị độc chết. Sự kiện này là bước ngoặt dẫn đến việc họ Trịnh thâu tóm quyền lực, ép họ Nguyễn phải bỏ chạy vào Nam.",
+        "chainNext": "tram_luan_arc7_005",
+        "espionageData": {
+          "targetName": "Tỳ nữ dâng dưa",
+          "clues": [
+            { "text": "Tướng quân Chấp Nhất đã gọt sẵn dưa từ lâu.", "isLie": false },
+            { "text": "Mũi dao gọt dưa có màu đen kỳ lạ.", "isLie": false },
+            { "text": "Đây là loại dưa đặc sản tiến vua, hoàn toàn vô hại!", "isLie": true }
+          ],
+          "reward": {
+            "binhLuc": 10,
+            "trieuCuong": 15,
+            "danTam": 10
+          },
+          "penalty": {
+            "binhLuc": -20,
+            "trieuCuong": -25,
+            "danTam": -10
+          }
+        }
+      }
+    ],
+    "isCinematic": false,
+    "background": "army_camp"
+  },
+  {
+    "id": "tram_luan_arc7_005",
+    "arc": 7,
+    "year": 1592,
+    "type": "event",
+    "title": "Chiếm Lại Đông Đô",
+    "context": "Sau gần 60 năm giằng co, Trịnh Tùng (con Trịnh Kiểm) dẫn đại quân Lê - Trịnh đánh bại quân Mạc, chiếm lại kinh thành Thăng Long, kết thúc Nam Bắc triều.",
+    "character": "trinh_tung",
+    "quote": "Nước không thể có hai vua, thiên hạ quy về một mối.",
+    "choices": [
+      {
+        "id": "choice_a",
+        "text": "Truy sát tận gốc họ Mạc, thiết lập quyền lực tuyệt đối",
+        "effects": {
+          "binhLuc": -15,
+          "danTam": -10,
+          "quocKho": 10,
+          "trieuCuong": 20
+        },
+        "isHistorical": true,
+        "fact": "Trịnh Tùng đánh bại nhà Mạc nhưng lại lập ra thể chế 'Vua Lê - Chúa Trịnh', nắm mọi quyền hành, chỉ để vua Lê làm bù nhìn.",
+        "chainNext": "ending"
+      },
+      {
+        "id": "choice_b",
+        "text": "Khoan hồng tha chết cho tông thất nhà Mạc",
+        "effects": {
+          "binhLuc": 5,
+          "danTam": 15,
+          "quocKho": 0,
+          "trieuCuong": -10
+        },
+        "isHistorical": false,
+        "fact": "Cuộc truy sát diễn ra tàn khốc. Nhà Mạc phải chạy lên Cao Bằng và tồn tại lay lắt thêm vài chục năm nữa mới bị diệt hẳn.",
+        "chainNext": "ending"
+      }
+    ],
+    "isCinematic": true,
+    "background": "thang_long_court",
+    "endArc": true
+  }
+]

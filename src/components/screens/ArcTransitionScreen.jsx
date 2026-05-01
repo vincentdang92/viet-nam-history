@@ -10,6 +10,8 @@ const ARC_META = {
   3: { label: 'Chương III', title: 'Thịnh Rồi Suy',       icon: '🌅', years: '1288–1400' },
   4: { label: 'Chương IV',  title: 'Nhà Hồ & Thuộc Minh', icon: '🔥', years: '1400–1418' },
   5: { label: 'Chương V',   title: 'Lam Sơn Khởi Nghĩa',  icon: '⚡', years: '1418–1428' },
+  6: { label: 'Chương VI',  title: 'Đỉnh Cao Đại Việt',   icon: '🐉', years: '1428–1527' },
+  7: { label: 'Chương VII', title: 'Màn Sương Phản Nghịch', icon: '⚔️', years: '1527–1592' },
 }
 
 const stagger = {

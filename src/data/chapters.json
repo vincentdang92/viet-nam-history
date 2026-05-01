@@ -1,13 +1,5 @@
 [
   {
-    "id": "ly_dynasty",
-    "title": "Nhà Lý",
-    "subtitle": "1009 – 1225",
-    "description": "Triều đại khai sáng với Kinh thành Thăng Long và nền văn hóa Phật giáo huy hoàng.",
-    "available": false,
-    "arcs": []
-  },
-  {
     "id": "tran_dynasty",
     "title": "Kỷ Trần - Hồ - Lê Sơ",
     "subtitle": "1225 – 1527",
