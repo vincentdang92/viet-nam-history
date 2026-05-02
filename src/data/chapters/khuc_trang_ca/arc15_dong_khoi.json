@@ -1,0 +1,92 @@
+{
+  "arcId": 15,
+  "title": "Cắt Nửa Vầng Trăng",
+  "years": "1954–1968",
+  "intro": "Đất nước chia cắt, miền Nam chìm trong máu và nước mắt dưới chính quyền bù nhìn được đế quốc Mỹ hậu thuẫn. Nhưng từ trong đau thương, phong trào Đồng Khởi bùng nổ, mở đường Trường Sơn nối liền Nam Bắc.",
+  "events": [
+    {
+      "id": "arc15_start",
+      "arc": 15,
+      "year": 1960,
+      "type": "event",
+      "characterId": "nguyen_ai_quoc",
+      "text": "Mỹ gạt Pháp, đưa Ngô Đình Diệm lên nắm quyền ở miền Nam, lê máy chém đi khắp nơi. Tức nước vỡ bờ, nhân dân Bến Tre dưới sự lãnh đạo của Nguyễn Thị Định nổi dậy 'Đồng Khởi', thành lập 'Đội quân tóc dài'.",
+      "leftChoice": {
+        "text": "Phát động chiến tranh du kích",
+        "effects": {
+          "binhLuc": 15,
+          "danTam": 30,
+          "quocKho": -10,
+          "trieuCuong": -15
+        },
+        "nextEvent": "arc15_truong_son"
+      },
+      "rightChoice": {
+        "text": "Kêu gọi quốc tế can thiệp",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": -5,
+          "quocKho": 5,
+          "trieuCuong": -5
+        },
+        "nextEvent": "arc15_truong_son"
+      }
+    },
+    {
+      "id": "arc15_truong_son",
+      "arc": 15,
+      "year": 1965,
+      "type": "event",
+      "characterId": "vo_nguyen_giap",
+      "text": "Để chi viện cho miền Nam, tuyến đường mòn Hồ Chí Minh (Đường Trường Sơn) được bí mật mở xuyên dãy Trường Sơn. Mỹ bắt đầu dội bom bắn phá ác liệt nhằm cắt đứt huyết mạch này.",
+      "leftChoice": {
+        "text": "Xẻ dọc Trường Sơn đi cứu nước",
+        "effects": {
+          "binhLuc": 25,
+          "danTam": 20,
+          "quocKho": -20,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc15_mau_than"
+      },
+      "rightChoice": {
+        "text": "Vận chuyển bằng đường biển",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 5,
+          "quocKho": -15,
+          "trieuCuong": 5
+        },
+        "nextEvent": "arc15_mau_than"
+      }
+    },
+    {
+      "id": "arc15_mau_than",
+      "arc": 15,
+      "year": 1968,
+      "type": "battle",
+      "characterId": "vo_nguyen_giap",
+      "text": "Đêm giao thừa Tết Mậu Thân, quân Giải phóng đồng loạt tiến công vào các đô thị, sào huyệt của địch khắp miền Nam, đánh thẳng vào Đại sứ quán Mỹ ở Sài Gòn.",
+      "leftChoice": {
+        "text": "Tổng tiến công và nổi dậy",
+        "effects": {
+          "binhLuc": -20,
+          "danTam": 35,
+          "quocKho": -15,
+          "trieuCuong": 25
+        },
+        "nextEvent": "arc16_start"
+      },
+      "rightChoice": {
+        "text": "Chỉ tấn công các căn cứ vùng ven",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": -10,
+          "quocKho": 0,
+          "trieuCuong": -5
+        },
+        "nextEvent": "arc16_start"
+      }
+    }
+  ]
+}

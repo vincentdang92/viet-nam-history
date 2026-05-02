@@ -752,6 +752,42 @@ Tổng cộng chúng ta đã có **12 Arc** liên hoàn, tái hiện gần 900 n
 
 ---
 
+## 🔵 Chương 3: Hoàng Hôn Đại Nam & Cận Đại (1802 - 1945)
+**Trọng tâm:** Sự suy vong của chế độ phong kiến, thảm kịch mất nước vào tay thực dân Pháp, những đêm trường đấu tranh và khoảnh khắc vỡ bờ trong Cách Mạng Tháng 8.
+
+### 🔷 Arc 10: Triều Nguyễn Cơ Nghiệp (1802 - 1858)
+*   **Các mốc tiêu điểm:** Gia Long thống nhất đất nước, đổi quốc hiệu Việt Nam. Minh Mạng cải cách hành chính, đổi tên Đại Nam. Các chính sách bế quan tỏa cảng và cấm đạo khắt khe tạo cớ cho họa ngoại xâm.
+
+### 🔷 Arc 11: Lưỡi Lê & Máu Đào (1858 - 1896)
+*   **Các mốc tiêu điểm:** Liên quân Pháp nổ súng đánh Đà Nẵng (1858). Khởi nghĩa Trương Định. Nguyễn Tri Phương, Hoàng Diệu tuẫn tiết giữ thành Hà Nội. Kinh đô thất thủ, phong trào Cần Vương bùng nổ (Hàm Nghi xuất bôn).
+
+### 🔷 Arc 12: Đêm Trường Thức Tỉnh (1897 - 1930)
+*   **Các mốc tiêu điểm:** Các phong trào Đông Du (Phan Bội Châu), Duy Tân (Phan Châu Trinh). Nguyễn Tất Thành lên tàu ra đi tìm đường cứu nước (1911). Khởi nghĩa Yên Bái thất bại (Nguyễn Thái Học lên máy chém).
+
+### 🔷 Arc 13: Xích Xiềng Vỡ Bờ (1930 - 1945)
+*   **Các mốc tiêu điểm:** Phong trào Xô Viết Nghệ Tĩnh. Thành lập mặt trận Việt Minh (1941). Thảm họa nạn đói Ất Dậu kinh hoàng. Tổng khởi nghĩa Cách Mạng Tháng Tám, Vua Bảo Đại thoái vị. Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập (2/9/1945).
+
+---
+
+## 🟣 Chương 4: Khúc Tráng Ca Độc Lập (1945 - 1975)
+**Trọng tâm:** 30 năm trường kỳ máu lửa đánh bại hai đế quốc sừng sỏ (Pháp và Mỹ) để giành lại độc lập tự do và thống nhất toàn vẹn lãnh thổ. Thời kỳ huy hoàng nhất trong thế kỷ 20.
+
+### 🟪 Arc 14: Chín Năm Kháng Chiến (1945 - 1954)
+*   **Các mốc tiêu điểm:** Lời kêu gọi Toàn quốc kháng chiến (1946). Trận Điện Biên Phủ "Lừng lẫy năm châu, chấn động địa cầu". Pháp đầu hàng và ký Hiệp định Geneva chia cắt đất nước ở vĩ tuyến 17.
+
+### 🟪 Arc 15: Cắt Nửa Vầng Trăng (1954 - 1968)
+*   **Các mốc tiêu điểm:** Sự kìm kẹp của Ngô Đình Diệm ở miền Nam. Phong trào Đồng Khởi ở Bến Tre. Mở đường mòn Hồ Chí Minh chi viện cho miền Nam. Tổng tiến công và nổi dậy Tết Mậu Thân (1968) làm rung chuyển nước Mỹ.
+
+### 🟪 Arc 16: Mưa Bom Bão Lửa (1969 - 1973)
+*   **Các mốc tiêu điểm:** Chủ tịch Hồ Chí Minh đi xa. 81 ngày đêm bảo vệ Thành cổ Quảng Trị (Mùa Hè Đỏ Lửa). Mỹ rải thảm B-52 hủy diệt miền Bắc và trận Điện Biên Phủ trên không. Hiệp định Paris (1973), đế quốc Mỹ phải rút quân.
+
+### 🟪 Arc 17: Đại Thắng Mùa Xuân (1975)
+*   **Các mốc tiêu điểm:** Tổng công kích mùa Xuân 1975 với trận đánh điểm huyệt Buôn Ma Thuột. Giải phóng Huế, Đà Nẵng. Chiến dịch Hồ Chí Minh lịch sử. Ngày 30/4/1975 xe tăng tiến vào Dinh Độc Lập, non sông thu về một mối.
+
+---
+
+
+
 ## 🛠 Hướng Dẫn Tích Hợp Nội Dung Mới Trong Tương Lai
 Khi cần mở rộng Chapter tiếp theo (Ví dụ: Nhà Lê Sơ - Thời Hồng Đức hoặc Nhà Lý), vui lòng tuân thủ cấu trúc sau:
 1. Đảm bảo khai báo file dữ liệu trong `src/data/chapters.json`.

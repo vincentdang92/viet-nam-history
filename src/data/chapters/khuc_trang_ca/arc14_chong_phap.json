@@ -1,0 +1,120 @@
+{
+  "arcId": 14,
+  "title": "Chín Năm Kháng Chiến",
+  "years": "1945–1954",
+  "intro": "Đất nước vừa giành độc lập lại phải đối mặt với dã tâm tái chiếm của thực dân Pháp. Lời kêu gọi toàn quốc kháng chiến vang lên, mở đầu 9 năm trường kỳ gian khổ kết thúc bằng chiến thắng Điện Biên Phủ lừng lẫy năm châu.",
+  "events": [
+    {
+      "id": "arc14_start",
+      "arc": 14,
+      "year": 1946,
+      "type": "event",
+      "characterId": "nguyen_ai_quoc",
+      "text": "Pháp liên tục nổ súng khiêu khích tại Hà Nội và Hải Phòng. Chủ tịch Hồ Chí Minh ra Lời kêu gọi Toàn quốc kháng chiến: 'Chúng ta thà hy sinh tất cả, chứ nhất định không chịu mất nước, nhất định không chịu làm nô lệ.'",
+      "leftChoice": {
+        "text": "Quyết tử cho Tổ quốc quyết sinh",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": 40,
+          "quocKho": -10,
+          "trieuCuong": -15
+        },
+        "nextEvent": "arc14_bien_gioi"
+      },
+      "rightChoice": {
+        "text": "Tiếp tục đàm phán hòa bình",
+        "effects": {
+          "binhLuc": 5,
+          "danTam": -15,
+          "quocKho": 5,
+          "trieuCuong": -5
+        },
+        "nextEvent": "arc14_bien_gioi"
+      }
+    },
+    {
+      "id": "arc14_bien_gioi",
+      "arc": 14,
+      "year": 1950,
+      "type": "battle",
+      "characterId": "vo_nguyen_giap",
+      "text": "Pháp lập phòng tuyến biên giới nhằm cô lập Việt Bắc. Đại tướng Võ Nguyên Giáp trực tiếp chỉ huy Chiến dịch Biên giới Thu Đông, đánh vào căn cứ Đông Khê để phá thế gọng kìm.",
+      "leftChoice": {
+        "text": "Tập trung lực lượng đánh Đông Khê",
+        "effects": {
+          "binhLuc": 15,
+          "danTam": 20,
+          "quocKho": -15,
+          "trieuCuong": 10
+        },
+        "nextEvent": "arc14_dien_bien_phu"
+      },
+      "rightChoice": {
+        "text": "Tránh giao tranh, củng cố lực lượng",
+        "effects": {
+          "binhLuc": 5,
+          "danTam": -10,
+          "quocKho": 10,
+          "trieuCuong": -15
+        },
+        "nextEvent": "arc14_dien_bien_phu"
+      }
+    },
+    {
+      "id": "arc14_dien_bien_phu",
+      "arc": 14,
+      "year": 1954,
+      "type": "event",
+      "characterId": "vo_nguyen_giap",
+      "text": "Pháp xây dựng tập đoàn cứ điểm Điện Biên Phủ 'bất khả chiến bại'. Quân ta đã kéo pháo lên đồi nhưng Đại tướng Võ Nguyên Giáp nhận thấy phương án 'Đánh nhanh thắng nhanh' quá mạo hiểm.",
+      "leftChoice": {
+        "text": "Chuyển sang 'Đánh chắc tiến chắc'",
+        "effects": {
+          "binhLuc": 30,
+          "danTam": 20,
+          "quocKho": -20,
+          "trieuCuong": 25
+        },
+        "nextEvent": "arc14_geneve"
+      },
+      "rightChoice": {
+        "text": "Giữ nguyên phương án 'Đánh nhanh'",
+        "effects": {
+          "binhLuc": -40,
+          "danTam": -20,
+          "quocKho": -10,
+          "trieuCuong": -30
+        },
+        "nextEvent": "arc14_geneve"
+      }
+    },
+    {
+      "id": "arc14_geneve",
+      "arc": 14,
+      "year": 1954,
+      "type": "event",
+      "characterId": "nguyen_ai_quoc",
+      "text": "Chiến thắng Điện Biên Phủ chấn động địa cầu, buộc Pháp ngồi vào bàn đàm phán Geneva. Việt Nam tạm chia cắt làm 2 miền ở vĩ tuyến 17, chờ tổng tuyển cử thống nhất sau 2 năm.",
+      "leftChoice": {
+        "text": "Ký hiệp định, giải phóng miền Bắc",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 15,
+          "quocKho": 20,
+          "trieuCuong": -20
+        },
+        "nextEvent": "arc15_start"
+      },
+      "rightChoice": {
+        "text": "Tiếp tục chiến đấu giải phóng toàn quốc",
+        "effects": {
+          "binhLuc": -20,
+          "danTam": -10,
+          "quocKho": -25,
+          "trieuCuong": 10
+        },
+        "nextEvent": "arc15_start"
+      }
+    }
+  ]
+}

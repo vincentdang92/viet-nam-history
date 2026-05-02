@@ -1,0 +1,115 @@
+{
+  "arcId": 17,
+  "title": "Đại Thắng Mùa Xuân",
+  "years": "1975",
+  "intro": "Thời cơ lịch sử đã tới. Quân và dân ta dồn toàn lực mở cuộc Tổng tiến công và nổi dậy mùa Xuân năm 1975, quét sạch tàn dư của chính quyền cũ, giải phóng hoàn toàn miền Nam.",
+  "events": [
+    {
+      "id": "arc17_start",
+      "arc": 17,
+      "year": 1975,
+      "type": "battle",
+      "characterId": "vo_nguyen_giap",
+      "text": "Tháng 3/1975, Bộ Chính trị quyết định mở Chiến dịch Tây Nguyên. Quân ta dùng mưu kế nghi binh ở Pleiku - Kon Tum, nhưng đánh đòn điểm huyệt bất ngờ vào Buôn Ma Thuột.",
+      "leftChoice": {
+        "text": "Đánh úp Buôn Ma Thuột",
+        "effects": {
+          "binhLuc": 20,
+          "danTam": 15,
+          "quocKho": -10,
+          "trieuCuong": 20
+        },
+        "nextEvent": "arc17_hue_danang"
+      },
+      "rightChoice": {
+        "text": "Tấn công trực diện Pleiku",
+        "effects": {
+          "binhLuc": -15,
+          "danTam": -5,
+          "quocKho": -15,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc17_hue_danang"
+      }
+    },
+    {
+      "id": "arc17_hue_danang",
+      "arc": 17,
+      "year": 1975,
+      "type": "battle",
+      "characterId": "vo_nguyen_giap",
+      "text": "Thắng lớn ở Tây Nguyên, quân đội Sài Gòn hoảng loạn tháo chạy. Quân ta chớp thời cơ mở ngay Chiến dịch Huế - Đà Nẵng với tinh thần 'Thần tốc, thần tốc hơn nữa'.",
+      "leftChoice": {
+        "text": "Tiến công thần tốc giải phóng Huế - Đà Nẵng",
+        "effects": {
+          "binhLuc": 25,
+          "danTam": 20,
+          "quocKho": 10,
+          "trieuCuong": 30
+        },
+        "nextEvent": "arc17_chien_dich_hcm"
+      },
+      "rightChoice": {
+        "text": "Dừng lại củng cố vùng giải phóng",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": -10,
+          "quocKho": 5,
+          "trieuCuong": -20
+        },
+        "nextEvent": "arc17_chien_dich_hcm"
+      }
+    },
+    {
+      "id": "arc17_chien_dich_hcm",
+      "arc": 17,
+      "year": 1975,
+      "type": "battle",
+      "characterId": "vo_nguyen_giap",
+      "text": "Tháng 4/1975, Chiến dịch Hồ Chí Minh lịch sử bắt đầu. 5 cánh quân lớn như 5 mũi thép khép vòng vây tiến thẳng vào Sài Gòn, dập nát mọi sự kháng cự cuối cùng.",
+      "leftChoice": {
+        "text": "Tổng công kích vào Sài Gòn",
+        "effects": {
+          "binhLuc": -15,
+          "danTam": 40,
+          "quocKho": -20,
+          "trieuCuong": 40
+        },
+        "nextEvent": "arc17_thong_nhat"
+      },
+      "rightChoice": {
+        "text": "Kêu gọi đối phương đầu hàng vô điều kiện",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 20,
+          "quocKho": 0,
+          "trieuCuong": 10
+        },
+        "nextEvent": "arc17_thong_nhat"
+      }
+    },
+    {
+      "id": "arc17_thong_nhat",
+      "arc": 17,
+      "year": 1975,
+      "type": "cinematic",
+      "title": "Non Sông Liền Một Dải",
+      "character": "vo_nguyen_giap",
+      "quote": "11 giờ 30 phút ngày 30 tháng 4 năm 1975, lá cờ quyết chiến quyết thắng tung bay trên nóc Dinh Độc Lập. Chiến dịch Hồ Chí Minh toàn thắng!",
+      "hint": "Miền Nam hoàn toàn giải phóng. Đất nước vẹn toàn thống nhất sau 30 năm trường kỳ kháng chiến. Đây là thời kỳ huy hoàng nhất của dân tộc trong thế kỷ 20.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Hát vang khúc khải hoàn",
+          "effects": {
+            "binhLuc": 50,
+            "danTam": 50,
+            "quocKho": 30,
+            "trieuCuong": 50
+          },
+          "endArc": true
+        }
+      ]
+    }
+  ]
+}

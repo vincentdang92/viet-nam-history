@@ -22,7 +22,15 @@ export const ARC_LABEL = {
   6: 'Đỉnh Cao Đại Việt',
   7: 'Màn Sương Phản Nghịch',
   8: 'Sông Gianh Chia Cắt',
-  9: 'Cơn Lốc Tây Sơn'
+  9: 'Cơn Lốc Tây Sơn',
+  10: 'Triều Nguyễn Cơ Nghiệp',
+  11: 'Lưỡi Lê & Máu Đào',
+  12: 'Đêm Trường Thức Tỉnh',
+  13: 'Xích Xiềng Vỡ Bờ',
+  14: 'Chín Năm Kháng Chiến',
+  15: 'Cắt Nửa Vầng Trăng',
+  16: 'Mưa Bom Bão Lửa',
+  17: 'Đại Thắng Mùa Xuân'
 }
 
 export function formatArcName(arcId) {

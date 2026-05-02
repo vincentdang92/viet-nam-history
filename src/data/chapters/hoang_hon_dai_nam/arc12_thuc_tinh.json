@@ -1,0 +1,148 @@
+{
+  "arcId": 12,
+  "title": "Đêm Trường Thức Tỉnh",
+  "years": "1897–1930",
+  "intro": "Súng đạn gươm giáo đã gãy, thế hệ mới chuyển sang dùng bút lực, tri thức và các luồng tư tưởng mới. Đêm trường thuộc địa đen tối đang chứng kiến những tia chớp thức tỉnh.",
+  "events": [
+    {
+      "id": "arc12_start",
+      "arc": 12,
+      "year": 1905,
+      "type": "event",
+      "characterId": "phan_boi_chau",
+      "text": "Súng đạn truyền thống không địch nổi đại bác phương Tây. Cụ Phan Bội Châu khởi xướng phong trào Đông Du, đưa thanh niên sang Nhật học tập kỹ thuật, chờ ngày phục quốc.",
+      "leftChoice": {
+        "text": "Khuyến khích du học Nhật Bản",
+        "effects": {
+          "binhLuc": 15,
+          "danTam": 20,
+          "quocKho": -15,
+          "trieuCuong": -5
+        },
+        "nextEvent": "arc12_duy_tan"
+      },
+      "rightChoice": {
+        "text": "Dựa vào Pháp để canh tân",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": -15,
+          "quocKho": 10,
+          "trieuCuong": 5
+        },
+        "nextEvent": "arc12_duy_tan"
+      }
+    },
+    {
+      "id": "arc12_duy_tan",
+      "arc": 12,
+      "year": 1908,
+      "type": "event",
+      "characterId": "phan_chau_trinh",
+      "text": "Phan Châu Trinh hô hào Duy Tân (Cắt tóc ngắn, mặc áo ngắn, mở trường Đông Kinh Nghĩa Thục, đấu tranh bất bạo động). Trong khi đó, vụ Hà Thành đầu độc nổ ra nhằm lật đổ chính quyền thuộc địa.",
+      "leftChoice": {
+        "text": "Ủng hộ cải cách dân trí (Duy Tân)",
+        "effects": {
+          "binhLuc": -5,
+          "danTam": 25,
+          "quocKho": -10,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc12_ra_di"
+      },
+      "rightChoice": {
+        "text": "Hỗ trợ bạo động vũ trang",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 5,
+          "quocKho": -20,
+          "trieuCuong": -15
+        },
+        "nextEvent": "arc12_ra_di"
+      }
+    },
+    {
+      "id": "arc12_ra_di",
+      "arc": 12,
+      "year": 1911,
+      "type": "event",
+      "characterId": "nguyen_ai_quoc",
+      "text": "Tại bến cảng Nhà Rồng, người thanh niên Nguyễn Tất Thành xin làm phụ bếp trên chiếc tàu Đô đốc Latouche-Tréville, quyết tâm sang phương Tây tìm đường cứu nước.",
+      "leftChoice": {
+        "text": "Lên tàu đi tìm chân lý mới",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": 30,
+          "quocKho": 0,
+          "trieuCuong": 0
+        },
+        "nextEvent": "arc12_pham_hong_thai"
+      },
+      "rightChoice": {
+        "text": "Ở lại trong nước đấu tranh",
+        "effects": {
+          "binhLuc": -5,
+          "danTam": -10,
+          "quocKho": 0,
+          "trieuCuong": -5
+        },
+        "nextEvent": "arc12_pham_hong_thai"
+      }
+    },
+    {
+      "id": "arc12_pham_hong_thai",
+      "arc": 12,
+      "year": 1924,
+      "type": "event",
+      "characterId": "nguyen_ai_quoc",
+      "text": "Tiếng bom Sa Diện của Phạm Hồng Thái nổ ra, ám sát Toàn quyền Pháp nhưng bất thành. Tuy nhiên, sự kiện này đã đánh thức lòng yêu nước mạnh mẽ của tầng lớp thanh niên trí thức.",
+      "leftChoice": {
+        "text": "Noi gương hy sinh cứu nước",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 25,
+          "quocKho": -5,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc12_yen_bai"
+      },
+      "rightChoice": {
+        "text": "Phê phán hành động manh động",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": -15,
+          "quocKho": 5,
+          "trieuCuong": 5
+        },
+        "nextEvent": "arc12_yen_bai"
+      }
+    },
+    {
+      "id": "arc12_yen_bai",
+      "arc": 12,
+      "year": 1930,
+      "type": "event",
+      "characterId": "nguyen_thai_hoc",
+      "text": "Việt Nam Quốc Dân Đảng do Nguyễn Thái Học lãnh đạo khởi nghĩa Yên Bái. Cuộc khởi nghĩa thất bại, các lãnh tụ bước lên máy chém với tinh thần: 'Không thành công cũng thành nhân'.",
+      "leftChoice": {
+        "text": "Không thành công cũng thành nhân",
+        "effects": {
+          "binhLuc": -25,
+          "danTam": 35,
+          "quocKho": -15,
+          "trieuCuong": -20
+        },
+        "nextEvent": "arc13_start"
+      },
+      "rightChoice": {
+        "text": "Chờ đợi thời cơ chín muồi hơn",
+        "effects": {
+          "binhLuc": 5,
+          "danTam": -20,
+          "quocKho": 10,
+          "trieuCuong": 0
+        },
+        "nextEvent": "arc13_start"
+      }
+    }
+  ]
+}

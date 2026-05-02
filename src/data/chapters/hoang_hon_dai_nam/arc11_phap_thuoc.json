@@ -1,0 +1,148 @@
+{
+  "arcId": 11,
+  "title": "Lưỡi Lê & Máu Đào",
+  "years": "1858–1896",
+  "intro": "Tiếng súng ở bán đảo Sơn Trà đánh thức giấc mộng của Đại Nam. Dù triều đình bạc nhược, nhưng nhân dân và các sĩ phu yêu nước đã dùng máu đào để bảo vệ từng tấc đất.",
+  "events": [
+    {
+      "id": "arc11_start",
+      "arc": 11,
+      "year": 1858,
+      "type": "battle",
+      "characterId": "tu_duc",
+      "text": "Lấy cớ bảo vệ đạo giáo, liên quân Pháp - Tây Ban Nha nã pháo vào Đà Nẵng. Tướng Nguyễn Tri Phương được cử vào chống giặc.",
+      "leftChoice": {
+        "text": "Xây lũy bảo vệ, đánh cầm chừng",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": 5,
+          "quocKho": -5,
+          "trieuCuong": 5
+        },
+        "nextEvent": "arc11_truong_dinh"
+      },
+      "rightChoice": {
+        "text": "Tổng tiến công đuổi địch",
+        "effects": {
+          "binhLuc": -25,
+          "danTam": 15,
+          "quocKho": -15,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc11_truong_dinh"
+      }
+    },
+    {
+      "id": "arc11_truong_dinh",
+      "arc": 11,
+      "year": 1862,
+      "type": "event",
+      "characterId": "truong_dinh",
+      "text": "Triều đình ký Hòa ước Nhâm Tuất, cắt 3 tỉnh miền Đông Nam Kỳ cho Pháp. Vua ra lệnh giải binh, nhưng nhân dân tôn Trương Định làm 'Bình Tây Đại Nguyên Soái'.",
+      "leftChoice": {
+        "text": "Tuân lệnh vua, bãi binh",
+        "effects": {
+          "binhLuc": -15,
+          "danTam": -30,
+          "quocKho": 0,
+          "trieuCuong": 10
+        },
+        "nextEvent": "arc11_ha_noi_1"
+      },
+      "rightChoice": {
+        "text": "Chống lệnh vua, ở lại đánh Pháp",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 30,
+          "quocKho": -10,
+          "trieuCuong": -20
+        },
+        "nextEvent": "arc11_ha_noi_1"
+      }
+    },
+    {
+      "id": "arc11_ha_noi_1",
+      "arc": 11,
+      "year": 1873,
+      "type": "battle",
+      "characterId": "nguyen_tri_phuong",
+      "text": "Pháp mang quân đánh Bắc Kỳ lần thứ nhất. Lão tướng Nguyễn Tri Phương 73 tuổi kiên cường giữ thành Hà Nội nhưng thất thủ. Ông bị thương, nhịn ăn đến chết để bảo toàn khí tiết.",
+      "leftChoice": {
+        "text": "Ghi nhận khí tiết của ông",
+        "effects": {
+          "binhLuc": -20,
+          "danTam": 20,
+          "quocKho": -15,
+          "trieuCuong": -5
+        },
+        "nextEvent": "arc11_ha_noi_2"
+      },
+      "rightChoice": {
+        "text": "Thương nghị chuộc lại thành",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": -15,
+          "quocKho": -25,
+          "trieuCuong": 10
+        },
+        "nextEvent": "arc11_ha_noi_2"
+      }
+    },
+    {
+      "id": "arc11_ha_noi_2",
+      "arc": 11,
+      "year": 1882,
+      "type": "battle",
+      "characterId": "hoang_dieu",
+      "text": "Đại tá Henri Rivière lại đánh Hà Nội. Tổng đốc Hoàng Diệu quyết tử bảo vệ thành. Khi thành vỡ, ông lui vào Võ Miếu, cắn tay lấy máu viết di biểu rồi thắt cổ tự vẫn.",
+      "leftChoice": {
+        "text": "Tôn vinh tinh thần tử vì đạo",
+        "effects": {
+          "binhLuc": -20,
+          "danTam": 25,
+          "quocKho": -10,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc11_can_vuong"
+      },
+      "rightChoice": {
+        "text": "Phó mặc cho số phận",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": -25,
+          "quocKho": 0,
+          "trieuCuong": -20
+        },
+        "nextEvent": "arc11_can_vuong"
+      }
+    },
+    {
+      "id": "arc11_can_vuong",
+      "arc": 11,
+      "year": 1885,
+      "type": "event",
+      "characterId": "ton_that_thuyet",
+      "text": "Kinh đô Huế thất thủ. Tôn Thất Thuyết đưa vua Hàm Nghi (14 tuổi) lên chiến khu Tân Sở, ban Chiếu Cần Vương kêu gọi văn thân sĩ phu cả nước đánh Pháp.",
+      "leftChoice": {
+        "text": "Hưởng ứng chiếu Cần Vương",
+        "effects": {
+          "binhLuc": 20,
+          "danTam": 30,
+          "quocKho": -20,
+          "trieuCuong": -15
+        },
+        "nextEvent": "arc12_start"
+      },
+      "rightChoice": {
+        "text": "Đầu hàng triều đình Đồng Khánh (bù nhìn)",
+        "effects": {
+          "binhLuc": -15,
+          "danTam": -30,
+          "quocKho": 10,
+          "trieuCuong": 15
+        },
+        "nextEvent": "arc12_start"
+      }
+    }
+  ]
+}

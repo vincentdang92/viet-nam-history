@@ -4,7 +4,7 @@
     "title": "Bình Minh Tự Chủ",
     "subtitle": "938 – 1225",
     "description": "Từ cọc tiêu Bạch Đằng phá Nam Hán, dẹp loạn 12 sứ quân đến kỷ nguyên rực rỡ của Đại Việt thời Lý.",
-    "available": true,
+    "available": false,
     "arcs": [
       { "id": -2, "title": "Cọc Tiêu Bạch Đằng", "years": "938–968" },
       { "id": -1, "title": "Mặc Giáp Xuất Chinh", "years": "980–1009" },
@@ -36,6 +36,32 @@
       { "id": 7, "title": "Màn Sương Phản Nghịch", "years": "1527–1592" },
       { "id": 8, "title": "Sông Gianh Chia Cắt", "years": "1627–1777" },
       { "id": 9, "title": "Cơn Lốc Tây Sơn", "years": "1771–1802" }
+    ]
+  },
+  {
+    "id": "hoang_hon_dai_nam",
+    "title": "Hoàng Hôn Đại Nam & Cận Đại",
+    "subtitle": "1802 – 1945",
+    "description": "Từ vương triều nhà Nguyễn, thảm kịch mất nước, tiếng súng kháng chiến, đêm trường thuộc địa cho đến Cách Mạng Tháng Tám.",
+    "available": true,
+    "arcs": [
+      { "id": 10, "title": "Triều Nguyễn Cơ Nghiệp", "years": "1802–1858" },
+      { "id": 11, "title": "Lưỡi Lê & Máu Đào", "years": "1858–1896" },
+      { "id": 12, "title": "Đêm Trường Thức Tỉnh", "years": "1897–1930" },
+      { "id": 13, "title": "Xích Xiềng Vỡ Bờ", "years": "1930–1945" }
+    ]
+  },
+  {
+    "id": "khuc_trang_ca_doc_lap",
+    "title": "Khúc Tráng Ca Độc Lập",
+    "subtitle": "1945 – 1975",
+    "description": "30 năm trường kỳ kháng chiến, từ tiếng gầm Điện Biên Phủ đến xe tăng húc đổ cổng Dinh Độc Lập, đánh bại hai đế quốc để non sông liền một dải.",
+    "available": true,
+    "arcs": [
+      { "id": 14, "title": "Chín Năm Kháng Chiến", "years": "1945–1954" },
+      { "id": 15, "title": "Cắt Nửa Vầng Trăng", "years": "1954–1968" },
+      { "id": 16, "title": "Mưa Bom Bão Lửa", "years": "1969–1973" },
+      { "id": 17, "title": "Đại Thắng Mùa Xuân", "years": "1975" }
     ]
   }
 ]

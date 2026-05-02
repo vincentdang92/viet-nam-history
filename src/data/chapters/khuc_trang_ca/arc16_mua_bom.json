@@ -1,0 +1,120 @@
+{
+  "arcId": 16,
+  "title": "Mưa Bom Bão Lửa",
+  "years": "1969–1973",
+  "intro": "Đế quốc Mỹ điên cuồng dội bom từ Bắc chí Nam hòng đưa Việt Nam 'trở về thời kỳ đồ đá'. Đây là khoảng thời gian bi tráng nhất, máu xương đổ xuống Thành cổ Quảng Trị và bầu trời Hà Nội rực cháy B-52.",
+  "events": [
+    {
+      "id": "arc16_start",
+      "arc": 16,
+      "year": 1969,
+      "type": "event",
+      "characterId": "nguyen_ai_quoc",
+      "text": "Ngày 2 tháng 9 năm 1969, Bác Hồ kính yêu đi xa, để lại bản Di chúc lịch sử. Cả dân tộc biến đau thương thành hành động, thề quyết tâm đánh thắng giặc Mỹ xâm lược.",
+      "leftChoice": {
+        "text": "Biến đau thương thành sức mạnh",
+        "effects": {
+          "binhLuc": 20,
+          "danTam": 40,
+          "quocKho": 0,
+          "trieuCuong": 10
+        },
+        "nextEvent": "arc16_quang_tri"
+      },
+      "rightChoice": {
+        "text": "Tạm dừng tiến công để tổ chức quốc tang",
+        "effects": {
+          "binhLuc": -5,
+          "danTam": 15,
+          "quocKho": -5,
+          "trieuCuong": 5
+        },
+        "nextEvent": "arc16_quang_tri"
+      }
+    },
+    {
+      "id": "arc16_quang_tri",
+      "arc": 16,
+      "year": 1972,
+      "type": "battle",
+      "characterId": "vo_nguyen_giap",
+      "text": "Mùa Hè Đỏ Lửa. Quân dân ta kiên cường bám trụ bảo vệ Thành cổ Quảng Trị suốt 81 ngày đêm dưới làn mưa bom bão đạn chưa từng có trong lịch sử nhân loại.",
+      "leftChoice": {
+        "text": "Kiên quyết bám trụ từng tấc đất",
+        "effects": {
+          "binhLuc": -30,
+          "danTam": 35,
+          "quocKho": -15,
+          "trieuCuong": 20
+        },
+        "nextEvent": "arc16_dien_bien_phu_tren_khong"
+      },
+      "rightChoice": {
+        "text": "Rút lui chiến thuật để bảo toàn",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": -25,
+          "quocKho": 0,
+          "trieuCuong": -15
+        },
+        "nextEvent": "arc16_dien_bien_phu_tren_khong"
+      }
+    },
+    {
+      "id": "arc16_dien_bien_phu_tren_khong",
+      "arc": 16,
+      "year": 1972,
+      "type": "battle",
+      "characterId": "vo_nguyen_giap",
+      "text": "Cuối năm 1972, Mỹ dùng 'pháo đài bay' B-52 ném bom rải thảm hủy diệt Hà Nội và Hải Phòng. Quân chủng Phòng không - Không quân Việt Nam quyết tử nghênh chiến.",
+      "leftChoice": {
+        "text": "Bắn rơi B-52, lập nên kỳ tích",
+        "effects": {
+          "binhLuc": -15,
+          "danTam": 40,
+          "quocKho": -20,
+          "trieuCuong": 30
+        },
+        "nextEvent": "arc16_paris"
+      },
+      "rightChoice": {
+        "text": "Phân tán lực lượng, chờ địch rút",
+        "effects": {
+          "binhLuc": -5,
+          "danTam": -20,
+          "quocKho": -10,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc16_paris"
+      }
+    },
+    {
+      "id": "arc16_paris",
+      "arc": 16,
+      "year": 1973,
+      "type": "event",
+      "characterId": "vo_nguyen_giap",
+      "text": "Thất bại thảm hại trên bầu trời miền Bắc, Mỹ buộc phải ký Hiệp định Paris, rút toàn bộ quân đội viễn chinh khỏi Việt Nam. Cục diện 'đánh cho Mỹ cút' đã hoàn thành.",
+      "leftChoice": {
+        "text": "Ký hiệp định, ép Mỹ rút quân",
+        "effects": {
+          "binhLuc": 25,
+          "danTam": 30,
+          "quocKho": 10,
+          "trieuCuong": 15
+        },
+        "nextEvent": "arc17_start"
+      },
+      "rightChoice": {
+        "text": "Đòi Mỹ phải bồi thường chiến tranh",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": 10,
+          "quocKho": 20,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc17_start"
+      }
+    }
+  ]
+}

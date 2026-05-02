@@ -10,6 +10,14 @@ import arc6 from '../data/chapters/tran_dynasty/arc6_le_so.json'
 import arc7 from '../data/chapters/dai_viet_tram_luan/arc7_man_suong_phan_nghich.json'
 import arc8 from '../data/chapters/dai_viet_tram_luan/arc8_song_gianh_chia_cat.json'
 import arc9 from '../data/chapters/dai_viet_tram_luan/arc9_con_loc_tay_son.json'
+import arc10 from '../data/chapters/hoang_hon_dai_nam/arc10_nha_nguyen.json'
+import arc11 from '../data/chapters/hoang_hon_dai_nam/arc11_phap_thuoc.json'
+import arc12 from '../data/chapters/hoang_hon_dai_nam/arc12_thuc_tinh.json'
+import arc13 from '../data/chapters/hoang_hon_dai_nam/arc13_cach_mang.json'
+import arc14 from '../data/chapters/khuc_trang_ca/arc14_chong_phap.json'
+import arc15 from '../data/chapters/khuc_trang_ca/arc15_dong_khoi.json'
+import arc16 from '../data/chapters/khuc_trang_ca/arc16_mua_bom.json'
+import arc17 from '../data/chapters/khuc_trang_ca/arc17_dai_thang.json'
 import sysEvents from '../data/sysEvents.json'
 import mythicEvents from '../data/mythicEvents.json'
 import cultureEvents from '../data/cultureEvents.json'
@@ -26,7 +34,15 @@ const ARCS = {
   6: arc6,
   7: arc7,
   8: arc8,
-  9: arc9
+  9: arc9,
+  10: arc10,
+  11: arc11,
+  12: arc12,
+  13: arc13,
+  14: arc14,
+  15: arc15,
+  16: arc16,
+  17: arc17
 }
 
 export function loadEvent(id) {

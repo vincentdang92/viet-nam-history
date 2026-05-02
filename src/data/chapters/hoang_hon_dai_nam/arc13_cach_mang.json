@@ -1,0 +1,171 @@
+{
+  "arcId": 13,
+  "title": "Xích Xiềng Vỡ Bờ",
+  "years": "1930–1945",
+  "intro": "Lịch sử sang trang khi ánh sáng Cách mạng soi rọi. Từ phong trào Xô Viết Nghệ Tĩnh đến nạn đói kinh hoàng, cả dân tộc vùng lên phá tan gông xiềng nô lệ trong Cách Mạng Tháng Tám.",
+  "events": [
+    {
+      "id": "arc13_start",
+      "arc": 13,
+      "year": 1930,
+      "type": "event",
+      "characterId": "nguyen_ai_quoc",
+      "text": "Ngay sau khi Đảng Cộng sản ra đời, phong trào cách mạng bùng nổ mạnh mẽ tại Nghệ An và Hà Tĩnh. Quần chúng nông dân nổi dậy lập chính quyền Xô Viết, tịch thu ruộng đất chia cho dân cày.",
+      "leftChoice": {
+        "text": "Lập chính quyền Xô Viết",
+        "effects": {
+          "binhLuc": 15,
+          "danTam": 25,
+          "quocKho": -10,
+          "trieuCuong": -15
+        },
+        "nextEvent": "arc13_viet_minh"
+      },
+      "rightChoice": {
+        "text": "Bảo toàn lực lượng rút lui",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": -15,
+          "quocKho": 5,
+          "trieuCuong": -5
+        },
+        "nextEvent": "arc13_viet_minh"
+      }
+    },
+    {
+      "id": "arc13_viet_minh",
+      "arc": 13,
+      "year": 1941,
+      "type": "event",
+      "characterId": "nguyen_ai_quoc",
+      "text": "Sau 30 năm bôn ba, lãnh tụ Nguyễn Ái Quốc về nước, trực tiếp lãnh đạo cách mạng. Người chủ trì Hội nghị Trung ương 8, thành lập Mặt trận Việt Minh để đoàn kết toàn dân chống Pháp, đuổi Nhật.",
+      "leftChoice": {
+        "text": "Thành lập Việt Minh",
+        "effects": {
+          "binhLuc": 20,
+          "danTam": 30,
+          "quocKho": -5,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc13_nhat_dao_chinh"
+      },
+      "rightChoice": {
+        "text": "Tập trung xây dựng căn cứ",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 15,
+          "quocKho": 5,
+          "trieuCuong": 5
+        },
+        "nextEvent": "arc13_nhat_dao_chinh"
+      }
+    },
+    {
+      "id": "arc13_nhat_dao_chinh",
+      "arc": 13,
+      "year": 1945,
+      "type": "event",
+      "characterId": "nguyen_ai_quoc",
+      "text": "Phát xít Nhật đảo chính lật đổ Pháp trên toàn Đông Dương. Trong khi đó, thảm họa nhổ lúa trồng đay đã gây ra nạn đói kinh hoàng khiến 2 triệu đồng bào chết đói.",
+      "leftChoice": {
+        "text": "Phá kho thóc Nhật cứu đói",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": 40,
+          "quocKho": 15,
+          "trieuCuong": -20
+        },
+        "nextEvent": "arc13_cmt8"
+      },
+      "rightChoice": {
+        "text": "Chuẩn bị khởi nghĩa vũ trang",
+        "effects": {
+          "binhLuc": 25,
+          "danTam": 15,
+          "quocKho": -10,
+          "trieuCuong": -15
+        },
+        "nextEvent": "arc13_cmt8"
+      }
+    },
+    {
+      "id": "arc13_cmt8",
+      "arc": 13,
+      "year": 1945,
+      "type": "event",
+      "characterId": "nguyen_ai_quoc",
+      "text": "Nhật Bản đầu hàng Đồng Minh. Thời cơ ngàn năm có một đã tới. Lệnh Tổng khởi nghĩa ban bố khắp cả nước. Quần chúng rầm rập tiến về các dinh lũy của chính quyền thân Nhật.",
+      "leftChoice": {
+        "text": "Giành chính quyền ở Hà Nội, Huế, Sài Gòn",
+        "effects": {
+          "binhLuc": 20,
+          "danTam": 35,
+          "quocKho": 20,
+          "trieuCuong": -30
+        },
+        "nextEvent": "arc13_thoai_vi"
+      },
+      "rightChoice": {
+        "text": "Thương lượng chuyển giao quyền lực",
+        "effects": {
+          "binhLuc": -15,
+          "danTam": -25,
+          "quocKho": -10,
+          "trieuCuong": 20
+        },
+        "nextEvent": "arc13_thoai_vi"
+      }
+    },
+    {
+      "id": "arc13_thoai_vi",
+      "arc": 13,
+      "year": 1945,
+      "type": "event",
+      "characterId": "bao_dai",
+      "text": "Tại cửa Ngọ Môn (Huế), Vua Bảo Đại trao ấn kiếm cho đại diện Việt Minh, tuyên bố thoái vị với câu nói nổi tiếng: 'Trẫm thà làm dân một nước độc lập, hơn làm vua một nước nô lệ'.",
+      "leftChoice": {
+        "text": "Kết thúc chế độ phong kiến",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 30,
+          "quocKho": 10,
+          "trieuCuong": -40
+        },
+        "nextEvent": "arc13_doc_lap"
+      },
+      "rightChoice": {
+        "text": "Mời cựu hoàng làm Cố vấn Tối cao",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": 15,
+          "quocKho": 5,
+          "trieuCuong": 20
+        },
+        "nextEvent": "arc13_doc_lap"
+      }
+    },
+    {
+      "id": "arc13_doc_lap",
+      "arc": 13,
+      "year": 1945,
+      "type": "cinematic",
+      "title": "Tuyên Ngôn Độc Lập",
+      "character": "nguyen_ai_quoc",
+      "quote": "Hỡi đồng bào cả nước... Nước Việt Nam có quyền hưởng tự do và độc lập, và sự thật đã thành một nước tự do, độc lập.",
+      "hint": "Ngày 2 tháng 9 năm 1945, tại Quảng trường Ba Đình, Chủ tịch Hồ Chí Minh đọc bản Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hòa.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Cùng nhau giữ vững nền Độc Lập",
+          "effects": {
+            "binhLuc": 30,
+            "danTam": 40,
+            "quocKho": 20,
+            "trieuCuong": 0
+          },
+          "endArc": true
+        }
+      ]
+    }
+  ]
+}

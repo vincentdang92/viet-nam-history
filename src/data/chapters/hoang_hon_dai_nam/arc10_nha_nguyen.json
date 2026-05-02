@@ -1,0 +1,143 @@
+{
+  "arcId": 10,
+  "title": "Triều Nguyễn Cơ Nghiệp",
+  "years": "1802–1858",
+  "intro": "Nguyễn Ánh thống nhất giang sơn, lên ngôi Hoàng đế Gia Long. Nước Việt Nam bước vào kỷ nguyên vương triều cuối cùng, với những nỗ lực củng cố quyền lực, nhưng cũng mầm mống cho họa ngoại xâm vì bế quan tỏa cảng.",
+  "events": [
+    {
+      "id": "arc10_start",
+      "arc": 10,
+      "year": 1802,
+      "type": "cinematic",
+      "title": "Hoàng Đế Gia Long",
+      "character": "gia_long",
+      "quote": "Trẫm đã đánh bại Tây Sơn, thống nhất giang sơn từ Nam chí Bắc. Nay định đô ở Phú Xuân, lấy quốc hiệu là Việt Nam.",
+      "hint": "Cần xây dựng Kinh thành và thiết lập luật lệ để củng cố quyền uy.",
+      "choices": [
+        {
+          "id": "choice_a",
+          "text": "Ban hành Hoàng Việt Luật Lệ",
+          "effects": {
+            "binhLuc": 10,
+            "danTam": -5,
+            "quocKho": 10,
+            "trieuCuong": 20
+          },
+          "nextEvent": "arc10_minh_mang"
+        }
+      ]
+    },
+    {
+      "id": "arc10_minh_mang",
+      "arc": 10,
+      "year": 1820,
+      "type": "event",
+      "characterId": "minh_mang",
+      "text": "Vua Minh Mạng lên ngôi, là người quyết đoán, tinh thông Nho học. Ngài muốn tập trung quyền lực, xóa bỏ các dinh trấn tự trị ở hai miền Nam Bắc.",
+      "leftChoice": {
+        "text": "Cải cách hành chính (chia 31 tỉnh)",
+        "effects": {
+          "binhLuc": 5,
+          "danTam": -10,
+          "quocKho": 10,
+          "trieuCuong": 25
+        },
+        "nextEvent": "arc10_le_van_khoi"
+      },
+      "rightChoice": {
+        "text": "Giữ nguyên quyền lực của các Tổng trấn",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 5,
+          "quocKho": 0,
+          "trieuCuong": -15
+        },
+        "nextEvent": "arc10_le_van_khoi"
+      }
+    },
+    {
+      "id": "arc10_le_van_khoi",
+      "arc": 10,
+      "year": 1833,
+      "type": "battle",
+      "characterId": "minh_mang",
+      "text": "Tả quân Lê Văn Duyệt mất, triều đình xét tội ông. Con nuôi là Lê Văn Khôi uất ức nổi dậy chiếm thành Phiên An (Gia Định), chống lại triều đình.",
+      "leftChoice": {
+        "text": "Đem quân đàn áp mạnh tay",
+        "effects": {
+          "binhLuc": -15,
+          "danTam": -15,
+          "quocKho": -10,
+          "trieuCuong": 20
+        },
+        "nextEvent": "arc10_dai_nam"
+      },
+      "rightChoice": {
+        "text": "Tìm cách chiêu an",
+        "effects": {
+          "binhLuc": -5,
+          "danTam": 10,
+          "quocKho": -5,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc10_dai_nam"
+      }
+    },
+    {
+      "id": "arc10_dai_nam",
+      "arc": 10,
+      "year": 1838,
+      "type": "event",
+      "characterId": "minh_mang",
+      "text": "Đất nước rộng lớn, Vua Minh Mạng đổi quốc hiệu thành Đại Nam. Tuy nhiên, ngài bắt đầu ban hành lệnh cấm đạo Công giáo gắt gao.",
+      "leftChoice": {
+        "text": "Đẩy mạnh cấm đạo",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": -20,
+          "quocKho": 0,
+          "trieuCuong": 15
+        },
+        "nextEvent": "arc10_tu_duc"
+      },
+      "rightChoice": {
+        "text": "Nới lỏng để giao thương",
+        "effects": {
+          "binhLuc": 5,
+          "danTam": 10,
+          "quocKho": 15,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc10_tu_duc"
+      }
+    },
+    {
+      "id": "arc10_tu_duc",
+      "arc": 10,
+      "year": 1847,
+      "type": "event",
+      "characterId": "tu_duc",
+      "text": "Thiệu Trị mất, Vua Tự Đức lên ngôi. Phương Tây cử tàu chiến đòi tự do truyền đạo và giao thương. Triều đình khăng khăng 'Bế quan tỏa cảng'.",
+      "leftChoice": {
+        "text": "Kiên quyết bế quan, cấm đạo",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": -10,
+          "quocKho": -15,
+          "trieuCuong": 10
+        },
+        "nextEvent": "arc11_start"
+      },
+      "rightChoice": {
+        "text": "Mở cửa, cử người đi học hỏi",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 10,
+          "quocKho": 15,
+          "trieuCuong": -15
+        },
+        "nextEvent": "arc11_start"
+      }
+    }
+  ]
+}
