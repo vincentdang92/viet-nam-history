@@ -3,8 +3,19 @@
 import { motion } from 'framer-motion'
 import { STAT_META, STAT_KEYS } from '../../constants/gameConfig'
 
-function StatItem({ statKey, value, base }) {
-  const meta = STAT_META[statKey]
+function StatItem({ statKey, value, base, currentArc }) {
+  const meta = { ...STAT_META[statKey] }
+  
+  if (currentArc >= 10) {
+    if (statKey === 'trieuCuong') {
+      meta.label = 'Uy Tín'
+      meta.icon = '🏛️'
+    } else if (statKey === 'quocKho') {
+      meta.label = 'Hậu Phương'
+      meta.icon = '🌾'
+    }
+  }
+
   const isDanger = value <= 25 || value >= 80
   const delta = base !== undefined ? value - base : 0
   const barColor = isDanger ? '#FF4444' : meta.color
@@ -53,7 +64,7 @@ function StatItem({ statKey, value, base }) {
   )
 }
 
-export default function StatsBar({ stats, baseStats }) {
+export default function StatsBar({ stats, baseStats, currentArc = 1 }) {
   return (
     <div className="grid grid-cols-2 gap-x-3 gap-y-2.5 px-4 py-3 bg-black/40 backdrop-blur-md rounded-xl border border-white/10 shadow-xl">
       {STAT_KEYS.map(key => (
@@ -62,6 +73,7 @@ export default function StatsBar({ stats, baseStats }) {
           statKey={key}
           value={stats[key]}
           base={baseStats?.[key]}
+          currentArc={currentArc}
         />
       ))}
     </div>

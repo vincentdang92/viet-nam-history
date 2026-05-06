@@ -360,7 +360,7 @@ export default function GameScreen() {
           />
         </div>
         <div className="px-4 mt-2 pointer-events-auto">
-          <StatsBar stats={previewStats} baseStats={stats} />
+          <StatsBar stats={previewStats} baseStats={stats} currentArc={currentArc} />
           {/* Historical Score Meter */}
           <div className="mt-2 flex items-center justify-center gap-2 bg-black/40 backdrop-blur-md rounded-full px-3 py-1 w-max mx-auto border border-white/10 shadow-lg">
             <span className="text-[9px] uppercase tracking-widest text-tran-textMuted font-bold">Chính Sử</span>

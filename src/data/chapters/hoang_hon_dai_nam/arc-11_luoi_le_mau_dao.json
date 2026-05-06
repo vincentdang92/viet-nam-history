@@ -1,0 +1,276 @@
+{
+  "arcId": 11,
+  "title": "Lưỡi Lê & Máu Đào",
+  "years": "1858–1896",
+  "intro": "Liên quân Pháp - Tây Ban Nha nổ súng tại Đà Nẵng, mở đầu thời kỳ đen tối nhất của lịch sử cận đại. Triều đình nhà Nguyễn bế tắc cắt đất cầu hòa, nhưng ngọn lửa yêu nước từ nhân dân và sĩ phu Cần Vương đã bùng lên mạnh mẽ.",
+  "events": [
+    {
+      "id": "arc_11_start",
+      "arc": 11,
+      "year": 1858,
+      "type": "event",
+      "characterId": "tu_duc",
+      "text": "Tháng 9/1858, Liên quân Pháp - Tây Ban Nha nổ súng tấn công bán đảo Sơn Trà (Đà Nẵng), chính thức mở đầu cuộc chiến tranh xâm lược Đại Nam. Nguyễn Tri Phương đang giữ chức Tổng thống quân vụ, xin đắp lũy phòng ngự.",
+      "leftChoice": {
+        "text": "Giao Nguyễn Tri Phương tử thủ",
+        "effects": {
+          "binhLuc": -15,
+          "danTam": 10,
+          "quocKho": -10,
+          "trieuCuong": 5
+        },
+        "nextEvent": "arc_11_hoa_uoc_nham_tuat"
+      },
+      "rightChoice": {
+        "text": "Xin giảng hòa, chia sẻ thương quyền",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": -20,
+          "quocKho": 10,
+          "trieuCuong": -15
+        },
+        "nextEvent": "arc_11_hoa_uoc_nham_tuat"
+      }
+    },
+    {
+      "id": "arc_11_hoa_uoc_nham_tuat",
+      "arc": 11,
+      "year": 1862,
+      "type": "historical",
+      "characterId": "tu_duc",
+      "text": "Quân Pháp chiếm được Gia Định và các tỉnh miền Đông. Trước áp lực quá lớn, triều đình buộc phải ký Hòa ước Nhâm Tuất (1862), nhượng hẳn 3 tỉnh miền Đông Nam Kỳ cho Pháp.",
+      "leftChoice": {
+        "text": "Đau đớn chấp nhận",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": -20,
+          "quocKho": 15,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc_11_truong_dinh"
+      },
+      "rightChoice": {
+        "text": "Cố tình trì hoãn giao đất",
+        "effects": {
+          "binhLuc": -20,
+          "danTam": 5,
+          "quocKho": -10,
+          "trieuCuong": -5
+        },
+        "nextEvent": "arc_11_truong_dinh"
+      }
+    },
+    {
+      "id": "arc_11_truong_dinh",
+      "arc": 11,
+      "year": 1864,
+      "type": "battle",
+      "characterId": "truong_dinh",
+      "text": "Mặc triều đình ra lệnh bãi binh, Trương Định vẫn ở lại Gò Công cùng nhân dân kháng chiến, được tôn làm 'Bình Tây Đại Nguyên Soái'. Giặc bao vây căn cứ Tân Hòa.",
+      "leftChoice": {
+        "text": "Hy sinh cứu quốc (Tuẫn tiết)",
+        "effects": {
+          "binhLuc": -10,
+          "danTam": 20,
+          "quocKho": 0,
+          "trieuCuong": 0
+        },
+        "nextEvent": "arc_11_ha_noi_lan_1"
+      },
+      "rightChoice": {
+        "text": "Rút lui bảo toàn lực lượng",
+        "effects": {
+          "binhLuc": -5,
+          "danTam": -10,
+          "quocKho": 0,
+          "trieuCuong": -5
+        },
+        "nextEvent": "arc_11_ha_noi_lan_1"
+      }
+    },
+    {
+      "id": "arc_11_ha_noi_lan_1",
+      "arc": 11,
+      "year": 1873,
+      "type": "event",
+      "characterId": "francis_garnier",
+      "text": "Lấy cớ giải quyết vụ J. Dupuis, Francis Garnier đưa quân ra Bắc Kỳ, bất ngờ đánh úp thành Hà Nội. Nguyễn Tri Phương trọng thương và bị bắt.",
+      "leftChoice": {
+        "text": "Cự tuyệt chữa trị, nhịn ăn đến chết",
+        "effects": {
+          "binhLuc": -15,
+          "danTam": 15,
+          "quocKho": 0,
+          "trieuCuong": 5
+        },
+        "nextEvent": "arc_11_cau_giay"
+      },
+      "rightChoice": {
+        "text": "Đàm phán xin chuộc thành",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": -15,
+          "quocKho": -20,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc_11_cau_giay"
+      }
+    },
+    {
+      "id": "arc_11_cau_giay",
+      "arc": 11,
+      "year": 1873,
+      "type": "battle",
+      "characterId": "francis_garnier",
+      "text": "Quân Cờ Đen dưới sự chỉ huy của Lưu Vĩnh Phúc phối hợp với quân triều đình phục kích tại Cầu Giấy. Francis Garnier trúng đạn tử trận.",
+      "leftChoice": {
+        "text": "Chớp thời cơ đánh đuổi Pháp",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 15,
+          "quocKho": -10,
+          "trieuCuong": -5
+        },
+        "nextEvent": "arc_11_ha_noi_lan_2"
+      },
+      "rightChoice": {
+        "text": "Ký hiệp ước Giáp Tuất (1874)",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": -25,
+          "quocKho": 10,
+          "trieuCuong": 10
+        },
+        "nextEvent": "arc_11_ha_noi_lan_2"
+      }
+    },
+    {
+      "id": "arc_11_ha_noi_lan_2",
+      "arc": 11,
+      "year": 1882,
+      "type": "event",
+      "characterId": "hoang_dieu",
+      "text": "Pháp lại dã tâm chiếm Bắc Kỳ lần 2. Henri Rivière mang pháo hạm đánh phá thành Hà Nội. Tổng đốc Hoàng Diệu chỉ huy quân lính quyết tử bảo vệ thành.",
+      "leftChoice": {
+        "text": "Thành vỡ, Hoàng Diệu tuẫn tiết",
+        "effects": {
+          "binhLuc": -15,
+          "danTam": 20,
+          "quocKho": -10,
+          "trieuCuong": 0
+        },
+        "nextEvent": "arc_11_kinh_thanh_hue"
+      },
+      "rightChoice": {
+        "text": "Bỏ thành chạy thoát",
+        "effects": {
+          "binhLuc": -5,
+          "danTam": -30,
+          "quocKho": 0,
+          "trieuCuong": -20
+        },
+        "nextEvent": "arc_11_kinh_thanh_hue"
+      }
+    },
+    {
+      "id": "arc_11_kinh_thanh_hue",
+      "arc": 11,
+      "year": 1885,
+      "type": "cinematic",
+      "characterId": "ton_that_thuyet",
+      "text": "Biến cố Kinh thành Huế bùng nổ! Tôn Thất Thuyết dẫn cấm quân đánh úp quân Pháp tại Tòa Khâm Sứ giữa đêm khuya. Tuy nhiên, vũ khí quá thô sơ...",
+      "leftChoice": {
+        "text": "Thất bại, hộ giá vua Hàm Nghi xuất bôn",
+        "effects": {
+          "binhLuc": -20,
+          "danTam": 10,
+          "quocKho": -15,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc_11_can_vuong"
+      },
+      "rightChoice": {
+        "text": "Đầu hàng ngay lập tức",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": -40,
+          "quocKho": 0,
+          "trieuCuong": -30
+        }
+      }
+    },
+    {
+      "id": "arc_11_can_vuong",
+      "arc": 11,
+      "year": 1885,
+      "type": "historical",
+      "characterId": "ham_nghi",
+      "text": "Tại căn cứ Tân Sở, vua Hàm Nghi 14 tuổi ban chiếu Cần Vương, kêu gọi văn thân, sĩ phu và nhân dân cả nước đứng lên giúp vua cứu nước.",
+      "leftChoice": {
+        "text": "Hưởng ứng, lập căn cứ kháng chiến",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 25,
+          "quocKho": -20,
+          "trieuCuong": 10
+        },
+        "nextEvent": "arc_11_ba_dinh"
+      },
+      "rightChoice": {
+        "text": "Án binh bất động chờ thời",
+        "effects": {
+          "binhLuc": 0,
+          "danTam": -15,
+          "quocKho": 10,
+          "trieuCuong": -10
+        },
+        "nextEvent": "arc_11_ba_dinh"
+      }
+    },
+    {
+      "id": "arc_11_ba_dinh",
+      "arc": 11,
+      "year": 1886,
+      "type": "battle",
+      "characterId": "ham_nghi",
+      "text": "Đinh Công Tráng lập cứ điểm Ba Đình (Thanh Hóa), phòng ngự kiên cố khiến quân Pháp thương vong vô số. Pháp quyết định dồn hỏa lực pháo binh khổng lồ đến bắn phá.",
+      "leftChoice": {
+        "text": "Quyết tử bảo vệ cứ điểm",
+        "effects": {
+          "binhLuc": -20,
+          "danTam": 15,
+          "quocKho": -10,
+          "trieuCuong": 5
+        },
+        "nextEvent": "arc_11_huong_khe"
+      },
+      "rightChoice": {
+        "text": "Mở đường máu rút lui",
+        "effects": {
+          "binhLuc": -5,
+          "danTam": -5,
+          "quocKho": -5,
+          "trieuCuong": 0
+        },
+        "nextEvent": "arc_11_huong_khe"
+      }
+    },
+    {
+      "id": "arc_11_huong_khe",
+      "arc": 11,
+      "year": 1896,
+      "type": "cinematic",
+      "characterId": "ham_nghi",
+      "text": "Sau khi vua Hàm Nghi bị bắt, phong trào Cần Vương vẫn leo lắt đến tận năm 1896 mới chấm dứt với thất bại của khởi nghĩa Hương Khê (Phan Đình Phùng). Khép lại một trang sử bi tráng.",
+      "leftChoice": {
+        "text": "Chuẩn bị cho một kỷ nguyên mới...",
+        "effects": {
+          "binhLuc": 10,
+          "danTam": 10,
+          "quocKho": 10,
+          "trieuCuong": 10
+        }
+      }
+    }
+  ]
+}

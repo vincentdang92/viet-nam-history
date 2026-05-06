@@ -45,15 +45,15 @@ export default function CardDisplay({ event }) {
       onClick={() => setIsFlipped(!isFlipped)}
     >
       <motion.div
-        className="w-full h-full relative preserve-3d flex flex-col"
+        className="w-full h-full relative flex flex-col"
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         transition={{ type: 'spring', stiffness: 260, damping: 25 }}
-        style={{ transformStyle: 'preserve-3d' }}
+        style={{ transformStyle: 'preserve-3d', WebkitTransformStyle: 'preserve-3d' }}
       >
         {/* === FRONT SIDE === */}
         <motion.div 
-          className="absolute inset-0 w-full h-full flex flex-col backface-hidden pb-4"
-          style={{ backfaceVisibility: 'hidden' }}
+          className="absolute inset-0 w-full h-full flex flex-col pb-4"
+          style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
           variants={stagger.container}
           initial="initial"
           animate="animate"
@@ -109,8 +109,8 @@ export default function CardDisplay({ event }) {
 
         {/* === BACK SIDE === */}
         <div 
-          className="absolute inset-0 bg-tran-card rounded-2xl p-5 sm:p-6 border-2 border-tran-border/50 flex flex-col backface-hidden"
-          style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+          className="absolute inset-0 bg-tran-card rounded-2xl p-5 sm:p-6 border-2 border-tran-border/50 flex flex-col"
+          style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', WebkitTransform: 'rotateY(180deg)' }}
         >
           {charData ? (
             <div className="flex flex-col h-full text-center items-center justify-start overflow-y-auto no-scrollbar">

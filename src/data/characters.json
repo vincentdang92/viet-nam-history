@@ -597,5 +597,96 @@
       9
     ],
     "bio": "Hậu duệ chúa Nguyễn trốn thoát khỏi cuộc thảm sát của Tây Sơn. Nếm mật nằm gai suốt 25 năm, nhiều lần chết hụt, cuối cùng đánh bại Tây Sơn và thống nhất hoàn toàn Việt Nam năm 1802."
+  },
+  {
+    "id": "tu_duc",
+    "name": "Tự Đức",
+    "fullName": "Nguyễn Phúc Hồng Nhậm",
+    "years": "1829–1883",
+    "role": "Hoàng đế thứ 4 triều Nguyễn",
+    "portrait": null,
+    "personality": "Uyên bác, hiếu thảo nhưng nhu nhược, bế tắc trước thời cuộc",
+    "arc": [
+      11
+    ],
+    "bio": "Vị vua trị vì lâu nhất nhà Nguyễn. Dưới thời ông, Pháp bắt đầu nổ súng xâm lược và cắt từng mảnh đất Đại Nam, trong khi triều đình lúng túng giữa hòa và chiến."
+  },
+  {
+    "id": "nguyen_tri_phuong",
+    "name": "Nguyễn Tri Phương",
+    "fullName": "Nguyễn Tri Phương",
+    "years": "1800–1873",
+    "role": "Đại Danh Tướng",
+    "portrait": null,
+    "personality": "Trung quân ái quốc, dũng liệt, thà chết không hàng",
+    "arc": [
+      11
+    ],
+    "bio": "Tổng chỉ huy quân đội triều Nguyễn tại các mặt trận Đà Nẵng, Gia Định và Hà Nội. Ông tử tiết khi thành Hà Nội thất thủ vào tay Garnier năm 1873."
+  },
+  {
+    "id": "hoang_dieu",
+    "name": "Hoàng Diệu",
+    "fullName": "Hoàng Kim Tích",
+    "years": "1829–1882",
+    "role": "Tổng đốc Hà Ninh",
+    "portrait": null,
+    "personality": "Khảng khái, cương trực, sinh vi tướng tử vi thần",
+    "arc": [
+      11
+    ],
+    "bio": "Người giữ thành Hà Nội lần thứ 2. Khi thành vỡ, ông thắt cổ tuẫn tiết tại Võ Miếu để giữ tròn khí tiết."
+  },
+  {
+    "id": "truong_dinh",
+    "name": "Trương Định",
+    "fullName": "Trương Công Định",
+    "years": "1820–1864",
+    "role": "Bình Tây Đại Nguyên Soái",
+    "portrait": null,
+    "personality": "Thương dân, khẳng khái, quyết kháng chiến đến cùng",
+    "arc": [
+      11
+    ],
+    "bio": "Thủ lĩnh nghĩa quân chống Pháp xuất sắc nhất Nam Kỳ thời kỳ đầu. Khước từ lệnh triều đình bắt bãi binh, ông ở lại với dân để tiếp tục chiến đấu."
+  },
+  {
+    "id": "ton_that_thuyet",
+    "name": "Tôn Thất Thuyết",
+    "fullName": "Tôn Thất Thuyết",
+    "years": "1839–1913",
+    "role": "Quyền Thần Chủ Chiến",
+    "portrait": null,
+    "personality": "Cực đoan, tàn nhẫn với kẻ thù, nhưng một lòng vì độc lập",
+    "arc": [
+      11
+    ],
+    "bio": "Đại thần phái chủ chiến, người phát động cuộc biến Kinh thành Huế (1885) và phò vua Hàm Nghi ra Sơn Phòng hạ chiếu Cần Vương."
+  },
+  {
+    "id": "ham_nghi",
+    "name": "Hàm Nghi",
+    "fullName": "Nguyễn Phúc Ưng Lịch",
+    "years": "1871–1944",
+    "role": "Hoàng đế Cần Vương",
+    "portrait": null,
+    "personality": "Trẻ tuổi, yêu nước mãnh liệt, không khuất phục",
+    "arc": [
+      11
+    ],
+    "bio": "Vị vua trẻ xuất bôn lên chiến khu, hạ chiếu Cần Vương kêu gọi toàn dân kháng Pháp. Ông bị bắt năm 1888 và bị lưu đày ở châu Phi."
+  },
+  {
+    "id": "francis_garnier",
+    "name": "Francis Garnier",
+    "fullName": "Francis Garnier",
+    "years": "1839–1873",
+    "role": "Đại úy hải quân Pháp",
+    "portrait": null,
+    "personality": "Ngông cuồng, phiêu lưu, hiếu chiến",
+    "arc": [
+      11
+    ],
+    "bio": "Sĩ quan Pháp đem quân đánh chiếm thành Hà Nội lần 1 (1873). Bị quân Cờ Đen phục kích chém chết tại Cầu Giấy."
   }
 ]
